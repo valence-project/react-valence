@@ -26,13 +26,15 @@ function TextField(props: ValenceTextFieldProps, ref: Ref<TextFieldRef>) {
 
   return (
     <TextFieldBase
-      {...props}
-      labelProps={labelProps}
-      inputProps={inputProps}
-      descriptionProps={descriptionProps}
-      errorMessageProps={errorMessageProps}
-      ref={ref}
-      inputRef={inputRef}
+      {...{
+        ...props,
+        labelProps,
+        inputProps,
+        descriptionProps,
+        errorMessageProps,
+        ref,
+        inputRef,
+      }}
     />
   );
 }
