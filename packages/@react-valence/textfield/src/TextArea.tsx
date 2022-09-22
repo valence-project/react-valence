@@ -83,18 +83,20 @@ function TextArea(props: ValenceTextFieldProps, ref: Ref<TextFieldRef>) {
 
   return (
     <TextFieldBase
-      {...otherProps}
-      ref={ref}
-      inputRef={inputRef}
-      labelProps={labelProps}
-      inputProps={inputProps}
-      descriptionProps={descriptionProps}
-      errorMessageProps={errorMessageProps}
-      multiLine
-      isDisabled={isDisabled}
-      isQuiet={isQuiet}
-      isReadOnly={isReadOnly}
-      isRequired={isRequired}
+      {...{
+        ...otherProps,
+        multiLine: true,
+        ref,
+        inputRef,
+        labelProps,
+        inputProps,
+        descriptionProps,
+        errorMessageProps,
+        isDisabled,
+        isQuiet,
+        isReadOnly,
+        isRequired,
+      }}
     />
   );
 }
