@@ -21,14 +21,15 @@
     grid-template-areas:
       "field increment"
       "field decrement";
-    .Stepper-button--stepUp {
-      padding-block-start: calc(var(--valence-button-padding-y) + 1px);
-      padding-block-end: calc(var(--valence-button-padding-y) - 0.5px);
-    }
-    .Stepper-button--stepDown {
-      padding-block-end: calc(var(--valence-button-padding-y) + 1px);
-      padding-block-start: calc(var(--valence-button-padding-y) - 0.5px);
-    }
+    // (valence) it works nicer with no padding 
+    // .Stepper-button--stepUp {
+    //   padding-block-start: calc(var(--valence-button-padding-y) + 1px);
+    //   padding-block-end: calc(var(--valence-button-padding-y) - 0.5px);
+    // }
+    // .Stepper-button--stepDown {
+    //   padding-block-end: calc(var(--valence-button-padding-y) + 1px);
+    //   padding-block-start: calc(var(--valence-button-padding-y) - 0.5px);
+    // }
   }
   &.Stepper--isMobile {
     inline-size: var(--valence-stepper-default-width-mobile);

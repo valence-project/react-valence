@@ -2,7 +2,7 @@
 @import "../overlay/index.scss";
 
 .Popover {
-  @inherit: %spectrum-overlay;
+  @include valence-overlay;
 
   /* Be a flexbox to allow a full sized content area that scrolls */
   display: inline-flex;
@@ -22,7 +22,7 @@
   box-sizing: border-box;
 
   &.is-open {
-    @inherit: %spectrum-overlay--open;
+    @include valence-overlay--open;
   }
 }
 
@@ -51,7 +51,7 @@
   }
 
   &.is-open {
-    @inherit: %spectrum-overlay--left--open;
+    @include valence-overlay--left--open;
   }
   .Popover-tip {
     left: 100%;
@@ -64,7 +64,7 @@
   }
 
   &.is-open {
-    @inherit: %spectrum-overlay--right--open;
+    @include valence-overlay--right--open;
   }
   .Popover-tip {
     right: 100%;
@@ -87,7 +87,7 @@
   }
 
   &.is-open {
-    @inherit: %spectrum-overlay--bottom--open;
+    @include valence-overlay--bottom--open;
   }
   .Popover-tip {
     bottom: 100%;
@@ -101,7 +101,7 @@
   }
 
   &.is-open {
-    @inherit: %spectrum-overlay--top--open;
+    @include valence-overlay--top--open;
   }
   .Popover-tip {
     top: 100%;
