@@ -33,7 +33,7 @@
   --valence-button-cta-icon-padding-left: var(--valence-global-dimension-size-175);
   --valence-button-cta-icon-padding-right: var(--valence-global-dimension-size-100);
   --valence-button-cta-icon-padding-y: var(--valence-global-dimension-size-85);
-  --valence-button-cta-border-radius: var(--valence-alias-border-radius-large);
+  --valence-button-cta-border-radius: var(--valence-alias-border-radius-small);
   --valence-button-cta-border-size: var(--valence-alias-border-size-thick);
   --valence-button-cta-text-font-weight: var(--valence-global-font-weight-bold);
   --valence-button-cta-text-gap: var(--valence-global-dimension-size-100);
@@ -112,7 +112,7 @@
   --valence-button-primary-icon-padding-left: var(--valence-global-dimension-size-175);
   --valence-button-primary-icon-padding-right: var(--valence-global-dimension-size-100);
   --valence-button-primary-icon-padding-y: var(--valence-global-dimension-size-85);
-  --valence-button-primary-border-radius: var(--valence-alias-border-radius-large);
+  --valence-button-primary-border-radius: var(--valence-alias-border-radius-regular);
   --valence-button-primary-border-size: var(--valence-alias-border-size-thick);
   --valence-button-primary-text-font-weight: var(--valence-global-font-weight-bold);
   --valence-button-primary-text-gap: var(--valence-global-dimension-size-100);
