@@ -2,7 +2,6 @@ import { Story as _Story } from "@ladle/react";
 import { ActionButton } from "@react-valence/button";
 import { Text } from "@react-valence/text";
 import BatteryHalf from "@valence-icons/ui/GamepadFill";
-import X from "@valence-icons/ui/CloseFill";
 import React from "react";
 
 import {ValenceButtonProps} from '@types-valence/button';
@@ -31,15 +30,15 @@ export default {
 const ActionButtonRender: Story<ValenceButtonProps<ItemType>> = (
   args
 ) => (
-    <ActionButton variant={args.variant}>{args.label}</ActionButton>
+    <ActionButton>{args.label}</ActionButton>
 );
 
 const ActionButtonIconRender: Story<ValenceButtonProps<ItemType>> = (
   args
 ) => (
-    <ActionButton variant={args.variant}>
+    <ActionButton>
       <BatteryHalf/>
-      <Text UNSAFE_className={'valence-Button-label'}>
+      <Text>
         {args.label}
       </Text>
     </ActionButton>

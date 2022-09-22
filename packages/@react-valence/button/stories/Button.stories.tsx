@@ -39,7 +39,7 @@ const ButtonIconRender: Story<ValenceButtonProps<ItemType>> = (
 ) => (
     <Button variant={args.variant}>
       <BatteryHalf/>
-      <Text UNSAFE_className={'valence-Button-label'}>
+      <Text>
         {args.label}
       </Text>
     </Button>
@@ -51,7 +51,7 @@ const ButtonWarningIconRender: Story<ValenceButtonProps<ItemType>> = (
 ) => (
     <Button variant={args.variant}>
       <X/>
-      <Text UNSAFE_className={'valence-Button-label'}>
+      <Text>
         {args.label}
       </Text>
     </Button>

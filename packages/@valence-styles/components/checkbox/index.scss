@@ -87,7 +87,8 @@
 
 
     .Checkbox-checkmark {
-      transform: scale(1);
+      //temp fix for icon placement
+      transform: scale(1) translate3d(-1px,-1px,0);
       opacity: 1;
     }
   }
