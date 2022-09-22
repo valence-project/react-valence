@@ -24,8 +24,8 @@
 
   border-bottom: var(--valence-accordion-item-border-size) solid transparent;
 
-  &:first-of-type {
-    border-top: var(--valence-accordion-item-border-size) solid transparent;
+  &:last-of-type {
+    border-bottom: unset;
   }
 }
 

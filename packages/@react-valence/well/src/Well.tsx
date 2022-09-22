@@ -28,7 +28,7 @@ function Well(props: ValenceWellProps, ref: DOMRef<HTMLDivElement>) {
       {...styleProps}
       role={role}
       ref={domRef}
-      className={classNames(styles, "valence-Well", styleProps.className)}
+      className={classNames(styles, "Well", styleProps.className)}
     >
       {children}
     </div>

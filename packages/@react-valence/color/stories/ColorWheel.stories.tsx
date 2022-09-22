@@ -1,5 +1,7 @@
+
 import { Story as _Storyaction } from "@ladle/react";
 import { ColorWheel } from "../src";
+import { Well } from '@react-valence/well';
 import React from "react";
 
 /**
@@ -21,7 +23,10 @@ export default {
 const AccordionRenderPropsTemplate: Story<ValenceButtonProps<ItemType>> = (
   args
 ) => (
+  <Well>
     <ColorWheel {...args}/>
+  </Well>
+    
 );
 
 export const Size = AccordionRenderPropsTemplate.bind({});

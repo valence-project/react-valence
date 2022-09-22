@@ -2,6 +2,7 @@ import { Story as _Story } from "@ladle/react";
 import { Accordion, Item } from "@react-valence/accordion";
 import React, { useState } from "react";
 import { ValenceAccordionProps } from "@types-valence/accordion";
+import { Well } from "@react-valence/well";
 
 type ItemType = {
   key: React.Key;
@@ -27,6 +28,7 @@ export default {
 export const Default: Story<ValenceAccordionProps<ItemType>> = (
   args
 ) => (
+  <Well>
     <Accordion {...args}>
         {(item) => (
           <Item key={item.key} title={item.title}>
@@ -34,6 +36,7 @@ export const Default: Story<ValenceAccordionProps<ItemType>> = (
           </Item>
         )}
     </Accordion>
+  </Well>
 );
 
 Default.storyName = "Default";
