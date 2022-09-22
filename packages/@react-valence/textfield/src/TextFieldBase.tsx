@@ -107,38 +107,44 @@ function TextFieldBase(props: TextFieldBaseProps, ref: Ref<TextFieldRef>) {
   let validation = cloneElement(validationIcon, {
     UNSAFE_className: classNames(
       styles,
-      'Textfield-validationIcon',
+      "Textfield-validationIcon",
       validationIconClassName
-    )
+    ),
   });
   let textField = (
     <div
-      className={classNames(styles, "Textfield", {
-        "Textfield--invalid": isInvalid,
-        "Textfield--valid": validationState === "valid",
-        "Textfield--loadable": loadingIndicator,
-        "Textfield--quiet": isQuiet,
-        "Textfield--multiline": multiLine,
-      })}
+      {...{
+        className: classNames(styles, "Textfield", {
+          "Textfield--invalid": isInvalid,
+          "Textfield--valid": validationState === "valid",
+          "Textfield--loadable": loadingIndicator,
+          "Textfield--quiet": isQuiet,
+          "Textfield--multiline": multiLine,
+        }),
+      }}
     >
       <FocusRing
-        focusRingClass={classNames(styles, "focus-ring")}
-        isTextInput
-        autoFocus={autoFocus}
+        {...{
+          focusRingClass: styles["focus-ring"],
+          isTextInput: true,
+          autoFocus,
+        }}
       >
         <ElementType
-          {...mergeProps(inputProps, hoverProps)}
-          ref={inputRef as any}
-          rows={multiLine ? 1 : undefined}
-          className={classNames(
-            styles,
-            "Textfield-input",
-            {
-              "Textfield-inputIcon": icon,
-              "is-hovered": isHovered,
-            },
-            inputClassName
-          )}
+          {...{
+            ...mergeProps(inputProps, hoverProps),
+            ref: inputRef as any,
+            rows: multiLine ? 1 : undefined,
+            className: classNames(
+              styles,
+              "Textfield-input",
+              {
+                "Textfield-inputIcon": icon,
+                "is-hovered": isHovered,
+              },
+              inputClassName
+            ),
+          }}
         />
       </FocusRing>
       {icon}
@@ -150,13 +156,15 @@ function TextFieldBase(props: TextFieldBaseProps, ref: Ref<TextFieldRef>) {
 
   return (
     <Field
-      {...props}
-      labelProps={labelProps}
-      descriptionProps={descriptionProps}
-      errorMessageProps={errorMessageProps}
-      wrapperClassName={classNames(styles, "Textfield-wrapper")}
-      showErrorIcon={false}
-      ref={domRef}
+      {...{
+        ...props,
+        wrapperClassName: classNames(styles, "Textfield-wrapper"),
+        labelProps,
+        descriptionProps,
+        errorMessageProps,
+        showErrorIcon: false,
+        ref: domRef,
+      }}
     >
       {textField}
     </Field>
