@@ -105,9 +105,12 @@ function TextFieldBase(props: TextFieldBaseProps, ref: Ref<TextFieldRef>) {
 
   let validationIcon = isInvalid ? <AlertIcon /> : <Check />;
   let validation = cloneElement(validationIcon, {
-    className: styles['Textfield-validationIcon']
+    UNSAFE_className: classNames(
+      styles,
+      'Textfield-validationIcon',
+      validationIconClassName
+    )
   });
-
   let textField = (
     <div
       className={classNames(styles, "Textfield", {
