@@ -7,7 +7,7 @@
   background-color: var(--valence-selectlist-option-background-color);
   color: var(--valence-selectlist-option-text-color);
 
-  &:focus-ring,
+  &.focus-ring,
   &.is-focused {
     background-color: var(--valence-selectlist-option-background-color-key-focus);
     color: var(--valence-selectlist-option-text-color-key-focus);
@@ -82,7 +82,7 @@
     &:focus,
     &.is-highlighted,
     &.is-open,
-    &:focus-ring, 
+    &.focus-ring, 
     &.is-focused {
       &.is-selected {
         .Menu-checkmark {
