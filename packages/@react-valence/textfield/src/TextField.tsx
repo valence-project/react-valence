@@ -32,8 +32,8 @@ function TextField(props: ValenceTextFieldProps, ref: Ref<TextFieldRef>) {
         inputProps,
         descriptionProps,
         errorMessageProps,
-        ref,
         inputRef,
+        ref
       }}
     />
   );
