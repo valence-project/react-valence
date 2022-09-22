@@ -1,19 +1,6 @@
 import { build } from 'esbuild';
 import { sassPlugin, postcssModules } from 'esbuild-sass-plugin';
 
-import c41c from 'postcss-calc';
-import customprops from 'postcss-custom-properties';
-import pseud0 from 'postcss-dir-pseudo-class';
-import focuz from 'postcss-focus-ring';
-import functions from 'postcss-functions';
-import importz from 'postcss-import';
-import inherit from 'postcss-inherit';
-import loader from 'postcss-loader';
-import logical from 'postcss-logical';
-import modules from 'postcss-modules';
-import svgz from 'postcss-svg';
-import nested from 'postcss-nested';
-
 import npmdts from 'npm-dts';
 const { Generator } = npmdts;
 
@@ -34,20 +21,7 @@ export const bundle = (pkgjson) => {
     outfile: 'dist/main.js',
     plugins: [
       sassPlugin({
-        transform: postcssModules({
-        }, [
-          //inherit,
-          c41c,
-          customprops,
-          pseud0,
-          focuz,
-          functions,
-          //importz,
-          //loader,
-          logical,
-          nested,
-          svgz
-        ])
+        transform: postcssModules({})
       }
     )]
   })
@@ -58,20 +32,7 @@ export const bundle = (pkgjson) => {
     format: 'esm',
     plugins: [
       sassPlugin({
-        transform: postcssModules({
-        }, [
-          //inherit,
-          c41c,
-          customprops,
-          pseud0,
-          focuz,
-          functions,
-          //importz,
-          //loader,
-          logical,
-          nested,
-          svgz
-        ])
+        transform: postcssModules({})
       }
     )]
   })
