@@ -158,7 +158,7 @@ function TextFieldBase(props: TextFieldBaseProps, ref: Ref<TextFieldRef>) {
     <Field
       {...{
         ...props,
-        wrapperClassName: classNames(styles, "Textfield-wrapper"),
+        wrapperClassName: styles["Textfield-wrapper"],
         labelProps,
         descriptionProps,
         errorMessageProps,
