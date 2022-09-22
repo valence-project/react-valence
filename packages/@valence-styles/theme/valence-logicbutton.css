@@ -1,0 +1,34 @@
+.theme {
+  --valence-logicbutton-and-text-color: var(--valence-global-color-static-white);
+  --valence-logicbutton-and-background-color: var(--valence-global-color-blue-500);
+  --valence-logicbutton-and-border-color: var(--valence-global-color-blue-500);
+  --valence-logicbutton-and-text-color-disabled: var(--valence-alias-text-color-disabled);
+  --valence-logicbutton-and-background-color-disabled: var(--valence-global-color-gray-200);
+  --valence-logicbutton-and-border-color-disabled: var(--valence-global-color-gray-200);
+  --valence-logicbutton-and-background-color-hover: var(--valence-global-color-blue-700);
+  --valence-logicbutton-and-border-color-hover: var(--valence-global-color-blue-700);
+  --valence-logicbutton-and-background-color-key-focus: var(--valence-global-color-blue-700);
+  --valence-logicbutton-and-border-color-key-focus: var(--valence-alias-border-color-focus);
+  --valence-logicbutton-and-border-size: var(--valence-alias-border-size-thick);
+  --valence-logicbutton-and-border-radius: var(--valence-alias-border-radius-regular);
+  --valence-logicbutton-and-text-size: var(--valence-alias-font-size-default);
+  --valence-logicbutton-and-text-font-weight: var(--valence-global-font-weight-bold);
+  --valence-logicbutton-and-height: 24px;
+  --valence-logicbutton-and-padding-x: var(--valence-global-dimension-size-100);
+  --valence-logicbutton-or-text-color: var(--valence-global-color-static-white);
+  --valence-logicbutton-or-background-color: var(--valence-global-color-magenta-500);
+  --valence-logicbutton-or-border-color: var(--valence-global-color-magenta-500);
+  --valence-logicbutton-or-text-color-disabled: var(--valence-alias-text-color-disabled);
+  --valence-logicbutton-or-background-color-disabled: var(--valence-global-color-gray-200);
+  --valence-logicbutton-or-border-color-disabled: var(--valence-global-color-gray-200);
+  --valence-logicbutton-or-background-color-hover: var(--valence-global-color-magenta-700);
+  --valence-logicbutton-or-border-color-hover: var(--valence-global-color-magenta-700);
+  --valence-logicbutton-or-background-color-key-focus: var(--valence-global-color-magenta-700);
+  --valence-logicbutton-or-border-color-key-focus: var(--valence-alias-border-color-focus);
+  --valence-logicbutton-or-border-size: var(--valence-alias-border-size-thick);
+  --valence-logicbutton-or-border-radius: var(--valence-alias-border-radius-regular);
+  --valence-logicbutton-or-text-size: var(--valence-alias-font-size-default);
+  --valence-logicbutton-or-text-font-weight: var(--valence-global-font-weight-bold);
+  --valence-logicbutton-or-height: 24px;
+  --valence-logicbutton-or-padding-x: var(--valence-global-dimension-size-100);
+}

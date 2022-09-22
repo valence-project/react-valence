@@ -1,0 +1,83 @@
+{
+  "name": "@react-valence/undefined",
+  "version": "0.0.1",
+  "description": "react-valence undefined component",
+  "license": "MIT",
+  "main": "./dist/main.js",
+  "module": "index.ts",
+  "types": "dist/types.d.ts",
+  "source": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "pyramids @react-valence/undefined"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/valence-project/react-valence.git"
+  },
+  "dependencies": {
+    "@react-aria/i18n": "^3.5.0",
+    "@react-aria/ssr": "^3.3.0",
+    "@react-aria/visually-hidden": "^3.4.0",
+    "@react-stately/collections": "^3.4.2",
+    "@react-stately/data": "^3.6.0",
+    "@react-valence/actiongroup": "^0.0.1",
+    "@react-valence/breadcrumbs": "^0.0.1",
+    "@react-valence/button": "^0.0.1",
+    "@react-valence/buttongroup": "^0.0.1",
+    "@react-valence/calendar": "^0.0.1",
+    "@react-valence/checkbox": "^0.0.1",
+    "@react-valence/combobox": "^0.0.1",
+    "@react-valence/contextualhelp": "^0.0.1",
+    "@react-valence/datepicker": "^0.0.1",
+    "@react-valence/dialog": "^0.0.1",
+    "@react-valence/divider": "^0.0.1",
+    "@react-valence/form": "^0.0.1",
+    "@react-valence/icon": "^0.0.1",
+    "@react-valence/illustratedmessage": "^0.0.1",
+    "@react-valence/image": "^0.0.1",
+    "@react-valence/layout": "^0.0.1",
+    "@react-valence/link": "^0.0.1",
+    "@react-valence/list": "^0.0.1",
+    "@react-valence/listbox": "^0.0.1",
+    "@react-valence/menu": "^0.0.1",
+    "@react-valence/meter": "^0.0.1",
+    "@react-valence/numberfield": "^0.0.1",
+    "@react-valence/overlays": "^0.0.1",
+    "@react-valence/picker": "^0.0.1",
+    "@react-valence/progress": "^0.0.1",
+    "@react-valence/provider": "^0.0.1",
+    "@react-valence/radio": "^0.0.1",
+    "@react-valence/searchfield": "^0.0.1",
+    "@react-valence/slider": "^0.0.1",
+    "@react-valence/statuslight": "^0.0.1",
+    "@react-valence/switch": "^0.0.1",
+    "@react-valence/table": "^0.0.1",
+    "@react-valence/tabs": "^0.0.1",
+    "@react-valence/text": "^0.0.1",
+    "@react-valence/textfield": "^0.0.1",
+    "@react-valence/theme-dark": "^0.0.1",
+    "@react-valence/theme-default": "^0.0.1",
+    "@react-valence/theme-light": "^0.0.1",
+    "@react-valence/tooltip": "^0.0.1",
+    "@react-valence/view": "^0.0.1",
+    "@react-valence/well": "^0.0.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@valence-dev/build": "^0.0.1"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "gitHead": "e4cabd25e57ea3c82716af710d87f10f1cd2359d"
+}

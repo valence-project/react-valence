@@ -1,0 +1,34 @@
+.ColorWheel {
+  &.is-disabled {
+    .ColorWheel-gradient {
+      background: var(--valence-colorwheel-fill-color-disabled) !important;
+
+      &:before,
+      &:after {
+        border-color: var(--valence-colorwheel-border-color-disabled);
+      }
+    }
+
+    /* hide all the little colored bits */
+    .ColorWheel-segment {
+      display: none;
+    }
+  }
+}
+
+.ColorWheel-gradient {
+  &:before,
+  &:after {
+    border-color: var(--valence-colorwheel-border-color);
+  }
+}
+
+@media (forced-colors: active) {
+  .ColorWheel {
+    forced-color-adjust: none;
+    --valence-colorwheel-fill-color-disabled: GrayText;
+    --valence-colorwheel-border-color-disabled: GrayText;
+    --valence-colorwheel-border-color: ButtonText;
+    --valence-colorarea-border-color: ButtonText;
+  }
+}

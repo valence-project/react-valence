@@ -1,0 +1,26 @@
+.theme {
+  --valence-menu-selected-color: var(--valence-global-color-blue-600);
+  --valence-selectlist-divider-color: var(--valence-global-color-gray-300);
+  --valence-menu-margin-x: var(--valence-global-dimension-size-40);
+  --valence-selectlist-heading-text-size: var(--valence-global-dimension-font-size-50);
+  --valence-selectlist-heading-text-font-weight: 400;
+  --valence-selectlist-heading-text-transform: uppercase;
+  --valence-selectlist-heading-letter-spacing: 0.06em;
+  --valence-selectlist-heading-margin: var(--valence-global-dimension-size-75) 0 0 0;
+  --valence-selectlist-heading-padding-left: var(--valence-global-dimension-size-150);
+  --valence-selectlist-heading-padding-right: var(--valence-global-dimension-size-450);
+
+  /* OVERRIDE: DNA uses a static size which doesn't properly adjust on large scale */
+  /* Remove once https://git.corp.adobe.com/Spectrum/spectrum-dna/pull/409 is released. */
+  --valence-selectlist-option-padding: var(--valence-global-dimension-size-150);
+
+  --valence-selectlist-option-selectable-padding-right: calc(var(--valence-global-dimension-size-100) + var(--valence-icon-checkmark-medium-width) + var(--valence-selectlist-option-icon-padding-x));
+
+  --valence-selectlist-option-icon-margin-top: var(--valence-global-dimension-size-50);
+
+  /* Hardcoded for wrapping study */
+  --valence-selectlist-option-label-line-height: 1.3;
+
+  /* From spectrum: this value should be the same for both medium and large scale. */
+  --valence-menu-max-width: 320px;
+}

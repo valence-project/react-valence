@@ -1,0 +1,244 @@
+.theme {
+  --valence-dialog-confirm-background-color: var(--valence-alias-background-color-default);
+  --valence-dialog-confirm-overlay-background-color: var(--valence-alias-background-color-modal-overlay);
+  --valence-dialog-confirm-icon-color: var(--valence-global-color-gray-900);
+  --valence-dialog-confirm-title-text-color: var(--valence-global-color-gray-900);
+  --valence-dialog-confirm-description-text-color: var(--valence-global-color-gray-800);
+  --valence-dialog-confirm-width: 90%;
+  --valence-dialog-confirm-min-width: var(--valence-global-dimension-static-size-3600);
+  --valence-dialog-confirm-icon-margin-left: var(--valence-global-dimension-static-size-300);
+  --valence-dialog-confirm-divider-margin-top: var(--valence-global-dimension-static-size-150);
+  --valence-dialog-confirm-divider-margin-bottom: var(--valence-global-dimension-static-size-200);
+  --valence-dialog-confirm-title-text-line-height: var(--valence-alias-heading-text-line-height);
+  --valence-dialog-confirm-title-text-font-weight: var(--valence-global-font-weight-bold);
+  --valence-dialog-confirm-description-text-font-weight: var(--valence-global-font-weight-regular);
+  --valence-dialog-confirm-border-radius: var(--valence-global-dimension-size-50);
+  --valence-dialog-confirm-icon-height: var(--valence-global-dimension-size-225);
+  --valence-dialog-confirm-icon-width: var(--valence-global-dimension-size-225);
+  --valence-dialog-confirm-button-gap: var(--valence-global-dimension-static-size-200);
+  --valence-dialog-confirm-buttongroup-gap-x: var(--valence-global-dimension-static-size-200);
+  --valence-dialog-confirm-buttongroup-gap-y: var(--valence-global-dimension-static-size-200);
+  --valence-dialog-confirm-description-text-line-height: var(--valence-alias-body-text-line-height);
+  --valence-dialog-confirm-background-entry-animation-delay: 0ms;
+  --valence-dialog-confirm-background-entry-animation-duration: var(--valence-global-animation-duration-600);
+  --valence-dialog-confirm-background-entry-animation-ease: var(--valence-global-animation-linear);
+  --valence-dialog-confirm-background-entry-animation-properties: opacity;
+  --valence-dialog-confirm-entry-animation-delay: var(--valence-global-animation-duration-200);
+  --valence-dialog-confirm-entry-animation-duration: var(--valence-global-animation-duration-500);
+  --valence-dialog-confirm-entry-animation-ease: var(--valence-global-animation-ease-out);
+  --valence-dialog-confirm-entry-animation-distance: var(--valence-global-dimension-size-250);
+  --valence-dialog-confirm-entry-animation-properties: opacity, distance;
+  --valence-dialog-confirm-background-exit-animation-delay: var(--valence-global-animation-duration-200);
+  --valence-dialog-confirm-background-exit-animation-duration: var(--valence-global-animation-duration-300);
+  --valence-dialog-confirm-background-exit-animation-ease: var(--valence-global-animation-linear);
+  --valence-dialog-confirm-background-exit-animation-properties: opacity;
+  --valence-dialog-confirm-exit-animation-delay: 0ms;
+  --valence-dialog-confirm-exit-animation-duration: var(--valence-global-animation-duration-100);
+  --valence-dialog-confirm-exit-animation-ease: var(--valence-global-animation-ease-in);
+  --valence-dialog-confirm-exit-animation-distance: 0;
+  --valence-dialog-confirm-exit-animation-properties: opacity, distance;
+  --valence-dialog-background-color: var(--valence-alias-background-color-default);
+  --valence-dialog-underlay-background-color: var(--valence-alias-background-color-modal-overlay);
+  --valence-dialog-icon-color: var(--valence-global-color-gray-900);
+  --valence-dialog-rule-color: var(--valence-global-color-gray-300);
+  --valence-dialog-title-text-color: var(--valence-global-color-gray-900);
+  --valence-dialog-content-text-color: var(--valence-global-color-gray-800);
+  --valence-dialog-width: 90%;
+  --valence-dialog-min-width: var(--valence-global-dimension-static-size-3600);
+  --valence-dialog-icon-margin-left: var(--valence-global-dimension-static-size-300);
+  --valence-dialog-rule-height: var(--valence-global-dimension-static-size-25);
+  --valence-dialog-rule-margin-top: var(--valence-global-dimension-static-size-150);
+  --valence-dialog-rule-margin-bottom: var(--valence-global-dimension-static-size-200);
+  --valence-dialog-rule-border-radius: var(--valence-global-dimension-static-size-10);
+  --valence-dialog-divider-margin-top: var(--valence-global-dimension-static-size-150);
+  --valence-dialog-divider-margin-bottom: var(--valence-global-dimension-static-size-200);
+  --valence-dialog-title-text-line-height: var(--valence-alias-heading-text-line-height);
+  --valence-dialog-title-text-font-weight: var(--valence-global-font-weight-bold);
+  --valence-dialog-content-text-font-weight: var(--valence-global-font-weight-regular);
+  --valence-dialog-border-radius: var(--valence-global-dimension-size-50);
+  --valence-dialog-icon-height: var(--valence-global-dimension-size-225);
+  --valence-dialog-icon-width: var(--valence-global-dimension-size-225);
+  --valence-dialog-button-gap: var(--valence-global-dimension-static-size-200);
+  --valence-dialog-buttongroup-gap-x: var(--valence-global-dimension-static-size-200);
+  --valence-dialog-buttongroup-gap-y: var(--valence-global-dimension-static-size-200);
+  --valence-dialog-content-text-line-height: var(--valence-alias-body-text-line-height);
+  --valence-dialog-animation-distance: var(--valence-global-dimension-static-size-100);
+  --valence-dialog-background-entry-animation-delay: 0ms;
+  --valence-dialog-background-entry-animation-duration: var(--valence-global-animation-duration-600);
+  --valence-dialog-background-entry-animation-ease: var(--valence-global-animation-linear);
+  --valence-dialog-background-entry-animation-properties: opacity;
+  --valence-dialog-entry-animation-delay: var(--valence-global-animation-duration-200);
+  --valence-dialog-entry-animation-duration: var(--valence-global-animation-duration-500);
+  --valence-dialog-entry-animation-ease: var(--valence-global-animation-ease-out);
+  --valence-dialog-entry-animation-distance: var(--valence-global-dimension-size-250);
+  --valence-dialog-entry-animation-properties: opacity, distance;
+  --valence-dialog-background-exit-animation-delay: var(--valence-global-animation-duration-200);
+  --valence-dialog-background-exit-animation-duration: var(--valence-global-animation-duration-300);
+  --valence-dialog-background-exit-animation-ease: var(--valence-global-animation-linear);
+  --valence-dialog-background-exit-animation-properties: opacity;
+  --valence-dialog-exit-animation-delay: 0ms;
+  --valence-dialog-exit-animation-duration: var(--valence-global-animation-duration-100);
+  --valence-dialog-exit-animation-ease: var(--valence-global-animation-ease-in);
+  --valence-dialog-exit-animation-distance: 0;
+  --valence-dialog-exit-animation-properties: opacity, distance;
+  --valence-dialog-destructive-background-color: var(--valence-alias-background-color-default);
+  --valence-dialog-destructive-overlay-background-color: var(--valence-alias-background-color-modal-overlay);
+  --valence-dialog-destructive-icon-color: var(--valence-global-color-gray-900);
+  --valence-dialog-destructive-title-text-color: var(--valence-global-color-gray-900);
+  --valence-dialog-destructive-description-text-color: var(--valence-global-color-gray-800);
+  --valence-dialog-destructive-width: 90%;
+  --valence-dialog-destructive-min-width: var(--valence-global-dimension-static-size-3600);
+  --valence-dialog-destructive-icon-margin-left: var(--valence-global-dimension-static-size-300);
+  --valence-dialog-destructive-divider-margin-top: var(--valence-global-dimension-static-size-150);
+  --valence-dialog-destructive-divider-margin-bottom: var(--valence-global-dimension-static-size-200);
+  --valence-dialog-destructive-title-text-line-height: var(--valence-alias-heading-text-line-height);
+  --valence-dialog-destructive-title-text-font-weight: var(--valence-global-font-weight-bold);
+  --valence-dialog-destructive-description-text-font-weight: var(--valence-global-font-weight-regular);
+  --valence-dialog-destructive-border-radius: var(--valence-global-dimension-size-50);
+  --valence-dialog-destructive-icon-height: var(--valence-global-dimension-size-225);
+  --valence-dialog-destructive-icon-width: var(--valence-global-dimension-size-225);
+  --valence-dialog-destructive-button-gap: var(--valence-global-dimension-static-size-200);
+  --valence-dialog-destructive-buttongroup-gap-x: var(--valence-global-dimension-static-size-200);
+  --valence-dialog-destructive-buttongroup-gap-y: var(--valence-global-dimension-static-size-200);
+  --valence-dialog-destructive-description-text-line-height: var(--valence-alias-body-text-line-height);
+  --valence-dialog-destructive-background-entry-animation-delay: 0ms;
+  --valence-dialog-destructive-background-entry-animation-duration: var(--valence-global-animation-duration-600);
+  --valence-dialog-destructive-background-entry-animation-ease: var(--valence-global-animation-linear);
+  --valence-dialog-destructive-background-entry-animation-properties: opacity;
+  --valence-dialog-destructive-entry-animation-delay: var(--valence-global-animation-duration-200);
+  --valence-dialog-destructive-entry-animation-duration: var(--valence-global-animation-duration-500);
+  --valence-dialog-destructive-entry-animation-ease: var(--valence-global-animation-ease-out);
+  --valence-dialog-destructive-entry-animation-distance: var(--valence-global-dimension-size-250);
+  --valence-dialog-destructive-entry-animation-properties: opacity, distance;
+  --valence-dialog-destructive-background-exit-animation-delay: var(--valence-global-animation-duration-200);
+  --valence-dialog-destructive-background-exit-animation-duration: var(--valence-global-animation-duration-300);
+  --valence-dialog-destructive-background-exit-animation-ease: var(--valence-global-animation-linear);
+  --valence-dialog-destructive-background-exit-animation-properties: opacity;
+  --valence-dialog-destructive-exit-animation-delay: 0ms;
+  --valence-dialog-destructive-exit-animation-duration: var(--valence-global-animation-duration-100);
+  --valence-dialog-destructive-exit-animation-ease: var(--valence-global-animation-ease-in);
+  --valence-dialog-destructive-exit-animation-distance: 0;
+  --valence-dialog-destructive-exit-animation-properties: opacity, distance;
+  --valence-dialog-error-icon-color: var(--valence-semantic-negative-color-icon);
+  --valence-dialog-error-title-text-color: var(--valence-global-color-gray-900);
+  --valence-dialog-error-background-color: var(--valence-alias-background-color-default);
+  --valence-dialog-error-overlay-background-color: var(--valence-alias-background-color-modal-overlay);
+  --valence-dialog-error-description-text-color: var(--valence-global-color-gray-800);
+  --valence-dialog-error-width: 90%;
+  --valence-dialog-error-min-width: var(--valence-global-dimension-static-size-3600);
+  --valence-dialog-error-icon-margin-left: var(--valence-global-dimension-static-size-300);
+  --valence-dialog-error-divider-margin-top: var(--valence-global-dimension-static-size-150);
+  --valence-dialog-error-divider-margin-bottom: var(--valence-global-dimension-static-size-200);
+  --valence-dialog-error-title-text-line-height: var(--valence-alias-heading-text-line-height);
+  --valence-dialog-error-title-text-font-weight: var(--valence-global-font-weight-bold);
+  --valence-dialog-error-description-text-font-weight: var(--valence-global-font-weight-regular);
+  --valence-dialog-error-border-radius: var(--valence-global-dimension-size-50);
+  --valence-dialog-error-icon-height: var(--valence-global-dimension-size-225);
+  --valence-dialog-error-icon-width: var(--valence-global-dimension-size-225);
+  --valence-dialog-error-button-gap: var(--valence-global-dimension-static-size-200);
+  --valence-dialog-error-buttongroup-gap-x: var(--valence-global-dimension-static-size-200);
+  --valence-dialog-error-buttongroup-gap-y: var(--valence-global-dimension-static-size-200);
+  --valence-dialog-error-description-text-line-height: var(--valence-alias-body-text-line-height);
+  --valence-dialog-error-background-entry-animation-delay: 0ms;
+  --valence-dialog-error-background-entry-animation-duration: var(--valence-global-animation-duration-600);
+  --valence-dialog-error-background-entry-animation-ease: var(--valence-global-animation-linear);
+  --valence-dialog-error-background-entry-animation-properties: opacity;
+  --valence-dialog-error-entry-animation-delay: var(--valence-global-animation-duration-200);
+  --valence-dialog-error-entry-animation-duration: var(--valence-global-animation-duration-500);
+  --valence-dialog-error-entry-animation-ease: var(--valence-global-animation-ease-out);
+  --valence-dialog-error-entry-animation-distance: var(--valence-global-dimension-size-250);
+  --valence-dialog-error-entry-animation-properties: opacity, distance;
+  --valence-dialog-error-background-exit-animation-delay: var(--valence-global-animation-duration-200);
+  --valence-dialog-error-background-exit-animation-duration: var(--valence-global-animation-duration-300);
+  --valence-dialog-error-background-exit-animation-ease: var(--valence-global-animation-linear);
+  --valence-dialog-error-background-exit-animation-properties: opacity;
+  --valence-dialog-error-exit-animation-delay: 0ms;
+  --valence-dialog-error-exit-animation-duration: var(--valence-global-animation-duration-100);
+  --valence-dialog-error-exit-animation-ease: var(--valence-global-animation-ease-in);
+  --valence-dialog-error-exit-animation-distance: 0;
+  --valence-dialog-error-exit-animation-properties: opacity, distance;
+  --valence-dialog-info-background-color: var(--valence-alias-background-color-default);
+  --valence-dialog-info-overlay-background-color: var(--valence-alias-background-color-modal-overlay);
+  --valence-dialog-info-icon-color: var(--valence-global-color-gray-900);
+  --valence-dialog-info-title-text-color: var(--valence-global-color-gray-900);
+  --valence-dialog-info-description-text-color: var(--valence-global-color-gray-800);
+  --valence-dialog-info-width: 90%;
+  --valence-dialog-info-min-width: var(--valence-global-dimension-static-size-3600);
+  --valence-dialog-info-icon-margin-left: var(--valence-global-dimension-static-size-300);
+  --valence-dialog-info-divider-margin-top: var(--valence-global-dimension-static-size-150);
+  --valence-dialog-info-divider-margin-bottom: var(--valence-global-dimension-static-size-200);
+  --valence-dialog-info-title-text-line-height: var(--valence-alias-heading-text-line-height);
+  --valence-dialog-info-title-text-font-weight: var(--valence-global-font-weight-bold);
+  --valence-dialog-info-description-text-font-weight: var(--valence-global-font-weight-regular);
+  --valence-dialog-info-border-radius: var(--valence-global-dimension-size-50);
+  --valence-dialog-info-icon-height: var(--valence-global-dimension-size-225);
+  --valence-dialog-info-icon-width: var(--valence-global-dimension-size-225);
+  --valence-dialog-info-button-gap: var(--valence-global-dimension-static-size-200);
+  --valence-dialog-info-buttongroup-gap-x: var(--valence-global-dimension-static-size-200);
+  --valence-dialog-info-buttongroup-gap-y: var(--valence-global-dimension-static-size-200);
+  --valence-dialog-info-description-text-line-height: var(--valence-alias-body-text-line-height);
+  --valence-dialog-info-background-entry-animation-delay: 0ms;
+  --valence-dialog-info-background-entry-animation-duration: var(--valence-global-animation-duration-600);
+  --valence-dialog-info-background-entry-animation-ease: var(--valence-global-animation-linear);
+  --valence-dialog-info-background-entry-animation-properties: opacity;
+  --valence-dialog-info-entry-animation-delay: var(--valence-global-animation-duration-200);
+  --valence-dialog-info-entry-animation-duration: var(--valence-global-animation-duration-500);
+  --valence-dialog-info-entry-animation-ease: var(--valence-global-animation-ease-out);
+  --valence-dialog-info-entry-animation-distance: var(--valence-global-dimension-size-250);
+  --valence-dialog-info-entry-animation-properties: opacity, distance;
+  --valence-dialog-info-background-exit-animation-delay: var(--valence-global-animation-duration-200);
+  --valence-dialog-info-background-exit-animation-duration: var(--valence-global-animation-duration-300);
+  --valence-dialog-info-background-exit-animation-ease: var(--valence-global-animation-linear);
+  --valence-dialog-info-background-exit-animation-properties: opacity;
+  --valence-dialog-info-exit-animation-delay: 0ms;
+  --valence-dialog-info-exit-animation-duration: var(--valence-global-animation-duration-100);
+  --valence-dialog-info-exit-animation-ease: var(--valence-global-animation-ease-in);
+  --valence-dialog-info-exit-animation-distance: 0;
+  --valence-dialog-info-exit-animation-properties: opacity, distance;
+}
+
+.theme {
+  /* Distance between the edge of the fullscreen dialog and header */
+  --valence-dialog-fullscreen-padding-top: calc(
+    var(--valence-dialog-padding) - 10px
+  );
+
+  /* The font-size of the fullscreen dialog header */
+  --valence-dialog-fullscreen-header-text-size: 28px;
+
+  /* The font-weight of the fullscreen dialog header */
+  --valence-dialog-fullscreen-header-text-font-weight: 100;
+
+  /* Distance between top and bottom of dialog and edge of window for fullscreen dialog */
+  --valence-dialog-fullscreen-margin: 40px;
+
+  --valence-dialog-small-width: 400px;
+  --valence-dialog-medium-width: 480px;
+  --valence-dialog-large-width: 640px;
+  --valence-dialog-max-width: 90vw;
+  --valence-dialog-max-height: 90%;
+  --valence-dialog-hero-height: var(--valence-global-dimension-size-1600);
+  --valence-dialog-alert-width: var(--valence-dialog-medium-width);
+
+  --valence-dialog-button-margin: var(--valence-global-dimension-size-200);
+  --valence-dialog-content-margin-bottom: var(
+    --valence-global-dimension-size-450
+  );
+  --valence-dialog-content-min-height: var(
+    --valence-component-single-line-height
+  );
+
+  /* 12px desktop (medium scale) and 8px mobile (large scale) */
+  --valence-dialog-close-button-padding: calc(
+    26px - var(--valence-global-dimension-size-175)
+  );
+  --valence-dialog-close-button-size: var(--valence-global-dimension-size-400);
+
+  --valence-dialog-gap-size: var(--valence-global-dimension-size-200);
+}
+
+.theme {
+  --valence-dialog-warning-icon-color: var(
+    --valence-semantic-notice-color-icon
+  );
+}

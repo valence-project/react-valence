@@ -1,0 +1,72 @@
+.SideNav-item {
+  &.is-selected {
+    > .SideNav-itemLink {
+      color: var(--valence-sidenav-item-text-color-selected);
+      background-color: var(--valence-sidenav-item-background-color-selected);
+    }
+  }
+
+  .is-active {
+    > .SideNav-itemLink {
+      background-color: var(--valence-sidenav-item-background-color-down);
+    }
+  }
+
+  &.is-disabled {
+    /* Disable all children */
+    .SideNav-itemLink {
+      background-color: var(--valence-sidenav-item-background-color-disabled);
+      color: var(--valence-sidenav-item-text-color-disabled);
+
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+}
+
+.SideNav-itemLink {
+  background-color: var(--valence-sidenav-item-background-color);
+  color: var(--valence-sidenav-item-text-color);
+
+  &:hover {
+    background-color: var(--valence-sidenav-item-background-color-hover);
+    color: var(--valence-sidenav-item-text-color-hover);
+  }
+
+  &:active {
+    background-color: var(--valence-sidenav-item-background-color-down);
+  }
+
+  &.focus-ring {
+    background-color: var(--valence-sidenav-item-background-color-key-focus);
+    color: var(--valence-sidenav-item-text-color-key-focus);
+
+    &::before {
+      border-color: var(--valence-sidenav-item-border-color-key-focus);
+    }
+  }
+}
+
+.SideNav-heading {
+  color: var(--valence-sidenav-header-text-color);
+}
+
+@media (forced-colors: active) {
+  .SideNav-item {
+    forced-color-adjust: none;
+    --valence-sidenav-item-text-color-selected: HighlightText;
+    --valence-sidenav-item-background-color-selected: Highlight;
+    --valence-sidenav-item-background-color-down: Highlight;
+    --valence-sidenav-item-background-color-disabled: ButtonFace;
+    --valence-sidenav-item-text-color-disabled: GrayText;
+    --valence-sidenav-item-background-color: ButtonFace;
+    --valence-sidenav-item-text-color: ButtonText;
+    --valence-sidenav-item-background-color-hover: ButtonFace;
+    --valence-sidenav-item-text-color-hover: ButtonText;
+    --valence-sidenav-item-background-color-down: ButtonFace;
+    --valence-sidenav-item-background-color-key-focus: ButtonFace;
+    --valence-sidenav-item-text-color-key-focus: ButtonText;
+    --valence-sidenav-item-border-color-key-focus: ButtonText;
+    --valence-sidenav-header-text-color: ButtonText;
+  }
+}

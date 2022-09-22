@@ -1,0 +1,15 @@
+.FieldLabel,
+.Form-itemLabel {
+  color: var(--valence-fieldlabel-text-color);
+
+  &.is-disabled {
+    color: var(--valence-fieldlabel-text-color-disabled);
+
+    .FieldLabel-requiredIcon {
+      color: var(--valence-fieldlabel-asterisk-color-disabled);
+    }
+  }
+}
+.FieldLabel-requiredIcon {
+  color: var(--valence-fieldlabel-asterisk-color);
+}

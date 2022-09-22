@@ -1,0 +1,75 @@
+@import "../commons/index.scss";
+
+.Tags {
+  display: inline-flex;
+  flex-wrap: wrap;
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.Tags-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas: "icon content action";
+  align-items: center;
+  box-sizing: border-box;
+
+  margin: calc(var(--valence-taggroup-tag-gap-y) / 2)
+    calc(var(--valence-taggroup-tag-gap-x) / 2);
+  padding-inline-start: calc(
+    var(--valence-tag-padding-x) - var(--valence-tag-border-size)
+  );
+  block-size: var(--valence-tag-height);
+  max-inline-size: 100%;
+
+  border-width: var(--valence-tag-border-size);
+  border-style: solid;
+  border-radius: var(--valence-border-radius);
+  outline: none;
+  user-select: none;
+
+  transition: border-color var(--valence-global-animation-duration-100)
+      ease-in-out,
+    color var(--valence-global-animation-duration-100) ease-in-out,
+    box-shadow var(--valence-global-animation-duration-100) ease-in-out,
+    background-color var(--valence-global-animation-duration-100) ease-in-out;
+
+  &.is-disabled {
+    pointer-events: none;
+  }
+
+  .Tag-action {
+    grid-area: action;
+    height: calc(
+      var(--valence-tag-height) - (2 * var(--valence-tag-border-size))
+    );
+    width: var(--valence-global-dimension-size-300);
+  }
+}
+
+.Tag-icon {
+  grid-area: icon;
+  margin-inline-end: var(--valence-global-dimension-size-100);
+}
+
+.Tag-content {
+  grid-area: content;
+  block-size: 100%;
+  line-height: calc(
+    var(--valence-tag-height) - calc(var(--valence-tag-border-size) * 2)
+  );
+  margin-inline-end: var(--valence-tag-padding-x);
+  flex: 1 1 auto;
+  font-size: var(--valence-tag-text-size);
+  cursor: default;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  outline: none;
+}
+
+.tags-removable {
+  margin-inline-end: 0;
+}

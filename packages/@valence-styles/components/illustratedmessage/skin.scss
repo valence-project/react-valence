@@ -1,0 +1,13 @@
+.IllustratedMessage > svg {
+  color: var(--valence-global-color-gray-500);
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+.IllustratedMessage-heading {
+  color: var(--valence-heading-page-title-text-color);
+}
+
+.IllustratedMessage-description {
+  color: var(--valence-body-secondary-text-color);
+}

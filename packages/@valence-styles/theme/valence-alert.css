@@ -1,0 +1,54 @@
+.theme {
+  --valence-alert-background-color: var(--valence-global-color-gray-50);
+  --valence-alert-title-text-color: var(--valence-global-color-gray-900);
+  --valence-alert-text-color: var(--valence-global-color-gray-700);
+  --valence-alert-border-color: var(--valence-global-color-gray-600);
+  --valence-alert-padding-x: var(--valence-global-dimension-static-size-250);
+  --valence-alert-padding-y: var(--valence-global-dimension-static-size-250);
+  --valence-alert-min-width: var(--valence-global-dimension-static-size-4600);
+  --valence-alert-content-margin-top: var(--valence-global-dimension-static-size-100);
+  --valence-alert-error-background-color: var(--valence-global-color-gray-50);
+  --valence-alert-error-title-text-color: var(--valence-global-color-gray-900);
+  --valence-alert-error-text-color: var(--valence-global-color-gray-700);
+  --valence-alert-error-border-color: var(--valence-semantic-negative-color-border);
+  --valence-alert-error-icon-color: var(--valence-semantic-negative-color-icon);
+  --valence-alert-error-padding-x: var(--valence-global-dimension-static-size-250);
+  --valence-alert-error-padding-y: var(--valence-global-dimension-static-size-250);
+  --valence-alert-error-min-width: var(--valence-global-dimension-static-size-4600);
+  --valence-alert-error-content-margin-top: var(--valence-global-dimension-static-size-100);
+  --valence-alert-info-background-color: var(--valence-global-color-gray-50);
+  --valence-alert-info-title-text-color: var(--valence-global-color-gray-900);
+  --valence-alert-info-text-color: var(--valence-global-color-gray-700);
+  --valence-alert-info-border-color: var(--valence-semantic-informative-color-border);
+  --valence-alert-info-icon-color: var(--valence-semantic-informative-color-icon);
+  --valence-alert-info-padding-x: var(--valence-global-dimension-static-size-250);
+  --valence-alert-info-padding-y: var(--valence-global-dimension-static-size-250);
+  --valence-alert-info-min-width: var(--valence-global-dimension-static-size-4600);
+  --valence-alert-info-content-margin-top: var(--valence-global-dimension-static-size-100);
+  --valence-alert-success-background-color: var(--valence-global-color-gray-50);
+  --valence-alert-success-title-text-color: var(--valence-global-color-gray-900);
+  --valence-alert-success-text-color: var(--valence-global-color-gray-700);
+  --valence-alert-success-border-color: var(--valence-semantic-positive-color-border);
+  --valence-alert-success-icon-color: var(--valence-semantic-positive-color-icon);
+  --valence-alert-success-padding-x: var(--valence-global-dimension-static-size-250);
+  --valence-alert-success-padding-y: var(--valence-global-dimension-static-size-250);
+  --valence-alert-success-min-width: var(--valence-global-dimension-static-size-4600);
+  --valence-alert-success-content-margin-top: var(--valence-global-dimension-static-size-100);
+  --valence-alert-warning-background-color: var(--valence-global-color-gray-50);
+  --valence-alert-warning-title-text-color: var(--valence-global-color-gray-900);
+  --valence-alert-warning-text-color: var(--valence-global-color-gray-700);
+  --valence-alert-warning-border-color: var(--valence-semantic-notice-color-border);
+  --valence-alert-warning-icon-color: var(--valence-semantic-notice-color-icon);
+  --valence-alert-warning-padding-x: var(--valence-global-dimension-static-size-250);
+  --valence-alert-warning-padding-y: var(--valence-global-dimension-static-size-250);
+  --valence-alert-warning-min-width: var(--valence-global-dimension-static-size-4600);
+  --valence-alert-warning-content-margin-top: var(--valence-global-dimension-static-size-100);
+}
+
+.theme {
+  --valence-alert-header-height: 38px;
+  --valence-alert-corner-radius: 4px;
+
+  /* DNA */
+  --valence-alert-border-width: 2px;
+}

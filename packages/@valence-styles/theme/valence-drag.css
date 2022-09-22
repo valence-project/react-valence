@@ -1,0 +1,6 @@
+.theme {
+  --valence-drag-handle-background-color: var(--valence-global-color-gray-300);
+  --valence-drag-handle-icon-color: var(--valence-global-color-gray-50);
+  --valence-drag-handle-background-color-hover: var(--valence-global-color-gray-500);
+  --valence-drag-handle-background-color-key-focus: var(--valence-alias-focus-color);
+}

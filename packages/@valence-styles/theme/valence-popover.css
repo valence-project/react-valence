@@ -1,0 +1,34 @@
+.theme {
+  --valence-popover-background-color: var(--valence-global-color-gray-50);
+  --valence-popover-border-color: var(--valence-alias-border-color-dark);
+  --valence-popover-shadow-color: var(--valence-alias-dropshadow-color);
+  --valence-popover-shadow-blur: var(--valence-alias-dropshadow-blur);
+  --valence-popover-shadow-offset-y: var(--valence-alias-dropshadow-offset-y);
+  --valence-popover-elevation: 2dp;
+  --valence-popover-border-size: var(--valence-alias-border-size-thin);
+  --valence-popover-border-radius: var(--valence-alias-border-radius-regular);
+  --valence-popover-padding-x: 0px;
+  --valence-popover-padding-y: var(--valence-global-dimension-size-50);
+  --valence-popover-tip-width: var(--valence-global-dimension-size-250);
+  --valence-popover-tip-height: var(--valence-global-dimension-size-125);
+  --valence-popover-shadow-y-offset: var(--valence-global-dimension-size-10);
+  --valence-popover-source-gap: var(--valence-global-dimension-size-75);
+  --valence-popover-min-width: var(--valence-global-dimension-size-400);
+  --valence-popover-min-height: var(--valence-global-dimension-size-400);
+}
+
+.theme {
+  --valence-popover-target-offset: 13px;
+  --valence-popover-dialog-padding: 30px 29px;
+  --valence-popover-dialog-min-width: 270px;
+
+  --valence-popover-min-width: var(--valence-global-dimension-size-400);
+  --valence-popover-min-height: var(--valence-global-dimension-size-400);
+
+  /* Popover tip positioning for left/right oriented popovers (-11px/-25px) */
+  --valence-popover-tip-horizontal-offset: calc(var(--valence-global-dimension-size-250) * -1);
+  /* Popover tip positioning for top/bottom oriented popovers (6px/8px) */
+  --valence-popover-tip-vertical-offset: var(--valence-global-dimension-size-75);
+
+  --valence-popover-tip-triangle-top-offset: calc(var(--valence-global-dimension-size-225) * -1);
+}

@@ -1,0 +1,10 @@
+@import "../commons/index.scss";
+
+.CycleButton {
+  /* Be square */
+  padding: 0 var(--valence-actionbutton-icon-padding-x);
+
+  .CycleButton-item:not(.is-selected) {
+    display: none;
+  }
+}

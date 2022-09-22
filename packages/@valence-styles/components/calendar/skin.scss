@@ -1,0 +1,236 @@
+.Calendar-prevMonth {
+  color: var(--valence-calendar-button-icon-color);
+}
+
+.Calendar-nextMonth {
+  color: var(--valence-calendar-button-icon-color);
+}
+
+.Calendar-dayOfWeek {
+  color: var(--valence-calendar-day-title-text-color);
+}
+
+.Calendar-date {
+  --valence-calendar-day-background-color-cap-selected: var(
+    --valence-global-color-blue-400
+  );
+  --valence-calendar-day-background-color-cap-selected-hover: var(
+    --valence-global-color-blue-500
+  );
+  --valence-calendar-day-background-color-cap-selected-down: var(
+    --valence-global-color-blue-600
+  );
+  --valence-calendar-day-background-color-cap-invalid-selected: var(
+    --valence-global-color-red-500
+  );
+  --valence-calendar-day-background-color-cap-invalid-selected-hover: var(
+    --valence-global-color-red-600
+  );
+  --valence-calendar-day-background-color-cap-invalid-selected-down: var(
+    --valence-global-color-red-700
+  );
+  --valence-calendar-day-background-color-selected-hover: var(
+    --valence-alias-highlight-selected
+  );
+  --valence-calendar-day-background-color-invalid-selected: rgba(
+    215,
+    55,
+    63,
+    0.15
+  );
+  --valence-calendar-day-text-color-cap-selected: white;
+  --valence-calendar-day-text-color-cap-selected-hover: white;
+  --valence-calendar-day-today-background-color: var(
+    --valence-global-color-gray-300
+  );
+  --valence-calendar-day-today-background-color-hover: var(
+    --valence-global-color-gray-400
+  );
+  --valence-calendar-day-today-background-color-down: var(
+    --valence-global-color-gray-500
+  );
+
+  --background: transparent;
+  &:after {
+    background: var(--background);
+  }
+
+  &.is-range-selection {
+    background: var(--valence-calendar-day-background-color-selected);
+
+    &.is-invalid {
+      background: var(--valence-calendar-day-background-color-invalid-selected);
+    }
+  }
+
+  &.is-today {
+    color: var(--valence-calendar-day-today-text-color);
+    border-color: var(--valence-calendar-day-today-background-color);
+    --background: var(--valence-calendar-day-today-background-color);
+  }
+
+  &.is-selected:not(.is-range-selection),
+  &.is-selection-start,
+  &.is-selection-end {
+    color: var(--valence-calendar-day-text-color-cap-selected);
+    --background: var(--valence-calendar-day-background-color-cap-selected);
+
+    &.is-invalid {
+      --background: var(
+        --valence-calendar-day-background-color-cap-invalid-selected
+      );
+    }
+  }
+
+  &:hover {
+    color: var(--valence-calendar-day-text-color-hover);
+    --background: var(--valence-calendar-day-background-color-hover);
+
+    &.is-range-selection {
+      color: var(--valence-calendar-day-text-color-selected-hover);
+      --background: var(--valence-calendar-day-background-color-selected-hover);
+
+      &.is-invalid {
+        --background: var(
+          --valence-calendar-day-background-color-invalid-selected
+        );
+      }
+    }
+
+    &.is-today {
+      --background: var(--valence-calendar-day-today-background-color-hover);
+    }
+
+    &.is-selected:not(.is-range-selection),
+    &.is-selection-start,
+    &.is-selection-end {
+      color: var(--valence-calendar-day-text-color-cap-selected-hover);
+      --background: var(
+        --valence-calendar-day-background-color-cap-selected-hover
+      );
+
+      &.is-invalid {
+        --background: var(
+          --valence-calendar-day-background-color-cap-invalid-selected-hover
+        );
+      }
+    }
+  }
+
+  &.is-pressed {
+    color: var(--valence-calendar-day-text-color-hover);
+    --background: var(--valence-calendar-day-background-color-down);
+
+    &.is-range-selection {
+      color: var(--valence-calendar-day-text-color-selected-hover);
+      --background: var(--valence-calendar-day-background-color-selected-hover);
+
+      &.is-invalid {
+        --background: var(
+          --valence-calendar-day-background-color-invalid-selected
+        );
+      }
+    }
+
+    &.is-today {
+      --background: var(--valence-calendar-day-today-background-color-down);
+    }
+
+    &.is-selected:not(.is-range-selection),
+    &.is-selection-start,
+    &.is-selection-end {
+      color: var(--valence-calendar-day-text-color-cap-selected-hover);
+      --background: var(
+        --valence-calendar-day-background-color-cap-selected-down
+      );
+
+      &.is-invalid {
+        --background: var(
+          --valence-calendar-day-background-color-cap-invalid-selected-down
+        );
+      }
+    }
+  }
+
+  &.is-focused {
+    &:before {
+      box-shadow: 0 0 0 var(--valence-calendar-day-border-size-key-focus)
+        var(--valence-calendar-day-border-color-key-focus);
+    }
+  }
+
+  &.is-disabled {
+    &,
+    &.is-today {
+      --background: var(--valence-calendar-day-background-color-disabled);
+    }
+
+    &,
+    &.is-today,
+    &.is-selected {
+      color: var(--valence-calendar-day-text-color-disabled);
+    }
+  }
+
+  &.is-unavailable:not(.is-selected) {
+    &,
+    &.is-today {
+      --background: transparent;
+    }
+  }
+}
+
+@media (forced-colors: active) {
+  .Calendar-date {
+    color: CanvasText;
+    forced-color-adjust: none;
+    --valence-calendar-button-icon-color: ButtonText;
+    --valence-calendar-day-background-color-cap-selected: Highlight;
+    --valence-calendar-day-background-color-cap-invalid-selected: Highlight;
+    --valence-calendar-day-background-color-cap-invalid-selected-down: Highlight;
+    --valence-calendar-day-background-color-cap-invalid-selected-hover: Highlight;
+    --valence-calendar-day-background-color-cap-selected-down: Highlight;
+    --valence-calendar-day-background-color-cap-selected-hover: Highlight;
+    --valence-calendar-day-background-color-disabled: ButtonFace;
+    --valence-calendar-day-background-color-down: ButtonFace;
+    --valence-calendar-day-background-color-hover: ButtonFace;
+    --valence-calendar-day-background-color-invalid-selected: Highlight;
+    --valence-calendar-day-background-color-selected-hover: Highlight;
+    --valence-calendar-day-background-color-selected: Highlight;
+    --valence-calendar-day-border-color-key-focus: ButtonText;
+    --valence-calendar-day-text-color-cap-selected: HighlightText;
+    --valence-calendar-day-text-color-cap-selected-hover: HighlightText;
+    --valence-calendar-day-text-color-disabled: GrayText;
+    --valence-calendar-day-text-color-hover: ButtonText;
+    --valence-calendar-day-text-color-selected-hover: HighlightText;
+    --valence-calendar-day-title-text-color: CanvasText;
+    --valence-calendar-day-today-background-color: ButtonText;
+    --valence-calendar-day-today-background-color-down: ButtonText;
+    --valence-calendar-day-today-background-color-hover: ButtonText;
+    --valence-calendar-day-today-text-color: ButtonFace;
+    &.is-range-selection {
+      color: HighlightText;
+    }
+    &.is-disabled {
+      &.is-range-selection {
+        background: Highlight;
+        color: HighlightText;
+      }
+
+      &.is-selected {
+        background: Highlight;
+        color: HighlightText;
+      }
+    }
+    &.is-unavailable {
+      &.is-today {
+        color: var(--valence-calendar-day-text-color-hover);
+      }
+    }
+    &:hover {
+      &.is-today {
+        color: var(--valence-calendar-day-today-text-color);
+      }
+    }
+  }
+}

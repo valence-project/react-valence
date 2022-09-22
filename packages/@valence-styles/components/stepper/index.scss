@@ -1,0 +1,235 @@
+@import "../commons/index.scss";
+@import "../button/index.scss";
+
+.Stepper {
+  display: inline-grid;
+
+  inline-size: var(--valence-stepper-default-width-desktop);
+  line-height: 0;
+  transition: border-color var(--valence-global-animation-duration-100)
+      ease-in-out,
+    box-shadow var(--valence-global-animation-duration-100) ease-in-out;
+
+  /**
+   * There are only two layouts, so we don't need to repeat them down below.
+   * Technically there are other optimizations like this, but the others are harder to pull out, we'd need a truth table and it'd be harder to update.
+   * Declaring them before elements get assigned to grid-areas to make those easier to read.
+   **/
+  &:not(.Stepper--isMobile) {
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "field increment"
+      "field decrement";
+    .Stepper-button--stepUp {
+      padding-block-start: calc(var(--valence-button-padding-y) + 1px);
+      padding-block-end: calc(var(--valence-button-padding-y) - 0.5px);
+    }
+    .Stepper-button--stepDown {
+      padding-block-end: calc(var(--valence-button-padding-y) + 1px);
+      padding-block-start: calc(var(--valence-button-padding-y) - 0.5px);
+    }
+  }
+  &.Stepper--isMobile {
+    inline-size: var(--valence-stepper-default-width-mobile);
+    grid-template-rows: auto;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: "decrement field increment";
+    .Stepper-button--stepUp {
+    }
+    .Stepper-button--stepDown {
+    }
+  }
+
+  .Stepper-field {
+    grid-area: field;
+    /* override of valence-TextField style, declare before states */
+    inline-size: unset;
+    min-inline-size: var(--valence-stepper-input-min-width);
+  }
+  .Stepper-icon {
+    /* override of valence-TextField style, declare before states */
+    padding-inline-end: 0;
+  }
+  .Stepper-button--stepUp {
+    grid-area: increment;
+  }
+  .Stepper-button--stepDown {
+    grid-area: decrement;
+  }
+
+  &:not(.Stepper--isQuiet) {
+    border-radius: var(--valence-border-radius);
+    .Stepper-icon {
+      inset-inline-end: var(--valence-stepper-validation-icon-right);
+    }
+
+    &:not(.Stepper--showStepper) {
+      &:not(.Stepper--isMobile) {
+        .Stepper-input {
+        }
+        .Stepper-button {
+          block-size: var(--valence-stepper-button-height);
+          inline-size: var(--valence-stepper-button-width);
+        }
+        .Stepper-button--stepDown {
+        }
+        .Stepper-button--stepUp {
+        }
+      }
+      &.Stepper--isMobile {
+        .Stepper-input {
+        }
+        .Stepper-button {
+          block-size: var(--valence-textfield-height);
+          inline-size: var(--valence-actionbutton-min-width);
+        }
+        .Stepper-button--stepDown {
+        }
+        .Stepper-button--stepUp {
+        }
+      }
+    }
+    &.Stepper--showStepper {
+      &:not(.Stepper--isMobile) {
+        .Stepper-input {
+          border-start-end-radius: 0;
+          border-end-end-radius: 0;
+        }
+        .Stepper-button {
+          block-size: var(--valence-stepper-button-height);
+          inline-size: var(--valence-stepper-button-width);
+          border-inline-start-width: 0;
+        }
+        .Stepper-button--stepDown {
+          border-end-end-radius: var(--valence-border-radius);
+          border-block-start-width: var(--valence-stepper-border-size-default);
+          border-block-end-width: var(--valence-stepper-border-size-default);
+          border-inline-end-width: var(--valence-stepper-border-size-default);
+        }
+        .Stepper-button--stepUp {
+          border-block-start-width: var(--valence-stepper-border-size-default);
+          border-inline-end-width: var(--valence-stepper-border-size-default);
+          border-start-end-radius: var(--valence-border-radius);
+        }
+      }
+      &.Stepper--isMobile {
+        .Stepper-input {
+          border-radius: 0;
+        }
+        .Stepper-button {
+          block-size: var(--valence-textfield-height);
+          inline-size: var(--valence-actionbutton-min-width);
+        }
+        .Stepper-button--stepDown {
+          border-block-start-width: var(--valence-stepper-border-size-default);
+          border-block-end-width: var(--valence-stepper-border-size-default);
+          border-inline-start-width: var(--valence-stepper-border-size-default);
+          border-start-start-radius: var(--valence-border-radius);
+          border-end-start-radius: var(--valence-border-radius);
+        }
+        .Stepper-button--stepUp {
+          border-block-start-width: var(--valence-stepper-border-size-default);
+          border-block-end-width: var(--valence-stepper-border-size-default);
+          border-inline-end-width: var(--valence-stepper-border-size-default);
+          border-start-end-radius: var(--valence-border-radius);
+          border-end-end-radius: var(--valence-border-radius);
+        }
+      }
+    }
+  }
+  &.Stepper--isQuiet {
+    .Stepper-icon {
+      inset-inline-end: 0px;
+    }
+    &:not(.Stepper--showStepper) {
+      &:not(.Stepper--isMobile) {
+        .Stepper-input {
+        }
+        .Stepper-button {
+          block-size: var(--valence-stepper-button-height);
+          inline-size: var(--valence-stepper-button-width);
+        }
+        .Stepper-button--stepDown {
+          border-block-end-width: var(--valence-stepper-border-size-default);
+        }
+        .Stepper-button--stepUp {
+        }
+      }
+      &.Stepper--isMobile {
+        .Stepper-input {
+        }
+        .Stepper-button {
+          block-size: var(--valence-textfield-height);
+          inline-size: var(--valence-actionbutton-min-width);
+          border-block-end-width: var(--valence-stepper-border-size-default);
+        }
+        .Stepper-button--stepDown {
+        }
+        .Stepper-button--stepUp {
+        }
+      }
+    }
+    &.Stepper--showStepper {
+      &:not(.Stepper--isMobile) {
+        .Stepper-input {
+        }
+        .Stepper-button {
+          block-size: var(--valence-stepper-button-height);
+          inline-size: var(--valence-stepper-button-width);
+        }
+        .Stepper-button--stepDown {
+          border-block-end-width: var(--valence-stepper-border-size-default);
+        }
+        .Stepper-button--stepUp {
+        }
+      }
+      &.Stepper--isMobile {
+        .Stepper-input {
+        }
+        .Stepper-button {
+          block-size: var(--valence-textfield-height);
+          inline-size: var(--valence-actionbutton-min-width);
+          border-block-end-width: var(--valence-stepper-border-size-default);
+        }
+        .Stepper-button--stepDown {
+        }
+        .Stepper-button--stepUp {
+        }
+      }
+    }
+  }
+}
+
+/* this is specific to handling default width */
+.Stepper-container {
+  /* ensure we have higher specificity than .Field */
+  &.Stepper-container {
+    /* override the default width of the field container, only with labelPosition=top. */
+    --valence-field-default-width: var(--valence-stepper-default-width-desktop);
+  }
+
+  &.Stepper-container--isMobile {
+    --valence-field-default-width: var(--valence-stepper-default-width-mobile);
+  }
+}
+
+.Stepper-button {
+  @include valence-BaseButton;
+
+  border-width: 0;
+
+  &:hover,
+  &:active {
+    box-shadow: none;
+  }
+
+  .Stepper-button-icon {
+    max-block-size: 100%;
+    flex-shrink: 0;
+
+    transition: background var(--valence-global-animation-duration-100) ease-out,
+      fill var(--valence-global-animation-duration-100) ease-out;
+    box-sizing: initial;
+  }
+}

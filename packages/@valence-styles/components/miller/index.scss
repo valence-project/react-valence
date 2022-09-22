@@ -1,0 +1,28 @@
+@import "../commons/index.scss";
+
+:root {
+  --valence-miller-column-margin: 8px;
+}
+
+.MillerColumns {
+  overflow-x: auto;
+  white-space: nowrap;
+  user-select: none;
+  padding: var(--valence-miller-column-margin) 0;
+}
+
+.MillerColumns-item {
+  display: inline-block;
+  width: var(--valence-miller-column-width);
+  vertical-align: top;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  margin-right: var(--valence-miller-column-margin);
+  overflow: auto;
+  height: 100%;
+
+  &:first-child {
+    margin-left: var(--valence-miller-column-margin);
+  }
+}

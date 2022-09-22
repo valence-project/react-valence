@@ -1,0 +1,77 @@
+.theme {
+  --valence-colorslider-fill-color: none;
+  --valence-colorslider-fill-color-hover: none;
+  --valence-colorslider-fill-color-down: none;
+  --valence-colorslider-fill-color-key-focus: none;
+  --valence-colorslider-border-color-disabled: var(--valence-global-color-gray-300);
+  --valence-colorslider-fill-color-disabled: var(--valence-global-color-gray-300);
+  --valence-colorslider-border-size: var(--valence-alias-border-size-thin);
+  --valence-colorslider-border-radius: var(--valence-alias-border-radius-regular);
+  --valence-colorslider-colorhandle-cursor-hit-border-radius: var(--valence-global-dimension-size-0);
+  --valence-colorslider-colorhandle-touch-hit-width: var(--valence-global-dimension-static-size-600);
+  --valence-colorslider-colorhandle-touch-hit-height: var(--valence-global-dimension-static-size-600);
+  --valence-colorslider-colorhandle-touch-hit-border-radius: var(--valence-global-dimension-size-0);
+  --valence-colorslider-default-length: var(--valence-global-dimension-size-2400);
+  --valence-colorslider-min-length: var(--valence-global-dimension-size-1000);
+  --valence-colorslider-height: var(--valence-global-dimension-size-300);
+  --valence-colorslider-default-width: var(--valence-global-dimension-size-2400);
+  --valence-colorslider-min-width: var(--valence-global-dimension-size-1000);
+  --valence-colorslider-cursor-hit-x: var(--valence-global-dimension-size-100);
+  --valence-colorslider-cursor-hit-y: var(--valence-global-dimension-size-0);
+  --valence-colorslider-touch-hit-x: var(--valence-global-dimension-size-100);
+  --valence-colorslider-colorhandle-cursor-hit-width: var(--valence-global-dimension-size-200);
+  --valence-colorslider-colorhandle-cursor-hit-height: var(--valence-global-dimension-size-300);
+  --valence-colorslider-loupe-entry-animation-delay: 0ms;
+  --valence-colorslider-loupe-entry-animation-duration: var(--valence-alias-loupe-entry-animation-duration);
+  --valence-colorslider-loupe-entry-animation-ease: var(--valence-global-animation-ease-out);
+  --valence-colorslider-loupe-entry-animation-properties: opacity;
+  --valence-colorslider-loupe-exit-animation-delay: 0ms;
+  --valence-colorslider-loupe-exit-animation-duration: var(--valence-alias-loupe-exit-animation-duration);
+  --valence-colorslider-loupe-exit-animation-ease: var(--valence-global-animation-ease-out);
+  --valence-colorslider-loupe-exit-animation-properties: opacity;
+  --valence-colorslider-vertical-fill-color: none;
+  --valence-colorslider-vertical-fill-color-hover: none;
+  --valence-colorslider-vertical-fill-color-down: none;
+  --valence-colorslider-vertical-fill-color-key-focus: none;
+  --valence-colorslider-vertical-border-color-disabled: var(--valence-global-color-gray-300);
+  --valence-colorslider-vertical-fill-color-disabled: var(--valence-global-color-gray-300);
+  --valence-colorslider-vertical-border-size: var(--valence-alias-border-size-thin);
+  --valence-colorslider-vertical-border-radius: var(--valence-alias-border-radius-regular);
+  --valence-colorslider-vertical-colorhandle-cursor-hit-border-radius: var(--valence-global-dimension-size-0);
+  --valence-colorslider-vertical-colorhandle-touch-hit-width: var(--valence-global-dimension-static-size-600);
+  --valence-colorslider-vertical-colorhandle-touch-hit-height: var(--valence-global-dimension-static-size-600);
+  --valence-colorslider-vertical-colorhandle-touch-hit-border-radius: var(--valence-global-dimension-size-0);
+  --valence-colorslider-vertical-default-length: var(--valence-global-dimension-size-2400);
+  --valence-colorslider-vertical-min-length: var(--valence-global-dimension-size-1000);
+  --valence-colorslider-vertical-width: var(--valence-global-dimension-size-300);
+  --valence-colorslider-vertical-default-height: var(--valence-global-dimension-size-2400);
+  --valence-colorslider-vertical-min-height: var(--valence-global-dimension-size-1000);
+  --valence-colorslider-vertical-cursor-hit-x: var(--valence-global-dimension-size-0);
+  --valence-colorslider-vertical-cursor-hit-y: var(--valence-global-dimension-size-100);
+  --valence-colorslider-vertical-touch-hit-y: var(--valence-global-dimension-size-100);
+  --valence-colorslider-vertical-colorhandle-cursor-hit-width: var(--valence-global-dimension-size-300);
+  --valence-colorslider-vertical-colorhandle-cursor-hit-height: var(--valence-global-dimension-size-200);
+  --valence-colorslider-vertical-loupe-entry-animation-delay: 0ms;
+  --valence-colorslider-vertical-loupe-entry-animation-duration: var(--valence-alias-loupe-entry-animation-duration);
+  --valence-colorslider-vertical-loupe-entry-animation-ease: var(--valence-global-animation-ease-out);
+  --valence-colorslider-vertical-loupe-entry-animation-properties: opacity;
+  --valence-colorslider-vertical-loupe-exit-animation-delay: 0ms;
+  --valence-colorslider-vertical-loupe-exit-animation-duration: var(--valence-alias-loupe-exit-animation-duration);
+  --valence-colorslider-vertical-loupe-exit-animation-ease: var(--valence-global-animation-ease-out);
+  --valence-colorslider-vertical-loupe-exit-animation-properties: opacity;
+}
+
+.theme {
+  --valence-colorslider-handle-hitarea-border-radius: 0%;
+  --valence-colorslider-handle-hitarea-width: var(
+    --valence-global-dimension-size-300
+  );
+  --valence-colorslider-handle-hitarea-height: var(
+    --valence-global-dimension-size-300
+  );
+}
+
+.theme {
+  /* todo: fix this in DNA */
+  --valence-colorslider-border-color: var(--valence-colorarea-border-color);
+}

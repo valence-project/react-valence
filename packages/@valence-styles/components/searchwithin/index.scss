@@ -1,0 +1,61 @@
+@import "../commons/index.scss";
+.SearchWithin {
+  --valence-searchwithin-width: var(--valence-global-dimension-size-3000);
+  --valence-searchwithin-searchfield-width: var(
+    --valence-global-dimension-size-1600
+  );
+
+  /* Force override */
+  --valence-searchwithin-border-radius: 0;
+  --valence-searchwithin-picker-min-width: 0;
+}
+
+.SearchWithin {
+  inline-size: var(--valence-searchwithin-width);
+  min-inline-size: var(--valence-searchwithin-width);
+  display: inline-flex;
+  position: relative;
+}
+
+.SearchWithin-picker {
+  inline-size: auto;
+  min-inline-size: var(--valence-global-dimension-size-1000);
+  flex-shrink: 1;
+
+  > button {
+    contain: unset;
+    border-end-start-radius: var(--valence-searchwithin-border-radius);
+    border-start-start-radius: var(--valence-searchwithin-border-radius);
+  }
+}
+
+.SearchWithin-searchfield {
+  min-inline-size: var(--valence-searchwithin-searchfield-width);
+  flex-grow: 1;
+  order: -1;
+  margin-inline-end: calc(
+    -1 * var(--valence-textfield-border-size)
+  ); /* hides right border */
+
+  &:focus-within {
+    z-index: 1; /* shows entire focus ring */
+  }
+
+  > input {
+    border-end-end-radius: var(--valence-searchwithin-border-radius);
+    border-start-end-radius: var(--valence-searchwithin-border-radius);
+    flex: 1;
+    box-sizing: border-box;
+    min-inline-size: inherit;
+  }
+}
+
+/* this is specific to handling default width */
+.SearchWithin-container {
+  /* ensure we have higher specificity than .Field */
+  &.SearchWithin-container {
+    /* override the default width of the field container, only with labelPosition=top. */
+    --valence-field-default-width: var(--valence-global-dimension-size-3000);
+    min-inline-size: var(--valence-global-dimension-size-3000);
+  }
+}

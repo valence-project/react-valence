@@ -1,0 +1,44 @@
+@mixin valence-overlay {
+  visibility: hidden;
+
+  //opacity: 0;
+
+  // transition: transform var(--valence-global-animation-duration-100) ease-in-out,
+  //   opacity var(--valence-global-animation-duration-100) ease-in-out,
+  visibility: visibility 0ms linear var(--valence-global-animation-duration-100);
+
+  pointer-events: none;
+}
+
+@mixin valence-overlay--open {
+  visibility: visible;
+  /* In Edge (pre chromium), a stacking context is formed for opacity less then 1, and then its removed for 1. 
+     It causes a rendering flicker that is visible when css transition is applied. */
+  opacity: 0.9999;
+
+  transition-delay: 0ms;
+
+  pointer-events: auto;
+}
+
+@mixin valence-overlay--bottom--open {
+  //transform: translateY(var(--valence-overlay-positive-transform-distance));
+}
+
+@mixin valence-overlay--top--open {
+  /*
+  Edge does not support combination of translate, calc and var.
+  New var equal to negative calculation result is added instead.
+  TODO: for Chromium Edge return to
+  transform: translateX(calc(var(--valence-global-dimension-size-75) * -1));
+  */
+  //transform: translateY(var(--valence-overlay-negative-transform-distance));
+}
+
+@mixin valence-overlay--right--open {
+  //transform: translateX(var(--valence-overlay-positive-transform-distance));
+}
+
+@mixin valence-overlay--left--open {
+  //transform: translateX(var(--valence-overlay-negative-transform-distance));
+}

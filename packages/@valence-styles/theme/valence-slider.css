@@ -1,0 +1,436 @@
+.theme {
+  --valence-slider-color-handle-outset-border-color: var(
+    --valence-alias-border-color-translucent-dark
+  );
+  --valence-slider-color-handle-inset-border-color: var(
+    --valence-alias-border-color-translucent-dark
+  );
+  --valence-slider-color-handle-border-color: var(
+    --valence-global-color-gray-50
+  );
+  --valence-slider-color-handle-color: var(
+    --valence-alias-border-color-transparent
+  );
+  --valence-slider-color-track-background-color-gradient-start: var(
+    --valence-global-color-blue-400
+  );
+  --valence-slider-color-track-background-color-gradient-end: var(
+    --valence-global-color-blue-700
+  );
+  --valence-slider-color-track-border-color: var(
+    --valence-alias-border-color-translucent-dark
+  );
+  --valence-slider-color-handle-outset-border-color-key-focus: var(
+    --valence-alias-border-color-translucent-dark
+  );
+  --valence-slider-color-track-color-disabled: var(
+    --valence-global-color-gray-200
+  );
+  --valence-slider-color-handle-border-color-disabled: var(
+    --valence-global-color-gray-400
+  );
+  --valence-slider-color-handle-color-disabled: var(
+    --valence-alias-border-color-transparent
+  );
+  --valence-slider-color-handle-outset-border-size: var(
+    --valence-alias-border-size-thin
+  );
+  --valence-slider-color-handle-inset-border-size: var(
+    --valence-alias-border-size-thin
+  );
+  --valence-slider-color-track-height: var(
+    --valence-global-dimension-static-size-300
+  );
+  --valence-slider-color-track-border-size: var(
+    --valence-alias-border-size-thin
+  );
+  --valence-slider-handle-border-color: var(--valence-global-color-gray-700);
+  --valence-slider-handle-background-color: var(
+    --valence-alias-background-color-transparent
+  );
+  --valence-slider-track-color: var(--valence-global-color-gray-300);
+  --valence-slider-handle-border-color-hover: var(
+    --valence-global-color-gray-800
+  );
+  --valence-slider-handle-background-color-hover: var(
+    --valence-alias-background-color-transparent
+  );
+  --valence-slider-track-color-hover: var(--valence-global-color-gray-300);
+  --valence-slider-handle-border-size-down: var(
+    --valence-global-dimension-size-75
+  );
+  --valence-slider-handle-border-color-down: var(
+    --valence-global-color-gray-800
+  );
+  --valence-slider-handle-background-color-down: var(
+    --valence-alias-background-color-transparent
+  );
+  --valence-slider-track-color-down: var(--valence-global-color-gray-300);
+  --valence-slider-radial-reaction-color-down: var(
+    --valence-alias-radial-reaction-color-default
+  );
+  --valence-slider-handle-border-size-key-focus: var(
+    --valence-global-dimension-size-100
+  );
+  --valence-slider-handle-border-color-key-focus: var(
+    --valence-global-color-gray-800
+  );
+  --valence-slider-handle-background-color-key-focus: var(
+    --valence-alias-background-color-transparent
+  );
+  --valence-slider-track-color-key-focus: var(--valence-global-color-gray-300);
+  --valence-slider-focus-ring-gap-key-focus: var(
+    --valence-alias-focus-ring-gap
+  );
+  --valence-slider-focus-ring-size-key-focus: var(
+    --valence-alias-focus-ring-size
+  );
+  --valence-slider-focus-ring-color-key-focus: var(
+    --valence-alias-focus-ring-color
+  );
+  --valence-slider-handle-border-color-disabled: var(
+    --valence-global-color-gray-400
+  );
+  --valence-slider-handle-background-color-disabled: var(
+    --valence-alias-background-color-transparent
+  );
+  --valence-slider-track-color-disabled: var(--valence-global-color-gray-300);
+  --valence-slider-track-border-radius: var(
+    --valence-global-dimension-static-size-10
+  );
+  --valence-slider-track-height: var(--valence-alias-border-size-thick);
+  --valence-slider-handle-border-size: var(--valence-alias-border-size-thick);
+  --valence-slider-handle-gap: var(--valence-alias-border-size-thicker);
+  --valence-slider-label-text-alignment: left;
+  --valence-slider-label-min-width: var(--valence-global-dimension-size-600);
+  --valence-slider-animation-duration: var(
+    --valence-global-animation-duration-100
+  );
+  --valence-slider-animation-ease: var(--valence-global-animation-ease-in-out);
+  --valence-slider-handle-width: var(--valence-global-dimension-size-200);
+  --valence-slider-handle-height: var(--valence-global-dimension-size-200);
+  --valence-slider-handle-border-radius: var(
+    --valence-alias-border-radius-medium
+  );
+  --valence-slider-height: var(--valence-alias-single-line-height);
+  --valence-slider-min-width: var(--valence-global-dimension-size-1250);
+  --valence-slider-label-gap-y: 0px;
+  --valence-slider-label-gap-x: var(--valence-global-dimension-size-200);
+  --valence-slider-text-baseline: var(--valence-global-dimension-font-size-75);
+  --valence-slider-track-cursor-hit-x: var(--valence-global-dimension-size-100);
+  --valence-slider-track-cursor-hit-y: var(--valence-global-dimension-size-200);
+  --valence-slider-hot-text-cursor-hit-y: var(
+    --valence-global-dimension-size-100
+  );
+  --valence-slider-track-touch-hit-x: var(--valence-global-dimension-size-100);
+  --valence-slider-radial-reaction-size: var(
+    --valence-alias-radial-reaction-size-default
+  );
+  --valence-slider-editable-handle-border-color: var(
+    --valence-global-color-gray-700
+  );
+  --valence-slider-editable-handle-background-color: var(
+    --valence-alias-background-color-transparent
+  );
+  --valence-slider-editable-track-color: var(--valence-global-color-gray-300);
+  --valence-slider-editable-handle-border-color-hover: var(
+    --valence-global-color-gray-800
+  );
+  --valence-slider-editable-handle-background-color-hover: var(
+    --valence-alias-background-color-transparent
+  );
+  --valence-slider-editable-track-color-hover: var(
+    --valence-global-color-gray-300
+  );
+  --valence-slider-editable-handle-border-size-down: var(
+    --valence-global-dimension-size-75
+  );
+  --valence-slider-editable-handle-border-color-down: var(
+    --valence-global-color-gray-800
+  );
+  --valence-slider-editable-handle-background-color-down: var(
+    --valence-alias-background-color-transparent
+  );
+  --valence-slider-editable-track-color-down: var(
+    --valence-global-color-gray-300
+  );
+  --valence-slider-editable-radial-reaction-color-down: var(
+    --valence-alias-radial-reaction-color-default
+  );
+  --valence-slider-editable-handle-border-size-key-focus: var(
+    --valence-global-dimension-size-100
+  );
+  --valence-slider-editable-handle-border-color-key-focus: var(
+    --valence-global-color-gray-800
+  );
+  --valence-slider-editable-handle-background-color-key-focus: var(
+    --valence-alias-background-color-transparent
+  );
+  --valence-slider-editable-track-color-key-focus: var(
+    --valence-global-color-gray-300
+  );
+  --valence-slider-editable-focus-ring-gap-key-focus: var(
+    --valence-alias-focus-ring-gap
+  );
+  --valence-slider-editable-focus-ring-size-key-focus: var(
+    --valence-alias-focus-ring-size
+  );
+  --valence-slider-editable-focus-ring-color-key-focus: var(
+    --valence-alias-focus-ring-color
+  );
+  --valence-slider-editable-handle-border-color-disabled: var(
+    --valence-global-color-gray-400
+  );
+  --valence-slider-editable-handle-background-color-disabled: var(
+    --valence-alias-background-color-transparent
+  );
+  --valence-slider-editable-track-color-disabled: var(
+    --valence-global-color-gray-300
+  );
+  --valence-slider-editable-track-border-radius: var(
+    --valence-global-dimension-static-size-10
+  );
+  --valence-slider-editable-track-height: var(
+    --valence-alias-border-size-thick
+  );
+  --valence-slider-editable-handle-border-size: var(
+    --valence-alias-border-size-thick
+  );
+  --valence-slider-editable-handle-gap: var(
+    --valence-alias-border-size-thicker
+  );
+  --valence-slider-editable-label-text-alignment: left;
+  --valence-slider-editable-label-min-width: var(
+    --valence-global-dimension-size-600
+  );
+  --valence-slider-editable-animation-duration: var(
+    --valence-global-animation-duration-100
+  );
+  --valence-slider-editable-animation-ease: var(
+    --valence-global-animation-ease-in-out
+  );
+  --valence-slider-editable-handle-width: var(
+    --valence-global-dimension-size-200
+  );
+  --valence-slider-editable-handle-height: var(
+    --valence-global-dimension-size-200
+  );
+  --valence-slider-editable-handle-border-radius: var(
+    --valence-alias-border-radius-medium
+  );
+  --valence-slider-editable-height: var(--valence-alias-single-line-height);
+  --valence-slider-editable-min-width: var(
+    --valence-global-dimension-size-1250
+  );
+  --valence-slider-editable-label-gap-y: 0px;
+  --valence-slider-editable-label-gap-x: var(
+    --valence-global-dimension-size-200
+  );
+  --valence-slider-editable-text-baseline: var(
+    --valence-global-dimension-font-size-75
+  );
+  --valence-slider-editable-track-cursor-hit-x: var(
+    --valence-global-dimension-size-100
+  );
+  --valence-slider-editable-track-cursor-hit-y: var(
+    --valence-global-dimension-size-200
+  );
+  --valence-slider-editable-hot-text-cursor-hit-y: var(
+    --valence-global-dimension-size-100
+  );
+  --valence-slider-editable-track-touch-hit-x: var(
+    --valence-global-dimension-size-100
+  );
+  --valence-slider-editable-radial-reaction-size: var(
+    --valence-alias-radial-reaction-size-default
+  );
+  --valence-slider-editable-textfield-min-width: var(
+    --valence-global-dimension-size-600
+  );
+  --valence-slider-fill-handle-border-color: var(
+    --valence-global-color-gray-700
+  );
+  --valence-slider-fill-handle-background-color: var(
+    --valence-alias-background-color-transparent
+  );
+  --valence-slider-fill-track-color: var(--valence-global-color-gray-700);
+  --valence-slider-fill-handle-border-color-hover: var(
+    --valence-global-color-gray-800
+  );
+  --valence-slider-fill-handle-background-color-hover: var(
+    --valence-alias-background-color-transparent
+  );
+  --valence-slider-fill-track-color-hover: var(--valence-global-color-gray-700);
+  --valence-slider-fill-handle-border-size-down: var(
+    --valence-global-dimension-size-75
+  );
+  --valence-slider-fill-handle-border-color-down: var(
+    --valence-global-color-gray-800
+  );
+  --valence-slider-fill-handle-background-color-down: var(
+    --valence-alias-background-color-transparent
+  );
+  --valence-slider-fill-track-color-down: var(--valence-global-color-gray-700);
+  --valence-slider-fill-radial-reaction-color-down: var(
+    --valence-alias-radial-reaction-color-default
+  );
+  --valence-slider-fill-handle-border-size-key-focus: var(
+    --valence-global-dimension-size-100
+  );
+  --valence-slider-fill-handle-border-color-key-focus: var(
+    --valence-global-color-gray-800
+  );
+  --valence-slider-fill-handle-background-color-key-focus: var(
+    --valence-alias-background-color-transparent
+  );
+  --valence-slider-fill-track-color-key-focus: var(
+    --valence-global-color-gray-700
+  );
+  --valence-slider-fill-focus-ring-gap-key-focus: var(
+    --valence-alias-focus-ring-gap
+  );
+  --valence-slider-fill-focus-ring-size-key-focus: var(
+    --valence-alias-focus-ring-size
+  );
+  --valence-slider-fill-focus-ring-color-key-focus: var(
+    --valence-alias-focus-ring-color
+  );
+  --valence-slider-fill-handle-border-color-disabled: var(
+    --valence-global-color-gray-400
+  );
+  --valence-slider-fill-handle-background-color-disabled: var(
+    --valence-alias-background-color-transparent
+  );
+  --valence-slider-fill-track-color-disabled: var(
+    --valence-global-color-gray-300
+  );
+  --valence-slider-fill-track-border-radius: var(
+    --valence-global-dimension-static-size-10
+  );
+  --valence-slider-fill-track-height: var(--valence-alias-border-size-thick);
+  --valence-slider-fill-handle-border-size: var(
+    --valence-alias-border-size-thick
+  );
+  --valence-slider-fill-handle-gap: var(--valence-alias-border-size-thicker);
+  --valence-slider-fill-label-text-alignment: left;
+  --valence-slider-fill-label-min-width: var(
+    --valence-global-dimension-size-600
+  );
+  --valence-slider-fill-animation-duration: var(
+    --valence-global-animation-duration-100
+  );
+  --valence-slider-fill-animation-ease: var(
+    --valence-global-animation-ease-in-out
+  );
+  --valence-slider-fill-handle-width: var(--valence-global-dimension-size-200);
+  --valence-slider-fill-handle-height: var(--valence-global-dimension-size-200);
+  --valence-slider-fill-handle-border-radius: var(
+    --valence-alias-border-radius-medium
+  );
+  --valence-slider-fill-height: var(--valence-alias-single-line-height);
+  --valence-slider-fill-min-width: var(--valence-global-dimension-size-1250);
+  --valence-slider-fill-label-gap-y: 0px;
+  --valence-slider-fill-label-gap-x: var(--valence-global-dimension-size-200);
+  --valence-slider-fill-text-baseline: var(
+    --valence-global-dimension-font-size-75
+  );
+  --valence-slider-fill-track-cursor-hit-x: var(
+    --valence-global-dimension-size-100
+  );
+  --valence-slider-fill-track-cursor-hit-y: var(
+    --valence-global-dimension-size-200
+  );
+  --valence-slider-fill-hot-text-cursor-hit-y: var(
+    --valence-global-dimension-size-100
+  );
+  --valence-slider-fill-track-touch-hit-x: var(
+    --valence-global-dimension-size-100
+  );
+  --valence-slider-fill-radial-reaction-size: var(
+    --valence-alias-radial-reaction-size-default
+  );
+  --valence-slider-player-track-buffer-color: var(
+    --valence-global-color-gray-500
+  );
+  --valence-slider-player-track-buffer-color-disabled: var(
+    --valence-alias-track-color-default
+  );
+  --valence-slider-ramp-track-color-disabled: var(
+    --valence-global-color-gray-200
+  );
+  --valence-slider-ramp-track-height: var(
+    --valence-global-dimension-static-size-200
+  );
+  --valence-slider-tick-mark-color: var(--valence-alias-track-color-default);
+  --valence-slider-tick-mark-margin-x: 1px;
+  --valence-slider-tick-mark-height: 10px;
+  --valence-slider-tick-mark-width: var(--valence-alias-border-size-thick);
+  --valence-slider-tick-mark-border-radius: var(
+    --valence-alias-border-radius-xsmall
+  );
+}
+
+:root {
+  --valence-slider-controls-margin: calc(
+    var(--valence-slider-handle-width) / 2
+  );
+  --valence-slider-track-margin-offset: calc(
+    var(--valence-slider-controls-margin) * -1
+  );
+
+  --valence-slider-handle-margin-top: calc(
+    var(--valence-slider-handle-width) / -2
+  );
+  --valence-slider-handle-margin-left: calc(
+    var(--valence-slider-handle-width) / -2
+  );
+
+  --valence-dial-width: var(--valence-slider-height);
+  --valence-dial-label-gap-y: var(--valence-global-dimension-size-65);
+  --valence-dial-handle-position: var(--valence-global-dimension-size-100);
+
+  --valence-slider-track-handleoffset: calc(var(--valence-slider-handle-gap));
+  --valence-slider-track-middle-handleoffset: calc(
+    var(--valence-slider-handle-gap) +
+      calc(var(--valence-slider-handle-width) / 2)
+  );
+
+  --valence-slider-input-top: calc(var(--valence-slider-handle-margin-top) / 4);
+  --valence-slider-input-left: calc(
+    var(--valence-slider-handle-margin-left) / 4
+  );
+
+  --valence-dial-handle-size: 100%;
+  --valence-dial-min-height: 0;
+  --valence-dial-controls-min-height: 0;
+  --valence-dial-controls-margin: 0;
+
+  --valence-slider-color-min-height: auto;
+  --valence-slider-color-track-padding: 0;
+  --valence-slider-color-track-top: 0;
+  --valence-slider-color-track-margin-top: 0;
+  --valence-slider-color-track-margin-left: 0;
+  --valence-slider-color-track-margin-right: 0;
+  --valence-slider-color-handle-top: 50%;
+
+  --valence-slider-ramp-margin-top: 0;
+
+  --valence-slider-range-track-reset: 0;
+}
+
+@media (forced-colors: none) {
+  .theme {
+    --valence-slider-handle-border-color-key-focus: var(
+      --valence-global-color-gray-800
+    );
+  }
+}
+.theme {
+  --valence-slider-focus-ring-size-key-focus: var(
+    --valence-alias-focus-ring-size
+  );
+  /* todo: remove when fixed */
+  --valence-slider-handle-focus-ring-color-key-focus: var(
+    --valence-alias-focus-color
+  );
+}

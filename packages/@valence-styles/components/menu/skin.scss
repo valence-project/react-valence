@@ -1,0 +1,100 @@
+
+.Menu {
+  background-color: var(--valence-selectlist-background-color);
+}
+
+.Menu-item {
+  background-color: var(--valence-selectlist-option-background-color);
+  color: var(--valence-selectlist-option-text-color);
+
+  &:focus-ring,
+  &.is-focused {
+    background-color: var(--valence-selectlist-option-background-color-key-focus);
+    color: var(--valence-selectlist-option-text-color-key-focus);
+    border-inline-start-color: var(--valence-selectlist-option-focus-indicator-color);
+  }
+
+  &:hover,
+  &:focus,
+  &.is-highlighted,
+  &.is-open {
+    background-color: var(--valence-selectlist-option-background-color-hover);
+    color: var(--valence-selectlist-option-text-color-hover);
+  }
+
+  &.is-selected {
+    .Menu-checkmark {
+      color: var(--valence-selectlist-option-icon-color-selected);
+    }
+  }
+
+  .is-active,
+  &:active {
+    background-color: var(--valence-selectlist-option-background-color-down);
+  }
+
+  &.is-disabled {
+    background-color: var(--valence-selectlist-option-background-color-disabled);
+    background-image: none;
+    color: var(--valence-selectlist-option-text-color-disabled);
+    cursor: default;
+  }
+}
+
+.Menu-sectionHeading {
+  color: var(--valence-heading-subtitle3-text-color);
+}
+
+.Menu-divider {
+  background-color: var(--valence-selectlist-divider-color);
+}
+
+.Menu-description {
+  color: var(--valence-global-color-gray-700);
+}
+@media (forced-colors: active) {
+  .Menu-divider {
+    background-color: CanvasText;
+    forced-color-adjust: none;
+  }
+  .Menu-item {
+    forced-color-adjust: none;
+    --valence-heading-subtitle3-text-color: ButtonText;
+    --valence-selectlist-background-color: ButtonFace;
+    --valence-selectlist-divider-color: ButtonText;
+    --valence-selectlist-option-background-color: ButtonFace;
+    --valence-selectlist-option-background-color-disabled: ButtonFace;
+    --valence-selectlist-option-background-color-down: ButtonFace;
+    --valence-selectlist-option-background-color-hover: Highlight;
+    --valence-selectlist-option-background-color-key-focus: Highlight;
+    --valence-selectlist-option-focus-indicator-color: Highlight;
+    --valence-selectlist-option-icon-color-selected: Highlight;
+    --valence-selectlist-option-text-color: ButtonText;
+    --valence-selectlist-option-text-color-disabled: GrayText;
+    --valence-selectlist-option-text-color-hover: HighlightText;
+    --valence-selectlist-option-text-color-key-focus: HighlightText;    
+    --valence-alias-border-color-focus: Highlight; 
+    /* Overriding menu descriptions which were hardcoded to gray-700 */
+    .Menu-description {
+      color: var(--valence-selectlist-option-text-color);
+    }
+    &:hover,
+    &:focus,
+    &.is-highlighted,
+    &.is-open,
+    &:focus-ring, 
+    &.is-focused {
+      &.is-selected {
+        .Menu-checkmark {
+          color: HighlightText;
+        }
+      }
+      .Menu-description {
+        color: var(--valence-selectlist-option-text-color-key-focus);
+        background-color: var(--valence-selectlist-option-background-color-key-focus);
+      }
+      background-color: var(--valence-selectlist-option-background-color-key-focus);
+      color: var(--valence-selectlist-option-text-color-key-focus);
+    }
+  }
+}

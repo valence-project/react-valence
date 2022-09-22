@@ -1,0 +1,22 @@
+{
+    "name": "@valence-dev/build",
+    "private": true,
+    "version": "0.0.1",
+    "main": "src/index.mjs",
+    "files": [
+        "src",
+        "package.json"
+    ],
+    "scripts": {},
+    "devDependencies": {
+        "autoprefixer": "^9.7.5"
+    },
+    "dependencies": {
+        "npm-dts": "^1.3.12",
+        "url": "^0.11.0"
+    },
+    "bin": {
+        "pyramids": "bin/pyramids.mjs"
+    },
+    "gitHead": "e4cabd25e57ea3c82716af710d87f10f1cd2359d"
+}

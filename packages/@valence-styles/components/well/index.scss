@@ -1,0 +1,12 @@
+@import "../commons/index.scss";
+
+.Well {
+  text-align: start;
+  display: block;
+  min-inline-size: var(--valence-well-min-width);
+  padding: var(--valence-well-padding);
+  margin-top: var(--valence-well-margin-top);
+  border-width: var(--valence-well-border-width);
+  border-style: solid;
+  border-radius: var(--valence-border-radius);
+}

@@ -1,0 +1,25 @@
+@import "../commons/index.scss";
+
+.Pagination--explicit,
+.Pagination--listing {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.Pagination-input {
+  width: var(--valence-pagination-textfield-width);
+  min-width: var(--valence-pagination-textfield-width);
+}
+
+.Pagination-counter {
+  margin-left: var(--valence-pagination-counter-margin-left);
+}
+
+.Pagination-prevButton {
+  margin-right: var(--valence-pagination-page-button-margin-horizontal);
+}
+
+.Pagination-nextButton {
+  margin-left: var(--valence-pagination-page-button-margin-horizontal);
+}

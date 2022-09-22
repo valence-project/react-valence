@@ -1,0 +1,22 @@
+.theme {
+  --valence-stepper-button-height: calc(
+    var(--valence-component-single-line-height) / 2
+  );
+  --valence-stepper-button-width: 24px;
+  --valence-stepper-padding: calc(var(--valence-padding) / 2);
+  --valence-stepper-border-radius-reset: 0;
+  --valence-stepper-border-size-reset: 0;
+  --valence-stepper-border-size-default: 1px;
+  --valence-stepper-input-min-width: var(
+    --valence-component-single-line-height
+  );
+  --valence-stepper-default-width-desktop: calc(
+    var(--valence-component-single-line-height) * 4
+  );
+  --valence-stepper-default-width-mobile: calc(
+    var(--valence-component-single-line-height) * 5
+  );
+  --valence-stepper-validation-icon-right: var(
+    --valence-global-dimension-size-100
+  );
+}

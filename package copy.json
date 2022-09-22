@@ -1,0 +1,27 @@
+{
+  "name": "@valence-icons/ui",
+  "version": "0.0.1",
+  "description": "react-valence icons",
+  "type": "module",
+  "files": [
+    "dist",
+    "lib"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/valence-project/react-valence.git"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.6.2",
+    "@react-valence/icon": "^0.0.1"
+  },
+  "peerDependencies": {
+    "@react-valence/provider": "^0.0.1",
+    "react": "^16.8.0 || ^17.0.0-rc.1 || ^18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "e4cabd25e57ea3c82716af710d87f10f1cd2359d"
+}

@@ -1,0 +1,5 @@
+.theme {
+  --valence-searchwithin-padding-left: 36px;
+  --valence-searchwithin-padding-right: 28px;
+  --valence-searchwithin-icon-width: var(--valence-global-dimension-static-size-200);
+}

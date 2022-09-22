@@ -1,0 +1,11 @@
+.theme {
+  --valence-dragbar-handle-background-color: var(--valence-global-color-gray-300);
+  --valence-dragbar-handle-background-color-hover: var(--valence-global-color-gray-400);
+  --valence-dragbar-handle-background-color-down: var(--valence-global-color-gray-800);
+  --valence-dragbar-handle-width: var(--valence-global-dimension-static-size-25);
+  --valence-dragbar-gripper-width: var(--valence-global-dimension-static-size-50);
+  --valence-dragbar-gripper-height: var(--valence-global-dimension-static-size-200);
+  --valence-dragbar-gripper-border-width-vertical: 4px;
+  --valence-dragbar-gripper-border-width-horizontal: 3px;
+  --valence-dragbar-gripper-border-radius: var(--valence-alias-border-radius-small);
+}

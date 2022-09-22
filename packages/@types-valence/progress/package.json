@@ -1,0 +1,18 @@
+{
+  "name": "@types-valence/progress",
+  "version": "0.0.1",
+  "description": "react-valence progress react types",
+  "license": "MIT",
+  "types": "src/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/valence-project/react-valence.git"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0-rc.1 || ^18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "e4cabd25e57ea3c82716af710d87f10f1cd2359d"
+}

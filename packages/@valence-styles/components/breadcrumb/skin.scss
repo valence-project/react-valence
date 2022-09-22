@@ -1,0 +1,96 @@
+.Breadcrumbs-item {
+  color: var(--valence-breadcrumb-text-color);
+
+  &.is-dragged {
+    .Breadcrumbs-itemLink {
+      color: var(--valence-breadcrumb-item-text-color-drop);
+      background-color: var(--valence-breadcrumb-item-background-color-drop);
+
+      &:before {
+        border-color: var(--valence-breadcrumb-item-border-color-drop);
+      }
+    }
+  }
+
+  .Breadcrumbs-itemSeparator {
+    color: var(--valence-breadcrumb-ui-icon-color);
+  }
+
+  .Breadcrumbs-itemLink {
+    color: inherit;
+
+    &:hover {
+      color: var(--valence-breadcrumb-text-color-hover);
+    }
+
+    &.focus-ring {
+      color: var(--valence-breadcrumb-text-color-key-focus);
+
+      &:before {
+        border-color: var(--valence-breadcrumb-item-border-color-key-focus);
+      }
+    }
+
+    &:active {
+      color: var(--valence-breadcrumb-text-color-down);
+      border-bottom: 0;
+    }
+
+    &.is-disabled {
+      color: var(--valence-label-text-color-disabled);
+    }
+  }
+
+  &.is-selected,
+  &:last-of-type {
+    color: var(--valence-breadcrumb-text-color-down);
+  }
+
+  &.is-selected {
+    ~ .Breadcrumb {
+      &:last-of-type {
+        color: var(--valence-breadcrumb-text-color);
+      }
+    }
+    .Breadcrumbs-itemLink {
+      &.focus-ring {
+        color: var(--valence-breadcrumb-text-color-down);
+        border-bottom: 0;
+      }
+    }
+  }
+}
+@media (forced-colors: active) {
+  .Breadcrumbs-item {
+    --valence-breadcrumb-item-border-color-drop: LinkText;
+    --valence-breadcrumb-item-border-color-key-focus: CanvasText;
+    --valence-breadcrumb-item-text-color-drop: LinkText;
+    --valence-breadcrumb-text-color: LinkText;
+    --valence-breadcrumb-text-color-down: CanvasText;
+    --valence-breadcrumb-text-color-hover: LinkText;
+    --valence-breadcrumb-text-color-key-focus: LinkText;
+    --valence-breadcrumb-ui-icon-color: CanvasText;
+    --valence-label-text-color-disabled: GrayText;
+    /* Override the selected to be the Standard Text color */
+    &.is-selected,
+    &:last-of-type {
+      color: var(--valence-breadcrumb-text-color-down);
+      .Breadcrumbs-itemLink {
+        &:hover {
+          color: var(--valence-breadcrumb-text-color-down);
+        }
+      }
+    }
+    /* Make links stay link color when clicked and disabled links remain disabled color */
+    .Breadcrumbs-itemLink {
+      &:active {
+        color: var(--valence-breadcrumb-text-color);
+      }
+      &.is-disabled {
+        &:active {
+          color: var(--valence-label-text-color-disabled);
+        }
+      }
+    }
+  }
+}

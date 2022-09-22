@@ -1,0 +1,19 @@
+.HelpText--neutral {
+  .HelpText-text {
+    color: var(--valence-helptext-neutral-texticon-text-color);
+  }
+  &.is-disabled {
+    .HelpText-text {
+      color: var(--valence-helptext-neutral-texticon-text-color-disabled);
+    }
+  }
+}
+
+.HelpText--negative {
+  .HelpText-validationIcon {
+    color: var(--valence-helptext-negative-texticon-icon-color);
+  }
+  .HelpText-text {
+    color: var(--valence-helptext-negative-texticon-text-color);
+  }
+}

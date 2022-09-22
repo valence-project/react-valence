@@ -1,0 +1,28 @@
+.Dialog-heading {
+  color: var(--valence-dialog-title-text-color);
+}
+
+.Dialog-content {
+  color: var(--valence-dialog-content-text-color);
+}
+
+.Dialog-typeIcon {
+  color: var(--valence-dialog-icon-color);
+}
+
+.Dialog--error {
+  .Dialog-typeIcon {
+    color: var(--valence-dialog-error-icon-color);
+  }
+}
+
+.Dialog--warning {
+  .Dialog-typeIcon {
+    color: var(--valence-dialog-warning-icon-color);
+  }
+}
+@media (forced-colors: active) {
+  .Dialog {
+    border: 1px solid transparent;
+  }
+}

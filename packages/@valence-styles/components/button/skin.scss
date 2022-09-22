@@ -1,0 +1,1369 @@
+.LogicButton,
+.Button,
+.ActionButton--emphasized {
+  &.focus-ring,
+  &.is-focused {
+    &:after {
+      box-shadow: 0 0 0 var(--valence-button-primary-focus-ring-size-key-focus) var(--valence-button-primary-focus-ring-color-key-focus);
+    }
+  }
+}
+
+.ClearButton {
+  background-color: var(--valence-clearbutton-medium-background-color);
+
+  color: var(--valence-clearbutton-medium-icon-color);
+
+  .Icon {
+    fill: var(--valence-clearbutton-medium-icon-color);
+  }
+
+  &:hover {
+    background-color: var(--valence-clearbutton-medium-background-color-hover);
+
+    color: var(--valence-clearbutton-medium-icon-color-hover);
+
+    .Icon {
+      fill: var(--valence-clearbutton-medium-icon-color-hover);
+    }
+  }
+
+  &.is-active {
+    background-color: var(--valence-clearbutton-medium-background-color-down);
+
+    color: var(--valence-clearbutton-medium-icon-color-down);
+
+    .Icon {
+      fill: var(--valence-clearbutton-medium-icon-color-down);
+    }
+  }
+
+  &.focus-ring {
+    background-color: var(--valence-clearbutton-medium-background-color-key-focus);
+
+    color: var(--valence-clearbutton-medium-icon-color-key-focus);
+
+    .Icon {
+      fill: var(--valence-clearbutton-medium-icon-color-key-focus);
+    }
+  }
+
+  &:disabled,
+  &.is-disabled {
+    background-color: var(--valence-clearbutton-medium-background-color-disabled);
+
+    color: var(--valence-clearbutton-medium-icon-color-disabled);
+
+    .Icon {
+      fill: var(--valence-clearbutton-medium-icon-color-disabled);
+    }
+  }
+}
+
+.Button--cta {
+  background-color: var(--valence-button-cta-background-color);
+  border-color: var(--valence-button-cta-border-color);
+  color: var(--valence-button-cta-text-color);
+
+  &:hover {
+    background-color: var(--valence-button-cta-background-color-hover);
+    border-color: var(--valence-button-cta-border-color-hover);
+    color: var(--valence-button-cta-text-color-hover);
+  }
+
+  &.focus-ring {
+    background-color: var(--valence-button-cta-background-color-key-focus);
+    border-color: var(--valence-button-cta-border-color-key-focus);
+    color: var(--valence-button-cta-text-color-key-focus);
+  }
+
+  &.is-active {
+    background-color: var(--valence-button-cta-background-color-down);
+    border-color: var(--valence-button-cta-border-color-down);
+    color: var(--valence-button-cta-text-color-down);
+  }
+
+  &:disabled,
+  &.is-disabled {
+    background-color: var(--valence-button-cta-background-color-disabled);
+    border-color: var(--valence-button-cta-border-color-disabled);
+    color: var(--valence-button-cta-text-color-disabled);
+  }
+}
+
+.Button--primary {
+  background-color: var(--valence-button-primary-background-color);
+  border-color: var(--valence-button-primary-border-color);
+  color: var(--valence-button-primary-text-color);
+
+  &:hover {
+    background-color: var(--valence-button-primary-background-color-hover);
+    border-color: var(--valence-button-primary-border-color-hover);
+    color: var(--valence-button-primary-text-color-hover);
+  }
+
+  &.focus-ring {
+    background-color: var(--valence-button-primary-background-color-key-focus);
+    border-color: var(--valence-button-primary-border-color-key-focus);
+    color: var(--valence-button-primary-text-color-key-focus);
+  }
+
+  &.is-active {
+    background-color: var(--valence-button-primary-background-color-down);
+    border-color: var(--valence-button-primary-border-color-down);
+    color: var(--valence-button-primary-text-color-down);
+  }
+
+  &:disabled,
+  &.is-disabled {
+    background-color: var(--valence-button-primary-background-color-disabled);
+    border-color: var(--valence-button-primary-border-color-disabled);
+    color: var(--valence-button-primary-text-color-disabled);
+  }
+}
+
+.Button--secondary {
+  background-color: var(--valence-button-secondary-background-color);
+  border-color: var(--valence-button-secondary-border-color);
+  color: var(--valence-button-secondary-text-color);
+
+  &:hover {
+    background-color: var(--valence-button-secondary-background-color-hover);
+    border-color: var(--valence-button-secondary-border-color-hover);
+    color: var(--valence-button-secondary-text-color-hover);
+  }
+
+  &.focus-ring {
+    background-color: var(--valence-button-secondary-background-color-key-focus);
+    border-color: var(--valence-button-secondary-border-color-key-focus);
+    color: var(--valence-button-secondary-text-color-key-focus);
+  }
+
+  &.is-active {
+    background-color: var(--valence-button-secondary-background-color-down);
+    border-color: var(--valence-button-secondary-border-color-down);
+    color: var(--valence-button-secondary-text-color-down);
+  }
+
+  &:disabled,
+  &.is-disabled {
+    background-color: var(--valence-button-secondary-background-color-disabled);
+    border-color: var(--valence-button-secondary-border-color-disabled);
+    color: var(--valence-button-secondary-text-color-disabled);
+  }
+}
+
+.Button--warning {
+  background-color: var(--valence-button-warning-background-color);
+  border-color: var(--valence-button-warning-border-color);
+  color: var(--valence-button-warning-text-color);
+
+  &:hover {
+    background-color: var(--valence-button-warning-background-color-hover);
+    border-color: var(--valence-button-warning-border-color-hover);
+    color: var(--valence-button-warning-text-color-hover);
+  }
+
+  &.focus-ring {
+    background-color: var(--valence-button-warning-background-color-key-focus);
+    border-color: var(--valence-button-warning-border-color-key-focus);
+    color: var(--valence-button-warning-text-color-key-focus);
+  }
+
+  &.is-active {
+    background-color: var(--valence-button-warning-background-color-down);
+    border-color: var(--valence-button-warning-border-color-down);
+    color: var(--valence-button-warning-text-color-down);
+  }
+
+  &:disabled,
+  &.is-disabled {
+    background-color: var(--valence-button-warning-background-color-disabled);
+    border-color: var(--valence-button-warning-border-color-disabled);
+    color: var(--valence-button-warning-text-color-disabled);
+  }
+}
+
+.Button--overBackground {
+  background-color: var(--valence-button-over-background-background-color);
+  border-color: var(--valence-button-over-background-border-color);
+  color: var(--valence-button-over-background-text-color);
+
+  &:hover {
+    background-color: var(--valence-button-over-background-background-color-hover);
+    border-color: var(--valence-button-over-background-border-color-hover);
+    color: var(--valence-button-over-background-color);
+  }
+
+  &.focus-ring {
+    background-color: var(--valence-button-over-background-background-color-hover);
+    border-color: var(--valence-button-over-background-border-color-hover);
+    color: var(--valence-button-over-background-color);;
+
+    &:after {
+      box-shadow: 0 0 0 var(--valence-alias-focus-ring-size) var(--valence-button-over-background-border-color-key-focus);
+    }
+  }
+
+  &.is-active {
+    background-color: var(--valence-button-over-background-background-color-down);
+    border-color: var(--valence-button-over-background-border-color-down);
+    color: var(--valence-button-over-background-color);;
+  }
+
+  &:disabled,
+  &.is-disabled {
+    background-color: var(--valence-button-over-background-background-color-disabled);
+    border-color: var(--valence-button-over-background-border-color-disabled);
+    color: var(--valence-button-over-background-text-color-disabled);
+  }
+}
+
+.Button--overBackground.Button--quiet,
+.ClearButton--overBackground {
+  background-color: var(--valence-button-quiet-over-background-background-color);
+  border-color: var(--valence-button-quiet-over-background-border-color);
+  color: var(--valence-button-quiet-over-background-text-color);
+
+  &:hover {
+    background-color: var(--valence-button-quiet-over-background-background-color-hover);
+    border-color: var(--valence-button-quiet-over-background-border-color-hover);
+    color: var(--valence-button-quiet-over-background-text-color-hover);
+  }
+
+  &.focus-ring {
+    background-color: var(--valence-button-quiet-over-background-background-color-hover);
+    border-color: var(--valence-button-quiet-over-background-border-color-hover);
+    color: var(--valence-button-quiet-over-background-text-color-hover);
+    box-shadow: none;
+
+    &:after {
+      box-shadow: 0 0 0 var(--valence-alias-focus-ring-size) var(--valence-button-over-background-border-color-key-focus);
+    }
+  }
+
+  &.is-active {
+    background-color: var(--valence-button-quiet-over-background-background-color-down);
+    border-color: var(--valence-button-quiet-over-background-border-color-down);
+    color: var(--valence-button-quiet-over-background-text-color-down);
+  }
+
+  &:disabled,
+  &.is-disabled {
+    background-color: var(--valence-button-quiet-over-background-background-color-disabled);
+    border-color: var(--valence-button-quiet-over-background-border-color-disabled);
+    color: var(--valence-button-quiet-over-background-text-color-disabled);
+  }
+}
+
+.Button--primary.Button--quiet {
+  background-color: var(--valence-button-quiet-primary-background-color);
+  border-color: var(--valence-button-quiet-primary-border-color);
+  color: var(--valence-button-quiet-primary-text-color);
+
+  &:hover {
+    background-color: var(--valence-button-quiet-primary-background-color-hover);
+    border-color: var(--valence-button-quiet-primary-border-color-hover);
+    color: var(--valence-button-quiet-primary-text-color-hover);
+  }
+
+  &.focus-ring {
+    background-color: var(--valence-button-quiet-primary-background-color-key-focus);
+    border-color: var(--valence-button-quiet-primary-border-color-key-focus);
+    color: var(--valence-button-quiet-primary-text-color-key-focus);
+  }
+
+  &.is-active {
+    background-color: var(--valence-button-quiet-primary-background-color-down);
+    border-color: var(--valence-button-quiet-primary-border-color-down);
+    color: var(--valence-button-quiet-primary-text-color-down);
+  }
+
+  &:disabled,
+  &.is-disabled {
+    background-color: var(--valence-button-quiet-primary-background-color-disabled);
+    border-color: var(--valence-button-quiet-primary-border-color-disabled);
+    color: var(--valence-button-quiet-primary-text-color-disabled);
+  }
+}
+
+.Button--secondary.Button--quiet {
+  background-color: var(--valence-button-quiet-secondary-background-color);
+  border-color: var(--valence-button-quiet-secondary-border-color);
+  color: var(--valence-button-quiet-secondary-text-color);
+
+  &:hover {
+    background-color: var(--valence-button-quiet-secondary-background-color-hover);
+    border-color: var(--valence-button-quiet-secondary-border-color-hover);
+    color: var(--valence-button-quiet-secondary-text-color-hover);
+  }
+
+  &.focus-ring {
+    background-color: var(--valence-button-quiet-secondary-background-color-key-focus);
+    border-color: var(--valence-button-quiet-secondary-border-color-key-focus);
+    color: var(--valence-button-quiet-secondary-text-color-key-focus);
+  }
+
+  &.is-active {
+    background-color: var(--valence-button-quiet-secondary-background-color-down);
+    border-color: var(--valence-button-quiet-secondary-border-color-down);
+    color: var(--valence-button-quiet-secondary-text-color-down);
+  }
+
+  &:disabled,
+  &.is-disabled {
+    background-color: var(--valence-button-quiet-secondary-background-color-disabled);
+    border-color: var(--valence-button-quiet-secondary-border-color-disabled);
+    color: var(--valence-button-quiet-secondary-text-color-disabled);
+  }
+}
+
+.ActionButton {
+  background-color: var(--valence-actionbutton-background-color);
+  border-color: var(--valence-actionbutton-border-color);
+  color: var(--valence-actionbutton-text-color);
+
+  .Icon {
+    fill: var(--valence-actionbutton-icon-color);
+  }
+
+  .ActionButton-hold {
+    fill: var(--valence-actionbutton-hold-icon-color);
+  }
+
+  &:hover {
+    background-color: var(--valence-actionbutton-background-color-hover);
+    border-color: var(--valence-actionbutton-border-color-hover);
+    color: var(--valence-actionbutton-text-color-hover);
+
+    .Icon {
+      fill: var(--valence-actionbutton-icon-color-hover);
+    }
+
+    .ActionButton-hold {
+      fill: var(--valence-actionbutton-hold-icon-color-hover);
+    }
+  }
+
+  &.focus-ring {
+    background-color: var(--valence-actionbutton-background-color-key-focus);
+    border-color: var(--valence-actionbutton-border-color-key-focus);
+    box-shadow: 0 0 0 var(--valence-button-primary-border-size-increase-key-focus) var(--valence-actionbutton-border-color-key-focus);
+    color: var(--valence-actionbutton-text-color-key-focus);
+
+    &.is-active {
+      border-color: var(--valence-actionbutton-border-color-key-focus);
+    }
+
+    .Icon {
+      fill: var(--valence-actionbutton-icon-color-key-focus);
+    }
+
+    .ActionButton-hold {
+      fill: var(--valence-actionbutton-hold-icon-color-key-focus);
+    }
+  }
+
+  &.is-active {
+    background-color: var(--valence-actionbutton-background-color-down);
+    border-color: var(--valence-actionbutton-border-color-down);
+    color: var(--valence-actionbutton-text-color-down);
+
+    .ActionButton-hold {
+      fill: var(--valence-actionbutton-hold-icon-color-down);
+    }
+  }
+
+  &:disabled,
+  &.is-disabled {
+    background-color: var(--valence-actionbutton-background-color-disabled);
+    border-color: var(--valence-actionbutton-border-color-disabled);
+    color: var(--valence-actionbutton-text-color-disabled);
+
+    .Icon {
+      fill: var(--valence-actionbutton-icon-color-disabled);
+    }
+
+    .ActionButton-hold {
+      fill: var(--valence-actionbutton-hold-icon-color-disabled);
+    }
+  }
+
+  &.is-selected {
+    background-color: var(--valence-actionbutton-background-color-selected);
+    border-color: var(--valence-actionbutton-border-color-selected);
+    color: var(--valence-actionbutton-text-color-selected);
+
+    .Icon {
+      fill: var(--valence-actionbutton-icon-color-selected);
+    }
+
+    &:hover {
+      background-color: var(--valence-actionbutton-background-color-selected-hover);
+      border-color: var(--valence-actionbutton-border-color-selected-hover);
+      color: var(--valence-actionbutton-text-color-selected-hover);
+
+      .Icon {
+        fill: var(--valence-actionbutton-icon-color-selected-hover);
+      }
+    }
+
+    &.focus-ring {
+      background-color: var(--valence-actionbutton-background-color-selected-key-focus);
+      border-color: var(--valence-actionbutton-border-color-selected-key-focus);
+      color: var(--valence-actionbutton-text-color-selected-key-focus);
+
+      &.is-active {
+        border-color: var(--valence-actionbutton-border-color-key-focus);
+      }
+
+      .Icon {
+        fill: var(--valence-actionbutton-icon-color-selected-key-focus);
+      }
+    }
+
+    &.is-active {
+      background-color: var(--valence-actionbutton-background-color-selected-down);
+      border-color: var(--valence-actionbutton-border-color-selected-down);
+      color: var(--valence-actionbutton-text-color-selected-down);
+
+      .Icon {
+        fill: var(--valence-actionbutton-icon-color-selected-down);
+      }
+    }
+
+    &:disabled,
+    &.is-disabled {
+      background-color: var(--valence-actionbutton-background-color-selected-disabled);
+      border-color: var(--valence-actionbutton-border-color-selected-disabled);
+      color: var(--valence-actionbutton-text-color-selected-disabled);
+
+      .Icon {
+        fill: var(--valence-actionbutton-icon-color-selected-disabled);
+      }
+    }
+  }
+}
+
+.ActionButton--emphasized {
+  background-color: var(--valence-actionbutton-emphasized-background-color);
+  border-color: var(--valence-actionbutton-emphasized-border-color);
+  color: var(--valence-actionbutton-emphasized-text-color);
+
+  .Icon {
+    fill: var(--valence-actionbutton-emphasized-icon-color);
+  }
+
+  .ActionButton-hold {
+    fill: var(--valence-actionbutton-emphasized-hold-icon-color);
+  }
+
+  &.is-selected {
+    .ActionButton-hold {
+      fill: var(--valence-actionbutton-emphasized-hold-icon-color-selected);
+    }
+
+    &:hover {
+      .ActionButton-hold {
+        fill: var(--valence-actionbutton-emphasized-text-color-selected-hover);
+      }
+    }
+  }
+
+  &:hover {
+    background-color: var(--valence-actionbutton-emphasized-background-color-hover);
+    border-color: var(--valence-actionbutton-emphasized-border-color-hover);
+    box-shadow: none;
+    color: var(--valence-actionbutton-emphasized-text-color-hover);
+
+    .Icon {
+      fill: var(--valence-actionbutton-emphasized-icon-color-hover);
+    }
+
+    .ActionButton-hold {
+      fill: var(--valence-actionbutton-emphasized-hold-icon-color-hover);
+    }
+  }
+
+  &.focus-ring {
+    background-color: var(--valence-actionbutton-emphasized-background-color-key-focus);
+    border-color: var(--valence-actionbutton-emphasized-border-color);
+    box-shadow: none;
+    color: var(--valence-actionbutton-emphasized-text-color-key-focus);
+
+    &.is-active {
+      border-color: var(--valence-actionbutton-emphasized-border-color-down);
+    }
+
+    .Icon {
+      fill: var(--valence-actionbutton-emphasized-icon-color-key-focus);
+    }
+
+    .ActionButton-hold {
+      fill: var(--valence-actionbutton-emphasized-hold-icon-color-key-focus);
+    }
+  }
+
+  &.is-active {
+    background-color: var(--valence-actionbutton-emphasized-background-color-down);
+    border-color: var(--valence-actionbutton-emphasized-border-color-down);
+    color: var(--valence-actionbutton-emphasized-text-color-down);
+
+    .ActionButton-hold {
+      fill: var(--valence-actionbutton-emphasized-hold-icon-color-down);
+    }
+  }
+
+  &:disabled,
+  &.is-disabled {
+    background-color: var(--valence-actionbutton-emphasized-background-color-disabled);
+    border-color: var(--valence-actionbutton-emphasized-border-color-disabled);
+    color: var(--valence-actionbutton-emphasized-text-color-disabled);
+
+    .Icon {
+      fill: var(--valence-actionbutton-emphasized-icon-color-disabled);
+    }
+
+    .ActionButton-hold {
+      fill: var(--valence-actionbutton-emphasized-hold-icon-color-disabled);
+    }
+  }
+
+  &.ActionButton--quiet {
+    &.focus-ring {
+      border-color: var(--valence-actionbutton-quiet-border-color);
+      box-shadow: none;
+    }
+  }
+
+  &.ActionButton--quiet.is-selected,
+  &.is-selected {
+    background-color: var(--valence-actionbutton-emphasized-background-color-selected);
+    border-color: var(--valence-actionbutton-emphasized-border-color-selected);
+    color: var(--valence-actionbutton-emphasized-text-color-selected);
+
+    .Icon {
+      fill: var(--valence-actionbutton-emphasized-icon-color-selected);
+    }
+
+    &.focus-ring {
+      background-color: var(--valence-actionbutton-emphasized-background-color-selected-key-focus);
+      border-color: var(--valence-actionbutton-emphasized-border-color-selected);
+      box-shadow: none;
+      color: var(--valence-actionbutton-emphasized-text-color-selected-key-focus);
+
+      &.is-active {
+        border-color: var(--valence-actionbutton-emphasized-border-color-selected-down);
+      }
+
+      .Icon {
+        fill: var(--valence-actionbutton-emphasized-icon-color-selected-key-focus);
+      }
+    }
+
+    &:hover {
+      background-color: var(--valence-actionbutton-emphasized-background-color-selected-hover);
+      border-color: var(--valence-actionbutton-emphasized-border-color-selected-hover);
+      color: var(--valence-actionbutton-emphasized-text-color-selected-hover);
+
+      .Icon {
+        fill: var(--valence-actionbutton-emphasized-icon-color-selected-hover);
+      }
+    }
+
+    &.is-active {
+      background-color: var(--valence-actionbutton-emphasized-background-color-selected-down);
+      border-color: var(--valence-actionbutton-emphasized-border-color-selected-down);
+      color: var(--valence-actionbutton-emphasized-text-color-selected-down);
+
+      .Icon {
+        fill: var(--valence-actionbutton-emphasized-icon-color-selected-down);
+      }
+    }
+
+    &:disabled,
+    &.is-disabled {
+      background-color: var(--valence-actionbutton-emphasized-background-color-selected-disabled);
+      border-color: var(--valence-actionbutton-emphasized-border-color-selected-disabled);
+      color: var(--valence-actionbutton-emphasized-text-color-selected-disabled);
+
+      .Icon {
+        fill: var(--valence-actionbutton-emphasized-icon-color-selected-disabled);
+      }
+    }
+  }
+}
+
+.ActionButton--quiet {
+  background-color: var(--valence-actionbutton-quiet-background-color);
+  border-color: var(--valence-actionbutton-quiet-border-color);
+  color: var(--valence-actionbutton-quiet-text-color);
+
+  &:hover {
+    background-color: var(--valence-actionbutton-quiet-background-color-hover);
+    border-color: var(--valence-actionbutton-quiet-border-color-hover);
+    color: var(--valence-actionbutton-quiet-text-color-hover);
+  }
+
+  &.focus-ring {
+    background-color: var(--valence-actionbutton-quiet-background-color-key-focus);
+    box-shadow: 0 0 0 var(--valence-actionbutton-quiet-border-size-key-focus) var(--valence-actionbutton-quiet-border-color-key-focus);
+    border-color: var(--valence-actionbutton-quiet-border-color-key-focus);
+    color: var(--valence-actionbutton-quiet-text-color-key-focus);
+  }
+
+  &.is-active {
+    background-color: var(--valence-actionbutton-quiet-background-color-down);
+    border-color: var(--valence-actionbutton-quiet-border-color-down);
+    color: var(--valence-actionbutton-quiet-text-color-down);
+  }
+
+  &:disabled,
+  &.is-disabled {
+    background-color: var(--valence-actionbutton-quiet-background-color-disabled);
+    border-color: var(--valence-actionbutton-quiet-border-color-disabled);
+    color: var(--valence-actionbutton-quiet-text-color-disabled);
+  }
+
+  &.is-selected {
+    background-color: var(--valence-actionbutton-quiet-background-color-selected);
+    border-color: var(--valence-actionbutton-quiet-border-color-selected);
+    color: var(--valence-actionbutton-quiet-text-color-selected);
+
+    &:hover {
+      background-color: var(--valence-actionbutton-quiet-background-color-selected-hover);
+      border-color: var(--valence-actionbutton-quiet-border-color-selected-hover);
+      color: var(--valence-actionbutton-quiet-text-color-selected-hover);
+    }
+
+    &.focus-ring {
+      background-color: var(--valence-actionbutton-quiet-background-color-selected-key-focus);
+      border-color: var(--valence-actionbutton-quiet-border-color-selected-key-focus);
+      color: var(--valence-actionbutton-quiet-text-color-selected-key-focus);
+    }
+
+    &.is-active {
+      background-color: var(--valence-actionbutton-quiet-background-color-selected-down);
+      border-color: var(--valence-actionbutton-quiet-border-color-selected-down);
+      color: var(--valence-actionbutton-quiet-text-color-selected-down);
+    }
+
+    &:disabled,
+    &.is-disabled {
+      background-color: var(--valence-actionbutton-quiet-background-color-selected-disabled);
+      border-color: var(--valence-actionbutton-quiet-border-color-selected-disabled);
+      color: var(--valence-actionbutton-quiet-text-color-selected-disabled);
+    }
+  }
+}
+
+.ActionButton--staticWhite {
+  mix-blend-mode: screen;
+  --valence-actionbutton-static-background-color-hover: rgba(255, 255, 255, 0.1);
+  --valence-actionbutton-static-background-color-focus: rgba(255, 255, 255, 0.1);
+  --valence-actionbutton-static-background-color-active: rgba(255, 255, 255, 0.2);
+  --valence-actionbutton-static-border-color: rgba(255, 255, 255, 0.3);
+  --valence-actionbutton-static-border-color-hover: white;
+  --valence-actionbutton-static-border-color-active: white;
+  --valence-actionbutton-static-border-color-focus: white;
+  --valence-actionbutton-static-border-disabled: rgba(255, 255, 255, 0.15);
+  --valence-actionbutton-static-color: white;
+  --valence-actionbutton-static-color-selected: black; /* becomes the background of the parent element due to mix-blend-mode */
+  --valence-actionbutton-static-color-disabled: rgba(255, 255, 255, 0.15);
+}
+
+.ActionButton--staticWhite.ActionButton--quiet {
+  --valence-actionbutton-static-border-color: transparent;
+  --valence-actionbutton-static-border-color-hover: transparent;
+  --valence-actionbutton-static-border-color-active: transparent;
+}
+
+.ActionButton--staticBlack {
+  mix-blend-mode: multiply;
+  --valence-actionbutton-static-background-color-hover: rgba(0, 0, 0, 0.1);
+  --valence-actionbutton-static-background-color-focus: rgba(0, 0, 0, 0.1);
+  --valence-actionbutton-static-background-color-active: rgba(0, 0, 0, 0.2);
+  --valence-actionbutton-static-border-color: rgba(0, 0, 0, 0.3);
+  --valence-actionbutton-static-border-color-hover: black;
+  --valence-actionbutton-static-border-color-active: black;
+  --valence-actionbutton-static-border-color-focus: black;
+  --valence-actionbutton-static-border-disabled: rgba(0, 0, 0, 0.15);
+  --valence-actionbutton-static-color: black;
+  --valence-actionbutton-static-color-selected: white; /* becomes the background of the parent element due to mix-blend-mode */
+  --valence-actionbutton-static-color-disabled: rgba(0, 0, 0, 0.15);
+}
+
+.ActionButton--staticBlack.ActionButton--quiet {
+  --valence-actionbutton-static-border-color: transparent;
+  --valence-actionbutton-static-border-color-hover: transparent;
+  --valence-actionbutton-static-border-color-active: transparent;
+}
+
+.ActionButton--staticColor {
+  background-color: transparent;
+  border-color: var(--valence-actionbutton-static-border-color);
+  color: var(--valence-actionbutton-static-color);
+
+  .Icon {
+    fill: var(--valence-actionbutton-static-color);
+  }
+
+  &:hover {
+    background-color: var(--valence-actionbutton-static-background-color-hover);
+    border-color: var(--valence-actionbutton-static-border-color-hover);
+    color: var(--valence-actionbutton-static-color);
+
+    .Icon {
+      fill: var(--valence-actionbutton-static-color);
+    }
+
+    .ActionButton-hold {
+      fill: var(--valence-actionbutton-static-color);
+    }
+  }
+
+  &.focus-ring {
+    background-color: var(--valence-actionbutton-static-background-color-focus);
+    border-color: var(--valence-actionbutton-static-border-color-focus);
+    box-shadow: none;
+    color: var(--valence-actionbutton-static-color);
+
+    &:hover {
+      border-color: var(--valence-actionbutton-static-border-color-focus);
+    }
+
+    &.is-active {
+      border-color: var(--valence-actionbutton-static-color-focus);
+    }
+
+    .Icon {
+      fill: var(--valence-actionbutton-static-color);
+    }
+
+    .ActionButton-hold {
+      fill: var(--valence-actionbutton-static-color);
+    }
+
+    &:after {
+      box-shadow: 0 0 0 var(--valence-button-primary-focus-ring-size-key-focus) var(--valence-actionbutton-static-border-color-focus);
+    }
+  }
+
+  &.is-active {
+    background-color: var(--valence-actionbutton-static-background-color-active);
+    border-color: var(--valence-actionbutton-static-border-color-active);
+    color: var(--valence-actionbutton-static-color);
+
+    .ActionButton-hold {
+      fill: var(--valence-actionbutton-static-color);
+    }
+  }
+
+  &:disabled,
+  &.is-disabled {
+    background-color: transparent;
+    border-color: var(--valence-actionbutton-static-border-disabled);
+    color: var(--valence-actionbutton-static-color-disabled);
+
+    .Icon {
+      fill: var(--valence-actionbutton-static-color-disabled);
+    }
+
+    .ActionButton-hold {
+      fill: var(--valence-actionbutton-static-color-disabled);
+    }
+  }
+
+  &.ActionButton--quiet.is-selected,
+  &.is-selected {
+    background-color: var(--valence-actionbutton-static-color);
+    border-color: var(--valence-actionbutton-static-color);
+    color: var(--valence-actionbutton-static-color-selected);
+
+    .Icon {
+      fill: var(--valence-actionbutton-static-color-selected);
+    }
+
+    &.focus-ring {
+      background-color: var(--valence-actionbutton-static-color);
+      border-color: var(--valence-actionbutton-static-color);
+      color: var(--valence-actionbutton-static-color-selected);
+      box-shadow: none;
+
+      &.is-active {
+        /* change 1px of focus ring blue to match the rest of the active state */
+        box-shadow: none;
+        border-color: var(--valence-actionbutton-static-color);
+      }
+
+      .Icon {
+        fill: var(--valence-actionbutton-static-color-selected);
+      }
+    }
+
+    &:hover,
+    &.is-active {
+      background-color: var(--valence-actionbutton-static-color);
+      border-color: var(--valence-actionbutton-static-color);
+      color: var(--valence-actionbutton-static-color-selected);
+
+      .Icon {
+        fill: var(--valence-actionbutton-static-color-selected);
+      }
+    }
+
+    &:disabled,
+    &.is-disabled {
+      background-color: transparent;
+      border-color: var(--valence-actionbutton-static-border-disabled);
+      color: var(--valence-actionbutton-static-color-disabled);
+
+      .Icon {
+        fill: var(--valence-actionbutton-static-color-disabled);
+      }
+
+      .ActionButton-hold {
+        fill: var(--valence-actionbutton-static-color-disabled);
+      }
+    }
+  }
+}
+
+.Button--warning.Button--quiet {
+  background-color: var(--valence-button-quiet-warning-background-color);
+  border-color: var(--valence-button-quiet-warning-border-color);
+  color: var(--valence-button-quiet-warning-text-color);
+
+  &:hover {
+    background-color: var(--valence-button-quiet-warning-background-color-hover);
+    border-color: var(--valence-button-quiet-warning-border-color-hover);
+    color: var(--valence-button-quiet-warning-text-color-hover);
+  }
+
+  &.focus-ring {
+    background-color: var(--valence-button-quiet-warning-background-color-key-focus);
+    border-color: var(--valence-button-quiet-warning-border-color-key-focus);
+    color: var(--valence-button-quiet-warning-text-color-key-focus);
+  }
+
+  &.is-active {
+    background-color: var(--valence-button-quiet-warning-background-color-down);
+    border-color: var(--valence-button-quiet-warning-border-color-down);
+    color: var(--valence-button-quiet-warning-text-color-down);
+  }
+
+  &:disabled,
+  &.is-disabled {
+    background-color: var(--valence-button-quiet-warning-background-color-disabled);
+    border-color: var(--valence-button-quiet-warning-border-color-disabled);
+    color: var(--valence-button-quiet-warning-text-color-disabled);
+  }
+}
+
+.LogicButton--and {
+  background-color: var(--valence-logicbutton-and-background-color);
+  border-color: var(--valence-logicbutton-and-border-color);
+  color: var(--valence-logicbutton-and-text-color);
+
+  &:hover {
+    background-color: var(--valence-logicbutton-and-background-color-hover);
+    border-color: var(--valence-logicbutton-and-border-color-hover);
+    color: var(--valence-logicbutton-and-text-color);
+  }
+
+  &:disabled,
+  &.is-disabled {
+    background-color: var(--valence-logicbutton-and-background-color-disabled);
+    border-color: var(--valence-logicbutton-and-border-color-disabled);
+    color: var(--valence-logicbutton-and-text-color-disabled);
+  }
+}
+
+.LogicButton--or {
+  background-color: var(--valence-logicbutton-or-background-color);
+  border-color: var(--valence-logicbutton-or-border-color);
+  color: var(--valence-logicbutton-or-text-color);
+
+  &:hover {
+    background-color: var(--valence-logicbutton-or-background-color-hover);
+    border-color: var(--valence-logicbutton-or-border-color-hover);
+    color: var(--valence-logicbutton-or-text-color);
+  }
+
+  &:disabled,
+  &.is-disabled {
+    background-color: var(--valence-button-secondary-background-color-disabled);
+    border-color: var(--valence-button-secondary-border-color-disabled);
+    color: var(--valence-logicbutton-and-text-color-disabled);
+  }
+}
+
+.FieldButton {
+  color: var(--valence-fieldbutton-text-color);
+  background-color: var(--valence-fieldbutton-background-color);
+  border-color: var(--valence-fieldbutton-border-color);
+
+  &:hover {
+    color: var(--valence-fieldbutton-text-color-hover);
+    background-color: var(--valence-fieldbutton-background-color-hover);
+    border-color: var(--valence-fieldbutton-border-color-hover);
+  }
+
+  &.is-active,
+  &.is-selected {
+    background-color: var(--valence-fieldbutton-background-color-down);
+    border-color: var(--valence-fieldbutton-border-color-down);
+  }
+
+  &.focus-ring,
+  &.is-focused {
+    background-color: var(--valence-fieldbutton-background-color-key-focus);
+    border-color: var(--valence-fieldbutton-border-color-key-focus);
+    box-shadow: 0 0 0 var(--valence-button-primary-border-size-increase-key-focus) var(--valence-fieldbutton-border-color-key-focus);
+    color: var(--valence-fieldbutton-text-color-key-focus);
+
+    &.is-placeholder {
+      color: var(--valence-fieldbutton-placeholder-text-color-key-focus);
+    }
+  }
+
+  &.FieldButton--invalid {
+    border-color: var(--valence-fieldbutton-border-color-error);
+
+    &:hover {
+      border-color: var(--valence-fieldbutton-border-color-error-hover);
+    }
+
+    &.is-active,
+    &.is-selected {
+      border-color: var(--valence-fieldbutton-border-color-error-down);
+    }
+
+    &.focus-ring,
+    &.is-focused {
+      border-color: var(--valence-fieldbutton-border-color-error-key-focus);
+      box-shadow: 0 0 0 var(--valence-button-primary-border-size-increase-key-focus) var(--valence-fieldbutton-border-color-error-key-focus);
+    }
+  }
+
+  &:disabled,
+  &.is-disabled {
+    background-color: var(--valence-fieldbutton-background-color-disabled);
+    color: var(--valence-fieldbutton-text-color-disabled);
+
+    & .Icon {
+        fill: var(--valence-fieldbutton-icon-color-disabled);
+    }
+  }
+}
+
+.FieldButton--quiet {
+  color: var(--valence-fieldbutton-text-color);
+  border-color: var(--valence-fieldbutton-quiet-border-color);
+  background-color: var(--valence-fieldbutton-quiet-background-color);
+
+  &:hover {
+    background-color: var(--valence-fieldbutton-quiet-background-color-hover);
+    color: var(--valence-fieldbutton-text-color-hover);
+  }
+
+  &.focus-ring,
+  &.is-focused {
+    background-color: var(--valence-fieldbutton-quiet-background-color-key-focus);
+    box-shadow: 0 2px 0 0 var(--valence-fieldbutton-border-color-key-focus);
+
+    &.is-placeholder {
+      color: var(--valence-fieldbutton-quiet-placeholder-text-color-key-focus);
+    }
+  }
+
+  &.is-active,
+  &.is-selected {
+    background-color: var(--valence-fieldbutton-quiet-background-color-down);
+    border-color: var(--valence-fieldbutton-quiet-border-color-down);
+
+    &.focus-ring,
+    &.is-focused {
+      background-color: var(--valence-fieldbutton-quiet-background-color-key-focus);
+      box-shadow: 0 2px 0 0 var(--valence-fieldbutton-border-color-key-focus);
+    }
+  }
+
+  &.FieldButton--invalid {
+    &.focus-ring,
+    &.is-focused {
+      box-shadow: 0 2px 0 0 var(--valence-fieldbutton-border-color-error-key-focus);
+    }
+  }
+
+  &:disabled,
+  &.is-disabled {
+    background-color: var(--valence-fieldbutton-quiet-background-color-disabled);
+    color: var(--valence-fieldbutton-text-color-disabled);
+  }
+}
+
+@media (forced-colors: active) {
+  .ActionButton,
+  .Button,
+  .ClearButton,
+  .LogicButton,
+  .FieldButton {
+    forced-color-adjust: none;
+  --valence-actionbutton-background-color: ButtonFace;
+  --valence-actionbutton-background-color-disabled: ButtonFace;
+  --valence-actionbutton-background-color-down: ButtonFace;
+  --valence-actionbutton-background-color-hover: ButtonFace;
+  --valence-actionbutton-background-color-key-focus: ButtonFace;
+  --valence-actionbutton-background-color-selected: Highlight;
+  --valence-actionbutton-background-color-selected-disabled: ButtonFace;
+  --valence-actionbutton-background-color-selected-down: Highlight;
+  --valence-actionbutton-background-color-selected-hover: Highlight;
+  --valence-actionbutton-background-color-selected-key-focus: Highlight;
+  --valence-actionbutton-border-color: ButtonText;
+  --valence-actionbutton-border-color-disabled: GrayText;
+  --valence-actionbutton-border-color-down: Highlight;
+  --valence-actionbutton-border-color-hover: Highlight;
+  --valence-actionbutton-border-color-key-focus: CanvasText;
+  --valence-actionbutton-border-color-selected: HighlightText;
+  --valence-actionbutton-border-color-selected-disabled: GrayText;
+  --valence-actionbutton-border-color-selected-down: HighlightText;
+  --valence-actionbutton-border-color-selected-hover: HighlightText;
+  --valence-actionbutton-border-color-selected-key-focus: CanvasText;
+  --valence-actionbutton-emphasized-background-color: ButtonFace;
+  --valence-actionbutton-emphasized-background-color-disabled: ButtonFace;
+  --valence-actionbutton-emphasized-background-color-down: Highlight;
+  --valence-actionbutton-emphasized-background-color-hover: Highlight;
+  --valence-actionbutton-emphasized-background-color-key-focus: ButtonFace;
+  --valence-actionbutton-emphasized-background-color-selected: Highlight;
+  --valence-actionbutton-emphasized-background-color-selected-disabled: ButtonFace;
+  --valence-actionbutton-emphasized-background-color-selected-down: Highlight;
+  --valence-actionbutton-emphasized-background-color-selected-hover: Highlight;
+  --valence-actionbutton-emphasized-background-color-selected-key-focus: Highlight;
+  --valence-actionbutton-emphasized-border-color: ButtonText;
+  --valence-actionbutton-emphasized-border-color-disabled: GrayText;
+  --valence-actionbutton-emphasized-border-color-down: ButtonText;
+  --valence-actionbutton-emphasized-border-color-hover: ButtonText;
+  --valence-actionbutton-emphasized-border-color-selected: HighlightText;
+  --valence-actionbutton-emphasized-border-color-selected-disabled: GrayText;
+  --valence-actionbutton-emphasized-border-color-selected-downed: HighlightText;
+  --valence-actionbutton-emphasized-border-color-selected-hover: HighlightText;
+  --valence-actionbutton-emphasized-hold-icon-color: ButtonText;
+  --valence-actionbutton-emphasized-hold-icon-color-disabled: GrayText;
+  --valence-actionbutton-emphasized-hold-icon-color-down: HighlightText;
+  --valence-actionbutton-emphasized-hold-icon-color-hover: HighlightText;
+  --valence-actionbutton-emphasized-hold-icon-color-key-focus: ButtonText;
+  --valence-actionbutton-emphasized-hold-icon-color-selected: ButtonFace;
+  --valence-actionbutton-emphasized-icon-color: ButtonText;
+  --valence-actionbutton-emphasized-icon-color-disabled: GrayText;
+  --valence-actionbutton-emphasized-icon-color-hover: HighlightText;
+  --valence-actionbutton-emphasized-icon-color-key-focus: ButtonText;
+  --valence-actionbutton-emphasized-icon-color-selected: HighlightText;
+  --valence-actionbutton-emphasized-icon-color-selected-disabled: GrayText;
+  --valence-actionbutton-emphasized-icon-color-selected-down: HighlightText;
+  --valence-actionbutton-emphasized-icon-color-selected-hover: HighlightText;
+  --valence-actionbutton-emphasized-icon-color-selected-key-focus: HighlightText;
+  --valence-actionbutton-emphasized-text-color: ButtonText;
+  --valence-actionbutton-emphasized-text-color-disabled: GrayText;
+  --valence-actionbutton-emphasized-text-color-down: HighlightText;
+  --valence-actionbutton-emphasized-text-color-hover: HighlightText;
+  --valence-actionbutton-emphasized-text-color-key-focus: ButtonText;
+  --valence-actionbutton-emphasized-text-color-selected: HighlightText;
+  --valence-actionbutton-emphasized-text-color-selected-disabled: GrayText;
+  --valence-actionbutton-emphasized-text-color-selected-down: HighlightText;
+  --valence-actionbutton-emphasized-text-color-selected-hover: HighlightText;
+  --valence-actionbutton-emphasized-text-color-selected-key-focus: HighlightText;
+  --valence-actionbutton-hold-icon-color: ButtonText;
+  --valence-actionbutton-hold-icon-color-disabled: GrayText;
+  --valence-actionbutton-hold-icon-color-down: ButtonText;
+  --valence-actionbutton-hold-icon-color-hover: ButtonText;
+  --valence-actionbutton-hold-icon-color-key-focus: ButtonText;
+  --valence-actionbutton-icon-color: ButtonText;
+  --valence-actionbutton-icon-color-disabled: GrayText;
+  --valence-actionbutton-icon-color-hover: ButtonText;
+  --valence-actionbutton-icon-color-key-focus: ButtonText;
+  --valence-actionbutton-icon-color-selected: HighlightText;
+  --valence-actionbutton-icon-color-selected-disabled: GrayText;
+  --valence-actionbutton-icon-color-selected-down: HighlightText;
+  --valence-actionbutton-icon-color-selected-hover: HighlightText;
+  --valence-actionbutton-icon-color-selected-key-focus: HighlightText;
+  --valence-actionbutton-quiet-background-color: ButtonFace;
+  --valence-actionbutton-quiet-background-color-disabled: ButtonFace;
+  --valence-actionbutton-quiet-background-color-down: ButtonFace;
+  --valence-actionbutton-quiet-background-color-hover: ButtonFace;
+  --valence-actionbutton-quiet-background-color-key-focus: ButtonFace;
+  --valence-actionbutton-quiet-background-color-selected: Highlight;
+  --valence-actionbutton-quiet-background-color-selected-disabled: ButtonFace;
+  --valence-actionbutton-quiet-background-color-selected-down: Highlight;
+  --valence-actionbutton-quiet-background-color-selected-hover: Highlight;
+  --valence-actionbutton-quiet-background-color-selected-key-focus: Highlight;
+  --valence-actionbutton-quiet-border-color: ButtonFace;
+  --valence-actionbutton-quiet-border-color-disabled: ButtonFace;
+  --valence-actionbutton-quiet-border-color-down: Highlight;
+  --valence-actionbutton-quiet-border-color-hover: Highlight;
+  --valence-actionbutton-quiet-border-color-key-focus: CanvasText;
+  --valence-actionbutton-quiet-border-color-selected: HighlightText;
+  --valence-actionbutton-quiet-border-color-selected-disabled: Canvas;
+  --valence-actionbutton-quiet-border-color-selected-down: HighlightText;
+  --valence-actionbutton-quiet-border-color-selected-hover: HighlightText;
+  --valence-actionbutton-quiet-border-color-selected-key-focus: HighlightText;
+  --valence-actionbutton-quiet-text-color: ButtonText;
+  --valence-actionbutton-quiet-text-color-disabled: GrayText;
+  --valence-actionbutton-quiet-text-color-down: ButtonText;
+  --valence-actionbutton-quiet-text-color-hover: ButtonText;
+  --valence-actionbutton-quiet-text-color-key-focus: ButtonText;
+  --valence-actionbutton-quiet-text-color-selected: HighlightText;
+  --valence-actionbutton-quiet-text-color-selected-disabled: GrayText;
+  --valence-actionbutton-quiet-text-color-selected-down: HighlightText;
+  --valence-actionbutton-quiet-text-color-selected-hover: HighlightText;
+  --valence-actionbutton-quiet-text-color-selected-key-focus: HighlightText;
+  --valence-actionbutton-static-background-color-active: ButtonFace;
+  --valence-actionbutton-static-background-color-focus: ButtonFace;
+  --valence-actionbutton-static-background-color-hover: ButtonFace;
+  --valence-actionbutton-static-border-color: ButtonText;
+  --valence-actionbutton-static-border-color-active: ButtonText;
+  --valence-actionbutton-static-border-color-focus: Highlight;
+  --valence-actionbutton-static-border-color-hover: ButtonText;
+  --valence-actionbutton-static-color: Highlight;
+  --valence-actionbutton-static-color-disabled: GrayText;
+  --valence-actionbutton-static-color-focus: Highlight;
+  --valence-actionbutton-static-color-selected: ButtonFace;
+  --valence-actionbutton-text-color: ButtonText;
+  --valence-actionbutton-text-color-disabled: GrayText;
+  --valence-actionbutton-text-color-down: ButtonText;
+  --valence-actionbutton-text-color-hover: ButtonText;
+  --valence-actionbutton-text-color-key-focus: ButtonText;
+  --valence-actionbutton-text-color-selected: HighlightText;
+  --valence-actionbutton-text-color-selected-disabled: GrayText;
+  --valence-actionbutton-text-color-selected-down: HighlightText;
+  --valence-actionbutton-text-color-selected-hover: HighlightText;
+  --valence-actionbutton-text-color-selected-key-focus: HighlightText;
+  --valence-button-cta-background-color: ButtonText;
+  --valence-button-cta-background-color-disabled: ButtonFace;
+  --valence-button-cta-background-color-down: Highlight;
+  --valence-button-cta-background-color-hover: Highlight;
+  --valence-button-cta-background-color-key-focus: Highlight;
+  --valence-button-cta-border-color: ButtonFace;
+  --valence-button-cta-border-color-disabled: GrayText;
+  --valence-button-cta-border-color-down: Highlight;
+  --valence-button-cta-border-color-hover: Highlight;
+  --valence-button-cta-border-color-key-focus: Highlight;
+  --valence-button-cta-text-color: ButtonFace;
+  --valence-button-cta-text-color-disabled: GrayText;
+  --valence-button-cta-text-color-down: ButtonFace;
+  --valence-button-cta-text-color-hover: ButtonFace;
+  --valence-button-cta-text-color-key-focus: ButtonFace;
+  --valence-button-over-background-background-color: ButtonFace;
+  --valence-button-over-background-background-color-disabled: ButtonFace;
+  --valence-button-over-background-background-color-down: ButtonFace;
+  --valence-button-over-background-background-color-hover: ButtonFace;
+  --valence-button-over-background-border-color: ButtonText;
+  --valence-button-over-background-border-color-disabled: GrayText;
+  --valence-button-over-background-border-color-down: Highlight;
+  --valence-button-over-background-border-color-hover: Highlight;
+  --valence-button-over-background-border-color-key-focus: Highlight;
+  --valence-button-over-background-text-color: ButtonText;
+  --valence-button-over-background-text-color-disabled: GrayText;
+  --valence-button-primary-background-color: ButtonFace;
+  --valence-button-primary-background-color-disabled: ButtonFace;
+  --valence-button-primary-background-color-down: ButtonFace;
+  --valence-button-primary-background-color-hover: ButtonFace;
+  --valence-button-primary-background-color-key-focus: ButtonFace;
+  --valence-button-primary-border-color: ButtonText;
+  --valence-button-primary-border-color-disabled: GrayText;
+  --valence-button-primary-border-color-down: Highlight;
+  --valence-button-primary-border-color-hover: Highlight;
+  --valence-button-primary-border-color-key-focus: Highlight;
+  --valence-button-primary-text-color: ButtonText;
+  --valence-button-primary-text-color-disabled: GrayText;
+  --valence-button-primary-text-color-down: ButtonText;
+  --valence-button-primary-text-color-hover: ButtonText;
+  --valence-button-primary-text-color-key-focus: ButtonText;
+  --valence-button-quiet-over-background-background-color: ButtonFace;
+  --valence-button-quiet-over-background-background-color-disabled: ButtonFace;
+  --valence-button-quiet-over-background-background-color-down: ButtonFace;
+  --valence-button-quiet-over-background-background-color-hover: ButtonFace;
+  --valence-button-quiet-over-background-border-color: ButtonFace;
+  --valence-button-quiet-over-background-border-color-disabled: ButtonFace;
+  --valence-button-quiet-over-background-border-color-down: Highlight;
+  --valence-button-quiet-over-background-border-color-hover: Highlight;
+  --valence-button-quiet-over-background-text-color: ButtonText;
+  --valence-button-quiet-over-background-text-color-disabled: GrayText;
+  --valence-button-quiet-over-background-text-color-down: ButtonText;
+  --valence-button-quiet-over-background-text-color-hover: ButtonText;
+  --valence-button-quiet-primary-background-color: ButtonFace;
+  --valence-button-quiet-primary-background-color-disabled: ButtonFace;
+  --valence-button-quiet-primary-background-color-down: ButtonFace;
+  --valence-button-quiet-primary-background-color-hover: ButtonFace;
+  --valence-button-quiet-primary-background-color-key-focus: ButtonFace;
+  --valence-button-quiet-primary-border-color: ButtonFace;
+  --valence-button-quiet-primary-border-color-disabled: ButtonFace;
+  --valence-button-quiet-primary-border-color-down: Highlight;
+  --valence-button-quiet-primary-border-color-hover: Highlight;
+  --valence-button-quiet-primary-border-color-key-focus: Highlight;
+  --valence-button-quiet-primary-text-color: ButtonText;
+  --valence-button-quiet-primary-text-color-disabled: GrayText;
+  --valence-button-quiet-primary-text-color-down: ButtonText;
+  --valence-button-quiet-primary-text-color-hover: ButtonText;
+  --valence-button-quiet-primary-text-color-key-focus: ButtonText;
+  --valence-button-quiet-secondary-background-color: ButtonFace;
+  --valence-button-quiet-secondary-background-color-disabled: ButtonFace;
+  --valence-button-quiet-secondary-background-color-down: ButtonFace;
+  --valence-button-quiet-secondary-background-color-hover: ButtonFace;
+  --valence-button-quiet-secondary-background-color-key-focus: ButtonFace;
+  --valence-button-quiet-secondary-border-color: ButtonFace;
+  --valence-button-quiet-secondary-border-color-disabled: ButtonFace;
+  --valence-button-quiet-secondary-border-color-down: Highlight;
+  --valence-button-quiet-secondary-border-color-hover: Highlight;
+  --valence-button-quiet-secondary-border-color-key-focus: Highlight;
+  --valence-button-quiet-secondary-text-color: ButtonText;
+  --valence-button-quiet-secondary-text-color-disabled: GrayText;
+  --valence-button-quiet-secondary-text-color-down: ButtonText;
+  --valence-button-quiet-secondary-text-color-hover: ButtonText;
+  --valence-button-quiet-secondary-text-color-key-focus: ButtonText;
+  --valence-button-quiet-warning-background-color: ButtonFace;
+  --valence-button-quiet-warning-background-color-disabled: ButtonFace;
+  --valence-button-quiet-warning-background-color-down: ButtonFace;
+  --valence-button-quiet-warning-background-color-hover: ButtonFace;
+  --valence-button-quiet-warning-background-color-key-focus: ButtonFace;
+  --valence-button-quiet-warning-border-color: ButtonFace;
+  --valence-button-quiet-warning-border-color-disabled: ButtonFace;
+  --valence-button-quiet-warning-border-color-down: Highlight;
+  --valence-button-quiet-warning-border-color-hover: Highlight;
+  --valence-button-quiet-warning-border-color-key-focus: Highlight;
+  --valence-button-quiet-warning-text-color: ButtonText;
+  --valence-button-quiet-warning-text-color-disabled: GrayText;
+  --valence-button-quiet-warning-text-color-down: ButtonText;
+  --valence-button-quiet-warning-text-color-hover: ButtonText;
+  --valence-button-quiet-warning-text-color-key-focus: ButtonText;
+  --valence-button-secondary-background-color: ButtonFace;
+  --valence-button-secondary-background-color-disabled: ButtonFace;
+  --valence-button-secondary-background-color-down: ButtonFace;
+  --valence-button-secondary-background-color-hover: ButtonFace;
+  --valence-button-secondary-background-color-key-focus: ButtonFace;
+  --valence-button-secondary-border-color: ButtonText;
+  --valence-button-secondary-border-color-disabled: GrayText;
+  --valence-button-secondary-border-color-down: Highlight;
+  --valence-button-secondary-border-color-hover: Highlight;
+  --valence-button-secondary-border-color-key-focus: Highlight;
+  --valence-button-secondary-text-color: ButtonText;
+  --valence-button-secondary-text-color-disabled: GrayText;
+  --valence-button-secondary-text-color-down: ButtonText;
+  --valence-button-secondary-text-color-hover: ButtonText;
+  --valence-button-secondary-text-color-key-focus: ButtonText;
+  --valence-button-warning-background-color: ButtonFace;
+  --valence-button-warning-background-color-disabled: ButtonFace;
+  --valence-button-warning-background-color-down: ButtonFace;
+  --valence-button-warning-background-color-hover: ButtonFace;
+  --valence-button-warning-background-color-key-focus: ButtonFace;
+  --valence-button-warning-border-color: ButtonText;
+  --valence-button-warning-border-color-disabled: GrayText;
+  --valence-button-warning-border-color-down: Highlight;
+  --valence-button-warning-border-color-hover: Highlight;
+  --valence-button-warning-border-color-key-focus: Highlight;
+  --valence-button-warning-text-color: ButtonText;
+  --valence-button-warning-text-color-disabled: GrayText;
+  --valence-button-warning-text-color-down: ButtonText;
+  --valence-button-warning-text-color-hover: ButtonText;
+  --valence-button-warning-text-color-key-focus: ButtonText;
+  --valence-clearbutton-medium-background-color: ButtonFace;
+  --valence-clearbutton-medium-background-color-disabled: ButtonFace;
+  --valence-clearbutton-medium-background-color-down: ButtonFace;
+  --valence-clearbutton-medium-background-color-hover: ButtonFace;
+  --valence-clearbutton-medium-background-color-key-focus: ButtonFace;
+  --valence-clearbutton-medium-icon-color: ButtonText;
+  --valence-clearbutton-medium-icon-color-disabled: GrayText;
+  --valence-clearbutton-medium-icon-color-down: Highlight;
+  --valence-clearbutton-medium-icon-color-hover: Highlight;
+  --valence-clearbutton-medium-icon-color-key-focus: Highlight;
+  --valence-fieldbutton-background-color: ButtonFace;
+  --valence-fieldbutton-background-color-disabled: ButtonFace;
+  --valence-fieldbutton-background-color-down: ButtonFace;
+  --valence-fieldbutton-background-color-hover: ButtonFace;
+  --valence-fieldbutton-background-color-key-focus: ButtonFace;
+  --valence-fieldbutton-border-color: ButtonText;
+  --valence-fieldbutton-border-color-down: Highlight;
+  --valence-fieldbutton-border-color-error: ButtonText;
+  --valence-fieldbutton-border-color-error-down: Highlight;
+  --valence-fieldbutton-border-color-error-hover: Highlight;
+  --valence-fieldbutton-border-color-error-key-focus: Highlight;
+  --valence-fieldbutton-border-color-hover: Highlight;
+  --valence-fieldbutton-border-color-key-focus: Highlight;
+  --valence-fieldbutton-icon-color-disabled: GrayText;
+  --valence-fieldbutton-placeholder-text-color-key-focus: ButtonText;
+  --valence-fieldbutton-quiet-background-color: ButtonFace;
+  --valence-fieldbutton-quiet-background-color-disabled: ButtonFace;
+  --valence-fieldbutton-quiet-background-color-down: ButtonFace;
+  --valence-fieldbutton-quiet-background-color-hover: ButtonFace;
+  --valence-fieldbutton-quiet-background-color-key-focus: ButtonFace;
+  --valence-fieldbutton-quiet-border-color: ButtonFace;
+  --valence-fieldbutton-quiet-border-color-down: Highlight;
+  --valence-fieldbutton-quiet-placeholder-text-color-key-focus: ButtonText;
+  --valence-fieldbutton-text-color: ButtonText;
+  --valence-fieldbutton-text-color-disabled: GrayText;
+  --valence-fieldbutton-text-color-hover: ButtonText;
+  --valence-fieldbutton-text-color-key-focus: ButtonText;
+  --valence-logicbutton-and-background-color: ButtonFace;
+  --valence-logicbutton-and-background-color-disabled: ButtonFace;
+  --valence-logicbutton-and-background-color-hover: ButtonFace;
+  --valence-logicbutton-and-border-color: ButtonText;
+  --valence-logicbutton-and-border-color-disabled: GrayText;
+  --valence-logicbutton-and-border-color-hover: Highlight;
+  --valence-logicbutton-and-text-color: ButtonText;
+  --valence-logicbutton-and-text-color-disabled: GrayText;
+  --valence-logicbutton-or-background-color: ButtonFace;
+  --valence-logicbutton-or-background-color-hover: ButtonFace;
+  --valence-logicbutton-or-border-color: ButtonText;
+  --valence-logicbutton-or-border-color-hover: Highlight;
+  --valence-logicbutton-or-text-color: ButtonText;
+  --valence-button-primary-focus-ring-color-key-focus: CanvasText;
+  --valence-button-primary-focus-ring-size-key-focus: 3px;
+  --valence-dropdown-border-color-key-focus: Highlight;
+
+  }
+
+  .Button--overBackground {
+    --valence-button-over-background-color: ButtonText;
+  }
+
+  .ActionButton--staticWhite,
+  .ActionButton--staticBlack {
+    /* For some reason, making this a var doesn't work, the value is inlined in the css */
+    mix-blend-mode: normal;
+    --valence-actionbutton-static-background-color-hover: ButtonFace;
+    --valence-actionbutton-static-background-color-focus: ButtonFace;
+    --valence-actionbutton-static-background-color-active: ButtonFace;
+    --valence-actionbutton-static-border-color: ButtonText;
+    --valence-actionbutton-static-border-color-hover: ButtonText;
+    --valence-actionbutton-static-border-color-active: ButtonText;
+    --valence-actionbutton-static-border-color-focus: CanvasText;
+    --valence-actionbutton-static-border-disabled: GrayText;
+    --valence-actionbutton-static-color: ButtonText;
+    --valence-actionbutton-static-color-selected: HighlightText; /* becomes the background of the parent element due to mix-blend-mode */
+    --valence-actionbutton-static-color-disabled: GrayText;
+  }
+
+  .ActionButton--emphasized.ActionButton--quiet {
+    --valence-actionbutton-emphasized-border-color-selected-disabled: ButtonFace;
+    --valence-actionbutton-quiet-background-color-hover: Highlight;
+    --valence-actionbutton-quiet-text-color-hover: HighlightText;
+    --valence-actionbutton-quiet-background-color-down: Highlight;
+    --valence-actionbutton-quiet-text-color-down: HighlightText;
+
+    &.is-active {
+      --valence-actionbutton-emphasized-icon-color-key-focus: HighlightText;
+    }
+  }
+  .FieldButton { 
+    &.focus-ring,
+    &.is-focused {
+      &:not(.FieldButton--quiet) {
+        outline:2px solid Highlight;
+      }
+      &.FieldButton--quiet {
+        forced-color-adjust: none;
+        box-shadow: 0 2px 0 0 var(--valence-dropdown-border-color-key-focus);
+      } 
+    } 
+  }
+}

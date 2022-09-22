@@ -1,0 +1,16 @@
+.theme {
+  --valence-combobox-textfield-border-top-right-radius: 0;
+  --valence-combobox-textfield-border-bottom-right-radius: 0;
+  --valence-combobox-fieldbutton-border-top-left-radius: 0;
+  --valence-combobox-fieldbutton-border-bottom-left-radius: 0;
+  --valence-combobox-min-width: var(--valence-global-dimension-size-1000);
+  --valence-combobox-popover-offset-y: var(--valence-global-dimension-size-75);
+  --valence-combobox-popover-offset-x: 0px;
+  --valence-combobox-quiet-textfield-border-top-right-radius: 0;
+  --valence-combobox-quiet-textfield-border-bottom-right-radius: 0;
+  --valence-combobox-quiet-fieldbutton-border-top-left-radius: 0;
+  --valence-combobox-quiet-fieldbutton-border-bottom-left-radius: 0;
+  --valence-combobox-quiet-min-width: var(--valence-global-dimension-size-800);
+  --valence-combobox-quiet-popover-offset-y: var(--valence-global-dimension-size-75);
+  --valence-combobox-quiet-popover-offset-x: var(--valence-global-dimension-size-150);
+}

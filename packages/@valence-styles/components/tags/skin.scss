@@ -1,0 +1,197 @@
+.Tags-item {
+  color: var(--valence-tag-text-color);
+  background-color: var(--valence-tag-background-color);
+  border-color: var(--valence-tag-border-color);
+
+  &:hover {
+    background-color: var(--valence-tag-background-color-hover);
+    color: var(--valence-tag-text-color-hover);
+    border-color: var(--valence-tag-border-color-hover);
+  }
+
+  &.focus-ring {
+    background-color: var(--valence-tag-background-color-key-focus);
+    color: var(--valence-tag-text-color-key-focus);
+    border-color: var(--valence-tag-border-color-key-focus);
+    box-shadow: 0 0 0 1px var(--valence-tag-border-color-key-focus);
+  }
+
+  &.is-selected {
+    background-color: var(--valence-tag-background-color-selected);
+    color: var(--valence-tag-text-color-selected);
+    border-color: var(--valence-tag-border-color-selected);
+    &:hover {
+      background-color: var(--valence-tag-background-color-selected-hover);
+    }
+
+    &.focus-ring {
+      box-shadow: 0 0 0 2px var(--valence-tag-border-color-selected-key-focus);
+      border-color: var(--valence-tag-text-color-selected-key-focus);
+    }
+    &.is-invalid {
+      border-color: var(--valence-tag-border-color-error-selected);
+      .Tags-itemIcon,
+      .Tags-itemLabel,
+      .Tags-itemClearButton {
+        color: var(--valence-tag-text-color-error-selected);
+      }
+      &.focus-ring {
+        box-shadow: 0 0 0 2px var(--valence-tag-border-color-key-focus);
+        border-color: var(--valence-tag-border-color-error-selected);
+      }
+      &:hover {
+        border-color: var(--valence-tag-border-color-selected);
+      }
+    }
+  }
+
+  &.is-invalid {
+    color: var(--valence-tag-icon-color-error);
+    border-color: var(--valence-tag-border-color-error);
+
+    &:hover {
+      color: var(--valence-tag-icon-color-error-hover);
+      border-color: var(--valence-tag-border-color-error-hover);
+    }
+
+    &.focus-ring {
+      color: var(--valence-tag-icon-color-error-hover);
+      border-color: var(--valence-tag-border-color-key-focus);
+      box-shadow: 0 0 0 1px var(--valence-tag-border-color-key-focus);
+    }
+
+    .Tags-itemIcon,
+    .Tags-itemClearButton {
+      color: var(--valence-tag-border-color-error);
+    }
+  }
+
+  &.is-disabled {
+    color: var(--valence-tag-text-color-disabled);
+    background-color: var(--valence-tag-background-color-disabled);
+    border-color: var(--valence-tag-border-color-disabled);
+
+    .Avatar {
+      /* Duplicated so state is on the tag */
+      opacity: var(--valence-avatar-small-opacity-disabled);
+    }
+  }
+}
+
+.Tags-item--removable {
+  &:hover {
+    color: var(--valence-tag-removable-text-color-hover);
+  }
+
+  &:active {
+    color: var(--valence-tag-removable-text-color-down);
+  }
+
+  &.is-invalid {
+    &:hover {
+      border-color: var(--valence-tag-removable-border-color-error-hover);
+      .Tags-itemClearButton {
+        color: var(--valence-tag-removable-border-color-error-hover);
+      }
+    }
+
+    .Tags-itemClearButton {
+      &.is-focused {
+        color: var(--valence-tag-icon-color-error-hover);
+      }
+    }
+
+    &:active {
+      border-color: var(--valence-tag-removable-border-color-error-down);
+      color: var(--valence-tag-removable-text-color-error-down);
+    }
+  }
+
+  &.is-focused {
+    color: var(--valence-tag-removable-text-color-key-focus);
+
+    &.is-invalid {
+      color: var(--valence-tag-removable-text-color-error-key-focus);
+    }
+  }
+
+  &.is-selected {
+    color: var(--valence-tag-removable-text-color-selected);
+    &.is-focused {
+      color: var(--valence-tag-removable-text-color-selected-key-focus);
+    }
+    .Tags-itemClearButton {
+      color: var(--valence-tag-removable-button-icon-color-selected);
+      &:hover {
+        background-color: var(
+          --valence-tag-removable-button-background-color-selected-hover
+        );
+        color: var(--valence-tag-removable-button-icon-color-selected-hover);
+      }
+    }
+  }
+
+  .Tags-itemClearButton {
+    &.is-focused {
+      border: 2px solid var(--valence-tag-removable-border-color-key-focus);
+      border-radius: var(--valence-alias-border-radius-regular);
+      background-color: var(
+        --valence-tag-removable-button-background-color-key-focus
+      );
+      color: var(--valence-tag-removable-button-icon-color-key-focus);
+    }
+    &:hover {
+      background-color: var(
+        --valence-tag-removable-button-background-color-hover
+      );
+      color: var(--valence-tag-removable-button-icon-color-hover);
+    }
+  }
+}
+
+@media (forced-colors: active) {
+  .Tags-item {
+    forced-color-adjust: none;
+    --valence-tag-background-color: ButtonFace;
+    --valence-tag-background-color-disabled: ButtonFace;
+    --valence-tag-background-color-hover: ButtonFace;
+    --valence-tag-background-color-key-focus: ButtonFace;
+    --valence-tag-background-color-selected: Highlight;
+    --valence-tag-background-color-selected-hover: Highlight;
+    --valence-tag-border-color: ButtonText;
+    --valence-tag-border-color-disabled: GrayText;
+    --valence-tag-border-color-error: ButtonText;
+    --valence-tag-border-color-error-hover: ButtonText;
+    --valence-tag-border-color-error-selected: HighlightText;
+    --valence-tag-border-color-hover: Highlight;
+    --valence-tag-border-color-key-focus: Highlight;
+    --valence-tag-border-color-selected: HighlightText;
+    --valence-tag-border-color-selected-key-focus: ButtonText;
+    --valence-tag-icon-color-error: ButtonText;
+    --valence-tag-icon-color-error-hover: ButtonText;
+    --valence-tag-removable-border-color-error-down: Highlight;
+    --valence-tag-removable-border-color-error-hover: Highlight;
+    --valence-tag-removable-border-color-key-focus: Highlight;
+    --valence-tag-removable-button-background-color-hover: ButtonFace;
+    --valence-tag-removable-button-background-color-key-focus: ButtonFace;
+    --valence-tag-removable-button-background-color-selected-hover: Highlight;
+    --valence-tag-removable-button-icon-color-hover: Highlight;
+    --valence-tag-removable-button-icon-color-key-focus: Highlight;
+    --valence-tag-removable-button-icon-color-selected: HighlightText;
+    --valence-tag-removable-button-icon-color-selected-hover: HighlightText;
+    --valence-tag-removable-text-color-down: ButtonText;
+    --valence-tag-removable-text-color-error-down: Highlight;
+    --valence-tag-removable-text-color-error-key-focus: Highlight;
+    --valence-tag-removable-text-color-hover: ButtonText;
+    --valence-tag-removable-text-color-key-focus: ButtonText;
+    --valence-tag-removable-text-color-selected: HighlightText;
+    --valence-tag-removable-text-color-selected-key-focus: HighlightText;
+    --valence-tag-text-color: ButtonText;
+    --valence-tag-text-color-disabled: GrayText;
+    --valence-tag-text-color-error-selected: HighlightText;
+    --valence-tag-text-color-hover: ButtonText;
+    --valence-tag-text-color-key-focus: ButtonText;
+    --valence-tag-text-color-selected: HighlightText;
+    --valence-tag-text-color-selected-key-focus: HighlightText;
+  }
+}

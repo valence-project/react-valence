@@ -1,0 +1,101 @@
+@import "../commons/index.scss";
+
+.Search {
+  display: inline-block;
+  position: relative;
+
+  .ClearButton {
+    position: absolute;
+    inset-inline-end: 0;
+    top: 0;
+  }
+
+  &.is-quiet .Search-input {
+    padding-inline-end: var(--valence-search-quiet-padding-right);
+  }
+
+  &.Search--invalid .ClearButton {
+    inset-inline-end: calc(
+      var(--valence-icon-alert-medium-width) +
+        var(--valence-textfield-padding-x)
+    );
+  }
+
+  &.Search--valid .ClearButton {
+    inset-inline-end: calc(
+      var(--valence-icon-checkmark-medium-width) +
+        var(--valence-textfield-padding-x) / 2 +
+        var(--valence-global-dimension-size-150)
+    );
+  }
+
+  /* Flip clear button and circle loader position so circle loader is to the left of the clear button */
+  &.Search--loadable .ClearButton {
+    inset-inline-end: 0;
+  }
+
+  /* Flip clear button and circle loader position so circle loader is to the left of the clear button */
+  &.Search--loadable .Search-circleLoader {
+    inset-inline-end: calc(
+      var(--valence-icon-checkmark-medium-width) +
+        var(--valence-textfield-padding-x) / 2 +
+        var(--valence-global-dimension-size-150)
+    );
+  }
+
+  /* Move validation icons so that they sit to the left of the clear button (for async loading combobox tray, same position as loading indicator)  */
+  &.Search--loadable .Search-validationIcon {
+    inset-inline-end: calc(
+      var(--valence-icon-checkmark-medium-width) +
+        var(--valence-textfield-padding-x) / 2 +
+        var(--valence-global-dimension-size-150)
+    );
+    padding-inline-end: 0;
+  }
+}
+
+.Search-input {
+  display: block;
+
+  /* Correct the odd appearance of input[type="search"] in Chrome and Safari.*/
+  /* This gets overridden by .Textfield */
+  -webkit-appearance: none;
+
+  /* Correct the outline for input[type="search"] style in Safari. */
+  outline-offset: -2px;
+
+  text-indent: 0;
+
+  /* Don't let long strings overlap the close icon */
+  padding-inline-end: var(--valence-search-padding-right);
+
+  /* Remove the inner padding and cancel buttons for input[type="search"] in Chrome and Safari on macOS. */
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+
+  .Textfield.Search--invalid & {
+    padding-inline-end: calc(
+      var(--valence-search-padding-right) + var(--valence-textfield-padding-x) +
+        var(--valence-icon-alert-medium-width) +
+        var(--valence-textfield-icon-margin-left)
+    );
+  }
+
+  .Textfield.Search--valid & {
+    padding-inline-end: calc(
+      var(--valence-search-padding-right) + var(--valence-textfield-padding-x) +
+        var(--valence-icon-checkmark-medium-width) +
+        var(--valence-textfield-icon-margin-left)
+    );
+  }
+
+  .Textfield.Search--loadable & {
+    padding-inline-end: calc(
+      var(--valence-search-padding-right) + var(--valence-textfield-padding-x) +
+        var(--valence-icon-checkmark-medium-width) +
+        var(--valence-textfield-icon-margin-left)
+    );
+  }
+}

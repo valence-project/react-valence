@@ -1,0 +1,95 @@
+@import "../commons/index.scss";
+
+.AssetList {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.AssetList-item {
+  position: relative;
+
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+
+  width: var(--valence-miller-column-width);
+  height: var(--valence-miller-column-item-height);
+
+  padding: 0 var(--valence-miller-column-item-padding-right) 0
+    var(--valence-miller-column-item-padding-left);
+  margin: 0 0 var(--valence-miller-column-item-margin-bottom) 0;
+
+  border-radius: var(--valence-miller-column-item-border-radius);
+
+  transition: background-color var(--valence-global-animation-duration-100)
+    ease-in-out;
+
+  font-size: var(--valence-selectlist-option-text-size);
+  font-weight: var(--valence-selectlist-option-text-font-weight);
+  font-style: normal;
+
+  cursor: default;
+
+  outline: none;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    right: 0;
+
+    height: var(--valence-miller-column-item-height);
+
+    background-color: transparent;
+
+    border-radius: var(--valence-miller-column-item-border-radius);
+  }
+
+  &.is-selectable,
+  &.is-selected,
+  &:hover,
+  &:focus {
+    /* checkbox on the left, shows up always */
+    .Checkbox {
+      display: inline-flex;
+    }
+  }
+
+  &.is-branch {
+    /* show chevron */
+    .AssetList-itemChildIndicator {
+      display: block;
+    }
+  }
+
+  .AssetList-itemThumbnail {
+    /* Remove the border on images inside links in IE 10-. */
+    border-style: none;
+
+    width: var(--valence-miller-column-thumbnail-width);
+    height: var(--valence-miller-column-thumbnail-height);
+    margin-left: var(--valence-miller-column-thumbnail-margin-left);
+    vertical-align: middle;
+  }
+}
+
+.AssetList-itemSelector {
+  display: none;
+  margin: var(--valence-miller-column-checkbox-margin);
+}
+
+.AssetList-itemChildIndicator {
+  display: none;
+  transition: transform ease var(--valence-global-animation-duration-100);
+}
+
+.AssetList-itemLabel {
+  flex: 1;
+  padding-left: var(--valence-miller-column-item-label-padding-left);
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}

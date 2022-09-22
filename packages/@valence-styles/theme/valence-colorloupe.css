@@ -1,0 +1,42 @@
+.theme {
+  --valence-colorloupe-inner-border-color: var(--valence-global-color-static-white);
+  --valence-colorloupe-outer-border-color: rgba(50,50,50,0.1);
+  --valence-colorloupe-shadow-color: var(--valence-alias-dropshadow-color);
+  --valence-colorloupe-width: var(--valence-global-dimension-static-size-600);
+  --valence-colorloupe-height: var(--valence-global-dimension-static-size-800);
+  --valence-colorloupe-inner-border-size: var(--valence-global-dimension-static-size-25);
+  --valence-colorloupe-outer-border-size: var(--valence-global-dimension-static-size-10);
+  --valence-colorloupe-shadow-offset-y: var(--valence-global-dimension-size-10);
+  --valence-colorloupe-shadow-blur: var(--valence-global-dimension-size-50);
+  --valence-colorloupe-entry-animation-delay: 0ms;
+  --valence-colorloupe-entry-animation-opacity: 0%;
+  --valence-colorloupe-entry-animation-duration: var(--valence-alias-loupe-entry-animation-duration);
+  --valence-colorloupe-entry-animation-ease: var(--valence-global-animation-ease-out);
+  --valence-colorloupe-entry-animation-properties: opacity;
+  --valence-colorloupe-exit-animation-delay: 0ms;
+  --valence-colorloupe-exit-animation-opacity: 0%;
+  --valence-colorloupe-exit-animation-duration: var(--valence-alias-loupe-exit-animation-duration);
+  --valence-colorloupe-exit-animation-ease: var(--valence-global-animation-ease-out);
+  --valence-colorloupe-exit-animation-properties: opacity;
+}
+
+.theme {
+  /* size is the same on desktop and mobile */
+  --valence-colorloupe-width-adjusted: calc(
+    var(--valence-colorloupe-width) +
+      var(--valence-colorhandle-inner-border-size) * 2
+  );
+  --valence-colorloupe-height-adjusted: calc(
+    var(--valence-colorloupe-height) +
+      var(--valence-colorhandle-inner-border-size) * 2
+  );
+
+  /* Distance between the loupe and the handle */
+  --valence-colorloupe-offset: 10px;
+
+  /* How much to animate up to the offset distance */
+  --valence-colorloupe-animation-distance: var(
+    --valence-global-dimension-static-size-300
+  );
+}
+

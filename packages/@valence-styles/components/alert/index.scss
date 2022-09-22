@@ -1,0 +1,68 @@
+@import "../commons/index.scss";
+
+.Alert {
+  position: relative;
+
+  display: inline-block;
+  box-sizing: border-box;
+  min-width: var(--valence-alert-min-width);
+  min-height: var(--valence-alert-header-height);
+  margin: 8px 0;
+  padding: var(--valence-alert-padding-y) var(--valence-alert-padding-x);
+
+  border-width: var(--valence-alert-border-width);
+  border-style: solid;
+  border-radius: var(--valence-alert-corner-radius);
+}
+
+.Alert-icon {
+  position: absolute;
+  display: block;
+  top: 20px;
+  right: 20px;
+}
+
+.Alert-header {
+  display: inline-block;
+  height: auto;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+
+  /* Leave room for the icon */
+  padding-right: 30px;
+
+  font-size: 14px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 14px;
+  text-transform: none;
+}
+
+.Alert-content {
+  display: block;
+  margin: var(--valence-alert-content-margin-top) 0 0 0;
+  padding: 0;
+
+  font-size: 14px;
+  word-wrap: break-word;
+}
+
+.Alert-footer {
+  display: block;
+
+  text-align: right;
+
+  padding-top: 0.5rem;
+
+  &:empty {
+    display: none;
+  }
+
+  .Button {
+    margin-right: 0;
+
+    /* Spacing between buttons */
+    margin-left: 0.75rem;
+  }
+}

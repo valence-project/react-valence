@@ -1,0 +1,68 @@
+.Toast {
+  background-color: var(--valence-toast-background-color);
+  color: var(--valence-toast-background-color);
+}
+
+.Toast-content {
+  color: var(--valence-toast-text-color);
+}
+
+.Toast-typeIcon {
+  color: white;
+}
+
+.Toast-buttons {
+  border-inline-start-color: rgba(255, 255, 255, 0.2);
+}
+
+.Toast--warning {
+  background-color: var(--valence-toast-warning-background-color);
+  color: var(--valence-toast-warning-background-color);
+
+  .Toast-closeButton {
+    &.focus-ring:not(:active) {
+      color: var(--valence-toast-warning-background-color);
+    }
+  }
+}
+
+.Toast--negative,
+/** @deprecated */.Toast--error {
+  background-color: var(--valence-toast-error-background-color);
+  color: var(--valence-toast-error-background-color);
+
+  .Toast-closeButton {
+    &.focus-ring:not(:active) {
+      color: var(--valence-toast-error-background-color);
+    }
+  }
+}
+
+.Toast--info {
+  background-color: var(--valence-toast-info-background-color);
+  color: var(--valence-toast-info-background-color);
+
+  .Toast-closeButton {
+    &.focus-ring:not(:active) {
+      color: var(--valence-toast-info-background-color);
+    }
+  }
+}
+
+.Toast--positive,
+/** @deprecated */.Toast--success {
+  background-color: var(--valence-toast-positive-background-color);
+  color: var(--valence-toast-positive-background-color);
+
+  .Toast-closeButton {
+    &.focus-ring:not(:active) {
+      color: var(--valence-toast-positive-background-color);
+    }
+  }
+}
+
+@media (forced-colors: active) {
+  .Toast {
+    border: 1px solid transparent;
+  }
+}

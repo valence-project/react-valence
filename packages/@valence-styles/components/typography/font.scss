@@ -1,0 +1,7 @@
+@import "../commons/index.scss";
+
+.valence {
+  @include i18nFontFamily;
+  font-size: var(--valence-text-size);
+  color: var(--valence-body-text-color, var(--valence-global-color-gray-800));
+}

@@ -1,0 +1,8 @@
+.theme {
+  --valence-toolgroup-button-gap-y: var(--valence-global-dimension-size-100);
+  --valence-toolgroup-button-gap-x: var(--valence-global-dimension-size-100);
+  --valence-toolgroup-icon-button-gap-y: var(--valence-global-dimension-size-100);
+  --valence-toolgroup-icon-button-gap-x: var(--valence-global-dimension-size-100);
+  --valence-toolgroup-text-button-gap-y: var(--valence-global-dimension-size-100);
+  --valence-toolgroup-text-button-gap-x: var(--valence-global-dimension-size-100);
+}

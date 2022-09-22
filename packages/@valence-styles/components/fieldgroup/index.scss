@@ -1,0 +1,21 @@
+@import "../commons/index.scss";
+
+.FieldGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.FieldGroup--positionSide {
+  flex-direction: row;
+}
+
+.FieldGroup-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.FieldGroup-group--horizontal {
+  /* horizontal radio groups should wrap if there isn't enough space */
+  flex-direction: row;
+  flex-wrap: wrap;
+}

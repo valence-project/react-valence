@@ -1,0 +1,43 @@
+.theme {
+  --valence-avatar-l-opacity: 1;
+  --valence-avatar-l-opacity-disabled: 0.3;
+  --valence-avatar-l-border-radius: var(--valence-global-dimension-size-40);
+  --valence-avatar-l-width: var(--valence-global-dimension-size-400);
+  --valence-avatar-l-height: var(--valence-global-dimension-size-400);
+  --valence-avatar-m-opacity: 1;
+  --valence-avatar-m-opacity-disabled: 0.3;
+  --valence-avatar-m-border-radius: var(--valence-global-dimension-size-40);
+  --valence-avatar-m-width: var(--valence-global-dimension-size-300);
+  --valence-avatar-m-height: var(--valence-global-dimension-size-300);
+  --valence-avatar-s-opacity: 1;
+  --valence-avatar-s-opacity-disabled: 0.3;
+  --valence-avatar-s-border-radius: var(--valence-global-dimension-size-40);
+  --valence-avatar-s-width: var(--valence-global-dimension-size-200);
+  --valence-avatar-s-height: var(--valence-global-dimension-size-200);
+  --valence-avatar-small-opacity: 1;
+  --valence-avatar-small-opacity-disabled: 0.3;
+  --valence-avatar-small-border-radius: var(--valence-global-dimension-size-40);
+  --valence-avatar-small-width: var(--valence-global-dimension-size-200);
+  --valence-avatar-small-height: var(--valence-global-dimension-size-200);
+  --valence-avatar-xl-opacity: 1;
+  --valence-avatar-xl-opacity-disabled: 0.3;
+  --valence-avatar-xl-border-radius: var(--valence-global-dimension-size-60);
+  --valence-avatar-xl-width: var(--valence-global-dimension-size-500);
+  --valence-avatar-xl-height: var(--valence-global-dimension-size-500);
+  --valence-avatar-xxl-opacity: 1;
+  --valence-avatar-xxl-opacity-disabled: 0.3;
+  --valence-avatar-xxl-border-radius: var(--valence-global-dimension-size-70);
+  --valence-avatar-xxl-width: var(--valence-global-dimension-size-600);
+  --valence-avatar-xxl-height: var(--valence-global-dimension-size-600);
+}
+/* 
+.theme {
+  --valence-avatar-small-border-radius: .5rem;
+  --valence-avatar-small-width: 120px;
+  --valence-avatar-small-height: 120px;
+}
+
+.theme {
+  --valence-avatar-small-opacity-disabled: 0.75;
+} */
+

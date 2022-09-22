@@ -1,0 +1,29 @@
+.theme {
+    /* Todo: move to DNA */
+    --valence-combobox-quiet-fieldbutton-border-radius: 0;
+    --valence-combobox-quiet-fieldbutton-padding-right: 0;
+    --valence-combobox-quiet-fieldbutton-padding-left: var(
+      --valence-global-dimension-size-130
+    );
+    --valence-combobox-validation-icon-right: var(
+      --valence-global-dimension-size-100
+    );
+    --valence-datepicker-input-width: calc(
+      var(--valence-global-dimension-size-1600) - 2 * var(--valence-padding)
+    );
+    --valence-datepicker-datetime-input-width: calc(
+      var(--valence-datepicker-input-width) +
+        var(--valence-global-dimension-size-700) -
+        var(--valence-global-dimension-static-font-size-100) / 2
+    );
+    --valence-datepicker-range-dash-margin-left: calc(
+      -0.5 * var(--valence-global-dimension-static-font-size-100)
+    );
+    --valence-datepicker-range-dash-padding-top: 0;
+    --valence-datepicker-range-dash-line-height: calc(
+      var(--valence-textfield-height) - var(--valence-global-dimension-size-100)
+    );
+  
+    --valence-combobox-button-width: var(--valence-global-dimension-size-400);
+  }
+  

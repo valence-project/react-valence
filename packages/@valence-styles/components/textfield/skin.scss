@@ -1,0 +1,192 @@
+
+.Textfield-input {
+  background-color: var(--valence-textfield-background-color);
+  border-color: var(--valence-textfield-border-color);
+  color: var(--valence-textfield-text-color);
+
+  &:placeholder,
+  &.is-placeholder {
+    color: var(--valence-textfield-placeholder-text-color);
+  }
+
+  &:hover {
+    border-color: var(--valence-textfield-border-color-hover);
+    box-shadow: none;
+
+    &:placeholder,
+    &.is-placeholder {
+      color: var(--valence-textfield-placeholder-text-color-hover);
+    }
+
+    & ~ .Textfield-icon {
+      fill: var(--valence-textfield-icon-color-hover);
+    }
+  }
+
+  &:active {
+    background-color: var(--valence-textfield-background-color-down);
+    border-color: var(--valence-textfield-border-color-down);
+    color: var(--valence-textfield-text-color-down);
+
+    &:placeholder,
+    &.is-placeholder {
+      color: var(--valence-textfield-placeholder-text-color-down);
+    }
+
+    & ~ .Textfield-icon {
+      fill: var(--valence-textfield-icon-color-down);
+    }
+  }
+
+  &:focus,
+  &.is-focused {
+    border-color: var(--valence-textfield-border-color-down);
+  }
+
+  &:focus-ring {
+    &:not(:active) {
+      border-color: var(--valence-textfield-border-color-key-focus);
+      box-shadow: 0 0 0 1px var(--valence-textfield-border-color-key-focus);
+    }
+  }
+
+  &[disabled],
+  &.is-disabled {
+    background-color: var(--valence-textfield-background-color-disabled);
+    border-color: var(--valence-textfield-border-color-disabled);
+    color: var(--valence-textfield-text-color-disabled);
+
+    /* For safari mobile browser */
+    -webkit-text-fill-color: var(--valence-textfield-text-color-disabled);
+
+    &:placeholder,
+    &.is-placeholder {
+      color: var(--valence-textfield-placeholder-text-color-disabled);
+    }
+
+    & ~ .Textfield-icon {
+      fill: var(--valence-textfield-icon-color-disabled);
+    }
+  }
+
+  &.Textfield--invalid {
+    border-color: var(--valence-textfield-border-color-error);
+
+    &:hover {
+      border-color: var(--valence-textfield-border-color-key-focus);
+    }
+
+    &:active {
+      border-color: var(--valence-textfield-border-color-key-focus);
+    }
+
+    &:focus,
+    &.is-focused {
+      border-color: var(--valence-textfield-border-color-key-focus);
+    }
+
+    &:focus-ring { /* might break things due to pre-defined focus-ring */
+      &:not(:active) {
+        border-color: var(--valence-textfield-border-color-key-focus);
+        box-shadow: 0 0 0 1px var(--valence-textfield-border-color-key-focus);
+      }
+    }
+  }
+
+  .Textfield--quiet & {
+    background-color: var(--valence-textfield-quiet-background-color);
+    border-color: var(--valence-textfield-quiet-border-color);
+
+    &:hover {
+      border-color: var(--valence-textfield-quiet-border-color-hover);
+    }
+
+    &:active {
+      border-color: var(--valence-textfield-quiet-border-color-down);
+    }
+
+    &:focus,
+    &.is-focused {
+      border-color: var(--valence-textfield-quiet-border-color-key-focus);
+    }
+
+    &:focus-ring {
+      &:not(:active) {
+        border-color: var(--valence-textfield-border-color-key-focus);
+        box-shadow: 0 1px 0 var(--valence-textfield-border-color-key-focus);
+      }
+    }
+
+    &:disabled,
+    &.is-disabled {
+      background-color: var(--valence-textfield-quiet-background-color-disabled);
+      border-color:  var(--valence-textfield-quiet-border-color-disabled);
+    }
+  }
+
+  .Textfield.Textfield--invalid & {
+    border-color: var(--valence-textfield-border-color-error);
+
+    &:focus {
+      border-color: var(--valence-textfield-border-color-key-focus);
+    }
+
+    &:focus-ring { /* might break things due to pre-defined focus-ring */
+      &:not(:active) {
+        border-color: var(--valence-textfield-border-color-key-focus);
+        box-shadow: 0 0 0 1px var(--valence-textfield-border-color-key-focus);
+      }
+    }
+  }
+
+  .Textfield--quiet.Textfield--invalid & {
+    &:focus-ring { /* might break things due to pre-defined focus-ring */
+      &:not(:active) {
+        box-shadow: 0 1px 0 var(--valence-textfield-quiet-border-color-key-focus);
+      }
+    }
+  }
+
+}
+
+.Textfield-icon {
+  fill: var(--valence-textfield-icon-color);
+}
+
+.Textfield-validationIcon {
+  .Textfield--valid & {
+    fill: var(--valence-alert-success-icon-color);
+  }
+
+  .Textfield--invalid & {
+    fill: var(--valence-alert-error-icon-color);
+  }
+}
+@media (forced-colors: active) {
+  .Textfield-input {
+    --valence-textfield-text-color-disabled: GrayText;
+    --valence-textfield-border-color-disabled: GrayText;
+    --valence-textfield-quiet-border-color-disabled: GrayText;
+    --valence-textfield-quiet-border-color-key-focus: Highlight;
+    --valence-textfield-border-color-key-focus: Highlight;
+    --valence-textfield-placeholder-text-color: GrayText;
+    --valence-textfield-placeholder-text-color-hover: GrayText;
+    &.focus-ring, 
+    &:focus-ring {
+      outline: 2px solid Highlight;
+    }  
+    .Textfield--quiet & {
+      &.focus-ring, 
+      &:focus-ring {
+        forced-color-adjust: none;
+        outline: 0;
+        box-shadow: 0 1px 0 0 var(--valence-textfield-quiet-border-color-key-focus);
+        .Textfield-input {
+          border-color: var(--valence-textfield-quiet-border-color-key-focus);
+        }
+      }
+    }
+   
+
+  }
+}

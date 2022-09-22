@@ -1,0 +1,310 @@
+.theme {
+  --valence-table-background-color: var(--valence-global-color-gray-50);
+  --valence-table-border-color: var(--valence-alias-border-color-mid);
+  --valence-table-divider-border-color: var(--valence-alias-border-color-mid);
+  --valence-table-row-background-color: var(
+    --valence-alias-background-color-transparent
+  );
+  --valence-table-header-text-color: var(--valence-alias-label-text-color);
+  --valence-table-header-sort-icon-color: var(--valence-global-color-gray-600);
+  --valence-table-header-background-color: var(
+    --valence-alias-background-color-transparent
+  );
+  --valence-table-cell-text-color: var(--valence-alias-text-color);
+  --valence-table-cell-background-color: var(
+    --valence-alias-background-color-transparent
+  );
+  --valence-table-cell-border-color: var(--valence-global-color-gray-300);
+  --valence-table-row-background-color-hover: var(
+    --valence-alias-highlight-hover
+  );
+  --valence-table-header-text-color-hover: var(
+    --valence-alias-text-color-hover
+  );
+  --valence-table-header-sort-icon-color-hover: var(
+    --valence-alias-icon-color-hover
+  );
+  --valence-table-cell-background-color-hover: var(
+    --valence-global-color-gray-100
+  );
+  --valence-table-row-background-color-down: var(
+    --valence-alias-highlight-active
+  );
+  --valence-table-header-text-color-down: var(--valence-alias-text-color-down);
+  --valence-table-header-sort-icon-color-down: var(
+    --valence-alias-icon-color-down
+  );
+  --valence-table-cell-background-color-down: var(
+    --valence-global-color-gray-200
+  );
+  --valence-table-header-text-color-key-focus: var(
+    --valence-alias-text-color-hover
+  );
+  --valence-table-header-sort-icon-color-key-focus: var(
+    --valence-alias-icon-color-focus
+  );
+  --valence-table-row-background-color-key-focus: var(
+    --valence-alias-highlight-active
+  );
+  --valence-table-header-border-radius-key-focus: var(
+    --valence-alias-border-radius-regular
+  );
+  --valence-table-header-border-size-key-focus: var(
+    --valence-alias-border-size-thick
+  );
+  --valence-table-header-border-color-key-focus: var(
+    --valence-alias-border-color-focus
+  );
+  --valence-table-cell-border-radius-key-focus: var(
+    --valence-alias-border-radius-regular
+  );
+  --valence-table-cell-border-size-key-focus: var(
+    --valence-alias-border-size-thick
+  );
+  --valence-table-cell-border-color-key-focus: var(
+    --valence-alias-border-color-focus
+  );
+  --valence-table-row-background-color-selected: var(
+    --valence-alias-highlight-selected
+  );
+  --valence-table-cell-background-color-selected: var(
+    --valence-global-color-gray-100
+  );
+  --valence-table-row-background-color-selected-hover: var(
+    --valence-alias-highlight-selected-hover
+  );
+  --valence-table-cell-background-color-selected-hover: var(
+    --valence-global-color-gray-200
+  );
+  --valence-table-row-background-color-selected-key-focus: var(
+    --valence-alias-highlight-selected-hover
+  );
+  --valence-table-border-radius: var(--valence-alias-border-radius-regular);
+  --valence-table-border-size: var(--valence-alias-border-size-thin);
+  --valence-table-border-y-size: var(--valence-alias-border-size-thin);
+  --valence-table-border-x-size: var(--valence-alias-border-size-thin);
+  --valence-table-divider-border-size: var(--valence-alias-border-size-thin);
+  --valence-table-header-text-size: var(
+    --valence-global-dimension-font-size-50
+  );
+  --valence-table-header-text-font-weight: var(
+    --valence-global-font-weight-bold
+  );
+  --valence-table-header-text-letter-spacing: var(
+    --valence-global-font-letter-spacing-medium
+  );
+  --valence-table-header-text-baseline: var(
+    --valence-global-dimension-size-150
+  );
+  --valence-table-header-text-line-height: var(
+    --valence-alias-heading-text-line-height
+  );
+  --valence-table-header-padding-x: var(--valence-global-dimension-size-200);
+  --valence-table-header-padding-y: var(
+    --valence-global-dimension-static-size-125
+  );
+  --valence-table-header-sort-icon-gap: var(
+    --valence-global-dimension-size-125
+  );
+  --valence-table-header-sort-icon-width: var(
+    --valence-global-dimension-size-125
+  );
+  --valence-table-header-sort-icon-height: var(
+    --valence-global-dimension-size-150
+  );
+  --valence-table-header-min-height: var(--valence-global-dimension-size-150);
+  --valence-table-header-border-radius: 0px;
+  --valence-table-cell-text-size: var(--valence-alias-font-size-default);
+  --valence-table-cell-text-line-height: var(
+    --valence-alias-body-text-line-height
+  );
+  --valence-table-cell-text-font-weight: var(
+    --valence-global-font-weight-regular
+  );
+  --valence-table-cell-padding-x: var(--valence-global-dimension-size-200);
+  --valence-table-cell-padding-y: var(--valence-global-dimension-size-175);
+  --valence-table-cell-checkbox-padding-right: var(
+    --valence-global-dimension-size-100
+  );
+  --valence-table-cell-checkbox-vertical-alignment: middle;
+  --valence-table-cell-min-height: var(--valence-global-dimension-size-600);
+  --valence-table-cell-vertical-alignment: top;
+  --valence-table-cell-border-radius: 0px;
+  --valence-table-cell-line-height: var(--valence-alias-body-text-line-height);
+  --valence-table-cell-padding: var(--valence-global-dimension-static-size-200);
+  --valence-table-header-height: var(--valence-global-dimension-size-150);
+  --valence-table-header-sort-icon-margin-left: var(
+    --valence-global-dimension-static-size-50
+  );
+  --valence-table-cell-padding-vertical: var(
+    --valence-global-dimension-static-size-150
+  );
+  --valence-table-quiet-background-color: var(
+    --valence-alias-background-color-transparent
+  );
+  --valence-table-quiet-border-color: var(--valence-alias-border-color-mid);
+  --valence-table-quiet-divider-border-color: var(
+    --valence-alias-border-color-mid
+  );
+  --valence-table-quiet-row-background-color: var(
+    --valence-alias-background-color-transparent
+  );
+  --valence-table-quiet-header-text-color: var(
+    --valence-alias-label-text-color
+  );
+  --valence-table-quiet-header-sort-icon-color: var(
+    --valence-global-color-gray-600
+  );
+  --valence-table-quiet-header-background-color: var(
+    --valence-alias-background-color-transparent
+  );
+  --valence-table-quiet-cell-text-color: var(--valence-alias-text-color);
+  --valence-table-quiet-cell-background-color: var(
+    --valence-alias-background-color-transparent
+  );
+  --valence-table-quiet-row-background-color-hover: var(
+    --valence-alias-highlight-hover
+  );
+  --valence-table-quiet-header-text-color-hover: var(
+    --valence-alias-text-color-hover
+  );
+  --valence-table-quiet-header-sort-icon-color-hover: var(
+    --valence-alias-icon-color-hover
+  );
+  --valence-table-quiet-cell-background-color-hover: var(
+    --valence-global-color-gray-200
+  );
+  --valence-table-quiet-row-background-color-down: var(
+    --valence-alias-highlight-active
+  );
+  --valence-table-quiet-header-text-color-down: var(
+    --valence-alias-text-color-down
+  );
+  --valence-table-quiet-header-sort-icon-color-down: var(
+    --valence-alias-icon-color-down
+  );
+  --valence-table-quiet-cell-background-color-down: var(
+    --valence-global-color-gray-300
+  );
+  --valence-table-quiet-header-text-color-key-focus: var(
+    --valence-alias-text-color-hover
+  );
+  --valence-table-quiet-header-sort-icon-color-key-focus: var(
+    --valence-alias-icon-color-focus
+  );
+  --valence-table-quiet-row-background-color-key-focus: var(
+    --valence-alias-highlight-active
+  );
+  --valence-table-quiet-header-border-radius-key-focus: var(
+    --valence-alias-border-radius-regular
+  );
+  --valence-table-quiet-header-border-size-key-focus: var(
+    --valence-alias-border-size-thick
+  );
+  --valence-table-quiet-header-border-color-key-focus: var(
+    --valence-alias-border-color-focus
+  );
+  --valence-table-quiet-cell-border-radius-key-focus: var(
+    --valence-alias-border-radius-regular
+  );
+  --valence-table-quiet-cell-border-size-key-focus: var(
+    --valence-alias-border-size-thick
+  );
+  --valence-table-quiet-cell-border-color-key-focus: var(
+    --valence-alias-border-color-focus
+  );
+  --valence-table-quiet-row-background-color-selected: var(
+    --valence-alias-highlight-selected
+  );
+  --valence-table-quiet-cell-background-color-selected: var(
+    --valence-global-color-gray-200
+  );
+  --valence-table-quiet-row-background-color-selected-hover: var(
+    --valence-alias-highlight-selected-hover
+  );
+  --valence-table-quiet-cell-background-color-selected-hover: var(
+    --valence-global-color-gray-300
+  );
+  --valence-table-quiet-row-background-color-selected-key-focus: var(
+    --valence-alias-highlight-selected-hover
+  );
+  --valence-table-quiet-border-radius: 0px;
+  --valence-table-quiet-border-size: var(--valence-alias-border-size-thin);
+  --valence-table-quiet-border-y-size: 0px;
+  --valence-table-quiet-border-x-size: var(--valence-alias-border-size-thin);
+  --valence-table-quiet-divider-border-size: var(
+    --valence-alias-border-size-thin
+  );
+  --valence-table-quiet-header-text-size: var(
+    --valence-global-dimension-font-size-50
+  );
+  --valence-table-quiet-header-text-font-weight: var(
+    --valence-global-font-weight-bold
+  );
+  --valence-table-quiet-header-text-letter-spacing: var(
+    --valence-global-font-letter-spacing-medium
+  );
+  --valence-table-quiet-header-text-baseline: var(
+    --valence-global-dimension-size-150
+  );
+  --valence-table-quiet-header-text-line-height: var(
+    --valence-alias-heading-text-line-height
+  );
+  --valence-table-quiet-header-padding-x: var(
+    --valence-global-dimension-size-200
+  );
+  --valence-table-quiet-header-padding-y: var(
+    --valence-global-dimension-static-size-125
+  );
+  --valence-table-quiet-header-sort-icon-gap: var(
+    --valence-global-dimension-size-125
+  );
+  --valence-table-quiet-header-sort-icon-width: var(
+    --valence-global-dimension-size-125
+  );
+  --valence-table-quiet-header-sort-icon-height: var(
+    --valence-global-dimension-size-150
+  );
+  --valence-table-quiet-header-min-height: var(
+    --valence-global-dimension-size-150
+  );
+  --valence-table-quiet-header-border-radius: 0px;
+  --valence-table-quiet-cell-text-size: var(--valence-alias-font-size-default);
+  --valence-table-quiet-cell-text-line-height: var(
+    --valence-alias-body-text-line-height
+  );
+  --valence-table-quiet-cell-text-font-weight: var(
+    --valence-global-font-weight-regular
+  );
+  --valence-table-quiet-cell-padding-x: var(
+    --valence-global-dimension-size-200
+  );
+  --valence-table-quiet-cell-padding-y: var(
+    --valence-global-dimension-size-175
+  );
+  --valence-table-quiet-cell-checkbox-padding-right: var(
+    --valence-global-dimension-size-100
+  );
+  --valence-table-quiet-cell-checkbox-vertical-alignment: middle;
+  --valence-table-quiet-cell-min-height: var(
+    --valence-global-dimension-size-600
+  );
+  --valence-table-quiet-cell-vertical-alignment: top;
+  --valence-table-quiet-cell-border-radius: 0px;
+}
+
+.theme {
+  --valence-table-cell-compact-padding-y: var(
+    --valence-global-dimension-size-75
+  );
+  --valence-table-cell-regular-padding-y: var(
+    --valence-global-dimension-size-125
+  );
+  --valence-table-cell-spacious-padding-y: var(
+    --valence-global-dimension-size-175
+  );
+  --valence-table-row-border-radius: calc(
+    var(--valence-table-border-radius) - 1px
+  );
+  --valence-table-row-sticky-focus-indicator-width: 3px;
+}

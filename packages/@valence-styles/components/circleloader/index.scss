@@ -1,0 +1,115 @@
+@import "../commons/index.scss";
+@import "animation.scss";
+
+.CircleLoader {
+  display: inline-block;
+  width: var(--valence-loader-circle-medium-width);
+  height: var(--valence-loader-circle-medium-height);
+  position: relative;
+  direction: ltr;
+}
+.CircleLoader-track {
+  box-sizing: border-box;
+  width: calc(var(--valence-loader-circle-medium-width));
+  height: calc(var(--valence-loader-circle-medium-height));
+  border-style: solid;
+  border-width: var(--valence-loader-circle-medium-border-size);
+  border-radius: var(--valence-loader-circle-medium-width);
+}
+.CircleLoader-fills {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.CircleLoader-fill {
+  box-sizing: border-box;
+  width: calc(var(--valence-loader-circle-medium-width));
+  height: calc(var(--valence-loader-circle-medium-height));
+  border-style: solid;
+  border-width: var(--valence-loader-circle-medium-border-size);
+  border-radius: var(--valence-loader-circle-medium-width);
+}
+.CircleLoader-fillMask1,
+.CircleLoader-fillMask2 {
+  width: 50%;
+  height: 100%;
+  transform-origin: 100% center;
+  transform: rotate(180deg);
+  overflow: hidden;
+  position: absolute;
+}
+.CircleLoader-fillSubMask1,
+.CircleLoader-fillSubMask2 {
+  width: 100%;
+  height: 100%;
+  transform-origin: 100% center;
+  overflow: hidden;
+  transform: rotate(-180deg);
+}
+.CircleLoader-fillMask2 {
+  transform: rotate(0deg);
+}
+
+.CircleLoader--small {
+  width: var(--valence-loader-circle-small-width);
+  height: var(--valence-loader-circle-small-height);
+
+  .CircleLoader-track {
+    width: calc(var(--valence-loader-circle-small-width));
+    height: calc(var(--valence-loader-circle-small-height));
+    border-style: solid;
+    border-width: var(--valence-loader-circle-small-border-size);
+    border-radius: var(--valence-loader-circle-small-width);
+  }
+  .CircleLoader-fill {
+    width: calc(var(--valence-loader-circle-small-width));
+    height: calc(var(--valence-loader-circle-small-height));
+    border-style: solid;
+    border-width: var(--valence-loader-circle-small-border-size);
+    border-radius: var(--valence-loader-circle-small-width);
+  }
+}
+
+.CircleLoader--large {
+  width: var(--valence-loader-circle-large-width);
+  height: var(--valence-loader-circle-large-height);
+
+  .CircleLoader-track {
+    width: calc(var(--valence-loader-circle-large-width));
+    height: calc(var(--valence-loader-circle-large-height));
+    border-style: solid;
+    border-width: var(--valence-loader-circle-large-border-size);
+    border-radius: var(--valence-loader-circle-large-width);
+  }
+
+  .CircleLoader-fill {
+    width: calc(var(--valence-loader-circle-large-width));
+    height: calc(var(--valence-loader-circle-large-height));
+    border-style: solid;
+    border-width: var(--valence-loader-circle-large-border-size);
+    border-radius: var(--valence-loader-circle-large-width);
+  }
+}
+
+.CircleLoader--indeterminate {
+  .CircleLoader-fills {
+    will-change: transform;
+    transform: translateZ(0);
+    animation: valence-fills-rotate 1s infinite
+      cubic-bezier(0.25, 0.78, 0.48, 0.89);
+    transform-origin: center;
+  }
+  .CircleLoader-fillSubMask1 {
+    will-change: transform;
+    transform: translateZ(0);
+    animation: valence-fill-mask-1 1s infinite linear;
+  }
+
+  .CircleLoader-fillSubMask2 {
+    will-change: transform;
+    transform: translateZ(0);
+    animation: valence-fill-mask-2 1s infinite linear;
+  }
+}

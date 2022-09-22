@@ -1,0 +1,33 @@
+.theme {
+  --valence-tray-underlay-background-color: var(--valence-alias-background-color-modal-overlay);
+  --valence-tray-padding-x: var(--valence-global-dimension-static-size-100);
+  --valence-tray-padding-y: 0;
+  --valence-tray-width: 100%;
+  --valence-tray-max-width: 375px;
+  --valence-tray-min-height: var(--valence-global-dimension-static-size-800);
+  --valence-tray-border-radius: 0px;
+  --valence-tray-full-width-border-radius: var(--valence-alias-border-radius-regular);
+  --valence-tray-background-entry-animation-delay: 0ms;
+  --valence-tray-background-entry-animation-duration: var(--valence-global-animation-duration-600);
+  --valence-tray-background-entry-animation-ease: var(--valence-global-animation-linear);
+  --valence-tray-background-entry-animation-properties: opacity;
+  --valence-tray-entry-animation-delay: var(--valence-global-animation-duration-200);
+  --valence-tray-entry-animation-duration: var(--valence-global-animation-duration-500);
+  --valence-tray-entry-animation-ease: var(--valence-global-animation-ease-out);
+  --valence-tray-entry-animation-distance: var(--valence-global-dimension-size-250);
+  --valence-tray-entry-animation-properties: opacity, distance;
+  --valence-tray-background-exit-animation-delay: var(--valence-global-animation-duration-200);
+  --valence-tray-background-exit-animation-duration: var(--valence-global-animation-duration-300);
+  --valence-tray-background-exit-animation-ease: var(--valence-global-animation-linear);
+  --valence-tray-background-exit-animation-properties: opacity;
+  --valence-tray-exit-animation-delay: 0ms;
+  --valence-tray-exit-animation-duration: var(--valence-global-animation-duration-100);
+  --valence-tray-exit-animation-ease: var(--valence-global-animation-ease-in);
+  --valence-tray-exit-animation-distance: 0;
+  --valence-tray-exit-animation-properties: opacity, distance;
+}
+
+.theme {
+  /* Bug: this must be 0ms, not 0 */
+  --valence-dialog-exit-animation-delay: 0ms;
+}

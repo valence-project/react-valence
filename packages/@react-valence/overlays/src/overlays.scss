@@ -1,0 +1,20 @@
+.Popover {
+  /* This makes the contents of popovers focusable immediately, without waiting
+     a frame for animations to start. */
+  &.Popover {
+    visibility: visible;
+  }
+
+  .Dialog-content {
+    max-height: initial;
+  }
+}
+
+.Modal-wrapper,
+.Modal {
+  visibility: visible;
+}
+
+.Tray {
+  visibility: visible;
+}

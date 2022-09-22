@@ -1,0 +1,63 @@
+.BarLoader {
+  .BarLoader-fill {
+    background: var(--valence-barloader-large-track-fill-color);
+  }
+
+  .BarLoader-track {
+    background-color: var(--valence-barloader-large-track-color);
+  }
+
+  &.BarLoader--overBackground {
+    .BarLoader-fill {
+      background: var(
+        --valence-barloader-large-over-background-track-fill-color
+      );
+    }
+
+    .BarLoader-label,
+    .BarLoader-percentage {
+      color: var(--valence-barloader-large-over-background-track-fill-color);
+    }
+
+    .BarLoader-track {
+      background-color: var(
+        --valence-barloader-large-over-background-track-color
+      );
+    }
+  }
+  &.is-positive {
+    .BarLoader-fill {
+      background: var(--valence-meter-large-track-color-positive);
+    }
+  }
+  &.is-warning {
+    .BarLoader-fill {
+      background: var(--valence-meter-large-track-color-warning);
+    }
+  }
+  &.is-critical {
+    .BarLoader-fill {
+      background: var(--valence-meter-large-track-color-critical);
+    }
+  }
+}
+.BarLoader-label,
+.BarLoader-percentage {
+  color: var(--valence-fieldlabel-text-color);
+}
+.BarLoader-label,
+.BarLoader-percentage {
+  color: var(--valence-fieldlabel-text-color);
+}
+.BarLoader-label,
+.BarLoader-percentage {
+  color: var(--valence-fieldlabel-text-color);
+}
+@media (forced-colors: active) {
+  .BarLoader-track {
+    forced-color-adjust: none;
+    --valence-barloader-large-track-fill-color: ButtonText;
+    --valence-barloader-large-track-color: ButtonFace;
+    border: 1px solid ButtonText;
+  }
+}

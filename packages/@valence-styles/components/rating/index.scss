@@ -1,0 +1,107 @@
+@import "../commons/index.scss";
+
+/* A solid star */
+@mixin valence-Rating-filledStar {
+  .Rating-starActive {
+    display: block;
+  }
+  .Rating-starInactive {
+    display: none;
+  }
+}
+
+/* A star with an outline only */
+@mixin valence-Rating-strokedStar {
+  .Rating-starActive {
+    display: none;
+  }
+  .Rating-starInactive {
+    display: block;
+  }
+}
+
+.Rating {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+
+  width: calc(
+    var(--valence-rating-icon-width) * var(--valence-rating-icon-count)
+  );
+
+  border-radius: var(--valence-rating-border-radius);
+
+  cursor: default;
+
+  &.is-disabled,
+  &.is-readOnly {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  /* When the entire component is hovered, show all solid icons */
+  &:hover {
+    .Rating-icon {
+      @include valence-Rating-filledStar;
+    }
+  }
+}
+
+.Rating-input {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0.0001;
+  pointer-events: none;
+}
+
+.Rating-icon {
+  position: relative;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: var(--valence-rating-icon-width);
+  height: var(--valence-icon-star-height);
+  padding: var(--valence-rating-icon-padding-y) 0;
+
+  @include valence-Rating-strokedStar;
+
+  &.is-selected {
+    @include valence-Rating-filledStar;
+  }
+
+  &.is-currentValue {
+    &:after {
+      border-radius: var(--valence-rating-indicator-border-radius);
+      content: "";
+      height: var(--valence-rating-indicator-height);
+      position: absolute;
+      bottom: var(--valence-rating-indicator-offset);
+      left: calc(
+        (
+            var(--valence-rating-icon-width) -
+              var(--valence-rating-indicator-width)
+          ) / 2
+      );
+      right: calc(
+        (
+            var(--valence-rating-icon-width) -
+              var(--valence-rating-indicator-width)
+          ) / 2
+      );
+    }
+  }
+
+  /* All stars following the hovered star */
+  &:hover ~ .Rating-icon {
+    @include valence-Rating-strokedStar;
+  }
+}
+
+.Rating-starActive,
+.Rating-starInactive {
+  width: var(--valence-icon-star-width);
+  height: var(--valence-icon-star-width);
+  margin: 0 auto;
+}

@@ -1,0 +1,61 @@
+.Steplist {
+  /* Default Label Style is 'incomplete' */
+  .Steplist-label {
+    color: var(--valence-steplist-incomplete-label-text-color);
+  }
+
+  /* Default Marker Style is 'incomplete' */
+  .Steplist-marker {
+    border-color: var(--valence-steplist-incomplete-marker-color);
+  }
+
+  /* Default Line Style is 'incomplete' */
+  .Steplist-segment {
+    border-bottom-color: var(--valence-steplist-incomplete-segment-color);
+  }
+
+  .Steplist-item {
+    /* Step Completed */
+    &.is-complete {
+      .Steplist-label {
+        color: var(--valence-steplist-complete-label-text-color);
+      }
+      .Steplist-marker {
+        background-color: var(--valence-steplist-complete-marker-color);
+      }
+    }
+
+    /* Step Selected aka Current */
+    &.is-selected {
+      .Steplist-label {
+        color: var(--valence-steplist-current-label-text-color);
+      }
+      .Steplist-marker {
+        background-color: var(--valence-steplist-current-marker-color);
+      }
+    }
+
+    &.is-complete,
+    &.is-selected {
+      .Steplist-segment {
+        border-bottom-color: var(--valence-steplist-complete-segment-color);
+      }
+    }
+  }
+
+  /* Interactivity Styles */
+  &.Steplist--interactive {
+    .Steplist-item {
+      /* Step Focused */
+      &:focus,
+      &.is-focused,
+      *:focus {
+        .Steplist-marker {
+          background-color: var(
+            --valence-steplist-current-marker-color-key-focus
+          );
+        }
+      }
+    }
+  }
+}

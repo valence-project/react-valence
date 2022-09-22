@@ -1,0 +1,8 @@
+.DropIndicator {
+  background: var(--valence-dropindicator-border-color);
+
+  &:before,
+  &:after {
+    border-color: var(--valence-dropindicator-circle-border-color);
+  }
+}

@@ -1,0 +1,49 @@
+.Tooltip {
+  background-color: var(--valence-tooltip-background-color);
+
+  color: var(--valence-tooltip-text-color);
+}
+
+.Tooltip-tip {
+  border-top-color: var(--valence-tooltip-background-color);
+}
+
+.Tooltip--negative,
+/** @deprecated */.Tooltip--error {
+  background-color: var(--valence-tooltip-negative-background-color);
+
+  .Tooltip-tip {
+    border-top-color: var(--valence-tooltip-negative-background-color);
+  }
+}
+
+.Tooltip--info,
+/** @deprecated */.Tooltip--help {
+  background-color: var(--valence-tooltip-info-background-color);
+
+  .Tooltip-tip {
+    border-top-color: var(--valence-tooltip-info-background-color);
+  }
+}
+
+.Tooltip--positive,
+/** @deprecated */.Tooltip--success {
+  background-color: var(--valence-tooltip-positive-background-color);
+
+  .Tooltip-tip {
+    border-top-color: var(--valence-tooltip-positive-background-color);
+  }
+}
+
+@media (forced-colors: active) {
+  .Tooltip {
+    border: 1px solid transparent;
+  }
+  .Tooltip-tip {
+    forced-color-adjust: none;
+    --valence-tooltip-background-color: CanvasText;
+    --valence-tooltip-negative-background-color: Highlight;
+    --valence-tooltip-info-background-color: Highlight;
+    --valence-tooltip-positive-background-color: Highlight;
+  }
+}

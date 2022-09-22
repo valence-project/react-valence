@@ -1,0 +1,72 @@
+{
+  "name": "@react-valence/dialog",
+  "version": "0.0.1",
+  "description": "react-valence dialog component",
+  "license": "MIT",
+  "module": "index.ts",
+  "types": "dist/types.d.ts",
+  "source": "src/index.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
+  "targets": {
+    "main": {
+      "includeNodeModules": [
+        "@valence-styles/components"
+      ]
+    },
+    "module": {
+      "includeNodeModules": [
+        "@valence-styles/components"
+      ]
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/valence-project/react-valence.git"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.6.2",
+    "@react-aria/dialog": "^3.3.1",
+    "@react-aria/focus": "^3.8.0",
+    "@react-aria/i18n": "^3.6.0",
+    "@react-aria/interactions": "^3.11.0",
+    "@react-aria/overlays": "^3.10.1",
+    "@react-aria/utils": "^3.13.3",
+    "@react-stately/overlays": "^3.4.1",
+    "@react-stately/utils": "^3.5.1",
+    "@react-valence/button": "^0.0.1",
+    "@react-valence/buttongroup": "^0.0.1",
+    "@react-valence/divider": "^0.0.1",
+    "@react-valence/layout": "^0.0.1",
+    "@react-valence/overlays": "^0.0.1",
+    "@react-valence/text": "^0.0.1",
+    "@react-valence/utils": "^0.0.1",
+    "@react-valence/view": "^0.0.1",
+    "@types-valence/button": "^0.0.1",
+    "@types-valence/dialog": "^0.0.1",
+    "@types-valence/shared": "^0.0.1",
+    "@valence-icons/ui": "^0.0.1"
+  },
+  "devDependencies": {
+    "@react-valence/test-utils": "^0.0.1",
+    "@valence-styles/components": "^0.0.1"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0-rc.1 || ^18.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0-rc.1 || ^18.0.0",
+    "@react-valence/provider": "^0.0.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "pyramids @react-valence/dialog"
+  },
+  "main": "./dist/main.js",
+  "gitHead": "e4cabd25e57ea3c82716af710d87f10f1cd2359d"
+}

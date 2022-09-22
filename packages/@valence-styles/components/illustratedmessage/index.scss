@@ -1,0 +1,54 @@
+.IllustratedMessage {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  > * {
+    order: 4;
+  }
+
+  > svg {
+    order: 1;
+    margin-bottom: var(
+      --valence-illustrated-message-illustration-margin-bottom
+    );
+  }
+
+  .IllustratedMessage-heading {
+    order: 2;
+    max-width: var(--valence-illustrated-message-heading-max-width);
+    margin: var(--valence-illustrated-message-heading-margin);
+
+    font-size: var(--valence-heading-quiet-2-text-size);
+    font-weight: var(--valence-heading-quiet-2-text-font-weight);
+    line-height: var(--valence-heading-quiet-2-text-line-height);
+    font-style: var(--valence-heading-quiet-2-text-font-style);
+    letter-spacing: var(--valence-heading-quiet-2-text-letter-spacing);
+    text-transform: var(--valence-heading-quiet-2-text-transform);
+  }
+
+  .IllustratedMessage-description {
+    order: 3;
+    max-width: var(--valence-illustrated-message-description-max-width);
+    margin: var(--valence-illustrated-message-description-margin);
+
+    font-style: var(--valence-body-4-emphasis-text-font-style);
+
+    font-size: var(--valence-body-4-text-size);
+    font-weight: var(--valence-body-4-text-font-weight);
+    line-height: var(--valence-body-4-text-line-height);
+    letter-spacing: var(--valence-body-4-text-letter-spacing);
+    text-transform: var(--valence-body-4-text-transform);
+  }
+}
+
+.IllustratedMessage--cta {
+  .IllustratedMessage-description {
+    font-style: normal;
+  }
+}

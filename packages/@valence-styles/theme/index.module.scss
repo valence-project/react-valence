@@ -1,0 +1,121 @@
+@import "valence-accordion.css";
+@import "valence-actionbutton.css";
+@import "valence-actionbuttongroup.css";
+@import "valence-actiongroup.css";
+@import "valence-alert.css";
+@import "valence-artboard.css";
+@import "valence-asset.css";
+@import "valence-assetlist.css";
+@import "valence-avatar.css";
+@import "valence-badge.css";
+@import "valence-banner.css";
+@import "valence-barloader.css";
+@import "valence-body.css";
+@import "valence-breadcrumb.css";
+@import "valence-button.css";
+@import "valence-buttongroup.css";
+@import "valence-calendar.css";
+@import "valence-card.css";
+@import "valence-checkbox.css";
+@import "valence-circleloader.css";
+@import "valence-clearbutton.css";
+@import "valence-coachmark.css";
+@import "valence-code.css";
+@import "valence-colorarea.css";
+@import "valence-colorhandle.css";
+@import "valence-colorloupe.css";
+@import "valence-colorslider.css";
+@import "valence-colorwheel.css";
+@import "valence-column.css";
+@import "valence-combobox.css";
+@import "valence-cyclebutton.css";
+@import "valence-detail.css";
+@import "valence-dial.css";
+@import "valence-dialog.css";
+@import "valence-display.css";
+@import "valence-divider.css";
+@import "valence-drag.css";
+@import "valence-dragbar.css";
+@import "valence-dragthumb.css";
+@import "valence-drawer.css";
+@import "valence-dropdown.css";
+@import "valence-dropindicator.css";
+@import "valence-dropzone.css";
+@import "valence-fieldbutton.css";
+@import "valence-fieldlabel.css";
+@import "valence-flyout.css";
+@import "valence-heading.css";
+@import "valence-helptext.css";
+@import "valence-icon.css";
+@import "valence-illustratedmessage.css";
+@import "valence-inlinealert.css";
+@import "valence-inputgroup.css";
+@import "valence-label.css";
+@import "valence-link.css";
+@import "valence-listitem.css";
+@import "valence-loader.css";
+@import "valence-logicbutton.css";
+@import "valence-meter.css";
+@import "valence-menu.css";
+@import "valence-modal.css";
+@import "valence-opacitycheckerboard.css";
+@import "valence-pagination.css";
+@import "valence-panel.css";
+@import "valence-picker.css";
+@import "valence-popover.css";
+@import "valence-progressbar.css";
+@import "valence-progresscircle-indeterminate.css";
+@import "valence-progresscircle.css";
+@import "valence-quickactions.css";
+@import "valence-radio.css";
+@import "valence-rail.css";
+@import "valence-rating.css";
+@import "valence-row.css";
+@import "valence-rule.css";
+@import "valence-scrollbar.css";
+@import "valence-search.css";
+@import "valence-searchwithin.css";
+@import "valence-selectlist.css";
+@import "valence-sidenav.css";
+@import "valence-slider.css";
+@import "valence-splitbutton.css";
+@import "valence-splitview.css";
+@import "valence-statuslight.css";
+@import "valence-steplist.css";
+@import "valence-stepper.css";
+@import "valence-subheading.css";
+@import "valence-switch.css";
+@import "valence-table.css";
+@import "valence-tabs.css";
+@import "valence-tag.css";
+@import "valence-taggroup.css";
+@import "valence-textarea.css";
+@import "valence-textfield.css";
+@import "valence-toast.css";
+@import "valence-tool.css";
+@import "valence-toolgroup.css";
+@import "valence-tooltip.css";
+@import "valence-tray.css";
+@import "valence-treeview.css";
+@import "valence-underlay.css";
+@import "valence-well.css";
+
+.theme {
+  --valence-padding: var(--valence-global-dimension-size-150);
+  --valence-margin: var(--valence-padding);
+  --valence-border-radius: var(--valence-global-dimension-size-50);
+
+  --valence-component-single-line-height: var(
+    --valence-alias-single-line-height
+  );
+  --valence-component-single-line-width: var(--valence-alias-single-line-width);
+}
+
+// page
+
+.theme {
+  //background-color: var(--valence-alias-background-color-default);
+
+  /* Prevent tap highlights */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}

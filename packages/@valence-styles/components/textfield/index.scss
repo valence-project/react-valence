@@ -1,0 +1,255 @@
+@import "../commons/index.scss";
+
+.Textfield {
+  display: inline-flex;
+  position: relative;
+  min-width: var(--valence-textfield-min-width);
+  width: var(--valence-component-single-line-width);
+
+  &.Textfield--quiet.Textfield--multiline .Textfield-input {
+    height: var(--valence-textfield-height);
+    min-height: var(--valence-textfield-height);
+    overflow-x: hidden;
+  }
+}
+
+.Textfield-input {
+  /* box */
+  box-sizing: border-box;
+  border: var(--valence-textfield-border-size) solid;
+  border-radius: var(--valence-textfield-border-radius);
+
+  /* Apply padding by default to center text, giving consistency between input and textfield */
+  padding: var(--valence-textfield-padding-top) var(--valence-textfield-padding-x) var(--valence-textfield-padding-bottom) calc(var(--valence-textfield-padding-x) - 1px);
+  /* Use padding instead of text-indent because text-indent does not left align the text in Edge browser  */
+  text-indent: 0;
+
+  inline-size: 100%;
+  height: var(--valence-textfield-height);
+
+  vertical-align: top; /* used to align them correctly in forms. */
+
+  /* Remove the margin for input in Firefox and Safari. */
+  margin: 0;
+
+  /* Show the overflow for input in Edge. */
+  overflow: visible;
+
+  /* Change the input font styles in all browsers */
+  @include i18nFontFamily;
+  font-size: var(--valence-textfield-text-size);
+  line-height: var(--valence-textfield-text-line-height);
+  text-overflow: ellipsis;
+
+  transition: border-color var(--valence-global-animation-duration-100) ease-in-out,
+              box-shadow var(--valence-global-animation-duration-100) ease-in-out;
+
+  outline: none;
+
+  -webkit-appearance: none;
+  /*
+    Removes the native spin buttons in Firefox; -moz-appearance: none results in spinners.
+    This has to come after -webkit-appearance or it gets overridden (#214)
+    Details: http://stackoverflow.com/questions/23372903/hide-spinner-in-input-number-firefox-29
+
+    Sets the opacity to 1 as normalize.css sets an opacity to placeholders
+    Details: https://github.com/csstools/normalize.css/blob/master/normalize.css#L297
+  */
+  -moz-appearance: textfield;
+
+  &:placeholder,
+  &.is-placeholder {
+    font-weight: var(--valence-textfield-placeholder-text-font-weight);
+    font-style: var(--valence-textfield-placeholder-text-font-style);
+    font-synthesis: none;
+    transition: color var(--valence-global-animation-duration-100) ease-in-out;
+    opacity: 1;
+  }
+
+  /* added to work with Edge, note, it needs double ::
+   * not single : which is what autoprefixer will add
+   */
+  &::-ms-input-placeholder {
+    font-weight: var(--valence-textfield-placeholder-text-font-weight);
+    font-style: var(--valence-textfield-placeholder-text-font-style);
+    transition: color var(--valence-global-animation-duration-100) ease-in-out;
+    opacity: 1;
+  }
+
+  /* placeholder gets clipped for synthetic italics, we rely on font-synthesis once
+   * chrome supports it https://bugs.chromium.org/p/chromium/issues/detail?id=509989
+   */
+  &:lang(ja), &:lang(zh), &:lang(ko), &:lang(ar), &:lang(he) {
+    &:placeholder,
+    &.is-placeholder {
+       font-style: normal;
+    }
+    &::-ms-input-placeholder { /* added to work with Edge, same as above */
+       font-style: normal;
+    }
+  }
+
+  &:hover {
+    &:placeholder {
+      font-weight: var(--valence-textfield-placeholder-text-font-weight);
+    }
+  }
+
+  &:disabled {
+    /* Disable the resize functionality when disabled */
+    resize: none;
+
+    /* The opacity must be set to 1 */
+    opacity: 1;
+    &:placeholder,
+    &.is-placeholder {
+      font-weight: var(--valence-textfield-placeholder-text-font-weight);
+    }
+  }
+
+  /* Remove the native clear button in IE */
+  /* http://stackoverflow.com/questions/14007655/remove-ie10s-clear-field-x-button-on-certain-inputs */
+  &::-ms-clear {
+    width: 0;
+    height: 0;
+  }
+
+  /* removes the native spin buttons */
+  /* http://stackoverflow.com/questions/23372903/hide-spinner-in-input-number-firefox-29 */
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* removes the red border that appears in Firefox */
+  &:-moz-ui-invalid {
+    box-shadow: none;
+  }
+
+  .Textfield--multiline {
+    height: var(--valence-textfield-multiline-height);
+    min-height: var(--valence-textfield-multiline-min-height);
+    padding: var(--valence-textfield-multiline-padding-top) var(--valence-textfield-multiline-padding-x) var(--valence-textfield-multiline-padding-bottom) calc(var(--valence-textfield-multiline-padding-x) - 1px);
+    resize: none;
+
+    /* Remove the default vertical scrollbar for textarea in IE. */
+    overflow: auto;
+  }
+
+  .Textfield--quiet {
+    border-radius: var(--valence-textfield-quiet-border-radius);
+    border-width: 0 0 var(--valence-textfield-quiet-border-size) 0;
+
+    /* removes the side padding to align the text properly */
+    padding-inline-start: var(--valence-textfield-quiet-padding-x);
+    padding-inline-end: var(--valence-textfield-quiet-padding-x);
+  }
+
+  .Textfield--valid {
+    padding-inline-end: calc(var(--valence-textfield-padding-x) + var(--valence-icon-checkmark-medium-width) + var(--valence-textfield-icon-margin-left));
+  }
+
+  .Textfield--invalid {
+    padding-inline-end: calc(var(--valence-textfield-padding-x) + var(--valence-icon-alert-medium-width) + var(--valence-textfield-icon-margin-left));
+  }
+
+  .Textfield--loadable {
+    padding-inline-end: calc(var(--valence-textfield-padding-x) + var(--valence-icon-alert-medium-width) + var(--valence-textfield-icon-margin-left));
+  }
+}
+
+.Textfield-wrapper .Textfield--multiline {
+  /* when textarea is inside a label wrapper, make it flex to take up remaining height. */
+  flex: 1 1 auto;
+  min-height: 0;
+
+  &.Textfield--quiet {
+    /* quiet textfields grow based on text content, up to the height of the container. */
+    /* but we need to keep help text next to input */
+    flex: 0 1 auto;
+    max-height: 100%;
+
+    .Textfield-input {
+      /* make textarea scroll when reaching height of container */
+      max-height: 100%;
+    }
+  }
+}
+
+.Textfield-validationIcon {
+  /* TODO: Confirm if this is ok for the validation icon sizing
+    Note that the sizes are a bit different when compared with old background icons(more noticable for checkmark)
+  */
+  position: absolute;
+  padding-inline-end: calc(var(--valence-textfield-padding-x, var(--valence-global-dimension-size-150)) / 2);
+  pointer-events: all;
+  transition: color var(--valence-global-animation-duration-100) ease-in-out;
+
+  .Textfield--quiet {
+    padding-inline-end: 0;
+  }
+}
+
+.Textfield--invalid .Textfield-validationIcon {
+  width: var(--valence-icon-alert-medium-width);
+  height: var(--valence-icon-alert-medium-height);
+  top: calc(calc(var(--valence-textfield-icon-frame) / 2) - calc(var(--valence-icon-alert-medium-height) / 2));
+  inset-inline-end: calc(calc(var(--valence-textfield-icon-frame) / 2) - calc(var(--valence-icon-alert-medium-width) / 2));
+}
+.Textfield--valid .Textfield-validationIcon {
+  width: var(--valence-icon-checkmark-medium-width);
+  height: var(--valence-icon-checkmark-medium-height);
+  top: calc(calc(var(--valence-textfield-icon-frame) / 2) - calc(var(--valence-icon-checkmark-medium-height) / 2));
+  inset-inline-end: var(--valence-global-dimension-size-150);
+}
+
+/* styles the left icon for textfield, assumes usage of workflow icon sizing (18px by 18px) */
+.Textfield-icon {
+  display: block;
+  position: absolute;
+  height: var(--valence-icon-info-medium-height);
+  width: var(--valence-icon-info-medium-width);
+  /* This has a named variable in a future update of spectrum-css. */
+  inset-inline-start: var(--valence-global-dimension-size-150);
+  top: var(--valence-global-dimension-size-85);
+  transition: fill var(--valence-global-animation-duration-100) ease-in-out;
+}
+
+/* styles the textfield properly if the left icon is provided */
+.Textfield-inputIcon {
+  /* Use padding instead of text-indent so long strings don't overlap the icon */
+  /* These values have real names in a spectrum-css update, when we update, use those. */
+  padding-inline-start: calc(
+    var(--valence-global-dimension-size-150) +
+    var(--valence-global-dimension-size-225) +
+    var(--valence-global-dimension-size-65)
+  );
+
+  .Textfield--quiet {
+    padding-inline-start: calc(var(--valence-global-dimension-size-100) + var(--valence-icon-info-medium-width));
+
+    /* Since quiet button has no left padding, push the icon all the way to the left */
+    & ~ .Textfield-icon {
+      inset-inline-start: 0;
+    }
+  }
+
+  &.Textfield--multiline {
+    height: var(--valence-textfield-height);
+    min-height: var(--valence-textfield-height);
+  }
+}
+
+
+/* same positioning as invalid icon */
+.Textfield--loadable .Textfield-circleLoader {
+  position: absolute;
+  top: calc(calc(var(--valence-textfield-icon-frame) / 2) - calc(var(--valence-loader-circle-small-width) / 2));
+  /* can't use padding right since it breaks the circle loader so add here */
+  inset-inline-end: calc(calc(calc(var(--valence-textfield-icon-frame) / 2) - calc(var(--valence-icon-alert-medium-width) / 2)) + calc(var(--valence-textfield-padding-x, var(--valence-global-dimension-size-150)) / 2));
+
+  .Textfield--quiet {
+    padding-inline-end: 0;
+  }
+}

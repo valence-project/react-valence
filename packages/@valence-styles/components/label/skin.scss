@@ -1,0 +1,41 @@
+.Label {
+  color: var(--valence-label-colored-text-color);
+}
+
+.Label--inactive,
+.Label--grey {
+  background-color: var(--valence-label-colored-gray-background-color);
+}
+
+.Label--red {
+  background-color: var(--valence-label-colored-red-background-color);
+}
+
+.Label--orange,
+.Label--or {
+  background-color: var(--valence-label-colored-orange-background-color);
+}
+
+.Label--yellow {
+  background-color: var(--valence-label-colored-yellow-background-color);
+}
+
+.Label--seafoam {
+  background-color: var(--valence-label-colored-seafoam-background-color);
+}
+
+.Label--green {
+  /* this color is not accessible in dark mode */
+  /* background-color: var(--valence-label-colored-green-background-color); */
+  background-color: var(--valence-global-color-static-green-700);
+}
+
+.Label--blue,
+.Label--active,
+.Label--and {
+  background-color: var(--valence-label-colored-blue-background-color);
+}
+
+.Label--fuchsia {
+  background-color: var(--valence-label-colored-fuchsia-background-color);
+}

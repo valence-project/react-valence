@@ -1,0 +1,54 @@
+.Link {
+  color: var(--valence-link-text-color);
+  &:hover {
+    color: var(--valence-link-text-color-hover);
+  }
+
+  &:active {
+    color: var(--valence-link-text-color-down);
+  }
+
+  &.focus-ring {
+    color: var(--valence-link-text-color-key-focus);
+  }
+
+  &.is-disabled {
+    color: var(--valence-link-text-color-disabled);
+  }
+}
+
+.Link--secondary {
+  color: inherit;
+
+  &:hover {
+    color: inherit;
+  }
+
+  &:active {
+    color: inherit;
+  }
+
+  &:focus {
+    color: inherit;
+  }
+}
+
+.Link--overBackground {
+  color: var(--valence-link-over-background-text-color);
+
+  &:hover {
+    color: var(--valence-link-over-background-text-color-hover);
+  }
+
+  &:active {
+    color: var(--valence-link-over-background-text-color-down);
+  }
+
+  &:focus {
+    color: var(--valence-link-over-background-text-color-key-focus);
+  }
+
+  &.is-disabled {
+    color: var(--valence-link-over-background-text-color-disabled);
+  }
+}

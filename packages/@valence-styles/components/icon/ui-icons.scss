@@ -1,0 +1,178 @@
+
+/* Hide UI icons on older browsers with SVG 1.1 implementations */
+.valence--medium {
+  .UIIcon--large {
+    display: none;
+  }
+  .UIIcon--medium {
+    display: inline;
+  }
+}
+
+.valence--large {
+  .UIIcon--medium {
+    display: none;
+  }
+  .UIIcon--large {
+    display: inline;
+  }
+}
+
+/* Hide UI icons on browsers that implement SVG 2 correctly (Firefox 56+) */
+.valence--large {
+  x--ui-icon-large-display: block;
+  x--ui-icon-medium-display: none;
+}
+.valence--medium {
+  x--ui-icon-medium-display: block;
+  x--ui-icon-large-display: none;
+}
+
+.UIIcon--large {
+  display: xvar(--ui-icon-large-display);
+}
+.UIIcon--medium {
+  display: xvar(--ui-icon-medium-display);
+}
+
+/* UI Icons */
+.UIIcon-AlertMedium {
+  inline-size: var(--valence-icon-alert-medium-width);
+  block-size: var(--valence-icon-alert-medium-height);
+}
+.UIIcon-AlertSmall {
+  inline-size: var(--valence-icon-alert-small-width);
+  block-size: var(--valence-icon-alert-small-height);
+}
+.UIIcon-ArrowDownSmall {
+  inline-size: var(--valence-icon-arrow-down-small-width);
+  block-size: var(--valence-icon-arrow-down-small-height);
+}
+.UIIcon-ArrowLeftMedium {
+  inline-size: var(--valence-icon-arrow-left-medium-width);
+  block-size: var(--valence-icon-arrow-left-medium-height);
+}
+.UIIcon-Asterisk {
+  inline-size: var(--valence-fieldlabel-asterisk-size);
+  block-size: var(--valence-fieldlabel-asterisk-size);
+}
+.UIIcon-CheckmarkMedium {
+  inline-size: var(--valence-icon-checkmark-medium-width);
+  block-size: var(--valence-icon-checkmark-medium-height);
+}
+.UIIcon-CheckmarkSmall {
+  inline-size: var(--valence-icon-checkmark-small-width);
+  block-size: var(--valence-icon-checkmark-small-height);
+}
+.UIIcon-ChevronDownMedium {
+  inline-size: var(--valence-icon-chevron-down-medium-width);
+  block-size: var(--valence-icon-chevron-down-medium-height);
+}
+.UIIcon-ChevronDownSmall {
+  inline-size: var(--valence-icon-chevron-down-small-width);
+  block-size: var(--valence-icon-chevron-down-small-height);
+}
+.UIIcon-ChevronLeftLarge {
+  inline-size: var(--valence-icon-chevron-left-large-width);
+  block-size: var(--valence-icon-chevron-left-large-height);
+}
+.UIIcon-ChevronLeftMedium {
+  inline-size: var(--valence-icon-chevron-left-medium-width);
+  block-size: var(--valence-icon-chevron-left-medium-height);
+}
+.UIIcon-ChevronRightLarge {
+  inline-size: var(--valence-icon-chevron-right-large-width);
+  block-size: var(--valence-icon-chevron-right-large-height);
+}
+.UIIcon-ChevronRightMedium {
+  inline-size: var(--valence-icon-chevron-right-medium-width);
+  block-size: var(--valence-icon-chevron-right-medium-height);
+}
+.UIIcon-ChevronRightSmall {
+  inline-size: var(--valence-icon-chevron-right-small-width);
+  block-size: var(--valence-icon-chevron-right-small-height);
+}
+.UIIcon-ChevronUpSmall {
+  inline-size: var(--valence-icon-chevron-up-small-width);
+  block-size: var(--valence-icon-chevron-up-small-height);
+}
+.UIIcon-CornerTriangle {
+  inline-size: var(--valence-icon-cornertriangle-width);
+  block-size: var(--valence-icon-cornertriangle-height);
+}
+.UIIcon-CrossLarge {
+  inline-size: var(--valence-icon-cross-large-width);
+  block-size: var(--valence-icon-cross-large-height);
+}
+.UIIcon-CrossMedium {
+  inline-size: var(--valence-icon-cross-medium-width);
+  block-size: var(--valence-icon-cross-medium-height);
+}
+.UIIcon-CrossSmall {
+  inline-size: var(--valence-icon-cross-small-width);
+  block-size: var(--valence-icon-cross-small-height);
+}
+.UIIcon-DashSmall {
+  inline-size: var(--valence-icon-dash-small-width);
+  block-size: var(--valence-icon-dash-small-height);
+}
+.UIIcon-DoubleGripper {
+  inline-size: var(--valence-icon-doublegripper-width);
+  block-size: var(--valence-icon-doublegripper-height);
+}
+.UIIcon-FolderBreadcrumb {
+  inline-size: var(--valence-icon-folderbreadcrumb-width);
+  block-size: var(--valence-icon-folderbreadcrumb-height);
+}
+.UIIcon-HelpMedium {
+  inline-size: var(--valence-icon-info-medium-width);
+  block-size: var(--valence-icon-info-medium-height);
+}
+.UIIcon-HelpSmall {
+  inline-size: var(--valence-icon-info-small-width);
+  block-size: var(--valence-icon-info-small-height);
+}
+.UIIcon-InfoMedium {
+  inline-size: var(--valence-icon-info-medium-width);
+  block-size: var(--valence-icon-info-medium-height);
+}
+.UIIcon-InfoSmall {
+  inline-size: var(--valence-icon-info-small-width);
+  block-size: var(--valence-icon-info-small-height);
+}
+.UIIcon-ListGripper {
+  inline-size: var(--valence-icon-listgripper-width);
+  block-size: var(--valence-icon-listgripper-height);
+}
+.UIIcon-Magnifier {
+  inline-size: var(--valence-icon-magnifier-width);
+  block-size: var(--valence-icon-magnifier-height);
+}
+.UIIcon-SkipLeft {
+  inline-size: var(--valence-icon-skip-left-width);
+  block-size: var(--valence-icon-skip-left-height);
+}
+.UIIcon-SkipRight {
+  inline-size: var(--valence-icon-skip-right-width);
+  block-size: var(--valence-icon-skip-right-height);
+}
+.UIIcon-Star {
+  inline-size: var(--valence-icon-star-width);
+  block-size: var(--valence-icon-star-height);
+}
+.UIIcon-StarOutline {
+  inline-size: var(--valence-icon-star-outline-width);
+  block-size: var(--valence-icon-star-outline-height);
+}
+.UIIcon-SuccessMedium {
+  inline-size: var(--valence-icon-success-medium-width);
+  block-size: var(--valence-icon-success-medium-height);
+}
+.UIIcon-SuccessSmall {
+  inline-size: var(--valence-icon-success-small-width);
+  block-size: var(--valence-icon-success-small-height);
+}
+.UIIcon-TripleGripper {
+  inline-size: var(--valence-icon-triplegripper-width);
+  block-size: var(--valence-icon-triplegripper-height);
+}

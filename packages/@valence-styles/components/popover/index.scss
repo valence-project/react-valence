@@ -1,0 +1,118 @@
+@import "../commons/index.scss";
+@import "../overlay/index.scss";
+
+.Popover {
+  @inherit: %spectrum-overlay;
+
+  /* Be a flexbox to allow a full sized content area that scrolls */
+  display: inline-flex;
+  flex-direction: column;
+  box-sizing: border-box;
+
+  min-width: var(--valence-popover-min-width);
+  min-height: var(--valence-popover-min-height);
+
+  position: absolute;
+
+  border-style: solid;
+  border-width: var(--valence-popover-border-size);
+  border-radius: var(--valence-popover-border-radius);
+
+  outline: none; /* Hide focus outline */
+  box-sizing: border-box;
+
+  &.is-open {
+    @inherit: %spectrum-overlay--open;
+  }
+}
+
+.Popover-tip {
+  position: absolute;
+  --valence-popover-tip-size: var(--valence-popover-tip-width);
+  --valence-popover-tip-borderWidth: var(--valence-popover-border-size);
+  /* https://stackoverflow.com/questions/44170229/how-to-prevent-half-pixel-svg-shift-on-high-pixel-ratio-devices-retina */
+  -webkit-transform: translate(0, 0);
+
+  .Popover-tip-triangle {
+    stroke-linecap: square;
+    stroke-linejoin: miter;
+    stroke-width: var(--valence-popover-border-size);
+  }
+}
+
+.Popover--dialog {
+  min-width: var(--valence-popover-dialog-min-width);
+  padding: var(--valence-popover-dialog-padding);
+}
+
+.Popover--left {
+  &.Popover--withTip {
+    margin-right: var(--valence-popover-target-offset);
+  }
+
+  &.is-open {
+    @inherit: %spectrum-overlay--left--open;
+  }
+  .Popover-tip {
+    left: 100%;
+  }
+}
+
+.Popover--right {
+  &.Popover--withTip {
+    margin-left: var(--valence-popover-target-offset);
+  }
+
+  &.is-open {
+    @inherit: %spectrum-overlay--right--open;
+  }
+  .Popover-tip {
+    right: 100%;
+    transform: scaleX(-1);
+  }
+}
+
+/* Center the tip by default */
+.Popover--left,
+.Popover--right {
+  .Popover-tip {
+    top: 50%;
+    margin-top: calc(var(--valence-global-dimension-size-150) * -1);
+  }
+}
+
+.Popover--bottom {
+  &.Popover--withTip {
+    margin-top: var(--valence-popover-target-offset);
+  }
+
+  &.is-open {
+    @inherit: %spectrum-overlay--bottom--open;
+  }
+  .Popover-tip {
+    bottom: 100%;
+    transform: scaleY(-1);
+  }
+}
+
+.Popover--top {
+  &.Popover--withTip {
+    margin-bottom: var(--valence-popover-target-offset);
+  }
+
+  &.is-open {
+    @inherit: %spectrum-overlay--top--open;
+  }
+  .Popover-tip {
+    top: 100%;
+  }
+}
+
+/* Center the tip by default */
+.Popover--bottom,
+.Popover--top {
+  .Popover-tip {
+    left: 50%;
+    margin-left: calc(var(--valence-global-dimension-size-150) * -1);
+  }
+}

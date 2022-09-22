@@ -1,0 +1,375 @@
+.Slider {
+  --valence-slider-track-gradient: var(--valence-slider-track-color);
+}
+
+.Slider-track {
+  &::before {
+    background: var(--valence-slider-track-gradient);
+    background-size: var(--valence-track-background-size);
+    background-position: var(--valence-track-background-position);
+  }
+}
+
+.Slider-labelContainer {
+  color: var(--valence-label-text-color);
+}
+
+.Slider--filled {
+  .Slider-track:first-child {
+    &::before {
+      background: var(--valence-slider-fill-track-color);
+    }
+  }
+}
+
+.Slider-fill {
+  &::before {
+    background: var(--valence-slider-fill-track-color);
+  }
+}
+
+.Slider-buffer {
+  &::before,
+  &::after {
+    background: var(--valence-slider-player-track-buffer-color);
+  }
+}
+
+.Slider-ramp {
+  path {
+    fill: var(--valence-slider-track-color);
+  }
+}
+
+.Slider-handle {
+  border-color: var(--valence-slider-handle-border-color);
+  background: var(--valence-slider-handle-background-color);
+
+  &:hover {
+    border-color: var(--valence-slider-handle-border-color-hover);
+  }
+
+  &.is-focused {
+    border-color: var(--valence-slider-handle-border-color-key-focus);
+
+    &:before {
+      box-shadow: 0 0 0 var(--valence-slider-focus-ring-size-key-focus)
+        var(--valence-slider-handle-focus-ring-color-key-focus);
+    }
+  }
+
+  &:active,
+  &.is-dragged {
+    border-color: var(--valence-slider-handle-border-color-down);
+  }
+}
+
+.Slider--ramp {
+  .Slider-handle {
+    /* We can't draw this one correctly without this hack : ( */
+    box-shadow: 0 0 0 4px var(--valence-alias-background-color-default);
+  }
+}
+
+.Slider-input {
+  background: transparent;
+}
+
+.Slider-tick {
+  &:after {
+    background-color: var(--valence-slider-tick-mark-color);
+  }
+}
+
+.Slider-handle {
+  &.is-dragged {
+    border-color: var(--valence-slider-handle-border-color-down);
+    background: var(--valence-slider-handle-background-color-down);
+  }
+}
+
+.Slider--range {
+  .Slider-track {
+    &:not(:first-of-type):not(:last-of-type) {
+      &:before {
+        background: var(--valence-slider-fill-track-color);
+      }
+    }
+  }
+}
+
+.Slider--color {
+  .Slider-controls::before {
+    background-color: var(--valence-global-color-static-white);
+    /* Add a half-percent to fix diagonal line issue in Chrome on non-retina displays */
+    background-image: linear-gradient(
+        -45deg,
+        transparent 75.5%,
+        var(--valence-global-color-static-gray-500) 75.5%
+      ),
+      linear-gradient(
+        45deg,
+        transparent 75.5%,
+        var(--valence-global-color-static-gray-500) 75.5%
+      ),
+      linear-gradient(
+        -45deg,
+        var(--valence-global-color-static-gray-500) 25.5%,
+        transparent 25.5%
+      ),
+      linear-gradient(
+        45deg,
+        var(--valence-global-color-static-gray-500) 25.5%,
+        transparent 25.5%
+      );
+    background-size: var(--valence-global-dimension-static-size-200)
+      var(--valence-global-dimension-static-size-200);
+    background-position: 0 0, 0 var(--valence-global-dimension-static-size-100),
+      var(--valence-global-dimension-static-size-100)
+        calc(-1 * var(--valence-global-dimension-static-size-100)),
+      calc(-1 * var(--valence-global-dimension-static-size-100)) 0;
+    z-index: 0;
+  }
+  .Slider-track {
+    background-color: transparent;
+    background-image: linear-gradient(
+      to right,
+      var(--valence-slider-color-track-background-color-gradient-start),
+      var(--valence-slider-color-track-background-color-gradient-end)
+    );
+    box-shadow: inset 0 0 0 1px var(--valence-slider-color-track-border-color);
+    &::before {
+      display: none;
+    }
+  }
+  .Slider-handle {
+    box-shadow: inset 0 0 0 1px
+        var(--valence-slider-color-handle-inset-border-color),
+      0 0 0 1px var(--valence-slider-color-handle-outset-border-color);
+    border-color: var(--valence-slider-color-handle-border-color);
+    background: var(--valence-slider-color-handle-color);
+
+    &.is-focused {
+      box-shadow: 0 0 0 1px
+        var(--valence-slider-color-handle-outset-border-color-key-focus);
+    }
+  }
+}
+
+.Dial-labelContainer {
+  @inherit: .Slider-labelContainer;
+}
+
+.Dial-handle {
+  box-shadow: none;
+
+  &:before {
+    display: none;
+  }
+
+  &::after {
+    background-color: var(--valence-dial-handle-marker-color);
+  }
+
+  &:hover {
+    &::after {
+      background-color: var(--valence-dial-handle-marker-color-hover);
+    }
+  }
+
+  &.is-focused {
+    background-color: var(--valence-slider-handle-background-color-key-focus);
+
+    border-color: var(--valence-slider-handle-border-color-key-focus);
+
+    &::after {
+      background-color: var(--valence-dial-handle-marker-color-key-focus);
+    }
+  }
+
+  &:active,
+  &.is-dragged {
+    background-color: var(--valence-dial-border-color-hover);
+
+    border-color: var(--valence-slider-handle-border-color-down);
+
+    &::after {
+      background-color: var(--valence-dial-handle-marker-color-key-focus);
+    }
+  }
+}
+
+.Dial-controls {
+  &::before,
+  &::after {
+    background-color: var(--valence-dial-min-max-tick-color);
+  }
+}
+
+.Dial {
+  &.is-disabled {
+    .Dial-labelContainer {
+      color: var(--valence-label-text-color-disabled);
+    }
+    .Dial-controls {
+      &::after,
+      &::before {
+        background-color: var(--valence-slider-handle-border-color-disabled);
+      }
+    }
+    .Dial-handle {
+      border-color: var(--valence-slider-handle-border-color-disabled);
+      background: var(--valence-alias-background-color-default);
+
+      &:hover,
+      &:active {
+        border-color: var(--valence-slider-handle-border-color-disabled);
+        background: var(--valence-slider-handle-background-color);
+      }
+
+      &::after,
+      &::before {
+        background-color: var(--valence-slider-track-color-disabled);
+      }
+    }
+  }
+}
+
+.Slider {
+  &.is-disabled {
+    .Slider-labelContainer {
+      color: var(--valence-label-text-color-disabled);
+    }
+
+    .Slider-handle {
+      border-color: var(--valence-slider-handle-border-color-disabled);
+      background: var(--valence-alias-background-color-default);
+
+      &:hover,
+      &:active {
+        border-color: var(--valence-slider-handle-border-color-disabled);
+        background: var(--valence-slider-handle-background-color);
+      }
+    }
+    .Slider-track {
+      &::before {
+        background: var(--valence-slider-track-color-disabled);
+      }
+    }
+    &.Slider--filled {
+      .Slider-track:first-child {
+        &::before {
+          background: var(--valence-slider-fill-track-color-disabled);
+        }
+      }
+    }
+    .Slider-fill {
+      &::before {
+        background: var(--valence-slider-fill-track-color-disabled);
+      }
+    }
+    .Slider-buffer {
+      &::before {
+        background: var(--valence-slider-player-track-buffer-color-disabled);
+      }
+    }
+    .Slider-ramp {
+      path {
+        fill: var(--valence-slider-ramp-track-color-disabled);
+      }
+    }
+
+    &.Slider--color {
+      .Slider-track {
+        background: var(--valence-slider-color-track-color-disabled) !important;
+        box-shadow: none;
+      }
+      .Slider-handle {
+        background: var(--valence-slider-color-handle-color-disabled);
+        box-shadow: none;
+        border-color: var(--valence-slider-color-handle-border-color-disabled);
+
+        &:hover,
+        &:active {
+          background: var(--valence-slider-color-handle-color-disabled);
+          box-shadow: none;
+          border-color: var(
+            --valence-slider-color-handle-border-color-disabled
+          );
+        }
+      }
+    }
+
+    &.Slider--range {
+      .Slider-track {
+        &:not(:first-of-type):not(:last-of-type) {
+          &:before {
+            background: var(--valence-slider-fill-track-color-disabled);
+          }
+        }
+      }
+    }
+  }
+}
+
+.Slider--label-side {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+
+  & > * {
+    display: inline-block;
+  }
+
+  & .Slider-labelContainer {
+    padding-top: 0;
+    flex-shrink: 0;
+  }
+
+  & .Slider-label {
+    margin-inline-end: var(--valence-slider-label-gap-x);
+  }
+}
+@media (forced-colors: active) {
+  :root {
+    --valence-slider-handle-border-color-key-focus: Highlight;
+  }
+  .Dial {
+    --valence-dial-border-color-hover: Highlight;
+    --valence-dial-handle-marker-color: ButtonText;
+    --valence-dial-handle-marker-color-hover: Highlight;
+    --valence-dial-handle-marker-color-key-focus: Highlight;
+    --valence-dial-min-max-tick-color: GrayText;
+  }
+  .Slider {
+    forced-color-adjust: none;
+    --valence-alias-background-color-default: ButtonFace;
+    --valence-alias-focus-color: ButtonText;
+    --valence-label-text-color: CanvasText;
+    --valence-label-text-color-disabled: GrayText;
+    --valence-slider-color-handle-border-color: ButtonText;
+    --valence-slider-color-handle-border-color-disabled: GrayText;
+    --valence-slider-color-handle-color: ButtonFace;
+    --valence-slider-color-handle-color-disabled: ButtonFace;
+    --valence-slider-color-handle-outset-border-color-key-focus: ButtonText;
+    --valence-slider-color-track-border-color: ButtonText;
+    --valence-slider-color-track-color-disabled: GrayText;
+    --valence-slider-fill-track-color: Highlight;
+    --valence-slider-fill-track-color-disabled: GrayText;
+    --valence-slider-handle-background-color: ButtonFace;
+    --valence-slider-handle-background-color-down: ButtonFace;
+    --valence-slider-handle-background-color-key-focus: Highlight;
+    --valence-slider-handle-border-color: ButtonText;
+    --valence-slider-handle-border-color-disabled: GrayText;
+    --valence-slider-handle-border-color-down: Highlight;
+    --valence-slider-handle-border-color-hover: Highlight;
+    --valence-slider-handle-border-color-key-focus: Highlight;
+    --valence-slider-handle-focus-ring-color-key-focus: ButtonText;
+    --valence-slider-player-track-buffer-color: ButtonText;
+    --valence-slider-player-track-buffer-color-disabled: GrayText;
+    --valence-slider-ramp-track-color-disabled: GrayText;
+    --valence-slider-tick-mark-color: ButtonText;
+    --valence-slider-track-color: ButtonText;
+    --valence-slider-track-color-disabled: GrayText;
+  }
+}

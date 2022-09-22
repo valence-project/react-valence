@@ -1,0 +1,58 @@
+.SplitView-pane {
+  background-color: var(--valence-rail-content-background-color);
+}
+
+.SplitView-splitter {
+  background-color: var(--valence-rail-handle-background-color);
+}
+
+.SplitView-gripper {
+  border-color: var(--valence-rail-handle-background-color);
+  &:before {
+    background-color: var(--valence-rail-handle-background-color);
+  }
+}
+
+.SplitView-splitter {
+  &.is-draggable {
+    &:hover,
+    &.is-hovered {
+      background-color: var(--valence-rail-handle-background-color-hover);
+
+      .SplitView-gripper {
+        border-color: var(--valence-rail-handle-background-color-hover);
+        &:before {
+          background-color: var(--valence-rail-handle-background-color-hover);
+        }
+      }
+    }
+
+    &:active,
+    &.is-active {
+      background-color: var(--valence-rail-handle-background-color-down);
+
+      .SplitView-gripper {
+        border-color: var(--valence-rail-handle-background-color-down);
+        &:before {
+          background-color: var(--valence-rail-handle-background-color-down);
+        }
+      }
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &.focus-ring {
+      background-color: var(--valence-alias-focus-color);
+
+      .SplitView-gripper {
+        border-color: var(--valence-alias-focus-color);
+        box-shadow: 0 0 0 1px var(--valence-alias-focus-color);
+        &:before {
+          background-color: var(--valence-alias-focus-color);
+        }
+      }
+    }
+  }
+}

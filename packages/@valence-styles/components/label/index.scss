@@ -1,0 +1,35 @@
+@import "../commons/index.scss";
+
+.Label {
+  display: inline-block;
+  position: relative;
+
+  width: auto;
+
+  padding: var(--valence-global-dimension-size-50)
+    var(--valence-global-dimension-size-125);
+
+  border-radius: var(--valence-border-radius);
+
+  text-transform: uppercase;
+  font-size: var(--valence-global-dimension-size-150);
+  line-height: var(--valence-global-font-line-height-medium);
+
+  cursor: default;
+
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+  font-smoothing: subpixel-antialiased;
+}
+
+.Label--large {
+  font-size: var(--valence-global-dimension-size-175);
+  padding: var(--valence-global-dimension-size-100)
+    var(--valence-global-dimension-size-150);
+}
+
+.Label--small {
+  font-size: var(--valence-global-dimension-font-size-50);
+  padding: var(--valence-global-dimension-size-40)
+    var(--valence-global-dimension-size-85);
+}

@@ -1,0 +1,56 @@
+{
+  "name": "@react-valence/staticfield",
+  "version": "0.0.1",
+  "private": true,
+  "description": "react-valence staticfield component",
+  "license": "MIT",
+  "module": "index.ts",
+  "types": "dist/types.d.ts",
+  "source": "src/index.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
+  "targets": {
+    "main": {
+      "includeNodeModules": [
+        "@valence-styles/components"
+      ]
+    },
+    "module": {
+      "includeNodeModules": [
+        "@valence-styles/components"
+      ]
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/valence-project/react-valence.git"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.6.2",
+    "@internationalized/date": "^3.0.1",
+    "@react-aria/i18n": "^3.5.1",
+    "@react-aria/utils": "^3.0.0",
+    "@react-valence/label": "^0.0.1",
+    "@react-valence/utils": "^0.0.1",
+    "@types-valence/shared": "^0.0.1"
+  },
+  "devDependencies": {
+    "@valence-styles/components": "^0.0.1"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0-rc.1 || ^18.0.0",
+    "@react-valence/provider": "^0.0.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "pyramids @react-valence/staticfield"
+  },
+  "main": "./dist/main.js"
+}

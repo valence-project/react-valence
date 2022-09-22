@@ -1,0 +1,29 @@
+.theme {
+  --valence-banner-text-color: var(--valence-global-color-static-white);
+  --valence-banner-border-radius: var(--valence-global-dimension-static-size-100);
+  --valence-banner-padding-y: var(--valence-global-dimension-static-size-50);
+  --valence-banner-padding-x: var(--valence-global-dimension-static-size-100);
+  --valence-banner-text-size: var(--valence-global-dimension-font-size-75);
+  --valence-banner-text-line-height: var(--valence-alias-heading-text-line-height);
+  --valence-banner-error-text-color: var(--valence-global-color-static-white);
+  --valence-banner-error-background-color: var(--valence-semantic-negative-color-default);
+  --valence-banner-error-border-radius: var(--valence-global-dimension-static-size-100);
+  --valence-banner-error-padding-y: var(--valence-global-dimension-static-size-50);
+  --valence-banner-error-padding-x: var(--valence-global-dimension-static-size-100);
+  --valence-banner-error-text-size: var(--valence-global-dimension-font-size-75);
+  --valence-banner-error-text-line-height: var(--valence-alias-heading-text-line-height);
+  --valence-banner-info-text-color: var(--valence-global-color-static-white);
+  --valence-banner-info-background-color: var(--valence-semantic-informative-color-default);
+  --valence-banner-info-border-radius: var(--valence-global-dimension-static-size-100);
+  --valence-banner-info-padding-y: var(--valence-global-dimension-static-size-50);
+  --valence-banner-info-padding-x: var(--valence-global-dimension-static-size-100);
+  --valence-banner-info-text-size: var(--valence-global-dimension-font-size-75);
+  --valence-banner-info-text-line-height: var(--valence-alias-heading-text-line-height);
+  --valence-banner-warning-text-color: var(--valence-global-color-static-white);
+  --valence-banner-warning-background-color: var(--valence-semantic-notice-color-default);
+  --valence-banner-warning-border-radius: var(--valence-global-dimension-static-size-100);
+  --valence-banner-warning-padding-y: var(--valence-global-dimension-static-size-50);
+  --valence-banner-warning-padding-x: var(--valence-global-dimension-static-size-100);
+  --valence-banner-warning-text-size: var(--valence-global-dimension-font-size-75);
+  --valence-banner-warning-text-line-height: var(--valence-alias-heading-text-line-height);
+}

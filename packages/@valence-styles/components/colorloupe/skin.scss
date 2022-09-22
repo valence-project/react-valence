@@ -1,0 +1,19 @@
+.ColorLoupe-outer {
+  fill: var(--valence-colorloupe-inner-border-color);
+  stroke: var(--valence-colorloupe-outer-border-color);
+}
+
+.ColorLoupe-inner-background {
+  fill: var(--valence-global-color-static-white);
+}
+.ColorLoupe-inner-checker {
+  fill: var(--valence-global-color-static-gray-500);
+}
+
+@media (forced-colors: active) {
+  .ColorLoupe {
+    forced-color-adjust: none;
+    --valence-colorloupe-inner-border-color: ButtonText;
+    --valence-colorloupe-outer-border-color: ButtonFace;
+  }
+}

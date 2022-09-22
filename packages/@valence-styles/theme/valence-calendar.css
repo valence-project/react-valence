@@ -1,0 +1,41 @@
+.theme {
+  --valence-calendar-day-text-color: var(--valence-global-color-gray-800);
+  --valence-calendar-day-background-color: transparent;
+  --valence-calendar-day-today-text-color: var(--valence-global-color-gray-800);
+  --valence-calendar-day-today-border-color: var(--valence-global-color-gray-800);
+  --valence-calendar-day-title-text-color: var(--valence-global-color-gray-700);
+  --valence-calendar-day-text-color-hover: var(--valence-global-color-gray-900);
+  --valence-calendar-day-background-color-hover: var(--valence-alias-highlight-hover);
+  --valence-calendar-day-background-color-down: var(--valence-alias-highlight-active);
+  --valence-calendar-day-text-color-selected: var(--valence-global-color-gray-900);
+  --valence-calendar-day-text-font-weight-selected: var(--valence-global-font-weight-bold);
+  --valence-calendar-day-background-color-selected: var(--valence-alias-highlight-selected);
+  --valence-calendar-day-text-color-cap-selected: var(--valence-global-color-gray-900);
+  --valence-calendar-day-text-font-weight-cap-selected: var(--valence-global-font-weight-bold);
+  --valence-calendar-day-background-color-cap-selected: var(--valence-alias-highlight-selected-hover);
+  --valence-calendar-day-text-color-key-focus: var(--valence-global-color-gray-900);
+  --valence-calendar-day-background-color-key-focus: var(--valence-alias-highlight-hover);
+  --valence-calendar-day-today-background-color-key-focus: var(--valence-global-color-gray-900);
+  --valence-calendar-day-border-color-key-focus: var(--valence-alias-focus-color);
+  --valence-calendar-day-border-size-key-focus: 2px;
+  --valence-calendar-day-text-color-selected-hover: var(--valence-global-color-gray-900);
+  --valence-calendar-day-background-color-selected-hover: var(--valence-alias-highlight-selected-hover);
+  --valence-calendar-day-today-background-color-selected-hover: var(--valence-alias-highlight-selected-hover);
+  --valence-calendar-day-text-color-disabled: var(--valence-global-color-gray-500);
+  --valence-calendar-day-background-color-disabled: transparent;
+  --valence-calendar-day-today-text-color-disabled: var(--valence-global-color-gray-500);
+  --valence-calendar-day-today-border-color-disabled: var(--valence-global-color-gray-400);
+  --valence-calendar-day-width: var(--valence-global-dimension-size-400);
+  --valence-calendar-day-height: var(--valence-global-dimension-size-400);
+  --valence-calendar-day-padding: 4px;
+  --valence-calendar-day-text-size: var(--valence-alias-font-size-default);
+  --valence-calendar-day-text-size-han: var(--valence-global-dimension-font-size-50);
+  --valence-calendar-day-title-text-size: var(--valence-global-dimension-font-size-50);
+  --valence-calendar-day-title-text-font-weight: var(--valence-global-font-weight-medium);
+  --valence-calendar-day-today-text-font-weight: var(--valence-global-font-weight-bold);
+  --valence-calendar-button-icon-color: var(--valence-global-color-gray-700);
+  --valence-calendar-width: 250px;
+  --valence-calendar-title-height: var(--valence-global-dimension-static-size-400);
+  --valence-calendar-title-text-size: var(--valence-global-dimension-font-size-300);
+}
+

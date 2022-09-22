@@ -1,0 +1,13 @@
+.theme {
+  --valence-dropzone-border-color: var(--valence-global-color-gray-300);
+  --valence-dropzone-background-color: var(--valence-global-color-gray-100);
+  --valence-dropzone-icon-color: var(--valence-global-color-gray-500);
+  --valence-dropzone-border-color-selected-hover: var(--valence-global-color-blue-400);
+  --valence-dropzone-background-color-selected-hover: var(--valence-alias-highlight-selected);
+  --valence-dropzone-icon-color-selected-hover: var(--valence-global-color-blue-500);
+  --valence-dropzone-padding: var(--valence-global-dimension-size-900);
+  --valence-dropzone-border-width: var(--valence-alias-border-size-thick);
+  --valence-dropzone-border-radius: var(--valence-alias-border-radius-regular);
+  --valence-dropzone-content-text-size: var(--valence-alias-font-size-default);
+  --valence-dropzone-icon-margin-y: var(--valence-global-dimension-size-175);
+}

@@ -1,0 +1,18 @@
+.Pagination-pageButton {
+  &:hover {
+    background-color: var(
+      --valence-pagination-page-button-background-color-hover
+    );
+  }
+
+  &:focus {
+    border-color: var(--valence-pagination-page-button-border-color-key-focus);
+  }
+
+  &.is-selected {
+    background-color: var(
+      --valence-pagination-page-button-background-color-down
+    );
+    color: var(--valence-pagination-page-button-text-color-down);
+  }
+}

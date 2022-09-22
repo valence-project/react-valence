@@ -1,0 +1,80 @@
+.StatusLight {
+  color: var(--valence-statuslight-text-color);
+
+  &[disabled],
+  &.is-disabled {
+    color: var(--valence-statuslight-text-color-disabled);
+
+    &::before {
+      background-color: var(--valence-statuslight-dot-color-disabled);
+    }
+  }
+}
+
+.StatusLight--negative::before {
+  background-color: var(--valence-statuslight-negative-dot-color);
+}
+
+.StatusLight--notice::before {
+  background-color: var(--valence-statuslight-notice-dot-color);
+}
+
+.StatusLight--positive::before {
+  background-color: var(--valence-statuslight-positive-dot-color);
+}
+
+.StatusLight--info::before,
+/** @deprecated */.StatusLight--active::before {
+  background-color: var(--valence-statuslight-info-dot-color);
+}
+
+.StatusLight--neutral {
+  color: var(--valence-statuslight-neutral-text-color);
+
+  &::before {
+    background-color: var(--valence-statuslight-neutral-dot-color);
+  }
+}
+
+.StatusLight--celery::before {
+  background-color: var(--valence-statuslight-dot-color-label-celery);
+}
+
+.StatusLight--yellow::before {
+  background-color: var(--valence-statuslight-dot-color-label-yellow);
+}
+
+.StatusLight--fuchsia::before {
+  background-color: var(--valence-statuslight-dot-color-label-fuchsia);
+}
+
+.StatusLight--indigo::before {
+  background-color: var(--valence-statuslight-dot-color-label-indigo);
+}
+
+.StatusLight--seafoam::before {
+  background-color: var(--valence-statuslight-dot-color-label-seafoam);
+}
+
+.StatusLight--chartreuse::before {
+  background-color: var(--valence-statuslight-dot-color-label-chartreuse);
+}
+
+.StatusLight--magenta::before {
+  background-color: var(--valence-statuslight-dot-color-label-magenta);
+}
+
+.StatusLight--purple::before {
+  background-color: var(--valence-statuslight-dot-color-label-purple);
+}
+
+@media (forced-colors: active) {
+  .StatusLight {
+    forced-color-adjust: none;
+    --valence-statuslight-text-color-disabled: GrayText;
+    --valence-statuslight-dot-color-disabled: GrayText;
+    &:before {
+      border: 1px solid ButtonText;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+.theme {
+  --valence-scrollbar-bar-color: var(--valence-global-color-gray-400);
+  --valence-scrollbar-track-color: var(--valence-global-color-gray-200);
+  --valence-scrollbar-bar-color-hover: var(--valence-global-color-gray-600);
+  --valence-scrollbar-track-color-hover: var(--valence-global-color-gray-200);
+  --valence-scrollbar-bar-color-down: var(--valence-global-color-gray-600);
+  --valence-scrollbar-track-color-down: var(--valence-global-color-gray-200);
+  --valence-scrollbar-bar-width: var(--valence-global-dimension-size-50);
+  --valence-scrollbar-bar-border-radius: var(--valence-alias-border-radius-small);
+  --valence-scrollbar-track-width: var(--valence-global-dimension-size-50);
+  --valence-scrollbar-track-border-radius: var(--valence-alias-border-radius-small);
+  --valence-scrollbar-quiet-bar-color-quiet: var(--valence-global-color-gray-400);
+  --valence-scrollbar-quiet-track-color-quiet: var(--valence-alias-background-color-transparent);
+  --valence-scrollbar-quiet-bar-color-hover: var(--valence-global-color-gray-600);
+  --valence-scrollbar-quiet-track-color-hover: var(--valence-alias-background-color-transparent);
+  --valence-scrollbar-quiet-bar-color-down: var(--valence-global-color-gray-600);
+  --valence-scrollbar-quiet-track-color-down: var(--valence-alias-background-color-transparent);
+  --valence-scrollbar-quiet-bar-width: var(--valence-global-dimension-size-50);
+  --valence-scrollbar-quiet-bar-border-radius: var(--valence-alias-border-radius-small);
+  --valence-scrollbar-quiet-track-width: var(--valence-global-dimension-size-50);
+  --valence-scrollbar-quiet-track-border-radius: var(--valence-alias-border-radius-small);
+}

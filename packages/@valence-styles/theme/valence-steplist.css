@@ -1,0 +1,41 @@
+.theme {
+  --valence-steplist-complete-marker-color: var(--valence-global-color-gray-600);
+  --valence-steplist-complete-segment-color: var(--valence-global-color-gray-500);
+  --valence-steplist-complete-label-text-color: var(--valence-global-color-gray-700);
+  --valence-steplist-complete-marker-color-hover: var(--valence-global-color-gray-700);
+  --valence-steplist-complete-marker-color-key-focus: var(--valence-alias-focus-color);
+  --valence-steplist-current-marker-color: var(--valence-global-color-gray-800);
+  --valence-steplist-current-label-text-color: var(--valence-global-color-gray-800);
+  --valence-steplist-current-marker-color-key-focus: var(--valence-alias-focus-color);
+  --valence-steplist-incomplete-marker-color: var(--valence-global-color-gray-300);
+  --valence-steplist-incomplete-segment-color: var(--valence-global-color-gray-300);
+  --valence-steplist-incomplete-label-text-color: var(--valence-global-color-gray-600);
+  --valence-steplist-incomplete-marker-color-hover: var(--valence-global-color-gray-700);
+}
+
+.theme {
+  /* The width of a step */
+  --valence-steplist-step-width: 80px;
+
+  /* The diameter of the marker */
+  --valence-steplist-marker-diameter: 8px;
+
+  /* The width of the hit area */
+  --valence-steplist-marker-hitArea: 20px;
+
+  /* The height of the line */
+  --valence-steplist-segment-height: 2px;
+
+  /* This gives enough space for one line of text */
+  --valence-steplist-topPadding: 22px;
+  --valence-steplist-small-topPadding: 11px;
+
+  /* This gives enough space for the longest possible label */
+  --valence-steplist-sidePadding: 60px;
+
+  /* Offset from the BOTTOM of the steplist */
+  --valence-steplist-label-labelOffset: 10px;
+
+  /* Font size of the label */
+  --valence-steplist-label-text-size: 12px;
+}

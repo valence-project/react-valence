@@ -1,0 +1,12 @@
+.theme {
+  --valence-well-padding: var(--valence-global-dimension-size-200);
+  --valence-well-border-width: var(--valence-alias-border-size-thin);
+  --valence-well-label-text-color: var(--valence-global-color-gray-900);
+}
+
+.theme {
+  --valence-well-padding: var(--valence-global-dimension-size-200);
+  --valence-well-border-width: var(--valence-alias-border-size-thin);
+  --valence-well-margin-top: var(--valence-global-dimension-size-50);
+  --valence-well-min-width: var(--valence-global-dimension-size-2000);
+}

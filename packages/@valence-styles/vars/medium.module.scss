@@ -1,0 +1,846 @@
+/*
+ * Copyright 2020 Adobe. All rights reserved.
+ * This file is licensed to you under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License. You may obtain a copy
+ * of the License at http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under
+ * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+ * OF ANY KIND, either express or implied. See the License for the specific language
+ * governing permissions and limitations under the License.
+ */
+
+.valence--medium {
+  --valence-global-dimension-scale-factor: 1;
+  --valence-global-dimension-size-0: 0px;
+  --valence-global-dimension-size-10: 1px;
+  --valence-global-dimension-size-25: 2px;
+  --valence-global-dimension-size-40: 3px;
+  --valence-global-dimension-size-50: 4px;
+  --valence-global-dimension-size-65: 5px;
+  --valence-global-dimension-size-75: 6px;
+  --valence-global-dimension-size-85: 7px;
+  --valence-global-dimension-size-100: 8px;
+  --valence-global-dimension-size-115: 9px;
+  --valence-global-dimension-size-125: 10px;
+  --valence-global-dimension-size-130: 11px;
+  --valence-global-dimension-size-150: 12px;
+  --valence-global-dimension-size-160: 13px;
+  --valence-global-dimension-size-175: 14px;
+  --valence-global-dimension-size-200: 16px;
+  --valence-global-dimension-size-225: 18px;
+  --valence-global-dimension-size-250: 20px;
+  --valence-global-dimension-size-275: 22px;
+  --valence-global-dimension-size-300: 24px;
+  --valence-global-dimension-size-325: 26px;
+  --valence-global-dimension-size-350: 28px;
+  --valence-global-dimension-size-400: 32px;
+  --valence-global-dimension-size-450: 36px;
+  --valence-global-dimension-size-500: 40px;
+  --valence-global-dimension-size-550: 44px;
+  --valence-global-dimension-size-600: 48px;
+  --valence-global-dimension-size-675: 54px;
+  --valence-global-dimension-size-700: 56px;
+  --valence-global-dimension-size-800: 64px;
+  --valence-global-dimension-size-900: 72px;
+  --valence-global-dimension-size-1000: 80px;
+  --valence-global-dimension-size-1200: 96px;
+  --valence-global-dimension-size-1250: 100px;
+  --valence-global-dimension-size-1600: 128px;
+  --valence-global-dimension-size-1700: 136px;
+  --valence-global-dimension-size-2000: 160px;
+  --valence-global-dimension-size-2400: 192px;
+  --valence-global-dimension-size-3000: 240px;
+  --valence-global-dimension-size-3400: 272px;
+  --valence-global-dimension-size-3600: 288px;
+  --valence-global-dimension-size-4600: 368px;
+  --valence-global-dimension-size-5000: 400px;
+  --valence-global-dimension-size-6000: 480px;
+  --valence-global-dimension-font-size-25: 10px;
+  --valence-global-dimension-font-size-50: 11px;
+  --valence-global-dimension-font-size-75: 12px;
+  --valence-global-dimension-font-size-100: 14px;
+  --valence-global-dimension-font-size-150: 15px;
+  --valence-global-dimension-font-size-200: 16px;
+  --valence-global-dimension-font-size-300: 18px;
+  --valence-global-dimension-font-size-400: 20px;
+  --valence-global-dimension-font-size-500: 22px;
+  --valence-global-dimension-font-size-600: 25px;
+  --valence-global-dimension-font-size-700: 28px;
+  --valence-global-dimension-font-size-800: 32px;
+  --valence-global-dimension-font-size-900: 36px;
+  --valence-global-dimension-font-size-1000: 40px;
+  --valence-global-dimension-font-size-1100: 45px;
+  --valence-global-dimension-font-size-1200: 50px;
+  --valence-global-dimension-font-size-1300: 60px;
+  --valence-alias-avatar-size-100: var(--valence-global-dimension-size-250);
+  --valence-alias-avatar-size-400: var(--valence-global-dimension-size-350);
+  --valence-alias-avatar-size-600: var(--valence-global-dimension-size-450);
+  --valence-actionbutton-touch-hit-x: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-actionbutton-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-actionbutton-emphasized-touch-hit-x: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-actionbutton-emphasized-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-actionbutton-quiet-touch-hit-x: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-actionbutton-quiet-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-actionbutton-quiet-emphasized-touch-hit-x: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-actionbutton-quiet-emphasized-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-barloader-large-border-radius: 3px;
+  --valence-barloader-large-indeterminate-border-radius: 3px;
+  --valence-barloader-large-over-background-border-radius: 3px;
+  --valence-barloader-small-border-radius: var(
+    --valence-global-dimension-static-size-25
+  );
+  --valence-barloader-small-indeterminate-border-radius: var(
+    --valence-global-dimension-static-size-25
+  );
+  --valence-barloader-small-over-background-border-radius: var(
+    --valence-global-dimension-static-size-25
+  );
+  --valence-breadcrumb-compact-item-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-breadcrumb-compact-button-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-breadcrumb-item-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-breadcrumb-button-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-breadcrumb-multiline-item-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-breadcrumb-multiline-button-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-button-cta-text-padding-bottom: var(
+    --valence-global-dimension-size-85
+  );
+  --valence-button-cta-min-width: var(--valence-global-dimension-size-900);
+  --valence-button-cta-touch-hit-x: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-button-cta-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-button-over-background-text-padding-bottom: var(
+    --valence-global-dimension-size-85
+  );
+  --valence-button-over-background-min-width: var(
+    --valence-global-dimension-size-900
+  );
+  --valence-button-over-background-touch-hit-x: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-button-over-background-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-button-primary-text-padding-bottom: var(
+    --valence-global-dimension-size-85
+  );
+  --valence-button-primary-min-width: var(--valence-global-dimension-size-900);
+  --valence-button-primary-touch-hit-x: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-button-primary-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-button-quiet-over-background-text-padding-bottom: var(
+    --valence-global-dimension-size-85
+  );
+  --valence-button-quiet-over-background-min-width: var(
+    --valence-global-dimension-size-900
+  );
+  --valence-button-quiet-over-background-touch-hit-x: var(
+    --valence-global-dimension-static-size-200
+  );
+  --valence-button-quiet-over-background-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-button-quiet-over-background-cursor-hit-x: var(
+    --valence-global-dimension-static-size-200
+  );
+  --valence-button-quiet-primary-text-padding-bottom: var(
+    --valence-global-dimension-size-85
+  );
+  --valence-button-quiet-primary-min-width: var(
+    --valence-global-dimension-size-900
+  );
+  --valence-button-quiet-primary-touch-hit-x: var(
+    --valence-global-dimension-static-size-200
+  );
+  --valence-button-quiet-primary-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-button-quiet-primary-cursor-hit-x: var(
+    --valence-global-dimension-static-size-200
+  );
+  --valence-button-quiet-secondary-text-padding-bottom: var(
+    --valence-global-dimension-size-85
+  );
+  --valence-button-quiet-secondary-min-width: var(
+    --valence-global-dimension-size-900
+  );
+  --valence-button-quiet-secondary-touch-hit-x: var(
+    --valence-global-dimension-static-size-200
+  );
+  --valence-button-quiet-secondary-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-button-quiet-secondary-cursor-hit-x: var(
+    --valence-global-dimension-static-size-200
+  );
+  --valence-button-quiet-warning-text-padding-bottom: var(
+    --valence-global-dimension-size-85
+  );
+  --valence-button-quiet-warning-min-width: var(
+    --valence-global-dimension-size-900
+  );
+  --valence-button-quiet-warning-touch-hit-x: var(
+    --valence-global-dimension-static-size-200
+  );
+  --valence-button-quiet-warning-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-button-quiet-warning-cursor-hit-x: var(
+    --valence-global-dimension-static-size-200
+  );
+  --valence-button-secondary-text-padding-bottom: var(
+    --valence-global-dimension-size-85
+  );
+  --valence-button-secondary-min-width: var(
+    --valence-global-dimension-size-900
+  );
+  --valence-button-secondary-touch-hit-x: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-button-secondary-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-button-warning-text-padding-bottom: var(
+    --valence-global-dimension-size-85
+  );
+  --valence-button-warning-min-width: var(--valence-global-dimension-size-900);
+  --valence-button-warning-touch-hit-x: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-button-warning-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-checkbox-text-gap-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-checkbox-text-gap-selected-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-checkbox-text-gap-indeterminate-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-checkbox-text-gap-error-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-checkbox-text-gap-error-selected-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-checkbox-text-gap-error-indeterminate-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-checkbox-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-checkbox-emphasized-text-gap-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-checkbox-emphasized-text-gap-selected-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-checkbox-emphasized-text-gap-indeterminate-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-checkbox-emphasized-text-gap-error-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-checkbox-emphasized-text-gap-error-selected-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-checkbox-emphasized-text-gap-error-indeterminate-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-checkbox-emphasized-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-checkbox-quiet-text-gap-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-checkbox-quiet-text-gap-selected-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-checkbox-quiet-text-gap-indeterminate-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-checkbox-quiet-text-gap-error-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-checkbox-quiet-text-gap-error-selected-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-checkbox-quiet-text-gap-error-indeterminate-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-checkbox-quiet-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-circleloader-medium-border-size: 3px;
+  --valence-circleloader-medium-over-background-border-size: 3px;
+  --valence-circleloader-small-border-size: var(
+    --valence-global-dimension-static-size-25
+  );
+  --valence-circleloader-small-over-background-border-size: var(
+    --valence-global-dimension-static-size-25
+  );
+  --valence-colorhandle-loupe-margin: var(
+    --valence-global-dimension-static-size-125
+  );
+  --valence-colorloupe-colorhandle-gap: var(
+    --valence-global-dimension-static-size-125
+  );
+  --valence-colorslider-touch-hit-y: var(--valence-global-dimension-size-150);
+  --valence-colorslider-vertical-touch-hit-x: var(
+    --valence-global-dimension-size-150
+  );
+  --valence-colorwheel-min-size: var(--valence-global-dimension-size-2400);
+  --valence-colorwheel-touch-hit-outer: var(
+    --valence-global-dimension-size-150
+  );
+  --valence-colorwheel-touch-hit-inner: var(
+    --valence-global-dimension-size-150
+  );
+  --valence-cyclebutton-touch-hit-x: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-cyclebutton-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-dialog-confirm-max-width: var(
+    --valence-global-dimension-static-size-6000
+  );
+  --valence-dialog-confirm-title-text-size: var(
+    --valence-global-dimension-font-size-300
+  );
+  --valence-dialog-confirm-description-text-size: var(
+    --valence-global-dimension-font-size-100
+  );
+  --valence-dialog-confirm-padding: var(
+    --valence-global-dimension-static-size-500
+  );
+  --valence-dialog-confirm-description-margin-bottom: var(
+    --valence-global-dimension-static-size-600
+  );
+  --valence-dialog-max-width: var(--valence-global-dimension-static-size-6000);
+  --valence-dialog-title-text-size: var(
+    --valence-global-dimension-font-size-300
+  );
+  --valence-dialog-content-text-size: var(
+    --valence-global-dimension-font-size-100
+  );
+  --valence-dialog-padding: var(--valence-global-dimension-static-size-500);
+  --valence-dialog-content-margin-bottom: var(
+    --valence-global-dimension-static-size-600
+  );
+  --valence-dialog-destructive-max-width: var(
+    --valence-global-dimension-static-size-6000
+  );
+  --valence-dialog-destructive-title-text-size: var(
+    --valence-global-dimension-font-size-300
+  );
+  --valence-dialog-destructive-description-text-size: var(
+    --valence-global-dimension-font-size-100
+  );
+  --valence-dialog-destructive-padding: var(
+    --valence-global-dimension-static-size-500
+  );
+  --valence-dialog-destructive-description-margin-bottom: var(
+    --valence-global-dimension-static-size-600
+  );
+  --valence-dialog-error-max-width: var(
+    --valence-global-dimension-static-size-6000
+  );
+  --valence-dialog-error-title-text-size: var(
+    --valence-global-dimension-font-size-300
+  );
+  --valence-dialog-error-description-text-size: var(
+    --valence-global-dimension-font-size-100
+  );
+  --valence-dialog-error-padding: var(
+    --valence-global-dimension-static-size-500
+  );
+  --valence-dialog-error-description-margin-bottom: var(
+    --valence-global-dimension-static-size-600
+  );
+  --valence-dialog-info-max-width: var(
+    --valence-global-dimension-static-size-6000
+  );
+  --valence-dialog-info-title-text-size: var(
+    --valence-global-dimension-font-size-300
+  );
+  --valence-dialog-info-description-text-size: var(
+    --valence-global-dimension-font-size-100
+  );
+  --valence-dialog-info-padding: var(
+    --valence-global-dimension-static-size-500
+  );
+  --valence-dialog-info-description-margin-bottom: var(
+    --valence-global-dimension-static-size-600
+  );
+  --valence-dropdown-touch-hit-x: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-dropdown-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-dropdown-quiet-touch-hit-y: var(
+    --valence-global-dimension-static-size-400
+  );
+  --valence-dropdown-thumbnail-small-touch-hit-x: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-dropdown-thumbnail-small-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-fieldbutton-quiet-min-width: var(
+    --valence-global-dimension-size-225
+  );
+  --valence-icon-arrow-down-small-height: var(
+    --valence-global-dimension-size-125
+  );
+  --valence-icon-arrow-left-medium-height: var(
+    --valence-global-dimension-size-125
+  );
+  --valence-icon-checkmark-medium-width: var(
+    --valence-global-dimension-size-150
+  );
+  --valence-icon-checkmark-medium-height: var(
+    --valence-global-dimension-size-150
+  );
+  --valence-icon-checkmark-small-width: var(
+    --valence-global-dimension-size-125
+  );
+  --valence-icon-checkmark-small-height: var(
+    --valence-global-dimension-size-125
+  );
+  --valence-icon-chevron-down-medium-width: var(
+    --valence-global-dimension-size-125
+  );
+  --valence-icon-chevron-left-large-width: var(
+    --valence-global-dimension-size-150
+  );
+  --valence-icon-chevron-left-medium-height: var(
+    --valence-global-dimension-size-125
+  );
+  --valence-icon-chevron-right-large-width: var(
+    --valence-global-dimension-size-150
+  );
+  --valence-icon-chevron-right-medium-height: var(
+    --valence-global-dimension-size-125
+  );
+  --valence-icon-cross-large-width: var(--valence-global-dimension-size-150);
+  --valence-icon-cross-large-height: var(--valence-global-dimension-size-150);
+  --valence-icon-dash-small-width: var(--valence-global-dimension-size-125);
+  --valence-icon-dash-small-height: var(--valence-global-dimension-size-125);
+  --valence-icon-skip-left-width: 9px;
+  --valence-icon-skip-left-height: var(--valence-global-dimension-size-125);
+  --valence-icon-skip-right-width: 9px;
+  --valence-icon-skip-right-height: var(--valence-global-dimension-size-125);
+  --valence-icon-triplegripper-width: var(--valence-global-dimension-size-125);
+  --valence-listitem-option-icon-size: var(
+    --valence-global-dimension-static-size-150
+  );
+  --valence-listitem-option-icon-margin-top: var(
+    --valence-global-dimension-static-size-65
+  );
+  --valence-listitem-option-height: var(
+    --valence-global-dimension-static-size-400
+  );
+  --valence-listitem-option-icon-padding-y: var(
+    --valence-global-dimension-static-size-125
+  );
+  --valence-listitem-thumbnail-option-icon-margin-top: var(
+    --valence-global-dimension-static-size-65
+  );
+  --valence-listitem-thumbnail-option-icon-padding-y: var(
+    --valence-global-dimension-static-size-125
+  );
+  --valence-selectlist-thumbnail-small-option-icon-margin-top: var(
+    --valence-global-dimension-static-size-65
+  );
+  --valence-selectlist-thumbnail-small-option-icon-padding-y: var(
+    --valence-global-dimension-static-size-125
+  );
+  --valence-selectlist-option-icon-size: var(
+    --valence-global-dimension-static-size-150
+  );
+  --valence-selectlist-option-icon-padding-y: var(
+    --valence-global-dimension-static-size-125
+  );
+  --valence-selectlist-option-icon-margin-top: var(
+    --valence-global-dimension-static-size-65
+  );
+  --valence-selectlist-option-height: var(
+    --valence-global-dimension-static-size-400
+  );
+  /* BEGIN RSP PATCH */
+  /*
+    This is not correct in DNA. Renamed from padding-y to padding-height to fix docs issue where fallback var replaced this value
+    (due to old valence-css postcss-custom-properties-custom-mapping plugin). Replaced var(--valence-global-dimension-static-size-85) with
+    static 7px value since a fallback isn't generated anymore due to the rename.
+  */
+  --valence-selectlist-option-padding-height: 7px;
+  /* END RSP PATCH */
+  --valence-selectlist-thumbnail-option-icon-padding-y: var(
+    --valence-global-dimension-static-size-125
+  );
+  --valence-loader-bar-large-border-radius: 3px;
+  --valence-loader-bar-large-over-background-border-radius: 3px;
+  --valence-loader-bar-small-border-radius: var(
+    --valence-global-dimension-static-size-25
+  );
+  --valence-loader-bar-small-over-background-border-radius: var(
+    --valence-global-dimension-static-size-25
+  );
+  --valence-loader-circle-medium-border-size: 3px;
+  --valence-loader-circle-medium-over-background-border-size: 3px;
+  --valence-loader-circle-small-border-size: var(
+    --valence-global-dimension-static-size-25
+  );
+  --valence-loader-circle-small-over-background-border-size: var(
+    --valence-global-dimension-static-size-25
+  );
+  --valence-meter-large-border-radius: 3px;
+  --valence-meter-small-border-radius: var(
+    --valence-global-dimension-static-size-25
+  );
+  --valence-pagination-page-button-line-height: 26px;
+  /* BEGIN RSP PATCH */
+  /* fix popover in edge https://github.com/adobe/react-valence/pull/402 */
+  --valence-overlay-positive-transform-distance: 6px;
+  --valence-overlay-negative-transform-distance: -6px;
+  /* END RSP PATCH */
+  --valence-picker-touch-hit-x: var(--valence-global-dimension-static-size-100);
+  --valence-picker-touch-hit-y: var(--valence-global-dimension-static-size-100);
+  --valence-picker-quiet-min-width: var(--valence-global-dimension-size-225);
+  --valence-picker-quiet-touch-hit-y: var(
+    --valence-global-dimension-static-size-400
+  );
+  --valence-picker-thumbnail-small-touch-hit-x: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-picker-thumbnail-small-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-progressbar-large-border-radius: 3px;
+  --valence-progressbar-large-indeterminate-border-radius: 3px;
+  --valence-progressbar-large-over-background-border-radius: 3px;
+  --valence-progressbar-small-border-radius: var(
+    --valence-global-dimension-static-size-25
+  );
+  --valence-progressbar-small-indeterminate-border-radius: var(
+    --valence-global-dimension-static-size-25
+  );
+  --valence-progressbar-small-over-background-border-radius: var(
+    --valence-global-dimension-static-size-25
+  );
+  --valence-progresscircle-medium-border-size: 3px;
+  --valence-progresscircle-medium-over-background-border-size: 3px;
+  --valence-progresscircle-small-border-size: var(
+    --valence-global-dimension-static-size-25
+  );
+  --valence-progresscircle-small-indeterminate-border-size: var(
+    --valence-global-dimension-static-size-25
+  );
+  --valence-progresscircle-small-over-background-border-size: var(
+    --valence-global-dimension-static-size-25
+  );
+  --valence-progresscircle-medium-indeterminate-border-size: 3px;
+  --valence-radio-text-gap-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-radio-text-gap-selected-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-radio-text-gap-error-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-radio-text-gap-error-selected-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-radio-margin-bottom: 0px;
+  --valence-radio-touch-hit-y: var(--valence-global-dimension-static-size-100);
+  --valence-radio-emphasized-text-gap-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-radio-emphasized-text-gap-selected-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-radio-emphasized-text-gap-error-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-radio-emphasized-text-gap-error-selected-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-radio-emphasized-margin-bottom: 0px;
+  --valence-radio-emphasized-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-radio-quiet-text-gap-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-radio-quiet-text-gap-selected-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-radio-quiet-text-gap-error-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-radio-quiet-text-gap-error-selected-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-radio-quiet-margin-bottom: 0px;
+  --valence-radio-quiet-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-rating-icon-width: 24px;
+  --valence-rating-indicator-width: 16px;
+  --valence-rating-touch-hit-y: var(--valence-global-dimension-static-size-100);
+  --valence-rating-emphasized-icon-width: 24px;
+  --valence-rating-emphasized-indicator-width: 16px;
+  --valence-rating-emphasized-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-rating-quiet-icon-width: 24px;
+  --valence-rating-quiet-indicator-width: 16px;
+  --valence-rating-quiet-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-search-touch-hit-x: var(--valence-global-dimension-static-size-100);
+  --valence-search-touch-hit-y: var(--valence-global-dimension-static-size-100);
+  --valence-search-icon-frame: var(--valence-global-dimension-static-size-400);
+  --valence-search-quiet-touch-hit-x: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-search-quiet-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-search-quiet-icon-frame: var(
+    --valence-global-dimension-static-size-400
+  );
+  --valence-sidenav-item-touch-hit-bottom: var(
+    --valence-global-dimension-static-size-25
+  );
+  --valence-sidenav-multilevel-item-touch-hit-bottom: var(
+    --valence-global-dimension-static-size-25
+  );
+  --valence-slider-track-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-slider-handle-touch-hit-x: var(
+    --valence-global-dimension-static-size-200
+  );
+  --valence-slider-handle-touch-hit-y: var(
+    --valence-global-dimension-static-size-200
+  );
+  --valence-slider-editable-track-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-slider-editable-handle-touch-hit-x: var(
+    --valence-global-dimension-static-size-200
+  );
+  --valence-slider-editable-handle-touch-hit-y: var(
+    --valence-global-dimension-static-size-200
+  );
+  --valence-slider-fill-track-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-slider-fill-handle-touch-hit-x: var(
+    --valence-global-dimension-static-size-200
+  );
+  --valence-slider-fill-handle-touch-hit-y: var(
+    --valence-global-dimension-static-size-200
+  );
+  --valence-switch-focus-ring-border-radius-key-focus: var(
+    --valence-global-dimension-static-size-130
+  );
+  --valence-switch-text-gap-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-switch-text-gap-selected-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-switch-text-gap-error-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-switch-text-gap-error-selected-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-switch-track-width: 26px;
+  --valence-switch-handle-border-radius: 7px;
+  /* BEGIN RSP PATCH */
+  /* fix switch in edge: https://github.com/adobe/react-valence/pull/90 */
+  --valence-switch-handle-transform-x-ltr: 12px;
+  --valence-switch-handle-transform-x-rtl: -12px;
+  /* END RSP PATCH */
+  --valence-switch-touch-hit-y: var(--valence-global-dimension-static-size-100);
+  --valence-switch-emphasized-focus-ring-border-radius-key-focus: var(
+    --valence-global-dimension-static-size-130
+  );
+  --valence-switch-emphasized-text-gap-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-switch-emphasized-text-gap-selected-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-switch-emphasized-text-gap-error-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-switch-emphasized-text-gap-error-selected-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-switch-emphasized-track-width: 26px;
+  --valence-switch-emphasized-handle-border-radius: 7px;
+  --valence-switch-emphasized-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-switch-quiet-focus-ring-border-radius-key-focus: var(
+    --valence-global-dimension-static-size-130
+  );
+  --valence-switch-quiet-text-gap-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-switch-quiet-text-gap-selected-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-switch-quiet-text-gap-error-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-switch-quiet-text-gap-error-selected-key-focus: var(
+    --valence-global-dimension-static-size-115
+  );
+  --valence-switch-quiet-track-width: 26px;
+  --valence-switch-quiet-handle-border-radius: 7px;
+  --valence-switch-quiet-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-tabs-compact-focus-ring-border-radius: 5px;
+  --valence-tabs-compact-margin-left: -8px;
+  --valence-tabs-compact-margin-right: -8px;
+  --valence-tabs-compact-vertical-focus-ring-border-radius: 5px;
+  --valence-tabs-compact-vertical-emphasized-focus-ring-border-radius: 5px;
+  --valence-tabs-baseline: var(--valence-global-dimension-size-225);
+  --valence-tabs-focus-ring-border-radius: 5px;
+  --valence-tabs-margin-left: -8px;
+  --valence-tabs-margin-right: -8px;
+  --valence-tabs-emphasized-baseline: var(--valence-global-dimension-size-225);
+  --valence-tabs-emphasized-focus-ring-border-radius: 5px;
+  --valence-tabs-emphasized-margin-left: -8px;
+  --valence-tabs-emphasized-margin-right: -8px;
+  --valence-tabs-quiet-baseline: var(--valence-global-dimension-size-225);
+  --valence-tabs-quiet-focus-ring-border-radius: 5px;
+  --valence-tabs-quiet-margin-left: -8px;
+  --valence-tabs-quiet-margin-right: -8px;
+  --valence-tabs-quiet-compact-focus-ring-border-radius: 5px;
+  --valence-tabs-quiet-compact-margin-left: -8px;
+  --valence-tabs-quiet-compact-margin-right: -8px;
+  --valence-tabs-quiet-compact-emphasized-focus-ring-border-radius: 5px;
+  --valence-tabs-quiet-compact-emphasized-margin-left: -8px;
+  --valence-tabs-quiet-compact-emphasized-margin-right: -8px;
+  --valence-tabs-quiet-compact-vertical-focus-ring-border-radius: 5px;
+  --valence-tabs-quiet-compact-vertical-emphasized-focus-ring-border-radius: 5px;
+  --valence-tabs-quiet-emphasized-baseline: var(
+    --valence-global-dimension-size-225
+  );
+  --valence-tabs-quiet-emphasized-focus-ring-border-radius: 5px;
+  --valence-tabs-quiet-emphasized-margin-left: -8px;
+  --valence-tabs-quiet-emphasized-margin-right: -8px;
+  --valence-tabs-quiet-vertical-baseline: var(
+    --valence-global-dimension-size-225
+  );
+  --valence-tabs-quiet-vertical-focus-ring-border-radius: 5px;
+  --valence-tabs-quiet-vertical-emphasized-baseline: var(
+    --valence-global-dimension-size-225
+  );
+  --valence-tabs-quiet-vertical-emphasized-focus-ring-border-radius: 5px;
+  --valence-tabs-vertical-baseline: var(--valence-global-dimension-size-225);
+  --valence-tabs-vertical-focus-ring-border-radius: 5px;
+  --valence-textarea-touch-hit-x: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-textarea-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-textarea-icon-frame: var(
+    --valence-global-dimension-static-size-400
+  );
+  --valence-textarea-quiet-touch-hit-x: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-textarea-quiet-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-textarea-quiet-icon-frame: var(
+    --valence-global-dimension-static-size-400
+  );
+  --valence-textfield-touch-hit-x: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-textfield-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-textfield-icon-frame: var(
+    --valence-global-dimension-static-size-400
+  );
+  --valence-textfield-quiet-touch-hit-x: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-textfield-quiet-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-textfield-quiet-icon-frame: var(
+    --valence-global-dimension-static-size-400
+  );
+  --valence-tool-touch-hit-x: var(--valence-global-dimension-static-size-100);
+  --valence-tool-touch-hit-y: var(--valence-global-dimension-static-size-100);
+  --valence-tool-high-emphasis-touch-hit-x: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-tool-high-emphasis-touch-hit-y: var(
+    --valence-global-dimension-static-size-100
+  );
+  --valence-tooltip-padding-bottom: 5px;
+  /* BEGIN RSP PATCH */
+  /* Old value is deprecated, bumping to new value for now: https://git.corp.adobe.com/Spectrum/valence-dna/blob/53f6efb0d81ec6829048a53a9e8389b450f46dee/data/elements/tooltip/TooltipBase.mjs#L36 */
+  --valence-tooltip-content-max-width: var(
+    --valence-global-dimension-size-2000
+  );
+  /* END RSP PATCH */
+  --valence-tooltip-info-padding-bottom: 5px;
+  --valence-tooltip-info-content-max-width: 101px;
+  --valence-tooltip-negative-padding-bottom: 5px;
+  --valence-tooltip-negative-content-max-width: 101px;
+  --valence-tooltip-positive-padding-bottom: 5px;
+  --valence-tooltip-positive-content-max-width: 101px;
+}

@@ -1,0 +1,56 @@
+.DropIndicator {
+  position: relative;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    width: var(--valence-dropindicator-circle-size);
+    height: var(--valence-dropindicator-circle-size);
+    border-radius: 50%;
+    border: var(--valence-dropindicator-border-size) solid;
+    box-sizing: border-box;
+  }
+}
+
+.DropIndicator--horizontal {
+  height: var(--valence-dropindicator-border-size);
+  margin: 0 var(--valence-dropindicator-circle-size);
+
+  &:before,
+  &:after {
+    top: calc(
+      var(--valence-dropindicator-circle-size) * -1 / 2 +
+        var(--valence-dropindicator-border-size) / 2
+    );
+  }
+
+  &:before {
+    left: calc(var(--valence-dropindicator-circle-size) * -1);
+  }
+
+  &:after {
+    right: calc(var(--valence-dropindicator-circle-size) * -1);
+  }
+}
+
+.DropIndicator--vertical {
+  width: var(--valence-dropindicator-border-size);
+  margin: var(--valence-dropindicator-circle-size) 0;
+
+  &:before,
+  &:after {
+    left: calc(
+      var(--valence-dropindicator-circle-size) * -1 / 2 +
+        var(--valence-dropindicator-border-size) / 2
+    );
+  }
+
+  &:before {
+    top: calc(var(--valence-dropindicator-circle-size) * -1);
+  }
+
+  &:after {
+    bottom: calc(var(--valence-dropindicator-circle-size) * -1);
+  }
+}

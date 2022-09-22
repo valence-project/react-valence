@@ -1,0 +1,132 @@
+@import "../commons/index.scss";
+@import "../overlay/index.scss";
+
+/* Used to position the modal */
+.Modal-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+  width: 100vw;
+  /* On mobile browsers, vh units are fixed based on the maximum height of the screen.
+   * However, when you scroll, the toolbar and address bar shrink, making the viewport resize.
+   * The visual viewport also shrinks when the keyboard is displayed. We use the VisualViewport
+   * API in JS to set this CSS variable to ensure the height is correct. */
+  height: var(--valence-visual-viewport-height);
+
+  visibility: hidden;
+
+  /* Don't catch clicks */
+  pointer-events: none;
+
+  /* Appear above underlay */
+  z-index: 2;
+
+  /* Be invisible by default */
+  transition: visibility 0ms linear var(--valence-global-animation-duration-100);
+
+  &.is-open {
+    visibility: visible;
+  }
+}
+
+.Modal {
+  @include valence-overlay;
+
+  /* Start offset by the animation distance */
+  //transform: translateY(var(--valence-dialog-entry-animation-distance));
+
+  /* Appear above underlay */
+  z-index: 2;
+
+  /* Don't be bigger than the screen */
+  max-height: var(--valence-dialog-max-height);
+  max-width: 90vw;
+  min-width: var(--valence-dialog-min-width);
+
+  border-radius: var(--valence-dialog-border-radius);
+  outline: none; /* Firefox shows outline */
+  pointer-events: auto;
+
+  /* Exit animations */
+  // transition: opacity var(--valence-dialog-exit-animation-duration)
+  //     cubic-bezier(0.5, 0, 1, 1) var(--valence-dialog-exit-animation-delay),
+  //   visibility 0ms linear
+  //     calc(
+  //       var(--valence-dialog-exit-animation-delay) +
+  //         var(--valence-dialog-exit-animation-duration)
+  //     ),
+  //   transform 0ms linear
+  //     calc(
+  //       var(--valence-dialog-exit-animation-delay) +
+  //         var(--valence-dialog-exit-animation-duration)
+  //     );
+
+  &.is-open {
+    @include valence-overlay--open;
+
+    /* Entry animations */
+    // transition: transform var(--valence-dialog-entry-animation-duration)
+    //     cubic-bezier(0, 0, 0.4, 1) var(--valence-dialog-entry-animation-delay),
+    //   opacity var(--valence-dialog-entry-animation-duration)
+    //     cubic-bezier(0, 0, 0.4, 1) var(--valence-dialog-entry-animation-delay);
+
+    // transform: translateY(0);
+  }
+}
+
+/* Responsive modals will fill the screen on small viewports */
+@media only screen and (max-device-width: 400px),
+  only screen and (max-device-height: 350px) {
+  .Modal--responsive {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 0;
+  }
+  .Modal-wrapper {
+    .Modal--responsive {
+      margin-top: 0; /* Prevent the vertical offset bit */
+    }
+  }
+}
+
+/** @unofficial */
+.Modal--fullscreen {
+  position: fixed;
+  left: var(--valence-dialog-fullscreen-margin);
+  top: var(--valence-dialog-fullscreen-margin);
+  right: var(--valence-dialog-fullscreen-margin);
+  bottom: var(--valence-dialog-fullscreen-margin);
+  max-width: none;
+  max-height: none;
+  width: calc(100% - calc(2 * var(--valence-dialog-fullscreen-margin)));
+  height: calc(100% - calc(2 * var(--valence-dialog-fullscreen-margin)));
+}
+
+.Modal--fullscreenTakeover {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  max-width: none;
+  max-height: none;
+
+  box-sizing: border-box;
+
+  /* Remove the border since we've taken over */
+  border: none;
+  border-radius: 0;
+
+  &,
+  &.is-open {
+    transform: none;
+  }
+}

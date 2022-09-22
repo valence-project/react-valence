@@ -1,0 +1,39 @@
+.Table {
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  min-width: 0;
+}
+
+.Table-cell {
+  display: flex;
+  align-items: center;
+}
+
+.Table-cellWrapper > .Table-cell {
+  height: 100%;
+}
+
+.Table-cell--alignStart {
+  text-align: start;
+  justify-content: flex-start;
+}
+
+.Table-cell--alignCenter {
+  text-align: center;
+  justify-content: center;
+}
+
+.Table-cell--alignEnd {
+  text-align: end;
+  justify-content: flex-end;
+}
+
+.Table-centeredWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}

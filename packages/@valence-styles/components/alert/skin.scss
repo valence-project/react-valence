@@ -1,0 +1,53 @@
+.Alert {
+  background-color: var(--valence-alert-background-color);
+  /* default color set to body color, header element overwrites this */
+  color: var(--valence-alert-text-color);
+}
+
+.Alert-header {
+  color: var(--valence-alert-title-text-color);
+}
+
+.Alert-content {
+  color: var(--valence-alert-text-color);
+}
+
+.Alert--info {
+  border-color: var(--valence-alert-info-border-color);
+
+  .Alert-icon {
+    color: var(--valence-alert-info-icon-color);
+  }
+}
+
+.Alert--help {
+  border-color: var(--valence-alert-info-border-color);
+
+  .Alert-icon {
+    color: var(--valence-alert-info-icon-color);
+  }
+}
+
+.Alert--error {
+  border-color: var(--valence-alert-error-border-color);
+
+  .Alert-icon {
+    color: var(--valence-alert-error-icon-color);
+  }
+}
+
+.Alert--success {
+  border-color: var(--valence-alert-success-border-color);
+
+  .Alert-icon {
+    color: var(--valence-alert-success-icon-color);
+  }
+}
+
+.Alert--warning {
+  border-color: var(--valence-alert-warning-border-color);
+
+  .Alert-icon {
+    color: var(--valence-alert-warning-icon-color);
+  }
+}

@@ -1,0 +1,15 @@
+.Banner {
+  color: var(--valence-banner-text-color);
+}
+
+.Banner--info {
+  background-color: var(--valence-banner-info-background-color);
+}
+
+.Banner--warning {
+  background-color: var(--valence-banner-warning-background-color);
+}
+
+.Banner--error {
+  background-color: var(--valence-banner-error-background-color);
+}

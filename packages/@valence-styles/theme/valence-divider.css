@@ -1,0 +1,23 @@
+.theme {
+  --valence-divider-large-background-color: var(--valence-global-color-gray-800);
+  --valence-divider-large-height: var(--valence-global-dimension-static-size-50);
+  --valence-divider-large-border-radius: var(--valence-global-dimension-static-size-25);
+  --valence-divider-large-vertical-background-color: var(--valence-global-color-gray-800);
+  --valence-divider-large-vertical-width: var(--valence-global-dimension-static-size-50);
+  --valence-divider-large-vertical-border-radius: var(--valence-global-dimension-static-size-25);
+  --valence-divider-medium-background-color: var(--valence-global-color-gray-300);
+  --valence-divider-medium-height: var(--valence-global-dimension-static-size-25);
+  --valence-divider-medium-border-radius: var(--valence-global-dimension-static-size-10);
+  --valence-divider-medium-vertical-background-color: var(--valence-global-color-gray-300);
+  --valence-divider-medium-vertical-width: var(--valence-global-dimension-static-size-25);
+  --valence-divider-medium-vertical-border-radius: var(--valence-global-dimension-static-size-10);
+  --valence-divider-small-background-color: var(--valence-global-color-gray-300);
+  --valence-divider-small-height: var(--valence-global-dimension-static-size-10);
+  --valence-divider-small-border-radius: var(--valence-global-dimension-static-size-10);
+  --valence-divider-small-vertical-background-color: var(--valence-global-color-gray-300);
+  --valence-divider-small-vertical-width: var(--valence-global-dimension-static-size-10);
+  --valence-divider-small-vertical-border-radius: var(--valence-global-dimension-static-size-10);
+  --valence-divider-small-veritcal-background-color: var(--valence-global-color-gray-300);
+  --valence-divider-small-veritcal-width: var(--valence-global-dimension-static-size-10);
+  --valence-divider-small-veritcal-border-radius: var(--valence-global-dimension-static-size-10);
+}

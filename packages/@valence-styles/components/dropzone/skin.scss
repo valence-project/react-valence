@@ -1,0 +1,27 @@
+.Dropzone {
+  border-color: var(--valence-dropzone-border-color);
+
+  &.is-dragged {
+    border-color: var(--valence-dropzone-border-color-selected-hover);
+    background-color: var(--valence-dropzone-background-color-selected-hover);
+
+    .IllustratedMessage-illustration {
+      color: var(--valence-global-color-blue-400);
+    }
+  }
+
+  &:focus:not(.is-dragged) {
+    border-color: var(--valence-dropzone-border-color);
+    .IllustratedMessage-illustration {
+      color: var(--valence-global-color-static-gray-500);
+    }
+    &.focus-ring {
+      border-color: var(--valence-dropzone-border-color-selected-hover);
+    }
+    &.is-dragged.focus-ring {
+      .IllustratedMessage-illustration {
+        color: var(--valence-global-color-blue-400);
+      }
+    }
+  }
+}

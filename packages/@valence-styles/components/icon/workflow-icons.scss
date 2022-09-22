@@ -1,0 +1,63 @@
+
+.Icon--sizeXXS {
+  &,
+  img,
+  svg {
+    block-size: var(--valence-icon-size-xxs);
+    inline-size: var(--valence-icon-size-xxs);
+  }
+}
+
+.Icon--sizeXS {
+  &,
+  img,
+  svg {
+    block-size: var(--valence-icon-size-xs);
+    inline-size: var(--valence-icon-size-xs);
+  }
+}
+
+.Icon--sizeS {
+  &,
+  img,
+  svg {
+    block-size: var(--valence-icon-size-s);
+    inline-size: var(--valence-icon-size-s);
+  }
+}
+
+.Icon--sizeM {
+  &,
+  img,
+  svg {
+    block-size: var(--valence-icon-size-m);
+    inline-size: var(--valence-icon-size-m);
+  }
+}
+
+.Icon--sizeL {
+  &,
+  img,
+  svg {
+    block-size: var(--valence-icon-size-l);
+    inline-size: var(--valence-icon-size-l);
+  }
+}
+
+.Icon--sizeXL {
+  &,
+  img,
+  svg {
+    block-size: var(--valence-icon-size-xl);
+    inline-size: var(--valence-icon-size-xl);
+  }
+}
+
+.Icon--sizeXXL {
+  &,
+  img,
+  svg {
+    block-size: var(--valence-icon-size-xxl);
+    inline-size: var(--valence-icon-size-xxl);
+  }
+}

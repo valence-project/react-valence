@@ -1,0 +1,38 @@
+:root {
+  --valence-contextualhelp-button-size: var(
+    --valence-global-dimension-size-250
+  );
+  --valence-contextualhelp-icon-size: var(--valence-global-dimension-size-175);
+  --valence-contexualhelp-dialog-width: 250px;
+  --valence-contextualhelp-dialog-padding: var(
+    --valence-global-dimension-static-size-300
+  );
+}
+
+.ContextualHelp-button {
+  --valence-button-primary-height: var(--valence-contextualhelp-button-size);
+  --valence-actionbutton-height: var(--valence-contextualhelp-button-size);
+  --valence-actionbutton-min-width: var(--valence-contextualhelp-button-size);
+  --valence-actionbutton-icon-padding-x: var(
+    --valence-global-dimension-size-40
+  );
+
+  svg {
+    block-size: var(--valence-contextualhelp-icon-size);
+    inline-size: var(--valence-contextualhelp-icon-size);
+  }
+}
+
+.ContextualHelp-dialog.ContextualHelp-dialog {
+  width: var(--valence-contexualhelp-dialog-width);
+  --valence-dialog-padding-x: var(--valence-contextualhelp-dialog-padding);
+  --valence-dialog-padding-y: var(--valence-contextualhelp-dialog-padding);
+
+  .ContextualHelp-content {
+    margin-top: var(--valence-global-dimension-static-size-100);
+  }
+
+  .ContextualHelp-footer {
+    padding-top: var(--valence-global-dimension-static-size-100);
+  }
+}

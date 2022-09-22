@@ -1,0 +1,144 @@
+@import "../commons/index.scss";
+@import "animation.scss";
+
+.CoachMarkPopover {
+  position: relative;
+
+  min-width: var(--valence-coachmark-min-width);
+  max-width: var(--valence-coachmark-max-width);
+
+  border-radius: var(--valence-coachmark-border-radius);
+  border-width: var(--valence-coachmark-border-size);
+  border-style: solid;
+}
+.CoachMarkPopover-image {
+  border-radius: var(--valence-coachmark-border-radius)
+    var(--valence-coachmark-border-radius) 0 0;
+
+  width: 100%;
+}
+
+.CoachMarkPopover-header,
+.CoachMarkPopover-content,
+.CoachMarkPopover-footer {
+  padding: 0 var(--valence-coachmark-padding-x);
+}
+
+.CoachMarkPopover-header {
+  padding-top: var(--valence-coachmark-padding-y);
+}
+
+.CoachMarkPopover-footer {
+  padding-bottom: var(--valence-coachmark-padding-y);
+}
+
+.CoachMarkPopover-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: var(--valence-coachmark-title-margin-bottom);
+}
+
+.CoachMarkPopover-title {
+  font-size: var(--valence-coachmark-title-text-size);
+  font-weight: var(--valence-coachmark-title-text-font-weight);
+  line-height: var(--valence-coachmark-title-text-line-height);
+  margin-bottom: 0;
+}
+
+.CoachMarkPopover-step {
+  align-self: flex-start;
+
+  font-size: var(--valence-coachmark-step-text-size);
+  font-weight: var(--valence-coachmark-step-text-font-weight);
+  line-height: var(--valence-coachmark-step-text-line-height);
+  white-space: nowrap;
+}
+
+.CoachMarkPopover-content {
+  margin-bottom: var(--valence-coachmark-content-margin-bottom);
+}
+
+.CoachMarkPopover-footer {
+  margin-top: 0;
+  text-align: right;
+}
+
+.CoachMarkIndicator {
+  position: relative;
+
+  margin: var(--valence-coachmark-indicator-gap);
+}
+
+.CoachMarkIndicator-ring {
+  display: block;
+  position: absolute;
+
+  border-style: solid;
+  border-width: var(--valence-coachmark-indicator-ring-border-size);
+  border-radius: 50%;
+
+  &:nth-child(2) {
+    animation-delay: calc(
+      var(--valence-coachmark-animation-indicator-ring-duration) *
+        var(--valence-coachmark-animation-inticator-ring-center-delay-multiple)
+    );
+  }
+
+  &:nth-child(3) {
+    animation-delay: calc(
+      var(--valence-coachmark-animation-indicator-ring-duration) *
+        var(--valence-coachmark-animation-inticator-ring-outer-delay-multiple)
+    );
+  }
+}
+
+.CoachMarkIndicator {
+  min-width: calc(var(--valence-coachmark-indicator-ring-diameter) * 3);
+  min-height: calc(var(--valence-coachmark-indicator-ring-diameter) * 3);
+}
+
+.CoachMarkIndicator-ring {
+  top: calc(var(--valence-coachmark-indicator-ring-diameter) * 0.75);
+  left: calc(var(--valence-coachmark-indicator-ring-diameter) * 0.75);
+
+  width: var(--valence-coachmark-indicator-ring-diameter);
+  height: var(--valence-coachmark-indicator-ring-diameter);
+  animation: pulse var(--valence-coachmark-animation-indicator-ring-duration)
+    linear infinite;
+
+  &:nth-child(1) {
+    animation-delay: calc(
+      var(--valence-coachmark-animation-indicator-ring-duration) *
+        var(--valence-coachmark-animation-inticator-ring-inner-delay-multiple)
+    );
+  }
+}
+
+.CoachMarkIndicator--quiet {
+  min-width: calc(
+    var(--valence-coachmark-quiet-indicator-ring-diameter) * 2.75
+  );
+  min-height: calc(
+    var(--valence-coachmark-quiet-indicator-ring-diameter) * 2.75
+  );
+
+  .CoachMarkIndicator-ring {
+    top: calc(var(--valence-coachmark-quiet-indicator-ring-diameter) * 0.75);
+    left: calc(var(--valence-coachmark-quiet-indicator-ring-diameter) * 0.75);
+
+    width: var(--valence-coachmark-quiet-indicator-ring-diameter);
+    height: var(--valence-coachmark-quiet-indicator-ring-diameter);
+    animation: pulse--quiet
+      var(--valence-coachmark-animation-indicator-ring-duration) linear infinite;
+
+    &:nth-child(1) {
+      animation-delay: calc(
+        var(--valence-coachmark-animation-indicator-ring-duration) *
+          var(
+            --valence-coachmark-quiet-animation-inticator-ring-inner-delay-multiple
+          )
+      );
+    }
+  }
+}

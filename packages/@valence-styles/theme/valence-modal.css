@@ -1,0 +1,13 @@
+
+.theme {
+    --valence-dialog-vertical-offset: -2vh;
+  
+    /* Bug: this must be 0ms, not 0 */
+    --valence-dialog-exit-animation-delay: 0ms;
+  
+    /* Distance between top and bottom of dialog and edge of window for fullscreen dialog */
+    --valence-dialog-fullscreen-margin: 40px;
+    --valence-dialog-max-height: calc(
+      var(--valence-visual-viewport-height) * 0.9
+    );
+  }

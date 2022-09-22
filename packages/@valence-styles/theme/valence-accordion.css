@@ -1,0 +1,41 @@
+.theme  {
+  --valence-accordion-border-color: var(--valence-global-color-gray-300);
+  --valence-accordion-icon-color: var(--valence-global-color-gray-600);
+  --valence-accordion-text-color: var(--valence-global-color-gray-700);
+  --valence-accordion-icon-color-hover: var(--valence-global-color-gray-800);
+  --valence-accordion-text-color-hover: var(--valence-global-color-gray-900);
+  --valence-accordion-background-color-hover: var(--valence-global-color-gray-200);
+  --valence-accordion-icon-color-down: var(--valence-global-color-gray-800);
+  --valence-accordion-text-color-down: var(--valence-global-color-gray-900);
+  --valence-accordion-item-border-size-key-focus: 2px;
+  --valence-accordion-item-border-left-size-key-focus: var(--valence-alias-border-size-thick);
+  --valence-accordion-border-left-color-key-focus: var(--valence-alias-border-color-focus);
+  --valence-accordion-item-border-left-color-key-focus: var(--valence-alias-border-color-focus);
+  --valence-accordion-icon-color-key-focus: var(--valence-global-color-gray-800);
+  --valence-accordion-text-color-key-focus: var(--valence-global-color-gray-900);
+  --valence-accordion-icon-color-disabled: var(--valence-global-color-gray-400);
+  --valence-accordion-text-color-disabled: var(--valence-global-color-gray-500);
+  --valence-accordion-item-height: 40px;
+  --valence-accordion-item-padding: 16px;
+  --valence-accordion-item-padding-x: var(--valence-global-dimension-size-225);
+  --valence-accordion-item-border-size: var(--valence-alias-border-size-thin);
+  --valence-accordion-icon-spacing: 16px;
+  --valence-accordion-icon-gap: var(--valence-global-dimension-size-100);
+  --valence-accordion-icon-width: var(--valence-global-dimension-size-75);
+  --valence-accordion-icon-height: var(--valence-global-dimension-size-125);
+  --valence-accordion-item-title-text-size: var(--valence-global-dimension-font-size-50);
+  --valence-accordion-item-title-tracking: var(--valence-global-font-letter-spacing-medium);
+  --valence-accordion-item-content-padding: var(--valence-global-dimension-size-200);
+}
+
+.theme {
+  --valence-accordion-icon-width: 6px;
+  --valence-accordion-icon-height: 10px;
+
+  /* Subtract the size of the border since it's on the item itself */
+  --valence-accordion-item-height-actual: calc(var(--valence-accordion-item-height) - var(--valence-accordion-item-border-size));
+  --valence-accordion-item-title-tracking-actual: calc(var(--valence-accordion-item-title-tracking) / 100);
+
+  --valence-accordion-item-title-padding-y: var(--valence-global-dimension-size-150);
+  --valence-accordion-item-line-height: 1.3;
+}

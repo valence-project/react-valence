@@ -1,0 +1,103 @@
+@mixin valence-ColorControl-handle--focused {
+  /* Bigger handle when focused */
+  width: calc(var(--valence-colorhandle-size) * 2);
+  height: calc(var(--valence-colorhandle-size) * 2);
+
+  margin-left: calc(-1 * var(--valence-colorhandle-size));
+  margin-top: calc(-1 * var(--valence-colorhandle-size));
+}
+
+/** index.css (scale dependent) */
+
+@mixin valence-ColorControl-hiddenField {
+  opacity: 0.0001;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  margin: 0;
+  pointer-events: none;
+}
+
+.ColorWheel {
+  position: relative;
+  display: block;
+  width: var(--valence-colorwheel-width);
+  height: var(--valence-colorwheel-height);
+  /* expose to JS */
+  --valence-colorwheel-track-thickness: var(--valence-colorwheel-track-width);
+
+  border-radius: var(--valence-colorwheel-border-radius);
+  user-select: none;
+  touch-action: none;
+  cursor: default;
+
+  .ColorWheel-handle {
+    margin: 0;
+  }
+
+  &.is-focused {
+    z-index: 2;
+
+    .ColorWheel-handle {
+      @include valence-ColorControl-handle--focused;
+    }
+  }
+
+  &.is-disabled {
+    pointer-events: none;
+  }
+
+  &.is-dragged {
+    /* Be on top when dragging so loupe can overlap */
+    z-index: 2;
+  }
+}
+
+.ColorWheel-gradient {
+  position: relative;
+  z-index: 0;
+  width: var(--valence-colorwheel-width);
+  height: var(--valence-colorwheel-height);
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    border-radius: 100%;
+    border-width: var(--valence-colorwheel-border-size);
+    border-style: solid;
+  }
+
+  &:before {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  &:after {
+    top: calc(
+      var(--valence-colorwheel-track-width) -
+        var(--valence-colorwheel-border-size)
+    );
+    left: calc(
+      var(--valence-colorwheel-track-width) -
+        var(--valence-colorwheel-border-size)
+    );
+    bottom: calc(
+      var(--valence-colorwheel-track-width) -
+        var(--valence-colorwheel-border-size)
+    );
+    right: calc(
+      var(--valence-colorwheel-track-width) -
+        var(--valence-colorwheel-border-size)
+    );
+  }
+}
+
+.ColorWheel-slider {
+  @include valence-ColorControl-hiddenField;
+}

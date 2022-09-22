@@ -1,0 +1,31 @@
+{
+  "name": "@react-aria/pagination",
+  "version": "0.0.1",
+  "description": "Spectrum UI components in React",
+  "license": "Apache-2.0",
+  "private": true,
+  "module": "src/index.ts",
+  "types": "dist/types.d.ts",
+  "source": "src/index.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/valence-project/react-valence"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.6.2",
+    "@react-aria/i18n": "^3.1.0",
+    "@types-valence/pagination": "^0.0.1",
+    "@valence-stately/pagination": "^0.0.1"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0-rc.1 || ^18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

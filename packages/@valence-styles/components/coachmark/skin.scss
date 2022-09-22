@@ -1,0 +1,29 @@
+.CoachMarkPopover {
+  background-color: var(--valence-coachmark-background-color);
+  border-color: var(--valence-coachmark-border-color);
+  box-shadow: 0 1px 4px var(--valence-coachmark-shadow-color);
+}
+
+.CoachMarkPopover-title {
+  color: var(--valence-coachmark-title-text-color);
+}
+
+.CoachMarkPopover-step {
+  color: var(--valence-coachmark-step-text-color);
+}
+
+.CoachMarkPopover-content {
+  color: var(--valence-coachmark-content-text-color);
+}
+
+.CoachMarkIndicator-ring {
+  border-color: var(--valence-coachmark-indicator-ring-default-color);
+}
+
+.CoachMarkIndicator--light .CoachMarkIndicator-ring {
+  border-color: var(--valence-coachmark-indicator-ring-low-contrast-color);
+}
+
+.CoachMarkIndicator--dark .CoachMarkIndicator-ring {
+  border-color: var(--valence-coachmark-indicator-ring-high-contrast-color);
+}

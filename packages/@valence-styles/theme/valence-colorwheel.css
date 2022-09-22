@@ -1,0 +1,40 @@
+.theme {
+  --valence-colorwheel-fill-color: none;
+  --valence-colorwheel-fill-color-hover: none;
+  --valence-colorwheel-fill-color-down: none;
+  --valence-colorwheel-fill-color-key-focus: none;
+  --valence-colorwheel-border-color-disabled: var(--valence-global-color-gray-300);
+  --valence-colorwheel-fill-color-disabled: var(--valence-global-color-gray-300);
+  --valence-colorwheel-border-size: var(--valence-alias-border-size-thin);
+  --valence-colorwheel-default-size: var(--valence-global-dimension-size-2400);
+  --valence-colorwheel-track-width: var(--valence-global-dimension-size-300);
+  --valence-colorwheel-colorarea-margin: var(--valence-global-dimension-size-150);
+  --valence-colorwheel-cursor-hit-outer: var(--valence-global-dimension-size-0);
+  --valence-colorwheel-cursor-hit-inner: var(--valence-global-dimension-size-0);
+  --valence-colorwheel-loupe-entry-animation-delay: 0ms;
+  --valence-colorwheel-loupe-entry-animation-duration: var(--valence-alias-loupe-entry-animation-duration);
+  --valence-colorwheel-loupe-entry-animation-ease: var(--valence-global-animation-ease-out);
+  --valence-colorwheel-loupe-entry-animation-properties: opacity;
+  --valence-colorwheel-loupe-exit-animation-delay: 0ms;
+  --valence-colorwheel-loupe-exit-animation-duration: var(--valence-alias-loupe-exit-animation-duration);
+  --valence-colorwheel-loupe-exit-animation-ease: var(--valence-global-animation-ease-out);
+  --valence-colorwheel-loupe-exit-animation-properties: opacity;
+}
+
+.theme {
+  /* todo: fix this in DNA */
+  --valence-colorwheel-border-color: var(--valence-colorarea-border-color);
+}
+
+.theme {
+  /* todo: fix this in DNA */
+  --valence-colorwheel-focus-ring-size: var(
+    --valence-global-dimension-static-size-25
+  );
+  --valence-colorwheel-border-radius: 100%;
+  --valence-colorwheel-width: calc(
+    var(--valence-global-dimension-size-125) * 16
+  );
+  --valence-colorwheel-height: var(--valence-colorwheel-width);
+}
+

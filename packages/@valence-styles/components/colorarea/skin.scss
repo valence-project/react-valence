@@ -1,0 +1,39 @@
+.ColorArea {
+  &:before {
+    box-shadow: inset 0 0 0 var(--valence-colorarea-border-size)
+      var(--valence-colorarea-border-color);
+  }
+}
+.ColorArea-gradient {
+  forced-color-adjust: none;
+}
+.ColorHandle-color {
+  forced-color-adjust: none;
+}
+
+.ColorArea {
+  &.is-disabled {
+    background: var(--valence-colorarea-fill-color-disabled);
+
+    &:before {
+      box-shadow: inset 0 0 0 var(--valence-colorarea-border-size)
+        var(--valence-colorarea-border-color-disabled);
+    }
+
+    .ColorArea-gradient {
+      display: none;
+    }
+  }
+}
+
+@media (forced-colors: active) {
+  .ColorArea {
+    --valence-colorarea-fill-color-disabled: GrayText;
+  }
+  .ColorArea {
+    forced-color-adjust: none;
+    &.is-disabled {
+      forced-color-adjust: none;
+    }
+  }
+}

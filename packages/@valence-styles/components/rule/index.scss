@@ -1,0 +1,60 @@
+@import "../commons/index.scss";
+
+.Rule {
+  /* Show the overflow for hr in Edge and IE. */
+  overflow: visible;
+
+  border: none;
+  border-width: var(--valence-rule-medium-height);
+  border-radius: var(--valence-rule-medium-height);
+
+  /* hr elements are given a default margin, reset it so that flex can work */
+  margin: 0px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  align-self: stretch;
+}
+
+.Rule--large {
+  border-radius: var(--valence-rule-large-border-radius);
+}
+
+.Rule--medium {
+  border-radius: var(--valence-rule-medium-border-radius);
+}
+
+.Rule--small {
+  border-radius: var(--valence-rule-small-border-radius);
+}
+
+.Rule--horizontal {
+  &.Rule--large {
+    block-size: var(--valence-rule-large-height);
+  }
+
+  &.Rule--medium {
+    block-size: var(--valence-rule-medium-height);
+  }
+
+  &.Rule--small {
+    block-size: var(--valence-rule-small-height);
+  }
+}
+
+.Rule--vertical {
+  height: auto;
+  /* expected usage, people need to set height 100% if they aren't using flex on the container
+   * if they *ARE* using flex, then they need to either have align-items stretch OR align-self stretch
+   */
+  &.Rule--large {
+    inline-size: var(--valence-rule-large-height);
+  }
+
+  &.Rule--medium {
+    inline-size: var(--valence-rule-medium-height);
+  }
+
+  &.Rule--small {
+    inline-size: var(--valence-rule-small-height);
+  }
+}

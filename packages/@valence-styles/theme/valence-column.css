@@ -1,0 +1,27 @@
+.theme {
+  --valence-miller-column-ui-icon-color: var(--valence-global-color-gray-600);
+  --valence-miller-column-text-color: var(--valence-global-color-gray-800);
+  --valence-miller-column-thumbnail-background-color: var(--valence-global-color-gray-300);
+  --valence-miller-column-item-background-color-hover: var(--valence-global-color-gray-200);
+  --valence-miller-column-ui-icon-color-hover: var(--valence-global-color-gray-700);
+  --valence-miller-column-item-background-color-down: var(--valence-global-color-gray-300);
+  --valence-miller-column-ui-icon-color-down: var(--valence-alias-icon-color);
+  --valence-miller-column-item-text-color-down: var(--valence-global-color-gray-50);
+  --valence-miller-column-item-text-color-key-focus: var(--valence-alias-focus-color);
+  --valence-miller-column-item-text-color-selected: var(--valence-global-color-gray-50);
+  --valence-miller-column-thumbnail-background-color-selected: var(--valence-global-color-gray-50);
+  --valence-miller-column-ui-icon-color-selected: var(--valence-alias-icon-color);
+  --valence-miller-column-ui-icon-color-selected-hover: var(--valence-alias-icon-color-hover);
+  --valence-miller-column-item-height: var(--valence-global-dimension-static-size-500);
+  --valence-miller-column-ui-icon-width: var(--valence-global-dimension-size-75);
+  --valence-miller-column-ui-icon-height: var(--valence-global-dimension-size-125);
+  --valence-miller-column-thumbnail-width: var(--valence-global-dimension-static-size-300);
+  --valence-miller-column-thumbnail-height: var(--valence-global-dimension-static-size-300);
+  --valence-miller-column-thumbnail-margin-left: var(--valence-global-dimension-static-size-100);
+  --valence-miller-column-item-label-padding-left: var(--valence-global-dimension-static-size-100);
+  --valence-miller-column-item-margin-bottom: var(--valence-global-dimension-static-size-50);
+  --valence-miller-column-width: var(--valence-global-dimension-static-size-3400);
+  --valence-miller-column-item-border-radius: var(--valence-global-dimension-static-size-50);
+  --valence-miller-column-item-padding-left: var(--valence-global-dimension-static-size-200);
+  --valence-miller-column-item-padding-right: var(--valence-global-dimension-static-size-200);
+}

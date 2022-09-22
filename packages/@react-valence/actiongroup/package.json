@@ -1,0 +1,70 @@
+{
+  "name": "@react-valence/actiongroup",
+  "version": "0.0.1",
+  "description": "react-valence actiongroup component",
+  "license": "MIT",
+  "module": "index.ts",
+  "types": "dist/types.d.ts",
+  "source": "src/index.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
+  "targets": {
+    "main": {
+      "includeNodeModules": [
+        "@valence-styles/components"
+      ]
+    },
+    "module": {
+      "includeNodeModules": [
+        "@valence-styles/components"
+      ]
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/valence-project/react-valence.git"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.6.2",
+    "@react-aria/actiongroup": "^3.4.1",
+    "@react-aria/button": "^3.6.1",
+    "@react-aria/focus": "^3.8.0",
+    "@react-aria/interactions": "^3.11.0",
+    "@react-aria/selection": "^3.10.1",
+    "@react-aria/utils": "^3.13.3",
+    "@react-stately/collections": "^3.4.3",
+    "@react-stately/list": "^3.5.3",
+    "@spectrum-icons/workflow": "^4.0.2",
+    "@react-valence/button": "^0.0.1",
+    "@react-valence/form": "^0.0.1",
+    "@react-valence/menu": "^0.0.1",
+    "@react-valence/text": "^0.0.1",
+    "@react-valence/tooltip": "^0.0.1",
+    "@react-valence/utils": "^0.0.1",
+    "@types-valence/actiongroup": "^0.0.1",
+    "@types-valence/button": "^0.0.1",
+    "@types-valence/shared": "^0.0.1",
+    "@valence-icons/ui": "^0.0.1"
+  },
+  "devDependencies": {
+    "@valence-styles/components": "^0.0.1"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0-rc.1 || ^18.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0-rc.1 || ^18.0.0",
+    "@react-valence/provider": "^0.0.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "pyramids @react-valence/actiongroup"
+  },
+  "main": "./dist/main.js",
+  "gitHead": "e4cabd25e57ea3c82716af710d87f10f1cd2359d"
+}

@@ -1,0 +1,238 @@
+@import "../commons/index.scss";
+
+.Steplist {
+  /* Contain child elements with positive z-index */
+  z-index: 0;
+  position: relative;
+
+  display: block;
+  vertical-align: top;
+  margin: 0;
+  padding-top: var(--valence-steplist-topPadding);
+  padding-left: var(--valence-steplist-sidePadding);
+  padding-right: var(--valence-steplist-sidePadding);
+
+  text-align: center;
+  white-space: nowrap;
+  font-size: 0; /* To remove html whitespace between inline elements */
+  line-height: 16px; /* in case the container changes it */
+}
+
+.Steplist--interactive {
+  .Steplist-label,
+  .Steplist-markerContainer {
+    /* Show cursor on hit zone when clickable */
+    cursor: pointer;
+  }
+}
+
+/* Small (w/o label or tooltip) */
+.Steplist--small {
+  padding: var(--valence-steplist-small-topPadding) 0;
+
+  .Steplist-item {
+    padding: 0 40px 0 0;
+    width: 80px;
+
+    /* Disable Label */
+    .Steplist-label {
+      display: none;
+    }
+
+    &:first-child,
+    &:last-child {
+      width: 20px;
+    }
+
+    /* Disable first line */
+    &:first-child {
+      .Steplist-markerContainer {
+        margin-left: -10px;
+      }
+    }
+
+    &:last-child {
+      .Steplist-markerContainer {
+        margin-right: -10px;
+      }
+    }
+  }
+}
+
+.Steplist-item {
+  outline: none;
+  position: relative;
+  display: inline-block;
+  margin: 0;
+
+  /* Don't let tooltips mess up alignment */
+  vertical-align: bottom;
+
+  box-sizing: content-box;
+  width: var(--valence-steplist-step-width);
+  padding: 0 calc(var(--valence-steplist-step-width) / 2) 0 0;
+
+  /* Completed State */
+  &.is-complete {
+    .Steplist-marker {
+      border: none;
+    }
+
+    /* The next step's line should be solid */
+    & + .Steplist-item .Steplist-segment {
+      border-bottom-width: var(--valence-steplist-segment-height);
+      border-bottom-style: solid;
+    }
+  }
+
+  /* Selected state */
+  &.is-selected {
+    /* Focus */
+    &:focus,
+    &.is-focused,
+    *:focus {
+      outline: none;
+    }
+    .Steplist-marker {
+      border: none;
+    }
+  }
+}
+
+.Steplist-label {
+  position: absolute;
+  left: 50%;
+  bottom: var(--valence-steplist-label-labelOffset);
+
+  display: block;
+  width: calc(var(--valence-steplist-step-width) * 1.5);
+
+  font-size: var(--valence-steplist-label-text-size);
+  white-space: normal;
+
+  transform: translateX(-50%);
+}
+
+.Steplist-markerContainer {
+  display: block;
+
+  z-index: 2;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+
+  width: var(--valence-steplist-marker-hitArea);
+  height: var(--valence-steplist-marker-hitArea);
+
+  margin-left: calc(calc(var(--valence-steplist-marker-hitArea) / 2) * -1);
+}
+
+/* Circle step marker */
+.Steplist-marker {
+  box-sizing: border-box; /* So we can stroke nicely */
+  display: block;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: calc(calc(var(--valence-steplist-marker-diameter) / 2) * -1);
+  margin-left: calc(calc(var(--valence-steplist-marker-diameter) / 2) * -1);
+
+  width: var(--valence-steplist-marker-diameter);
+  height: var(--valence-steplist-marker-diameter);
+
+  border-radius: var(--valence-steplist-marker-diameter);
+
+  border: 2px solid;
+  border-color: transparent;
+  background: transparent;
+}
+
+/* Step line */
+.Steplist-segment {
+  display: block;
+  z-index: 1;
+  position: absolute;
+  right: calc(
+    var(--valence-steplist-step-width) -
+      calc(var(--valence-steplist-marker-diameter) * 1.5)
+  );
+
+  box-sizing: content-box;
+  width: calc(
+    calc(var(--valence-steplist-step-width) * 1.5) -
+      calc(var(--valence-steplist-marker-diameter) * 2)
+  );
+  bottom: calc(calc(var(--valence-steplist-segment-height) / 2) * -1);
+
+  /* Default is dashed */
+  border-bottom-width: var(--valence-steplist-segment-height);
+  border-bottom-style: dashed;
+}
+
+/* First step overrides */
+.Steplist-item:first-child {
+  .Steplist-markerContainer {
+    left: 0;
+  }
+
+  .Steplist-label {
+    left: 0;
+  }
+
+  .Steplist-segment {
+    /* Not visible for first step */
+    display: none;
+  }
+}
+
+/* Last step overrides */
+.Steplist-item:last-child {
+  .Steplist-label {
+    left: auto;
+    right: 0;
+
+    transform: translateX(50%);
+  }
+
+  .Steplist-markerContainer {
+    left: auto;
+    right: 0;
+
+    margin-left: 0;
+    margin-right: calc(calc(var(--valence-steplist-marker-hitArea) / 2) * -1);
+  }
+
+  .Steplist-segment {
+    right: var(--valence-steplist-marker-diameter);
+    left: auto;
+  }
+}
+
+.Steplist-item:first-child,
+.Steplist-item:last-child {
+  width: calc(
+    calc(var(--valence-steplist-step-width) / 2) -
+      calc(var(--valence-steplist-marker-diameter) * 2.5)
+  );
+}
+
+/* Single step */
+.Steplist-item:only-child {
+  .Steplist-label {
+    /* Be centered */
+    left: 50%;
+
+    /* Override last-child bits */
+    transform: translate(-50%);
+  }
+
+  .Steplist-markerContainer {
+    /* Be centered */
+    left: 50%;
+
+    /* Override last-child bits */
+    margin-right: 0;
+    margin-left: calc(calc(var(--valence-steplist-marker-hitArea) / 2) * -1);
+  }
+}

@@ -1,0 +1,6 @@
+.theme {
+  --valence-splitview-vertical-width: 100%;
+  --valence-splitview-vertical-gripper-width: 50%;
+  --valence-splitview-vertical-gripper-outer-width: 100%;
+  --valence-splitview-vertical-gripper-reset: 0;
+}

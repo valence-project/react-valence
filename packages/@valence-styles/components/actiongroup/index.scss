@@ -1,0 +1,178 @@
+
+/* This is copied from our Flex component for now. */
+.flex-container {
+  /* this is necessary so that the inner margins don't affect anything outside */
+  display: flex;
+}
+
+.flex-gap {
+  /* apply a negative margin to counteract the margin on each item at the edges */
+  margin: calc(var(--row-gap) / -2) calc(var(--column-gap) / -2);
+
+  /* increase the width and height to account for this margin */
+  /* Add 1px to fix rounding error in Safari (╯°□°)╯︵ ┻━┻ */
+  width: calc(100% + calc(var(--column-gap) + 1px));
+  height: calc(100% + var(--row-gap));
+}
+
+/* If the selector was .flex-gap > *, it wouldn't override when components have a margin 0 specified by a single
+ * class selector, specificity is equal. Both are one class. Neither > nor * contribute to specificity.
+ * We need to make it more specific, so we raise it by 1 class.
+ */
+.flex-container .flex-gap > * {
+  /* apply half of the gap to each side of every item */
+  margin: calc(var(--row-gap) / 2) calc(var(--column-gap) / 2);
+}
+
+
+.ActionGroup {
+  display: flex;
+  flex-wrap: wrap;
+  --column-gap: var(--valence-actionbuttongroup-text-button-gap-x);
+  --row-gap: var(--valence-actionbuttongroup-text-button-gap-y);
+
+  .ActionGroup-item {
+    flex-shrink: 0;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.ActionGroup--vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  --column-gap: var(--valence-actiongroup-button-gap-reset);
+  --row-gap: var(--valence-actionbuttongroup-text-button-gap-y);
+
+  .ActionGroup-item {
+    > :not(svg) {
+      inline-size: auto;
+    }
+  }
+
+  &.ActionGroup--quiet {
+    .ActionGroup-item {
+      justify-content: flex-start;
+    }
+  }
+
+  &.ActionGroup--justified,
+  &.ActionGroup--compact:not(.ActionGroup--quiet) {
+    align-items: stretch;
+  }
+}
+
+.ActionGroup--compact {
+  --column-gap: calc(-1 * var(--valence-actionbutton-border-size));
+  --row-gap: var(--valence-actiongroup-button-gap-reset);
+
+  &.ActionGroup--quiet {
+    --column-gap: var(--valence-actiongroup-quiet-compact-button-gap);
+
+    &.ActionGroup--vertical {
+      --column-gap: var(--valence-actiongroup-button-gap-reset);
+      --row-gap: var(--valence-actiongroup-quiet-compact-button-gap);
+    }
+  }
+
+  &:not(.ActionGroup--quiet) {
+    flex-wrap: nowrap;
+
+    .ActionGroup-item {
+      position: relative;
+      border-radius: 0;
+      z-index: 1;
+
+      &:first-child {
+        border-start-start-radius: var(--valence-actionbutton-border-radius);
+        border-end-start-radius: var(--valence-actionbutton-border-radius);
+      }
+
+      &:last-child {
+        border-start-end-radius: var(--valence-actionbutton-border-radius);
+        border-end-end-radius: var(--valence-actionbutton-border-radius);
+      }
+
+      &.ActionGroup-item--isDisabled {
+        z-index: 0;
+      }
+
+      &.is-selected {
+        z-index: 2;
+      }
+
+      &:hover {
+        z-index: 3;
+      }
+
+      &:focus {
+        z-index: 4;
+      }
+    }
+
+    &.ActionGroup--vertical {
+      --column-gap: var(--valence-actiongroup-button-gap-reset);
+      --row-gap: calc(-1 * var(--valence-actionbutton-border-size));
+
+      .ActionGroup-item {
+        border-radius: 0;
+
+        &:first-child {
+          border-start-start-radius: var(--valence-actionbutton-border-radius);
+          border-start-end-radius: var(--valence-actionbutton-border-radius);
+          border-radius: 0;
+        }
+
+        &:last-child {
+          border-end-start-radius: var(--valence-actionbutton-border-radius);
+          border-end-end-radius: var(--valence-actionbutton-border-radius);
+          border-radius: 0;
+        }
+      }
+    }
+  }
+}
+
+.ActionGroup--justified {
+  .ActionGroup-item {
+    flex: 1;
+
+    > :not(svg) {
+      inline-size: auto;
+    }
+  }
+
+  &.ActionGroup--vertical {
+    .ActionGroup-item {
+      flex: 1 0 auto;
+    }
+  }
+}
+
+.ActionGroup--overflowCollapse {
+  flex-wrap: nowrap;
+}
+
+.ActionGroup-menu {
+  /* specificity must be higher than `.ActionButton .Icon` */
+  svg.ActionGroup-menu-chevron {
+    order: 2;
+    padding-inline-start: 0;
+    padding-inline-end: var(--valence-actionbutton-icon-padding-x);
+  }
+
+  .ActionGroup-menu-contents {
+    /* This wrapper is needed to keep the :only-child/sibling selectors
+     * in button CSS working with the additional chevron element. */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.ActionGroup-item--iconOnly {
+  padding-inline-end: var(--valence-actionbutton-icon-padding-x);
+}

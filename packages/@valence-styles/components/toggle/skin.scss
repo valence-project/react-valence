@@ -1,0 +1,310 @@
+/* Default */
+.ToggleSwitch-switch {
+  background-color: var(--valence-switch-emphasized-track-color);
+  /* :after is the focus ring */
+  /* :before is used for the handle of the switch */
+  &:before {
+    background-color: var(--valence-switch-emphasized-handle-background-color);
+    border-color: var(--valence-switch-emphasized-handle-border-color);
+  }
+}
+.ToggleSwitch-input ~ .ToggleSwitch-label {
+  color: var(--valence-switch-emphasized-text-color);
+}
+/* Selected */
+.ToggleSwitch-input {
+  &:checked + .ToggleSwitch-switch {
+    background-color: var(--valence-switch-emphasized-track-color-selected);
+    &:before {
+      border-color: var(
+        --valence-switch-emphasized-handle-border-color-selected
+      );
+    }
+  }
+}
+/* Hover */
+.ToggleSwitch:hover {
+  .ToggleSwitch-input {
+    & + .ToggleSwitch-switch {
+      &:before {
+        border-color: var(
+          --valence-switch-emphasized-handle-border-color-hover
+        );
+        box-shadow: none;
+      }
+    }
+    & ~ .ToggleSwitch-label {
+      color: var(--valence-switch-emphasized-text-color-hover);
+    }
+    /* Selected Hover */
+    &:checked:enabled + .ToggleSwitch-switch {
+      background-color: var(
+        --valence-switch-emphasized-track-color-selected-hover
+      );
+      &:before {
+        border-color: var(
+          --valence-switch-emphasized-handle-border-color-selected-hover
+        );
+      }
+    }
+  }
+}
+/* Down */
+.ToggleSwitch:active {
+  .ToggleSwitch-input {
+    & + .ToggleSwitch-switch {
+      &:before {
+        border-color: var(--valence-switch-emphasized-handle-border-color-down);
+      }
+    }
+    & ~ .ToggleSwitch-label {
+      color: var(--valence-switch-emphasized-text-color-down);
+    }
+    /* Selected Down */
+    &:checked:enabled + .ToggleSwitch-switch {
+      background-color: var(
+        --valence-switch-emphasized-track-color-selected-down
+      );
+      &:before {
+        border-color: var(
+          --valence-switch-emphasized-handle-border-color-selected-down
+        );
+      }
+    }
+  }
+}
+/* Disabled */
+.ToggleSwitch .ToggleSwitch-input:disabled {
+  & + .ToggleSwitch-switch {
+    background-color: var(--valence-switch-emphasized-track-color-disabled);
+    &:before {
+      border-color: var(
+        --valence-switch-emphasized-handle-border-color-disabled
+      );
+    }
+  }
+  & ~ .ToggleSwitch-label {
+    color: var(--valence-switch-emphasized-text-color-disabled);
+  }
+  /* Selected Disabled */
+  &:checked {
+    & + .ToggleSwitch-switch {
+      background-color: var(
+        --valence-switch-emphasized-track-color-selected-disabled
+      );
+      &:before {
+        border-color: var(
+          --valence-switch-emphasized-handle-border-color-selected-disabled
+        );
+      }
+    }
+    & ~ .ToggleSwitch-label {
+      color: var(--valence-switch-emphasized-text-color-selected-disabled);
+    }
+  }
+}
+/* Quiet */
+/* Quiet Selected */
+.ToggleSwitch--quiet {
+  .ToggleSwitch-input:checked + .ToggleSwitch-switch {
+    background-color: var(--valence-switch-quiet-track-color-selected);
+    &:before {
+      border-color: var(--valence-switch-quiet-handle-border-color-selected);
+    }
+  }
+}
+/* Quiet Selected Hover */
+.ToggleSwitch--quiet:hover {
+  .ToggleSwitch-input:checked:enabled + .ToggleSwitch-switch {
+    background-color: var(--valence-switch-quiet-track-color-selected-hover);
+    &:before {
+      border-color: var(
+        --valence-switch-quiet-handle-border-color-selected-hover
+      );
+    }
+  }
+}
+/* Quiet Selected Down */
+.ToggleSwitch.ToggleSwitch--quiet:active {
+  .ToggleSwitch-input:checked:enabled + .ToggleSwitch-switch {
+    background-color: var(--valence-switch-quiet-track-color-selected-down);
+    &:before {
+      border-color: var(
+        --valence-switch-quiet-handle-border-color-selected-down
+      );
+    }
+  }
+}
+/* Key Focus */
+.ToggleSwitch,
+.ToggleSwitch:hover {
+  .ToggleSwitch-input.focus-ring {
+    & + .ToggleSwitch-switch {
+      &:after {
+        box-shadow: 0 0 0 var(--valence-switch-focus-ring-size-key-focus)
+          var(--valence-switch-focus-ring-color-key-focus);
+      }
+      &:before {
+        border-color: var(
+          --valence-switch-emphasized-handle-border-color-key-focus
+        );
+      }
+    }
+    /* Selected Key Focus */
+    &:checked {
+      & + .ToggleSwitch-switch {
+        background-color: var(
+          --valence-switch-emphasized-track-color-selected-key-focus
+        );
+        &:before {
+          border-color: var(
+            --valence-switch-emphasized-handle-border-color-selected-key-focus
+          );
+        }
+      }
+    }
+  }
+}
+
+.ToggleSwitch--quiet,
+.ToggleSwitch--quiet:hover {
+  .ToggleSwitch-input.focus-ring {
+    /* Selected Key Focus */
+    &:checked {
+      & + .ToggleSwitch-switch {
+        background-color: var(
+          --valence-switch-quiet-track-color-selected-key-focus
+        );
+        &:before {
+          border-color: var(
+            --valence-switch-quiet-handle-border-color-selected-key-focus
+          );
+        }
+      }
+    }
+  }
+}
+
+.ToggleSwitch--ab {
+  .ToggleSwitch-input {
+    &:checked + .ToggleSwitch-switch {
+      background-color: var(--valence-switch-track-color);
+    }
+
+    &:checked + .ToggleSwitch-switch {
+      &:before {
+        /* Don't be blue */
+        border-color: var(--valence-switch-handle-border-color);
+      }
+    }
+
+    &.focus-ring {
+      &:checked + .ToggleSwitch-switch {
+        background-color: var(--valence-switch-track-color);
+
+        &:before {
+          border-color: var(--valence-switch-handle-border-color-selected);
+        }
+      }
+    }
+
+    &:disabled {
+      &:checked + .ToggleSwitch-switch {
+        background-color: var(--valence-switch-emphasized-track-color-disabled);
+      }
+
+      & + .ToggleSwitch-switch {
+        background-color: var(--valence-switch-emphasized-track-color-disabled);
+
+        &:before {
+          border-color: var(
+            --valence-switch-emphasized-handle-border-color-disabled
+          );
+        }
+      }
+    }
+  }
+
+  &:hover {
+    .ToggleSwitch-input {
+      &:checked:enabled + .ToggleSwitch-switch {
+        background-color: var(--valence-switch-emphasized-track-color);
+        &:before {
+          border-color: var(
+            --valence-switch-emphasized-handle-border-color-hover
+          );
+        }
+      }
+    }
+  }
+
+  &:active {
+    .ToggleSwitch-input {
+      &:checked:enabled + .ToggleSwitch-switch {
+        background-color: var(--valence-switch-emphasized-track-color);
+        &:before {
+          border-color: var(
+            --valence-switch-emphasized-handle-border-color-down
+          );
+        }
+      }
+    }
+  }
+}
+
+@media (forced-colors: active) {
+  .ToggleSwitch {
+    forced-color-adjust: none;
+    --valence-switch-emphasized-handle-background-color: ButtonFace;
+    --valence-switch-emphasized-handle-border-color: ButtonText;
+    --valence-switch-emphasized-handle-border-color-disabled: GrayText;
+    --valence-switch-emphasized-handle-border-color-down: Highlight;
+    --valence-switch-emphasized-handle-border-color-hover: Highlight;
+    --valence-switch-emphasized-handle-border-color-key-focus: ButtonText;
+    --valence-switch-emphasized-handle-border-color-selected: Highlight;
+    --valence-switch-emphasized-handle-border-color-selected-disabled: GrayText;
+    --valence-switch-emphasized-handle-border-color-selected-down: Highlight;
+    --valence-switch-emphasized-handle-border-color-selected-hover: Highlight;
+    --valence-switch-emphasized-handle-border-color-selected-key-focus: Highlight;
+    --valence-switch-emphasized-text-color: CanvasText;
+    --valence-switch-emphasized-text-color-disabled: GrayText;
+    --valence-switch-emphasized-text-color-down: CanvasText;
+    --valence-switch-emphasized-text-color-hover: CanvasText;
+    --valence-switch-emphasized-text-color-selected-disabled: GrayText;
+    --valence-switch-emphasized-track-color: ButtonFace;
+    --valence-switch-emphasized-track-color-disabled: ButtonFace;
+    --valence-switch-emphasized-track-color-selected: Highlight;
+    --valence-switch-emphasized-track-color-selected-disabled: GrayText;
+    --valence-switch-emphasized-track-color-selected-down: Highlight;
+    --valence-switch-emphasized-track-color-selected-hover: Highlight;
+    --valence-switch-emphasized-track-color-selected-key-focus: Highlight;
+    --valence-switch-focus-ring-color-key-focus: ButtonText;
+    --valence-switch-handle-border-color: ButtonText;
+    --valence-switch-handle-border-color-selected: Highlight;
+    --valence-switch-quiet-handle-border-color-selected: Highlight;
+    --valence-switch-quiet-handle-border-color-selected-down: Highlight;
+    --valence-switch-quiet-handle-border-color-selected-hover: Highlight;
+    --valence-switch-quiet-handle-border-color-selected-key-focus: Highlight;
+    --valence-switch-quiet-track-color-selected: Highlight;
+    --valence-switch-quiet-track-color-selected-down: Highlight;
+    --valence-switch-quiet-track-color-selected-hover: Highlight;
+    --valence-switch-quiet-track-color-selected-key-focus: Highlight;
+    --valence-switch-track-color: ButtonFace;
+    --valence-switch-track-color-disabled: ButtonFace;
+    /* Add a box-shadow on the switch track when not checked*/
+    .ToggleSwitch-input:not(:checked) + .ToggleSwitch-switch {
+      box-shadow: inset 0 0 0 1px var(--valence-switch-handle-border-color);
+    }
+    &:hover {
+      .ToggleSwitch-input:not(:checked) + .ToggleSwitch-switch {
+        box-shadow: inset 0 0 0 1px
+          var(--valence-switch-emphasized-handle-border-color-hover);
+      }
+    }
+    /* Disabled is the same colour as when checked so no need to only do this when unchecked*/
+    .ToggleSwitch-input:disabled + .ToggleSwitch-switch {
+      box-shadow: inset 0 0 0 1px
+        var(--valence-switch-emphasized-handle-border-color-disabled);
+    }
+  }
+}

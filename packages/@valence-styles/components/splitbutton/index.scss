@@ -1,0 +1,99 @@
+@import "../commons/index.scss";
+
+.SplitButton {
+  position: relative;
+  display: inline-flex;
+  flex-direction: row;
+  vertical-align: top;
+
+  /* Spacing for buttons placed inline */
+  & + .SplitButton,
+  & + .Button {
+    margin-left: var(--valence-margin);
+  }
+}
+
+/* Spacing for buttons placed inline */
+.Button + .SplitButton {
+  margin-left: var(--valence-margin);
+}
+
+.SplitButton-action {
+  margin-left: 0;
+
+  border-radius: var(--valence-button-primary-border-radius) 0 0 var(--valence-button-primary-border-radius);
+
+  /* CTA is special and doesn't have a border between the buttons */
+  &.Button--cta {
+    border-right: 0;
+    margin-right: var(--valence-button-primary-border-size);
+  }
+
+  & + .SplitButton-trigger {
+    /* Override button + button style */
+    margin-left: var(--valence-spltibutton-margin-left);
+  }
+}
+
+.SplitButton-trigger {
+  margin-left: 0;
+
+  border-radius: 0 var(--valence-button-primary-border-radius) var(--valence-button-primary-border-radius) 0;
+  border-left-width: var(--valence-splitbutton-trigger-border-left);
+
+  padding-left: calc(var(--valence-padding) * calc(2 / 3));
+  padding-right: calc(var(--valence-padding) - var(--valence-button-primary-border-size));
+
+  min-width: var(--valence-splitbutton-trigger-min-width);
+
+  &:focus-ring {
+    box-shadow: none;
+  }
+}
+
+.SplitButton-icon {
+  display: block;
+  margin-top: 1px;
+}
+
+.SplitButton-action,
+.SplitButton-trigger {
+  position: relative;
+
+  &:focus {
+    /* Be on top when focused or border leaks */
+    z-index: 1;
+  }
+}
+
+.SplitButton-action {
+  .Button-label + .Icon {
+    margin-left: var(--valence-splitbutton-icon-gap);
+  }
+}
+
+.SplitButton--left {
+  .SplitButton-action {
+    border-radius: 0 var(--valence-button-primary-border-radius) var(--valence-button-primary-border-radius) 0;
+    margin-right: 0;
+    margin-left: var(--valence-spltibutton-margin-left);
+
+    /* CTA is special and doesn't have a border between the buttons */
+    &.Button--cta {
+      border-left: 0;
+      margin-left: var(--valence-button-primary-border-size);
+    }
+  }
+
+  .SplitButton-trigger {
+    margin-right: 0;
+
+    border-radius: var(--valence-button-primary-border-radius) 0 0 var(--valence-button-primary-border-radius);
+
+    border-left-width: var(--valence-button-primary-border-size);
+    border-right-width: var(--valence-splitbutton-trigger-border-left);
+
+    padding-right: calc(var(--valence-padding) * calc(2 / 3));
+    padding-left: calc(var(--valence-padding) - var(--valence-button-primary-border-size));
+  }
+}

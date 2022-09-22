@@ -1,0 +1,131 @@
+@import "../commons/index.scss";
+
+.BarLoader {
+  position: relative;
+  display: inline-flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  min-inline-size: var(--valence-global-dimension-static-size-600);
+  inline-size: var(--valence-barloader-large-width);
+  vertical-align: top;
+  isolation: isolate;
+
+  &.BarLoader--indeterminate {
+    max-inline-size: var(--valence-barloader-large-width);
+  }
+
+  &.BarLoader--indeterminate.BarLoader--sideLabel {
+    .BarLoader-track {
+      max-inline-size: var(--valence-barloader-large-width);
+      inline-size: 100%;
+    }
+  }
+}
+
+.BarLoader-track {
+  /* Visually apply border radius to child elements */
+  overflow: hidden;
+  min-inline-size: var(--valence-global-dimension-static-size-600);
+  inline-size: 100%;
+  height: var(--valence-barloader-large-height);
+  border-radius: var(--valence-barloader-large-border-radius);
+  z-index: 1; /* to fix a weird webkit bug with rounded corners and masking */
+}
+
+.BarLoader-fill {
+  border: none;
+  height: var(--valence-barloader-large-height);
+
+  transition: width 1s;
+}
+
+.BarLoader-label,
+.BarLoader-percentage {
+  font-size: var(--valence-fieldlabel-text-size);
+  font-weight: var(--valence-fieldlabel-text-font-weight);
+  line-height: var(--valence-fieldlabel-text-line-height);
+  text-align: start;
+  margin-bottom: var(--valence-barloader-large-label-gap-y);
+}
+
+.BarLoader-label {
+  flex: 1 1 0%;
+}
+
+.BarLoader-percentage {
+  align-self: flex-start;
+  margin-inline-start: var(--valence-barloader-small-label-gap-x);
+}
+
+.BarLoader--sideLabel {
+  display: inline-flex;
+  flex-flow: row;
+  justify-content: space-between;
+  min-inline-size: fit-content;
+
+  .BarLoader-track {
+    inline-size: inherit;
+  }
+
+  .BarLoader-label {
+    margin-inline-end: var(--valence-barloader-large-label-gap-x);
+    margin-bottom: 0;
+  }
+  .BarLoader-percentage {
+    order: 3;
+    text-align: end;
+    margin-inline-start: var(--valence-barloader-large-label-gap-x);
+    margin-bottom: 0;
+  }
+}
+
+.BarLoader--small {
+  min-inline-size: var(--valence-global-dimension-static-size-600);
+
+  .BarLoader-fill {
+    height: var(--valence-barloader-small-height);
+  }
+
+  .BarLoader-track {
+    height: var(--valence-barloader-small-height);
+    border-radius: var(--valence-barloader-small-border-radius);
+  }
+}
+.BarLoader--indeterminate .BarLoader-fill {
+  inline-size: var(--valence-barloader-large-indeterminate-fill-width);
+  position: relative;
+  animation-timing-function: var(
+    --valence-barloader-large-indeterminate-animation-ease
+  );
+  will-change: transform;
+}
+
+[dir="ltr"] .BarLoader--indeterminate .BarLoader-fill {
+  animation: indeterminate-loop-ltr
+    var(--valence-barloader-large-indeterminate-duration) infinite;
+}
+[dir="rtl"] .BarLoader--indeterminate .BarLoader-fill {
+  animation: indeterminate-loop-rtl
+    var(--valence-barloader-large-indeterminate-duration) infinite;
+}
+
+@keyframes indeterminate-loop-ltr {
+  from {
+    transform: translate(
+      calc(var(--valence-barloader-large-indeterminate-fill-width) * -1)
+    );
+  }
+  to {
+    transform: translate(var(--valence-barloader-large-width));
+  }
+}
+
+@keyframes indeterminate-loop-rtl {
+  from {
+    transform: translate(var(--valence-barloader-large-width));
+  }
+  to {
+    transform: translate(calc(var(--valence-barloader-large-width) * -1));
+  }
+}

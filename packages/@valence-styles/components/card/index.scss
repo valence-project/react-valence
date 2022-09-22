@@ -1,0 +1,1202 @@
+@import "../commons/index.scss";
+
+/**
+LAYERS: There are 5 layers to quiet cards
+layer -1:
+  card back color, seen mostly in quiet cards in a grid
+
+layer default:
+  all content provided by the user
+
+layer 1:
+  avatar
+
+layer 2:
+  color covering
+
+layer 3:
+  checkbox
+*/
+/**
+LAYERS: There are 4 layers to standard/horizontal cards
+no -1 layer because standard cards have a background already
+layer default:
+  all content provided by the user
+
+layer 1:
+  avatar
+
+layer 2:
+  color covering
+
+layer 3:
+  checkbox
+*/
+
+/**
+LAYOUTS
+                       standard-vertical      standard-horizontal       quiet-vertical
+vertical-masonry       x                      no                        x
+horizontal-masonry     no                     no                        x
+tiles                  x                      x                         x
+standalone             x                      x                         x
+
+Standard Vertical
+.Card--waterfall
+.Card--tile
+.Card--noLayout
+
+Standard Horizontal
+.Card--tile
+.Card--noLayout
+
+Quiet Vertical
+.Card--waterfall
+.Card--gallery
+.Card--tile
+.Card--noLayout
+*/
+
+/**
+ELEMENTS
+.Card
+.Card:before element in standard cards for border/focus
+.Card:after element in standard cards for selection overlay
+.Card-grid element defining the css grid that everything is laid out on
+.Card-grid:before element in the grid used to enforce aspect ratio in quiet cards
+.Card-grid:after element in the grid used to decorate with focus ring (required on just the image part in quiet cards)
+.Card-grid .Card-decoration extra element in the grid used to decorative features like the blue overlay just over the image in quiet cards
+.Card-grid .Card-sizeHelper extra element in the grid used to enforce aspect ratio in horizontal cards (can't use the before for this, see FF)
+.Card-checkboxWrapper
+.Card-checkbox
+
+user-provided
+.Card-image
+.Card-illustration
+.Card-avatar
+.Card-heading
+.Card-detail
+.Card-content
+ */
+
+/** Shared **/
+.Card {
+  box-sizing: border-box;
+  min-inline-size: var(--valence-card-body-header-height);
+  block-size: 100%;
+  border-radius: var(--valence-card-border-radius);
+
+  user-select: none;
+  text-decoration: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  .Card-heading {
+    margin: 0;
+  }
+  .Card-checkboxWrapper {
+    position: absolute;
+    inset-inline-start: var(--valence-card-checkbox-margin);
+    inset-block-start: var(--valence-card-checkbox-margin);
+    display: grid;
+    inline-size: var(--valence-quickactions-height);
+    block-size: var(--valence-quickactions-height);
+    border-radius: var(--valence-card-quiet-border-radius);
+    visibility: hidden;
+  }
+  .Card-checkbox {
+    /* make hitbox of checkbox same as the floating background it sits on, top and bottom are computing 0 right now though
+     using calc(50% - var(--valence-checkbox-height) - calc(var(--valence-checkbox-box-size) / 2))
+     */
+    padding: 4px calc(50% - calc(var(--valence-checkbox-box-size) / 2)) 4px
+      calc(50% - calc(var(--valence-checkbox-box-size) / 2));
+  }
+
+  &.is-selected,
+  &.focus-ring, /* only for visible focus */
+  &.is-hovered {
+    .Card-checkboxWrapper {
+      /* Ideally, this would simply apply is-open to the QuickActions component */
+      visibility: visible;
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+}
+
+.Card-grid {
+  position: relative;
+  &:before {
+  }
+  &:after,
+  .Card-decoration {
+    pointer-events: none;
+  }
+}
+
+.Card-image {
+  grid-area: preview;
+  & img {
+    -webkit-user-drag: none;
+    user-drag: none;
+  }
+}
+.Card-illustration {
+  grid-area: preview;
+  & svg {
+    -webkit-user-drag: none;
+    user-drag: none;
+  }
+}
+.Card-avatar {
+  grid-area: avatar;
+  z-index: 1;
+}
+.Card-heading {
+  grid-area: title;
+  word-break: break-word;
+}
+.Card-detail {
+  grid-area: detail;
+  word-break: break-word;
+}
+.Card-content {
+  grid-area: content;
+  word-break: break-word;
+  overflow: hidden;
+}
+.Card-decoration {
+  display: none;
+}
+
+/** Standard Vertical **/
+/** Waterfall **/
+.Card--waterfall.Card--default {
+  .Card-checkboxWrapper {
+    z-index: 3;
+  }
+  &:after {
+    z-index: 2;
+    pointer-events: none;
+  }
+  position: relative;
+  border-width: var(--valence-card-border-size);
+  border-style: solid;
+  border-radius: var(--valence-card-border-radius);
+
+  &:before {
+    content: " ";
+    inline-size: 100%;
+    block-size: 100%;
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-start: 0;
+    border-radius: var(--valence-card-border-radius);
+  }
+
+  &:after {
+    content: " ";
+    inline-size: 100%;
+    block-size: 100%;
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-start: 0;
+    border-radius: var(--valence-card-border-radius);
+  }
+
+  .Card-grid {
+    block-size: 100%;
+    display: grid;
+    grid-template-columns: var(--valence-card-body-padding-left) minmax(0, auto) minmax(
+        var(--valence-global-dimension-size-500),
+        1fr
+      ) minmax(0, auto) var(--valence-card-body-padding-right);
+    grid-template-rows: minmax(var(--valence-card-coverphoto-height), 1fr) var(
+        --valence-global-dimension-size-300
+      ) minmax(var(--valence-actionbutton-height), auto) auto var(
+        --valence-card-body-padding-bottom
+      );
+    /* absolutely position avatar relative to the preview */
+    grid-template-areas:
+      "preview preview preview preview    preview"
+      ".       .       .       .          ."
+      ".       title   detail  .          ."
+      ".       content content content    ."
+      ".       .       .       .          .";
+
+    &:before {
+      content: " ";
+      grid-area: preview;
+      inline-size: 100%;
+      block-size: 100%;
+      border-start-start-radius: var(--valence-card-border-radius);
+      border-start-end-radius: var(--valence-card-border-radius);
+    }
+  }
+
+  &.Card--noPreview .Card-grid {
+    display: grid;
+    grid-template-columns: var(--valence-card-body-padding-left) minmax(0, auto) 1fr minmax(
+        0,
+        auto
+      ) var(--valence-card-body-padding-right);
+    grid-template-rows: var(--valence-global-dimension-size-300) auto 1fr var(
+        --valence-card-body-padding-bottom
+      );
+    /* absolutely position avatar relative to the preview */
+    grid-template-areas:
+      ".       .       .       .          ."
+      ".       title   detail  .          ."
+      ".       content content content    ."
+      ".       .       .       .          .";
+
+    .Card-avatar {
+      display: none;
+    }
+  }
+
+  .Card-image,
+  .Card-illustration {
+    inline-size: 100%;
+    block-size: 100%;
+
+    align-self: center;
+    justify-self: center;
+
+    border-block-end-width: var(--valence-card-border-size);
+    border-block-end-style: solid;
+    border-start-start-radius: var(--valence-card-border-radius);
+    border-start-end-radius: var(--valence-card-border-radius);
+  }
+  .Card-image {
+  }
+  .Card-illustration {
+    display: grid; /* not sure why flex doesn't work here */
+    align-items: center;
+    justify-items: center;
+  }
+  .Card-avatar {
+    grid-area: preview;
+    position: absolute;
+    inset-block-end: -10px;
+    inset-inline-start: var(--valence-card-body-padding-left);
+  }
+  .Card-heading {
+    align-self: baseline;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-inline-end: var(--valence-card-title-padding-right);
+  }
+  .Card-detail {
+    align-self: baseline;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .Card-content {
+    margin-block-end: 5px;
+  }
+}
+
+/** Tile **/
+.Card--grid.Card--default {
+  .Card-checkboxWrapper {
+    z-index: 3;
+  }
+  &:after {
+    z-index: 2;
+    pointer-events: none;
+  }
+  position: relative;
+  border-width: var(--valence-card-border-size);
+  border-style: solid;
+  border-radius: var(--valence-card-border-radius);
+
+  &:before {
+    content: " ";
+    inline-size: 100%;
+    block-size: 100%;
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-start: 0;
+    border-radius: var(--valence-card-border-radius);
+  }
+
+  &:after {
+    content: " ";
+    inline-size: 100%;
+    block-size: 100%;
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-start: 0;
+    border-radius: var(--valence-card-border-radius);
+  }
+
+  &:not(.Card--noPreview) .Card-grid {
+    display: grid;
+    block-size: 100%;
+    grid-template-columns: var(--valence-card-body-padding-left) minmax(0, auto) minmax(
+        var(--valence-global-dimension-size-500),
+        1fr
+      ) minmax(0, auto) var(--valence-card-body-padding-right);
+    grid-template-rows: minmax(var(--valence-card-coverphoto-height), 1fr) var(
+        --valence-global-dimension-size-200
+      ) minmax(var(--valence-actionbutton-height), auto) auto var(
+        --valence-card-body-padding-bottom
+      );
+    /* absolutely position avatar relative to the preview */
+    grid-template-areas:
+      "preview preview preview preview    preview"
+      ".       .       .       .          ."
+      ".       title   detail  .          ."
+      ".       content content content    ."
+      ".       .       .       .          .";
+
+    &:before {
+      content: " ";
+      grid-area: preview;
+      inline-size: 100%;
+      block-size: 100%;
+      border-start-start-radius: var(--valence-card-border-radius);
+      border-start-end-radius: var(--valence-card-border-radius);
+    }
+  }
+
+  &.Card--noPreview .Card-grid {
+    display: grid;
+    block-size: 100%;
+    grid-template-columns: var(--valence-card-body-padding-left) minmax(0, auto) minmax(
+        var(--valence-global-dimension-size-500),
+        1fr
+      ) minmax(0, auto) var(--valence-card-body-padding-right);
+    grid-template-rows: var(--valence-global-dimension-size-300) auto 1fr var(
+        --valence-card-body-padding-bottom
+      );
+    /* absolutely position avatar relative to the preview */
+    grid-template-areas:
+      ".       .       .       .          ."
+      ".       title   detail  .          ."
+      ".       content content content    ."
+      ".       .       .       .          .";
+
+    .Card-avatar {
+      display: none;
+    }
+  }
+  .Card-image,
+  .Card-illustration {
+    inline-size: 100%;
+    block-size: 100%;
+    /*min-inline-size: var(--valence-card-min-width); causes to obscure border */
+
+    align-self: center;
+    justify-self: center;
+
+    border-block-end-width: var(--valence-card-border-size);
+    border-block-end-style: solid;
+    border-start-start-radius: var(--valence-card-border-radius);
+    border-start-end-radius: var(--valence-card-border-radius);
+  }
+  .Card-image {
+  }
+  .Card-illustration {
+    display: grid; /* not sure why flex doesn't work here */
+    align-items: center;
+    justify-items: center;
+  }
+  .Card-avatar {
+    grid-area: preview;
+    position: absolute;
+    inset-block-end: -10px;
+    inset-inline-start: var(--valence-card-body-padding-left);
+  }
+  .Card-heading {
+    align-self: baseline;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-inline-end: var(--valence-card-title-padding-right);
+  }
+  .Card-detail {
+    align-self: baseline;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .Card-content {
+    margin-block-end: 5px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+/** Standalone **/
+.Card--noLayout.Card--default {
+  .Card-checkboxWrapper {
+    z-index: 3;
+  }
+  &:after {
+    z-index: 2;
+    pointer-events: none;
+  }
+  position: relative;
+  border-width: var(--valence-card-border-size);
+  border-style: solid;
+  border-radius: var(--valence-card-border-radius);
+
+  &:before {
+    content: " ";
+    inline-size: 100%;
+    block-size: 100%;
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-start: 0;
+    border-radius: var(--valence-card-border-radius);
+  }
+
+  &:after {
+    content: " ";
+    inline-size: 100%;
+    block-size: 100%;
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-start: 0;
+    border-radius: var(--valence-card-border-radius);
+  }
+
+  &:not(.Card--noPreview) .Card-grid {
+    display: grid;
+    grid-template-columns: var(--valence-card-body-padding-left) minmax(0, auto) minmax(
+        var(--valence-global-dimension-size-500),
+        1fr
+      ) minmax(0, auto) var(--valence-card-body-padding-right);
+    grid-template-rows: minmax(var(--valence-card-coverphoto-height), auto) var(
+        --valence-global-dimension-size-300
+      ) minmax(var(--valence-actionbutton-height), auto) 1fr var(
+        --valence-card-body-padding-bottom
+      );
+    /* absolutely position avatar relative to the preview */
+    grid-template-areas:
+      "preview preview preview preview    preview"
+      ".       .       .       .          ."
+      ".       title   detail  .          ."
+      ".       content content content    ."
+      ".       .       .       .          .";
+
+    &:before {
+      content: " ";
+      grid-area: preview;
+      inline-size: 100%;
+      block-size: 100%;
+      border-start-start-radius: var(--valence-card-border-radius);
+      border-start-end-radius: var(--valence-card-border-radius);
+    }
+  }
+
+  &.Card--noPreview .Card-grid {
+    display: grid;
+    grid-template-columns: var(--valence-card-body-padding-left) minmax(0, auto) minmax(
+        var(--valence-global-dimension-size-500),
+        1fr
+      ) minmax(0, auto) var(--valence-card-body-padding-right);
+    grid-template-rows: var(--valence-global-dimension-size-300) auto 1fr var(
+        --valence-card-body-padding-bottom
+      );
+    /* absolutely position avatar relative to the preview */
+    grid-template-areas:
+      ".       .       .       .          ."
+      ".       title   detail  .          ."
+      ".       content content content    ."
+      ".       .       .       .          .";
+
+    /* TODO: is this accurate? if we don't want to enforce it, then we can
+        give min-height to valence-Card-image/illustration
+        and it would no longer be a card state, we could simplify */
+    .Card-avatar {
+      display: none;
+    }
+  }
+  .Card-image,
+  .Card-illustration {
+    inline-size: 100%;
+    block-size: 100%;
+    /*min-inline-size: var(--valence-card-min-width); causes to obscure border */
+
+    align-self: center;
+    justify-self: center;
+
+    border-block-end-width: var(--valence-card-border-size);
+    border-block-end-style: solid;
+    border-start-start-radius: var(--valence-card-border-radius);
+    border-start-end-radius: var(--valence-card-border-radius);
+  }
+  .Card-image {
+  }
+  .Card-illustration {
+    display: grid; /* not sure why flex doesn't work here */
+    align-items: center;
+    justify-items: center;
+    inline-size: 100%;
+    block-size: var(
+      --valence-card-coverphoto-height
+    ); /* this may be an incorrect assumption */
+  }
+  .Card-avatar {
+    grid-area: preview;
+    position: absolute;
+    inset-block-end: -10px;
+    inset-inline-start: var(--valence-card-body-padding-left);
+  }
+  .Card-heading {
+    align-self: baseline;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-inline-end: var(--valence-card-title-padding-right);
+  }
+  .Card-detail {
+    align-self: baseline;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .Card-content {
+    margin-block-end: 5px;
+  }
+}
+/** END Standard Vertical **/
+
+/** Quiet Vertical **/
+/** Waterfall **/
+.Card--waterfall.Card--isQuiet {
+  .Card-checkboxWrapper {
+    z-index: 3;
+  }
+  .Card-grid:before {
+    z-index: -1;
+  }
+  .Card-grid:after {
+    z-index: 2;
+  }
+  min-inline-size: var(--valence-card-quiet-min-size);
+
+  .Card-grid {
+    block-size: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, auto) minmax(
+        var(--valence-global-dimension-size-500),
+        1fr
+      ) minmax(0, auto);
+    grid-template-rows: minmax(var(--valence-card-coverphoto-height), 1fr) var(
+        --valence-card-quiet-body-header-margin-top
+      ) minmax(var(--valence-actionbutton-height), auto) auto;
+    grid-template-areas:
+      "preview preview preview"
+      ".       .       .      "
+      "title   detail  .      "
+      "content content content";
+
+    &:before {
+      content: " ";
+      grid-area: preview;
+
+      border-radius: var(--valence-card-quiet-border-radius);
+    }
+
+    &:after {
+      content: " ";
+      grid-area: preview;
+      position: absolute;
+      inset-inline-start: 0;
+      inset-inline-end: 0;
+      inset-block-start: 0;
+      inset-block-end: 0;
+      margin: calc(var(--valence-alias-focus-ring-gap) * -2);
+
+      border-radius: calc(
+        var(--valence-card-quiet-border-radius) +
+          var(--valence-alias-focus-ring-gap)
+      );
+    }
+    .Card-decoration {
+      display: block;
+      grid-area: preview;
+      inline-size: 100%;
+      block-size: 100%;
+
+      border-radius: var(--valence-card-quiet-border-radius);
+    }
+  }
+  .Card-image,
+  .Card-illustration {
+    block-size: 100%;
+    inline-size: 100%;
+    min-inline-size: 100%; /* I do not know why setting a min-width causes the image to shrink */
+
+    align-self: center;
+    justify-self: center;
+    border-radius: var(--valence-card-quiet-border-radius);
+  }
+  .Card-illustration {
+    display: grid; /* not sure why flex doesn't work here */
+    align-items: center;
+    justify-items: center;
+  }
+  .Card-avatar {
+    display: none;
+  }
+  .Card-heading {
+    align-self: baseline;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-inline-end: var(--valence-card-title-padding-right);
+  }
+  .Card-detail {
+    align-self: baseline;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-inline-end: var(--valence-card-title-padding-right);
+  }
+  .Card-content {
+    margin-block-end: 5px;
+  }
+}
+
+/** Gallery **/
+/** Non-collection version doesn't work in FF, but should work in a collection which determines the size **/
+.Card--gallery.Card--isQuiet {
+  .Card-checkboxWrapper {
+    z-index: 3;
+  }
+  .Card-grid:before {
+    z-index: -1;
+  }
+  .Card-grid:after {
+    z-index: 2;
+  }
+  min-inline-size: 0;
+
+  .Card-grid {
+    block-size: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, auto) minmax(
+        var(--valence-global-dimension-size-500),
+        1fr
+      ) minmax(0, auto);
+    grid-template-rows: 1fr var(--valence-card-quiet-body-header-margin-top) var(
+        --valence-actionbutton-height
+      ) var(--valence-alias-single-line-height);
+    grid-template-areas:
+      "preview preview preview"
+      ".       .       .      "
+      "title   detail  .      "
+      "content content content";
+
+    &:before {
+      content: " ";
+      grid-area: preview;
+
+      border-radius: var(--valence-card-quiet-border-radius);
+    }
+
+    &:after {
+      content: " ";
+      grid-area: preview;
+      position: absolute;
+      inset-inline-start: 0;
+      inset-inline-end: 0;
+      inset-block-start: 0;
+      inset-block-end: 0;
+      margin: calc(var(--valence-alias-focus-ring-gap) * -2);
+
+      border-radius: calc(
+        var(--valence-card-quiet-border-radius) +
+          var(--valence-alias-focus-ring-gap)
+      );
+    }
+    .Card-decoration {
+      display: block;
+      grid-area: preview;
+      inline-size: 100%;
+      block-size: 100%;
+
+      border-radius: var(--valence-card-quiet-border-radius);
+    }
+  }
+  .Card-image,
+  .Card-illustration {
+    block-size: 100%;
+    inline-size: 100%;
+    min-inline-size: 100%; /* I do not know why setting a min-width causes the image to shrink */
+
+    align-self: center;
+    justify-self: center;
+    border-radius: var(--valence-card-quiet-border-radius);
+    > img {
+      width: unset;
+      margin: auto;
+    }
+  }
+
+  .Card-illustration {
+    display: grid; /* not sure why flex doesn't work here */
+    align-items: center;
+    justify-items: center;
+  }
+  .Card-avatar {
+    display: none;
+  }
+  .Card-heading {
+    align-self: baseline;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-inline-end: var(--valence-card-title-padding-right);
+  }
+  .Card-detail {
+    align-self: baseline;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-inline-end: var(--valence-card-title-padding-right);
+  }
+  .Card-content {
+    margin-block-end: 5px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+/** Tile **/
+.Card--grid.Card--isQuiet {
+  .Card-checkboxWrapper {
+    z-index: 3;
+  }
+  .Card-grid:before {
+    z-index: -1;
+  }
+  .Card-grid:after {
+    z-index: 2;
+  }
+  min-inline-size: var(--valence-card-quiet-min-size);
+
+  .Card-grid {
+    block-size: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, auto) minmax(
+        var(--valence-global-dimension-size-500),
+        1fr
+      ) minmax(0, auto);
+    grid-template-rows: auto var(--valence-card-quiet-body-header-margin-top) minmax(
+        var(--valence-actionbutton-height),
+        auto
+      ) var(--valence-alias-single-line-height) 1fr;
+    grid-template-areas:
+      "preview preview preview"
+      ".       .       .      "
+      "title   detail  .      "
+      "content content content"
+      ".       .       .      ";
+
+    &:before {
+      content: " ";
+      grid-area: preview;
+
+      /* aspect ratio 1:1 because padding-top is calculated from width */
+      inline-size: 0;
+      block-size: 0;
+      padding-top: 100%;
+      padding-left: 100%;
+
+      border-radius: var(--valence-card-quiet-border-radius);
+    }
+
+    &:after {
+      content: " ";
+      grid-area: preview;
+      position: absolute;
+      inset-inline-start: 0;
+      inset-inline-end: 0;
+      inset-block-start: 0;
+      inset-block-end: 0;
+      margin: calc(var(--valence-alias-focus-ring-gap) * -2);
+
+      border-radius: calc(
+        var(--valence-card-quiet-border-radius) +
+          var(--valence-alias-focus-ring-gap)
+      );
+    }
+    .Card-decoration {
+      display: block;
+      grid-area: preview;
+      inline-size: 100%;
+      block-size: 100%;
+
+      border-radius: var(--valence-card-quiet-border-radius);
+    }
+  }
+  .Card-image,
+  .Card-illustration {
+    box-sizing: border-box; /* so that 100% counts padding as well */
+    block-size: 100%;
+    inline-size: 100%;
+    min-inline-size: 100%; /* I do not know why setting a min-width causes the image to shrink */
+
+    align-self: center;
+    justify-self: center;
+  }
+  .Card-image {
+    clip-path: inset(0% 0% 0% 0% round var(--valence-card-quiet-border-radius));
+    /* remove from flow so it doesn't affect grid area size, this way the aspect ratio is maintained
+     todo: figure out why or how it's already in the correct centered spot */
+    position: absolute;
+  }
+  .Card-illustration {
+    display: grid; /* not sure why flex doesn't work here */
+    align-items: center;
+    justify-items: center;
+  }
+  .Card-avatar {
+    display: none;
+  }
+  .Card-heading {
+    align-self: baseline;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-inline-end: var(--valence-card-title-padding-right);
+  }
+  .Card-detail {
+    align-self: baseline;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-inline-end: var(--valence-card-title-padding-right);
+  }
+  .Card-content {
+    margin-block-end: 5px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+/** Standalone **/
+.Card--noLayout.Card--isQuiet {
+  .Card-checkboxWrapper {
+    z-index: 3;
+  }
+  .Card-grid:before {
+    z-index: -1;
+  }
+  .Card-grid:after {
+    z-index: 2;
+  }
+  min-inline-size: var(--valence-card-quiet-min-size);
+
+  .Card-grid {
+    block-size: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, auto) minmax(
+        var(--valence-global-dimension-size-500),
+        1fr
+      ) minmax(0, auto);
+    grid-template-rows: auto var(--valence-card-quiet-body-header-margin-top) minmax(
+        var(--valence-actionbutton-height),
+        auto
+      ) auto var(--valence-card-body-padding-bottom);
+    grid-template-areas:
+      "preview preview preview"
+      ".       .       .      "
+      "title   detail  .      "
+      "content content content"
+      ".       .       .      ";
+
+    &:before {
+      content: " ";
+      grid-area: preview;
+
+      border-radius: var(--valence-card-quiet-border-radius);
+    }
+
+    &:after {
+      content: " ";
+      grid-area: preview;
+      position: absolute;
+      inset-inline-start: 0;
+      inset-inline-end: 0;
+      inset-block-start: 0;
+      inset-block-end: 0;
+      margin: calc(var(--valence-alias-focus-ring-gap) * -2);
+      padding: calc(var(--valence-alias-focus-ring-gap) * 2);
+      background-clip: content-box;
+
+      border-radius: calc(
+        var(--valence-card-quiet-border-radius) +
+          var(--valence-alias-focus-ring-gap)
+      );
+    }
+    .Card-decoration {
+      display: block;
+      grid-area: preview;
+      inline-size: 100%;
+      block-size: 100%;
+
+      border-radius: var(--valence-card-quiet-border-radius);
+    }
+  }
+  .Card-image,
+  .Card-illustration {
+    display: flex;
+
+    align-self: center;
+    justify-self: center;
+
+    border-radius: var(--valence-card-quiet-border-radius);
+  }
+  .Card-image {
+  }
+  .Card-illustration {
+    display: grid; /* not sure why flex doesn't work here */
+    align-items: center;
+    justify-items: center;
+    inline-size: 100%;
+    block-size: var(--valence-card-coverphoto-height);
+  }
+  .Card-avatar {
+    display: none;
+  }
+  .Card-heading {
+    align-self: baseline;
+    margin-inline-end: var(--valence-card-title-padding-right);
+  }
+  .Card-detail {
+    align-self: baseline;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-inline-end: var(--valence-card-title-padding-right);
+  }
+  .Card-content {
+    margin-block-end: 5px;
+  }
+}
+/** END Quiet Vertical **/
+
+/** Standard Horizontal **/
+/**
+Broken as a CSS only solution in Safari until aspect-ratio is supported https://caniuse.com/?search=aspect-ratio
+For now working around it with a useLayoutEffect in CardBase.
+**/
+/** Tile **/
+.Card--grid.Card--horizontal {
+  .Card-grid:after {
+    z-index: 2;
+  }
+  border-width: var(--valence-card-border-size);
+  border-style: solid;
+  border-radius: var(--valence-card-border-radius);
+  .Card-checkboxWrapper {
+    display: none;
+  }
+  &.is-focused,
+  &.is-selected,
+  &.is-hovered {
+    .Card-checkboxWrapper {
+      display: none;
+    }
+  }
+
+  .Card-grid {
+    display: grid;
+    block-size: 100%;
+    grid-template-columns: auto var(--valence-global-dimension-size-200) 1fr auto var(
+        --valence-global-dimension-size-200
+      );
+    grid-template-rows: var(--valence-global-dimension-size-400) 1fr var(
+        --valence-global-dimension-size-200
+      );
+    grid-template-areas:
+      "preview . title   .       ."
+      "preview . content content ."
+      "preview . .       .       .";
+
+    &:before {
+      content: " ";
+      position: absolute;
+
+      inline-size: 100%;
+      block-size: 100%;
+      border-radius: var(--valence-card-border-radius);
+    }
+  }
+  .Card-image,
+  .Card-illustration {
+    grid-area: preview;
+    block-size: 100%;
+    /*aspect-ratio: 1/1;*/ /* can't use in safari or FF :( */
+
+    align-self: center;
+    justify-self: center;
+
+    border-start-start-radius: var(--valence-card-border-radius);
+    border-end-start-radius: var(--valence-card-border-radius);
+    border-inline-end-width: var(--valence-card-border-size);
+    border-inline-end-style: solid;
+  }
+
+  .Card-image {
+  }
+
+  .Card-illustration {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .Card-avatar {
+    display: none;
+  }
+  .Card-heading {
+    align-self: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-inline-end: var(--valence-card-title-padding-right);
+  }
+  .Card-detail {
+    display: none;
+  }
+  /* how to handle long description?? */
+  .Card-content {
+    width: 100%;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* not working because this line is removed in css preprocessing */
+    -webkit-box-orient: vertical;
+    visibility: visible;
+  }
+}
+
+/** Standalone **/
+.Card--noLayout.Card--horizontal {
+  .Card-grid:after {
+    z-index: 2;
+  }
+  border-width: var(--valence-card-border-size);
+  border-style: solid;
+  border-radius: var(--valence-card-border-radius);
+  .Card-checkboxWrapper {
+    display: none;
+  }
+  &.is-focused,
+  &.is-selected,
+  &.is-hovered {
+    .Card-checkboxWrapper {
+      display: none;
+    }
+  }
+
+  .Card-grid {
+    position: relative;
+    display: grid;
+    block-size: 100%;
+    max-block-size: 100%;
+    grid-template-columns: auto var(--valence-global-dimension-size-200) 1fr auto var(
+        --valence-global-dimension-size-200
+      );
+    grid-template-rows: var(--valence-global-dimension-size-400) 1fr var(
+        --valence-global-dimension-size-200
+      );
+    grid-template-areas:
+      "preview . title   .       ."
+      "preview . content content ."
+      "preview . .       .       .";
+
+    &:before {
+      content: " ";
+      inline-size: 100%;
+      block-size: 100%;
+      position: absolute;
+      border-radius: var(--valence-card-border-radius);
+    }
+
+    &:after {
+      content: " ";
+      inline-size: 100%;
+      block-size: 100%;
+      position: absolute;
+      border-radius: var(--valence-card-border-radius);
+    }
+  }
+  .Card-image,
+  .Card-illustration {
+    grid-area: preview;
+    block-size: 100%;
+    /*aspect-ratio: 1/1;*/ /* can't use in safari or FF :( */
+
+    align-self: center;
+    justify-self: center;
+
+    border-start-start-radius: var(--valence-card-border-radius);
+    border-end-start-radius: var(--valence-card-border-radius);
+    border-inline-end-width: var(--valence-card-border-size);
+    border-inline-end-style: solid;
+  }
+
+  .Card-image {
+  }
+
+  .Card-illustration {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .Card-avatar {
+    display: none;
+  }
+  .Card-heading {
+    align-self: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-inline-end: var(--valence-card-title-padding-right);
+  }
+  .Card-detail {
+    display: none;
+  }
+  /* how to handle long description?? */
+  .Card-content {
+    width: 100%;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* not working because this line is removed in css preprocessing */
+    -webkit-box-orient: vertical;
+    visibility: visible;
+  }
+}
+/** END Standard Horizontal **/
+
+/* CardView styles */
+.CardView {
+  outline: none;
+
+  .CardView-centeredWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+  .CardView-row {
+    outline: none;
+    height: 100%;
+  }
+}

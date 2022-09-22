@@ -1,0 +1,172 @@
+@import "../commons/index.scss";
+
+.Menu-popover {
+  max-width: var(--valence-menu-max-width);
+}
+
+.Menu {
+  text-align: start;
+  display: block;
+
+  box-sizing: border-box;
+
+  padding: var(--valence-popover-padding-y) 0;
+  margin: 0;
+
+  list-style-type: none;
+
+  overflow-y: auto;
+  user-select: none;
+
+  & .Menu-sectionHeading {
+    /* Support headings as LI */
+    margin-block-start: var(--valence-menu-margin-x);
+    margin-block-end: var(--valence-menu-margin-x);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.Menu-checkmark {
+  transform: scale(1);
+  opacity: 1;
+  /*
+    Renamed from padding-y to padding-height to fix docs issue where fallback var replaced this value
+    (due to old spectrum-css postcss-custom-properties-custom-mapping plugin).
+  */
+  padding-block-start: calc(var(--valence-selectlist-option-icon-padding-y) - var(--valence-selectlist-option-padding-height));
+}
+
+.Menu-item {
+  cursor: default;
+  position: relative;
+
+  box-sizing: border-box;
+
+  margin: 0;
+
+  border-inline-start: var(--valence-selectlist-border-size-key-focus) solid transparent;
+
+  font-size: var(--valence-selectlist-option-text-size);
+  font-weight: var(--valence-selectlist-option-text-font-weight);
+  font-style: normal;
+  text-decoration: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  &.is-selected {
+    .Menu-checkmark {
+      display: block;
+    }
+  }
+
+  .Icon + .Menu-itemLabel,
+  .Menu-itemIcon  + .Menu-itemLabel {
+    margin-inline-start: var(--valence-selectlist-thumbnail-image-padding-x);
+  }
+}
+
+.Menu-itemLabel {
+  grid-area: text;
+  line-height: var(--valence-global-font-line-height-small);
+  word-break: break-word;
+}
+
+.Menu-itemLabel--wrapping {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.Menu-checkmark {
+  display: none;
+  align-self: flex-start;
+  justify-self: end;
+  grid-area: checkmark;
+}
+
+.Menu-divider {
+  /* Add the correct box sizing for hr in Firefox. */
+  box-sizing: content-box;
+
+  /* Show the overflow for hr in Edge and IE. */
+  overflow: visible;
+
+  block-size: var(--valence-selectlist-divider-size);
+  margin: calc(var(--valence-selectlist-divider-padding) / 2) var(--valence-selectlist-option-padding);
+  padding: 0 0;
+  border: none;
+}
+
+.Menu-sectionHeading {
+  display: block;
+  margin: var(--valence-selectlist-heading-margin);
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-inline-start: var(--valence-selectlist-heading-padding-left);
+  padding-inline-end: var(--valence-selectlist-heading-padding-right);
+
+  font-size: var(--valence-selectlist-heading-text-size);
+  font-weight: var(--valence-selectlist-heading-text-font-weight);
+  line-height: var(--valence-text-body-line-height);
+  text-transform: var(--valence-selectlist-heading-text-transform);
+  letter-spacing: var(--valence-selectlist-heading-letter-spacing);
+}
+
+.Menu .Menu {
+  /* Fill parent menu when nested */
+  display: block;
+  margin: 0;
+}
+
+.Menu-itemGrid {
+  display: grid;
+  grid-template-columns: calc(var(--valence-selectlist-option-padding) - var(--valence-selectlist-border-size-key-focus)) auto 1fr auto auto auto var(--valence-selectlist-option-padding);
+  /*
+    Renamed from padding-y to padding-height to fix docs issue where fallback var replaced this value
+    (due to old spectrum-css postcss-custom-properties-custom-mapping plugin).
+  */
+  grid-template-rows: var(--valence-selectlist-option-padding-height) 1fr auto var(--valence-selectlist-option-padding-height);
+  grid-template-areas:
+    ". .    .            .         .     .            ."
+    ". icon text         checkmark end   keyboard     ."
+    ". icon description  checkmark end   keyboard     ."
+    ". .    .            .         .     .            .";
+}
+
+.Menu-item.is-selectable {
+  .Menu-itemGrid {
+    grid-template-columns: calc(var(--valence-selectlist-option-padding) - var(--valence-selectlist-border-size-key-focus)) auto 1fr calc(var(--valence-icon-checkmark-medium-width) + var(--valence-selectlist-option-icon-padding-x)) auto auto var(--valence-selectlist-option-padding);
+  }
+}
+
+/* Added .Menu so paddings from component styles are overriden */
+.Menu .Menu-end {
+  grid-area: end;
+  justify-self: end;
+  align-self: flex-start;
+  padding-inline-start: var(--valence-global-dimension-size-125);
+}
+.Menu-icon {
+  grid-area: icon;
+  /* Margin around the whole menu item is 6px. Icon should be 7px from the top according to XD. */
+  padding-block-start: var(--valence-global-dimension-size-10);
+  padding-inline-end: var(--valence-global-dimension-size-100);
+}
+.Menu-description {
+  grid-area: description;
+  line-height: var(--valence-global-font-line-height-small);
+  font-size: var(--valence-global-dimension-size-150);
+}
+.Menu-keyboard {
+  grid-area: keyboard;
+  align-self: flex-start;
+  padding-inline-start: var(--valence-global-dimension-size-125);
+  /* override default browser styling. */
+  /* keyboard shortcuts are always ASCII, so use base font */
+  font-family: var(--valence-font-family-base);
+}

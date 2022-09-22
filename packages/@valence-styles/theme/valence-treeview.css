@@ -1,0 +1,21 @@
+.theme {
+  --valence-treeview-item-text-color: var(--valence-global-color-gray-800);
+  --valence-treeview-item-group-background-color-hover: var(--valence-global-color-gray-75);
+  --valence-treeview-item-group-border-color-hover: var(--valence-global-color-gray-500);
+  --valence-treeview-row-border-color-hover: var(--valence-global-color-gray-900);
+  --valence-treeview-item-text-color-hover: var(--valence-global-color-gray-900);
+  --valence-treeview-item-background-color-hover: var(--valence-alias-background-color-hover-overlay);
+  --valence-treeview-item-border-color-key-focus: var(--valence-alias-focus-color);
+  --valence-treeview-item-border-size-key-focus: var(--valence-global-dimension-static-size-25);
+  --valence-treeview-item-background-color-key-focus: var(--valence-alias-background-color-hover-overlay);
+  --valence-treeview-width: 304px;
+  --valence-treeview-item-height: var(--valence-global-dimension-size-450);
+  --valence-treeview-padding-x: 6px;
+  --valence-treeview-item-border-radius: var(--valence-alias-border-radius-regular);
+  --valence-treeview-item-border-size: var(--valence-global-dimension-static-size-25);
+  --valence-treeview-item-padding-y: var(--valence-global-dimension-static-size-100);
+  --valence-treeview-item-margin-y: var(--valence-global-dimension-static-size-100);
+  --valence-treeview-item-padding-x: 30px;
+  --valence-treeview-item-indent: var(--valence-global-dimension-size-350);
+  --valence-treeview-item-icon-gap: var(--valence-global-dimension-size-100);
+}

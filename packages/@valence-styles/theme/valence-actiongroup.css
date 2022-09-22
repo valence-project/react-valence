@@ -1,0 +1,14 @@
+.theme {
+  --valence-actiongroup-button-gap-y: var(--valence-global-dimension-size-100);
+  --valence-actiongroup-button-gap-x: var(--valence-global-dimension-size-100);
+  --valence-actiongroup-icon-button-gap-y: var(--valence-global-dimension-size-100);
+  --valence-actiongroup-icon-button-gap-x: var(--valence-global-dimension-size-100);
+  --valence-actiongroup-text-button-gap-y: var(--valence-global-dimension-size-100);
+  --valence-actiongroup-text-button-gap-x: var(--valence-global-dimension-size-100);
+}
+
+
+.theme {
+  --valence-actiongroup-button-gap-reset: 0px;
+  --valence-actiongroup-quiet-compact-button-gap: var(--valence-global-dimension-size-25);
+}

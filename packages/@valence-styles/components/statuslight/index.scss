@@ -1,0 +1,35 @@
+@import "../commons/index.scss";
+
+.StatusLight {
+  min-block-size: var(--valence-statuslight-height);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
+  padding: var(--valence-statuslight-padding-top) 0
+    var(--valence-statuslight-padding-bottom) 0;
+  box-sizing: border-box;
+
+  font-size: var(--valence-statuslight-text-size);
+  font-weight: var(--valence-statuslight-text-font-weight);
+  line-height: var(--valence-statuslight-text-line-height);
+
+  &::before {
+    content: "";
+    flex-grow: 0;
+    flex-shrink: 0;
+    display: inline-block;
+    inline-size: var(--valence-statuslight-dot-size);
+    block-size: var(--valence-statuslight-dot-size);
+    border-radius: 50%;
+
+    /* margin on the dog is the opposite of the padding in order to align the dot as if the padding hack was not present */
+    margin: var(--valence-statuslight-padding-bottom)
+      var(--valence-statuslight-text-gap) var(--valence-statuslight-padding-top)
+      var(--valence-statuslight-text-gap);
+  }
+}
+
+.StatusLight--neutral {
+  font-style: italic;
+}

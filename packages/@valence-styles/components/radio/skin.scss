@@ -1,0 +1,243 @@
+.Radio .Radio-input {
+  &:checked + .Radio-button {
+    &:before {
+      border-color: var(
+        --valence-radio-emphasized-circle-border-color-selected
+      );
+    }
+  }
+}
+
+.Radio-label {
+  color: var(--valence-radio-emphasized-text-color);
+}
+
+.Radio-button {
+  &:before {
+    background-color: var(--valence-radio-emphasized-circle-background-color);
+    border-color: var(--valence-radio-emphasized-circle-border-color);
+  }
+}
+
+.Radio {
+  &:hover {
+    .Radio-button {
+      &:before {
+        border-color: var(--valence-radio-emphasized-circle-border-color-hover);
+        box-shadow: none;
+      }
+    }
+
+    .Radio-input:checked + .Radio-button {
+      &:before {
+        border-color: var(
+          --valence-radio-emphasized-circle-border-color-selected-hover
+        );
+      }
+    }
+
+    .Radio-label {
+      color: var(--valence-radio-emphasized-text-color-hover);
+    }
+  }
+
+  &:active {
+    .Radio-button {
+      &:before {
+        border-color: var(--valence-radio-emphasized-circle-border-color-down);
+      }
+    }
+
+    .Radio-input:checked + .Radio-button {
+      &:before {
+        border-color: var(
+          --valence-radio-emphasized-circle-border-color-selected-down
+        );
+      }
+    }
+
+    .Radio-label {
+      color: var(--valence-radio-emphasized-text-color-down);
+    }
+  }
+  & .Radio-input.focus-ring,
+  &:hover .Radio-input.focus-ring {
+    &:checked + .Radio-button {
+      &:before {
+        border-color: var(
+          --valence-radio-emphasized-circle-border-color-selected-key-focus
+        );
+      }
+    }
+  }
+}
+
+.Radio--quiet {
+  .Radio-input:checked + .Radio-button {
+    &:before {
+      border-color: var(--valence-radio-quiet-circle-border-color-selected);
+    }
+  }
+  &:hover {
+    .Radio-input:checked + .Radio-button {
+      &:before {
+        border-color: var(
+          --valence-radio-quiet-circle-border-color-selected-hover
+        );
+      }
+    }
+  }
+  &:active {
+    .Radio-input:checked + .Radio-button {
+      &:before {
+        border-color: var(
+          --valence-radio-quiet-circle-border-color-selected-down
+        );
+      }
+    }
+  }
+  & .Radio-input.focus-ring,
+  &:hover .Radio-input.focus-ring {
+    &:checked + .Radio-button {
+      &:before {
+        border-color: var(
+          --valence-radio-quiet-circle-border-color-selected-key-focus
+        );
+      }
+    }
+  }
+}
+
+.Radio,
+.Radio--quiet {
+  &.is-invalid {
+    .Radio-button,
+    .Radio-input:checked + .Radio-button {
+      &:before {
+        border-color: var(--valence-radio-emphasized-circle-border-color-error);
+      }
+    }
+    .Radio-label {
+      color: var(--valence-radio-emphasized-circle-border-color-error);
+    }
+  }
+  &.is-invalid:hover {
+    .Radio-input + .Radio-button {
+      &:before {
+        border-color: var(
+          --valence-radio-emphasized-circle-border-color-error-hover
+        );
+      }
+    }
+    .Radio-label {
+      color: var(--valence-radio-emphasized-circle-border-color-error-hover);
+    }
+  }
+  &.is-invalid:active {
+    .Radio-input + .Radio-button {
+      &:before {
+        border-color: var(
+          --valence-radio-emphasized-circle-border-color-error-down
+        );
+      }
+    }
+    .Radio-label {
+      color: var(--valence-radio-emphasized-circle-border-color-error-down);
+    }
+  }
+  &.is-invalid .Radio-input.focus-ring,
+  &.is-invalid:hover .Radio-input.focus-ring {
+    &:not(:checked) + .Radio-button {
+      &:before {
+        border-color: var(--valence-radio-circle-border-color-error-key-focus);
+      }
+    }
+    &:checked + .Radio-button {
+      &:before {
+        border-color: var(
+          --valence-radio-circle-border-color-error-selected-key-focus
+        );
+      }
+    }
+  }
+}
+
+.Radio-input {
+  &:disabled + .Radio-button {
+    &:before {
+      border-color: var(
+        --valence-radio-emphasized-circle-border-color-disabled
+      ) !important;
+    }
+  }
+
+  &:disabled ~ .Radio-label {
+    color: var(--valence-radio-emphasized-text-color-disabled) !important;
+  }
+}
+
+/* Focus Overrides all */
+/* Removed :before so that border-color isn't overwritten by keyboard focus */
+.Radio,
+.Radio--quiet {
+  & .Radio-input.focus-ring,
+  &:hover .Radio-input.focus-ring {
+    &:not(:checked) + .Radio-button {
+      &:before {
+        border-color: var(--valence-radio-circle-border-color-key-focus);
+      }
+    }
+    & + .Radio-button {
+      &:after {
+        box-shadow: 0 0 0 var(--valence-radio-focus-ring-size-key-focus)
+          var(--valence-radio-focus-ring-color-key-focus);
+      }
+    }
+  }
+}
+
+@media (forced-colors: active) {
+  .Radio {
+    forced-color-adjust: none;
+    --valence-radio-circle-border-color-error-key-focus: ButtonText;
+    --valence-radio-circle-border-color-error-selected-key-focus: Highlight;
+    --valence-radio-circle-border-color-key-focus: Highlight;
+    --valence-radio-emphasized-circle-background-color: ButtonFace;
+    --valence-radio-emphasized-circle-border-color-disabled: GrayText;
+    --valence-radio-emphasized-circle-border-color-down: Highlight;
+    --valence-radio-emphasized-circle-border-color-error: ButtonText;
+    --valence-radio-emphasized-circle-border-color-error-down: Highlight;
+    --valence-radio-emphasized-circle-border-color-error-hover: Highlight;
+    --valence-radio-emphasized-circle-border-color-hover: Highlight;
+    --valence-radio-emphasized-circle-border-color-selected-down: Highlight;
+    --valence-radio-emphasized-circle-border-color-selected-hover: Highlight;
+    --valence-radio-emphasized-circle-border-color-selected-key-focus: Highlight;
+    --valence-radio-emphasized-circle-border-color-selected: Highlight;
+    --valence-radio-emphasized-circle-border-color: ButtonText;
+    --valence-radio-emphasized-text-color-disabled: GrayText;
+    --valence-radio-emphasized-text-color-down: CanvasText;
+    --valence-radio-emphasized-text-color-hover: CanvasText;
+    --valence-radio-emphasized-text-color: CanvasText;
+    --valence-radio-focus-ring-color-key-focus: ButtonText;
+    --valence-radio-quiet-circle-border-color-selected: Highlight;
+    --valence-radio-quiet-circle-border-color-selected-down: Highlight;
+    --valence-radio-quiet-circle-border-color-selected-hover: Highlight;
+    --valence-radio-quiet-circle-border-color-selected-key-focus: Highlight;
+    --valence-radio-focus-ring-gap-key-focus: var(
+      --valence-global-dimension-static-size-25
+    );
+    --valence-radio-focus-ring-size: var(
+      --valence-global-dimension-static-size-40
+    );
+    &.is-invalid:hover {
+      .Radio-label {
+        color: var(--valence-radio-emphasized-circle-border-color-error);
+      }
+    }
+    &.is-invalid:active {
+      .Radio-label {
+        color: var(--valence-radio-emphasized-circle-border-color-error);
+      }
+    }
+  }
+}

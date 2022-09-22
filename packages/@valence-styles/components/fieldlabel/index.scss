@@ -1,0 +1,170 @@
+@import "../commons/index.scss";
+
+.FieldLabel {
+  display: flex;
+  flex: 0 0 auto;
+
+  box-sizing: border-box;
+
+  text-transform: uppercase;
+  letter-spacing: 0.025rem;
+
+  padding: var(--valence-fieldlabel-padding-top) 0
+    var(--valence-fieldlabel-padding-bottom);
+
+  font-size: var(--valence-fieldlabel-text-size);
+  font-weight: var(--valence-fieldlabel-text-font-weight);
+  line-height: var(--valence-fieldlabel-text-line-height);
+
+  vertical-align: top;
+
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+  font-smoothing: subpixel-antialiased;
+  text-align: start;
+
+  cursor: default; /* match native labels even if not using a <label> element */
+}
+
+.FieldLabel--positionSide {
+  display: inline-flex;
+  padding-top: var(--valence-fieldlabel-side-padding-top);
+  padding-inline-end: var(--valence-fieldlabel-side-padding-x);
+}
+
+.FieldLabel-requiredIcon {
+  margin-top: var(--valence-fieldlabel-asterisk-margin-y);
+  margin-inline-end: 0;
+  margin-bottom: 0;
+  margin-inline-start: var(--valence-fieldlabel-asterisk-gap);
+}
+
+.FieldLabel--alignEnd {
+  justify-content: flex-end; /* labelPosition=top case */
+  text-align: end; /* labelPosition=side case */
+}
+
+/* A Field is a wrapper for a FieldLabel, a field component (e.g. textfield), and a HelpText.
+ * By default, labels are placed above the field. Fields have a default width, and the
+ * label will wrap within this width. The width of the whole field can be overridden by the user,
+ * and this causes both the label and inner field to resize as well. */
+.Field {
+  --valence-field-default-width: var(--valence-component-single-line-width);
+
+  &.Field--positionTop {
+    display: inline-flex;
+    flex-direction: column;
+    width: var(--valence-field-default-width);
+
+    .Field-field {
+      /* If the user overrides the width of the field, propagate to the inner component */
+      width: 100%;
+    }
+  }
+
+  /* The side label variant of Field is inline, and fills as much space as needed
+   * by default. If an explicit width is set, then the field flexes to fill available space. */
+  &.Field--positionSide {
+    display: inline-flex;
+    align-items: flex-start;
+
+    /* Wraps the field & help text, but not the label */
+    .Field-wrapper {
+      flex: 1;
+      /* Setting `flex: 1;` is equivalent to `flex: 1 1 0;`, which means we expect to be able to shrink
+       * To be able to shrink, we must have a min-width that isn't 'auto' */
+      min-width: 0;
+      /* TODO: By default, vertical flex wrapper for `labelPosition: side` should have default field width.
+       * This is a workaround until we find a better way to set the width of the field & help text.
+       * Should default to form field's default width and and allow users to override with custom width. */
+      width: var(--valence-field-default-width);
+
+      /* If the user overrides the height of the field, propagate to the inner wrapper element */
+      height: 100%;
+
+      .Field-field {
+        /* If the user overrides the width of the field, propagate to the inner component */
+        width: 100%;
+      }
+    }
+
+    .Field-field {
+      flex: 1;
+      min-width: 0;
+    }
+  }
+}
+
+/* topdoc
+{{ form/index.yml }}
+*/
+
+.Form {
+  /* With labelPosition=side, we override field layout to use a CSS table
+   * so that all the labels and fields line up automatically. */
+  &.Form--positionSide {
+    display: table;
+    border-collapse: separate;
+    border-spacing: var(--valence-tableform-border-spacing);
+    margin: var(--valence-tableform-margin);
+    text-align: start;
+
+    .Field {
+      display: table-row;
+      width: 100%;
+    }
+
+    .FieldLabel {
+      display: table-cell;
+    }
+
+    .Field-wrapper {
+      width: 100%;
+    }
+
+    .Field-field {
+      display: table-cell;
+      width: auto;
+      min-width: var(--valence-component-single-line-width);
+    }
+  }
+
+  /* With labelPosition=top, we use a normal flex stack */
+  &.Form--positionTop {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    min-width: var(--valence-component-single-line-width);
+
+    /* Users may want to make multiple fields appear next to each other.
+     * We want to ensure that all items inside the form get the proper
+     * margin and widths applied, even if wrapped in extra divs for example. */
+    > * {
+      margin-top: var(--valence-fieldlabel-margin);
+      width: 100%;
+    }
+  }
+}
+
+.StaticField {
+  &.Field--positionSide {
+    align-items: first baseline;
+  }
+
+  &.Field--positionTop {
+    width: unset;
+  }
+
+  .FieldLabel.FieldLabel {
+    padding-top: 0px;
+  }
+
+  .Field-wrapper.Field-wrapper {
+    width: unset;
+  }
+
+  .Field-field {
+    overflow: hidden;
+    word-break: break-word;
+  }
+}

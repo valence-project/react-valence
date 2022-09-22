@@ -1,0 +1,223 @@
+@import "../commons/index.scss";
+@import "../overlay/index.scss";
+
+.Tooltip {
+  @include valence-overlay;
+
+  position: relative;
+
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+
+  vertical-align: top;
+
+  inline-size: auto;
+  padding: var(--valence-tooltip-padding-top) var(--valence-tooltip-padding-x);
+  border-radius: var(--valence-tooltip-border-radius);
+  min-block-size: var(--valence-tooltip-min-height);
+
+  font-size: var(--valence-tooltip-text-size);
+  font-weight: var(--valence-tooltip-text-font-weight);
+  line-height: var(--valence-tooltip-text-line-height);
+  word-break: break-word;
+  -webkit-font-smoothing: antialiased;
+
+  &.is-open {
+    @include valence-overlay--open;
+  }
+
+  & {
+    cursor: default;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.Tooltip-tip {
+  position: absolute;
+
+  height: 0;
+  width: 0;
+
+  border-width: var(--valence-tooltip-tip-width);
+  border-style: solid;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+}
+
+.Tooltip--right,
+.Tooltip--left {
+  .Tooltip-tip {
+    top: 50%;
+    margin-top: calc(var(--valence-tooltip-tip-width) * -1);
+  }
+}
+
+.Tooltip--right {
+  margin-left: var(--valence-tooltip-target-offset);
+  &.is-open {
+    @include valence-overlay--right--open;
+  }
+  .Tooltip-tip {
+    right: 100%;
+    transform: rotate(90deg);
+  }
+}
+
+.Tooltip--left {
+  margin-right: var(--valence-tooltip-target-offset);
+  &.is-open {
+    @include valence-overlay--left--open;
+  }
+  .Tooltip-tip {
+    left: 100%;
+    transform: rotate(-90deg);
+  }
+}
+
+.Tooltip--top {
+  margin-bottom: var(--valence-tooltip-target-offset);
+  &.is-open {
+    @include valence-overlay--top--open;
+  }
+  .Tooltip-tip {
+    top: 100%;
+  }
+}
+
+.Tooltip--bottom {
+  margin-top: var(--valence-tooltip-target-offset);
+  &.is-open {
+    @include valence-overlay--bottom--open;
+  }
+  .Tooltip-tip {
+    bottom: 100%;
+    transform: rotate(-180deg);
+  }
+}
+
+.Tooltip--bottom,
+.Tooltip--top {
+  .Tooltip-tip {
+    left: 50%;
+    margin-left: calc(var(--valence-tooltip-tip-width) * -1);
+  }
+}
+
+.Tooltip-typeIcon {
+  margin-inline-start: calc(
+    var(--valence-tooltip-icon-margin-x) - var(--valence-tooltip-padding-x)
+  );
+  margin-inline-end: var(--valence-tooltip-icon-margin-x);
+  inline-size: var(--valence-tooltip-icon-size);
+  block-size: var(--valence-tooltip-icon-size);
+  align-self: flex-start;
+
+  /* Adjusts for weird misalignment */
+  margin-top: 1px;
+}
+
+.Tooltip-label {
+  max-inline-size: var(--valence-tooltip-content-max-width);
+
+  /* Make sure line height is correct to prevent problems in Windows */
+  line-height: var(--valence-tooltip-text-line-height);
+}
+
+.u-tooltip-showOnHover {
+  display: inline-block;
+  position: relative;
+
+  .Tooltip {
+    position: absolute;
+    white-space: nowrap;
+    /* Required for animations to work, !important for diff scaling to work */
+    visibility: visible !important;
+    //transition: transform var(--valence-global-animation-duration-100)
+    //ease-in-out;
+    top: -100%;
+  }
+
+  .Tooltip-label {
+    /* Don't try to wrap as the mechanism used for this helper does not support wrapping */
+    max-inline-size: none;
+  }
+
+  .Tooltip--right,
+  .Tooltip--left {
+    top: 50%;
+    .Tooltip-tip {
+      top: 50%;
+    }
+  }
+
+  .Tooltip--right {
+    left: 100%;
+    transform: translate(0, -50%);
+  }
+
+  .Tooltip--left {
+    transform: translate(-100%, -50%);
+  }
+
+  .Tooltip--bottom,
+  .Tooltip--top {
+    left: 50%;
+    .Tooltip-tip {
+      left: 50%;
+    }
+  }
+
+  .Tooltip--bottom {
+    top: 100%;
+    transform: translate(-50%, calc(var(--valence-tooltip-tip-margin) * -1));
+  }
+
+  .Tooltip--top {
+    transform: translate(-50%, var(--valence-tooltip-tip-margin));
+  }
+
+  &:hover .Tooltip,
+  &:focus .Tooltip,
+  &.is-focused .Tooltip,
+  *:focus .Tooltip {
+    opacity: 1;
+  }
+
+  &:hover .Tooltip.Tooltip--bottom,
+  &:focus .Tooltip.Tooltip--bottom,
+  &.is-focused .Tooltip.Tooltip--bottom,
+  *:focus .Tooltip.Tooltip--bottom {
+    transform: translate(-50%, 0);
+  }
+
+  &:hover .Tooltip.Tooltip--top,
+  &:focus .Tooltip.Tooltip--top,
+  &.is-focused .Tooltip.Tooltip--top,
+  *:focus .Tooltip.Tooltip--top {
+    transform: translate(-50%, calc(var(--valence-tooltip-tip-margin) * -1));
+  }
+
+  &:hover .Tooltip.Tooltip--left,
+  &:focus .Tooltip.Tooltip--left,
+  &.is-focused .Tooltip.Tooltip--left,
+  *:focus .Tooltip.Tooltip--left {
+    transform: translate(calc(-100% - var(--valence-tooltip-tip-margin)), -50%);
+  }
+
+  &:hover .Tooltip.Tooltip--right,
+  &:focus .Tooltip.Tooltip--right,
+  &.is-focused .Tooltip.Tooltip--right,
+  *:focus .Tooltip.Tooltip--right {
+    transform: translate(var(--valence-tooltip-tip-margin), -50%);
+  }
+}

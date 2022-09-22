@@ -1,0 +1,86 @@
+.theme {
+  --valence-colorhandle-inner-border-color: var(--valence-global-color-static-white);
+  --valence-colorhandle-outer-border-color: var(--valence-alias-colorhandle-outer-border-color);
+  --valence-colorhandle-fill-color: none;
+  --valence-colorhandle-cursor-hit-width: var(--valence-global-dimension-size-300);
+  --valence-colorhandle-cursor-hit-height: var(--valence-global-dimension-size-300);
+  --valence-colorhandle-cursor-hit-border-radius: var(--valence-global-dimension-static-percent-50);
+  --valence-colorhandle-touch-hit-width: var(--valence-global-dimension-static-size-600);
+  --valence-colorhandle-touch-hit-height: var(--valence-global-dimension-static-size-600);
+  --valence-colorhandle-touch-hit-border-radius: var(--valence-global-dimension-static-percent-50);
+  --valence-colorhandle-loupe-inner-border-color: var(--valence-global-color-static-white);
+  --valence-colorhandle-loupe-outer-border-color: rgba(50,50,50,0.1);
+  --valence-colorhandle-loupe-shadow-color: var(--valence-alias-dropshadow-color);
+  --valence-colorhandle-inner-border-color-hover: var(--valence-global-color-static-white);
+  --valence-colorhandle-outer-border-color-hover: var(--valence-alias-colorhandle-outer-border-color);
+  --valence-colorhandle-fill-color-hover: none;
+  --valence-colorhandle-cursor-hit-width-hover: var(--valence-global-dimension-size-300);
+  --valence-colorhandle-cursor-hit-height-hover: var(--valence-global-dimension-size-300);
+  --valence-colorhandle-cursor-hit-border-radius-hover: var(--valence-global-dimension-static-percent-50);
+  --valence-colorhandle-touch-hit-width-hover: var(--valence-global-dimension-static-size-600);
+  --valence-colorhandle-touch-hit-height-hover: var(--valence-global-dimension-static-size-600);
+  --valence-colorhandle-touch-hit-border-radius-hover: var(--valence-global-dimension-static-percent-50);
+  --valence-colorhandle-inner-border-color-down: var(--valence-global-color-static-white);
+  --valence-colorhandle-outer-border-color-down: var(--valence-alias-colorhandle-outer-border-color);
+  --valence-colorhandle-fill-color-down: none;
+  --valence-colorhandle-cursor-hit-width-down: var(--valence-global-dimension-size-300);
+  --valence-colorhandle-cursor-hit-height-down: var(--valence-global-dimension-size-300);
+  --valence-colorhandle-cursor-hit-border-radius-down: var(--valence-global-dimension-static-percent-50);
+  --valence-colorhandle-touch-hit-width-down: var(--valence-global-dimension-static-size-600);
+  --valence-colorhandle-touch-hit-height-down: var(--valence-global-dimension-static-size-600);
+  --valence-colorhandle-touch-hit-border-radius-down: var(--valence-global-dimension-static-percent-50);
+  --valence-colorhandle-inner-border-color-key-focus: var(--valence-global-color-static-white);
+  --valence-colorhandle-outer-border-color-key-focus: var(--valence-alias-colorhandle-outer-border-color);
+  --valence-colorhandle-fill-color-key-focus: none;
+  --valence-colorhandle-cursor-hit-width-key-focus: var(--valence-global-dimension-size-400);
+  --valence-colorhandle-cursor-hit-height-key-focus: var(--valence-global-dimension-size-400);
+  --valence-colorhandle-cursor-hit-border-radius-key-focus: var(--valence-global-dimension-static-percent-50);
+  --valence-colorhandle-touch-hit-width-key-focus: var(--valence-global-dimension-static-size-600);
+  --valence-colorhandle-touch-hit-height-key-focus: var(--valence-global-dimension-static-size-600);
+  --valence-colorhandle-touch-hit-border-radius-key-focus: var(--valence-global-dimension-static-percent-50);
+  --valence-colorhandle-inner-border-color-disabled: var(--valence-global-color-gray-400);
+  --valence-colorhandle-outer-border-color-disabled: rgba(0,0,0,0);
+  --valence-colorhandle-fill-color-disabled: var(--valence-global-color-gray-300);
+  --valence-colorhandle-size: var(--valence-global-dimension-size-200);
+  --valence-colorhandle-inner-border-size: var(--valence-global-dimension-static-size-25);
+  --valence-colorhandle-outer-border-size: var(--valence-global-dimension-static-size-10);
+  --valence-colorhandle-size-focus: var(--valence-global-dimension-size-400);
+  --valence-colorhandle-loupe-width: var(--valence-global-dimension-static-size-600);
+  --valence-colorhandle-loupe-height: var(--valence-global-dimension-static-size-800);
+  --valence-colorhandle-loupe-inner-border-size: var(--valence-global-dimension-static-size-25);
+  --valence-colorhandle-loupe-outer-border-size: var(--valence-global-dimension-static-size-10);
+  --valence-colorhandle-loupe-shadow-offset-y: var(--valence-global-dimension-size-10);
+  --valence-colorhandle-loupe-shadow-blur: var(--valence-global-dimension-size-50);
+}
+
+.theme {
+  /* redefine this var so it can be used in skin.css */
+  --valence-colorhandle-background-offset: calc(
+    -1 * var(--valence-global-dimension-static-size-25)
+  );
+  --valence-colorhandle-checkerboard-size: var(
+    --valence-global-dimension-static-size-100
+  );
+
+  /* todo: update DNA so this is no longer required */
+  --valence-colorhandle-outer-border-color: rgba(0, 0, 0, 0.42);
+}
+
+.theme {
+  /* redefine this var so it can be used in skin.css */
+  --valence-colorhandle-background-offset: calc(
+    -1 * var(--valence-global-dimension-static-size-25)
+  );
+  --valence-colorhandle-checkerboard-size: var(
+    --valence-global-dimension-static-size-100
+  );
+
+  --valence-colorhandle-animation-duration: var(
+    --valence-global-animation-duration-100
+  );
+  --valence-colorhandle-animation-easing: ease-in-out;
+
+  --valence-colorhandle-hitarea-size: var(--valence-global-dimension-size-300);
+  --valence-colorhandle-hitarea-radius: 100%;
+}
+

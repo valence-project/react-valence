@@ -1,0 +1,99 @@
+.theme {
+  --valence-icon-alert-medium-width: var(--valence-global-dimension-size-225);
+  --valence-icon-alert-medium-height: var(--valence-global-dimension-size-225);
+  --valence-icon-alert-small-width: var(--valence-global-dimension-size-175);
+  --valence-icon-alert-small-height: var(--valence-global-dimension-size-175);
+  --valence-icon-arrow-down-small-width: var(
+    --valence-global-dimension-size-100
+  );
+  --valence-icon-arrow-left-medium-width: var(
+    --valence-global-dimension-size-175
+  );
+  --valence-icon-chevron-down-medium-height: var(
+    --valence-global-dimension-size-75
+  );
+  --valence-icon-chevron-down-small-width: var(
+    --valence-global-dimension-size-100
+  );
+  --valence-icon-chevron-down-small-height: var(
+    --valence-global-dimension-size-75
+  );
+  --valence-icon-chevron-left-large-height: var(
+    --valence-global-dimension-size-200
+  );
+  --valence-icon-chevron-left-medium-width: var(
+    --valence-global-dimension-size-75
+  );
+  --valence-icon-chevron-right-large-height: var(
+    --valence-global-dimension-size-200
+  );
+  --valence-icon-chevron-right-medium-width: var(
+    --valence-global-dimension-size-75
+  );
+  --valence-icon-chevron-right-small-width: var(
+    --valence-global-dimension-size-75
+  );
+  --valence-icon-chevron-right-small-height: var(
+    --valence-global-dimension-size-100
+  );
+  --valence-icon-chevron-up-small-width: var(
+    --valence-global-dimension-size-100
+  );
+  --valence-icon-chevron-up-small-height: var(
+    --valence-global-dimension-size-75
+  );
+  --valence-icon-cornertriangle-width: var(--valence-global-dimension-size-65);
+  --valence-icon-cornertriangle-height: var(--valence-global-dimension-size-65);
+  --valence-icon-cross-medium-width: var(--valence-global-dimension-size-100);
+  --valence-icon-cross-medium-height: var(--valence-global-dimension-size-100);
+  --valence-icon-cross-small-width: var(--valence-global-dimension-size-100);
+  --valence-icon-cross-small-height: var(--valence-global-dimension-size-100);
+  --valence-icon-doublegripper-width: var(--valence-global-dimension-size-200);
+  --valence-icon-doublegripper-height: var(--valence-global-dimension-size-50);
+  --valence-icon-folderbreadcrumb-width: var(
+    --valence-global-dimension-size-225
+  );
+  --valence-icon-folderbreadcrumb-height: var(
+    --valence-global-dimension-size-225
+  );
+  --valence-icon-info-medium-width: var(--valence-global-dimension-size-225);
+  --valence-icon-info-medium-height: var(--valence-global-dimension-size-225);
+  --valence-icon-info-small-width: var(--valence-global-dimension-size-175);
+  --valence-icon-info-small-height: var(--valence-global-dimension-size-175);
+  --valence-icon-magnifier-width: var(--valence-global-dimension-size-200);
+  --valence-icon-magnifier-height: var(--valence-global-dimension-size-200);
+  --valence-icon-star-width: var(--valence-global-dimension-size-225);
+  --valence-icon-star-height: var(--valence-global-dimension-size-225);
+  --valence-icon-star-outline-width: var(--valence-global-dimension-size-225);
+  --valence-icon-star-outline-height: var(--valence-global-dimension-size-225);
+  --valence-icon-success-medium-width: var(--valence-global-dimension-size-225);
+  --valence-icon-success-medium-height: var(
+    --valence-global-dimension-size-225
+  );
+  --valence-icon-success-small-width: var(--valence-global-dimension-size-175);
+  --valence-icon-success-small-height: var(--valence-global-dimension-size-175);
+  --valence-icon-triplegripper-height: var(--valence-global-dimension-size-85);
+  --valence-icon-workflow-medium-size: var(--valence-alias-workflow-icon-size);
+}
+
+.theme {
+  --valence-icon-size-s: var(--valence-alias-workflow-icon-size);
+  --valence-icon-size-m: var(--valence-alias-workflow-icon-size);
+  --valence-icon-size-xxs: calc(var(--valence-icon-size-s) / 2);
+  --valence-icon-size-xs: calc(var(--valence-icon-size-m) / 2);
+  --valence-icon-size-l: calc(var(--valence-icon-size-s) * 2);
+  --valence-icon-size-xl: calc(var(--valence-icon-size-m) * 2);
+  --valence-icon-size-xxl: calc(var(--valence-icon-size-m) * 3);
+}
+
+.theme {
+  --valence-icon-listgripper-width: var(--valence-global-dimension-size-75);
+  --valence-icon-listgripper-height: var(--valence-global-dimension-size-150);
+  --valence-icon-size-s: var(--valence-alias-workflow-icon-size);
+  --valence-icon-size-m: var(--valence-global-dimension-size-300);
+  --valence-icon-size-xxs: calc(var(--valence-icon-size-s) / 2);
+  --valence-icon-size-xs: calc(var(--valence-icon-size-m) / 2);
+  --valence-icon-size-l: calc(var(--valence-icon-size-s) * 2);
+  --valence-icon-size-xl: calc(var(--valence-icon-size-m) * 2);
+  --valence-icon-size-xxl: calc(var(--valence-icon-size-m) * 3);
+}

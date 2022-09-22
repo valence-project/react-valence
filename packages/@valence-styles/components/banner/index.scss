@@ -1,0 +1,19 @@
+@import "../commons/index.scss";
+
+.Banner {
+  display: inline-block;
+  border-radius: var(--valence-banner-border-radius);
+  padding: var(--valence-banner-padding-y) var(--valence-banner-padding-x);
+  font-size: var(--valence-banner-text-size);
+  line-height: var(--valence-banner-text-line-height);
+}
+
+.Banner-header {
+  font-weight: bold;
+}
+
+.Banner--corner {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}

@@ -1,0 +1,161 @@
+@import "../commons/index.scss";
+
+.TreeView {
+  display: block;
+  list-style: none;
+  position: relative;
+  padding: 0;
+  user-select: none;
+  outline: none;
+
+  height: 500px;
+  width: 200px;
+}
+
+.TreeView-item {
+  /* Don't let child treeviews that are open spill out */
+  overflow: hidden;
+
+  &.is-open {
+    > .TreeView-itemLink > .TreeView-indicator {
+      /* Rotate the chevron */
+      transform: rotate(90deg);
+    }
+
+    > .TreeView {
+      /* Open the treeview */
+      height: auto;
+      visibility: visible;
+    }
+  }
+}
+
+.TreeView-itemLink {
+  display: block;
+  box-sizing: border-box;
+  cursor: default;
+
+  padding: calc(
+      calc(var(--valence-treeview-item-margin-y) / 2) +
+        var(--valence-treeview-item-padding-y)
+    )
+    var(--valence-treeview-item-padding-x);
+
+  text-decoration: none;
+
+  /* Prevent weirdness that can cause the vertical bar to fall down */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &:focus {
+    /* we cannot achieve rounded corners with outline so we use box-shadow (on skin.scss) instead */
+    outline: none;
+  }
+
+  .Icon {
+    vertical-align: top;
+    margin-right: var(--valence-treeview-item-icon-gap);
+  }
+
+  &:before {
+    content: "";
+
+    position: absolute;
+    left: var(--valence-treeview-item-border-size);
+    right: 0;
+    z-index: -1; /* make sure we don't block clicks on chevron */
+
+    /* Position correctly since top is not defined */
+    margin-top: calc(var(--valence-treeview-item-padding-y) * -1);
+
+    height: var(--valence-treeview-item-height);
+
+    background-color: transparent;
+
+    border-radius: var(--valence-treeview-item-border-radius);
+  }
+}
+
+.TreeView-indicator {
+  display: block;
+
+  float: left;
+  position: relative;
+
+  left: var(--valence-global-dimension-size-125);
+  top: calc(var(--valence-global-dimension-size-65) * -1);
+  margin-left: calc(
+    calc(
+        var(--valence-global-dimension-size-400) +
+          var(--valence-global-dimension-size-25)
+      ) * -1
+  );
+  margin-bottom: calc(var(--valence-global-dimension-size-125) * -1);
+
+  padding: var(--valence-global-dimension-size-125);
+
+  transition: transform ease var(--valence-global-animation-duration-100);
+
+  pointer-events: all !important;
+}
+
+/* Close nested treeviews by default */
+.TreeView .TreeView {
+  /* Don't be a highlight container stealer */
+  position: static;
+
+  padding-left: var(--valence-treeview-item-indent);
+
+  /* Be hidden */
+  height: 0;
+  visibility: hidden;
+}
+
+.TreeView-item--indent1 {
+  padding-left: var(--valence-treeview-item-indent);
+}
+
+.TreeView-item--indent2 {
+  padding-left: calc(2 * var(--valence-treeview-item-indent));
+}
+
+.TreeView-item--indent3 {
+  padding-left: calc(3 * var(--valence-treeview-item-indent));
+}
+
+.TreeView-item--indent4 {
+  padding-left: calc(4 * var(--valence-treeview-item-indent));
+}
+
+.TreeView-item--indent5 {
+  padding-left: calc(5 * var(--valence-treeview-item-indent));
+}
+
+.TreeView-item--indent6 {
+  padding-left: calc(6 * var(--valence-treeview-item-indent));
+}
+
+.TreeView-item--indent7 {
+  padding-left: calc(7 * var(--valence-treeview-item-indent));
+}
+
+.TreeView-item--indent8 {
+  padding-left: calc(8 * var(--valence-treeview-item-indent));
+}
+
+.TreeView-item--indent9 {
+  padding-left: calc(9 * var(--valence-treeview-item-indent));
+}
+
+.TreeView-item--indent10 {
+  padding-left: calc(10 * var(--valence-treeview-item-indent));
+}
+.TreeView-heading {
+  padding: calc(
+      calc(var(--valence-treeview-item-margin-y) * 2) +
+        var(--valence-treeview-item-padding-y)
+    )
+    10px;
+  font-weight: bold;
+}

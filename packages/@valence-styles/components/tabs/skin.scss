@@ -1,0 +1,204 @@
+.Tabs {
+  border-block-end-color: var(--valence-tabs-rule-color);
+
+  &.Tabs--isCollapsed {
+    .focus-ring {
+      /* FieldButton Picker focus ring override */
+      box-shadow: none;
+
+      &::before {
+        border-color: var(--valence-tabs-focus-ring-color);
+      }
+    }
+  }
+}
+
+.Tabs--vertical {
+  border-inline-start-color: var(--valence-tabs-vertical-rule-color);
+}
+
+.Tabs--emphasized {
+  .Tabs-selectionIndicator {
+    background-color: var(--valence-tabs-emphasized-selection-indicator-color);
+  }
+}
+
+.Tabs-selectionIndicator {
+  background-color: var(--valence-tabs-selection-indicator-color);
+}
+
+.Tabs-item {
+  color: var(--valence-tabs-text-color);
+
+  .Icon {
+    fill: var(--valence-tabs-icon-color);
+  }
+
+  &:hover {
+    color: var(--valence-tabs-text-color-hover);
+
+    .Icon {
+      fill: var(--valence-tabs-icon-color-hover);
+    }
+  }
+
+  &.is-selected {
+    color: var(--valence-tabs-text-color-selected);
+
+    .Icon {
+      fill: var(--valence-tabs-icon-color-selected);
+    }
+  }
+
+  &.focus-ring {
+    color: var(--valence-tabs-text-color-key-focus);
+
+    &::before {
+      border-color: var(--valence-tabs-focus-ring-color);
+    }
+
+    .Icon {
+      fill: var(--valence-tabs-icon-color-key-focus);
+    }
+  }
+
+  &.is-disabled {
+    color: var(--valence-tabs-text-color-disabled);
+
+    .Icon {
+      fill: var(--valence-tabs-icon-color-disabled);
+    }
+  }
+}
+
+.Tabs--emphasized {
+  .Tabs-item {
+    &.is-selected {
+      color: var(--valence-tabs-emphasized-text-color);
+
+      .Icon {
+        fill: var(--valence-tabs-emphasized-icon-color);
+      }
+
+      &.focus-ring {
+        color: var(--valence-tabs-emphasized-text-color-key-focus);
+
+        &::before {
+          border-color: var(--valence-tabs-emphasized-focus-ring-color);
+        }
+
+        .Icon {
+          fill: var(--valence-tabs-emphasized-icon-color-key-focus);
+        }
+      }
+
+      &:hover {
+        color: var(--valence-tabs-emphasized-text-color-hover);
+
+        .Icon {
+          fill: var(--valence-tabs-emphasized-icon-color-hover);
+        }
+      }
+    }
+  }
+}
+
+.Tabs--quiet {
+  border-block-end-color: var(--valence-tabs-quiet-rule-color);
+
+  .Tabs-selectionIndicator {
+    background-color: var(--valence-tabs-quiet-selection-indicator-color);
+  }
+
+  &.Tabs--emphasized {
+    .Tabs-selectionIndicator {
+      background-color: var(
+        --valence-tabs-emphasized-selection-indicator-color
+      );
+    }
+  }
+}
+
+.Tabs--vertical {
+  &.Tabs--quiet,
+  &.Tabs--compact {
+    border-inline-start-color: var(--valence-tabs-quiet-vertical-rule-color);
+
+    .Tabs-selectionIndicator {
+      background-color: var(--valence-tabs-quiet-selection-indicator-color);
+    }
+  }
+
+  &.Tabs--emphasized {
+    .Tabs-selectionIndicator {
+      background-color: var(
+        --valence-tabs-emphasized-selection-indicator-color
+      );
+    }
+  }
+}
+
+.TabsPanel-tabpanel {
+  &:focus {
+    outline: none;
+  }
+
+  &.focus-ring {
+    border-color: var(--valence-tabs-focus-ring-color);
+  }
+}
+
+@media (forced-colors: active) {
+  .Tabs {
+    forced-color-adjust: none;
+    --valence-tabs-focus-ring-color: ButtonText;
+    --valence-tabs-icon-color: ButtonText;
+    --valence-tabs-icon-color-disabled: GrayText;
+    --valence-tabs-icon-color-hover: ButtonText;
+    --valence-tabs-icon-color-key-focus: ButtonText;
+    --valence-tabs-icon-color-selected: HighlightText;
+    --valence-tabs-quiet-rule-color: transparent;
+    --valence-tabs-quiet-selection-indicator-color: transparent;
+    --valence-tabs-quiet-vertical-rule-color: transparent;
+    --valence-tabs-rule-color: transparent;
+    --valence-tabs-selection-indicator-color: transparent;
+    --valence-tabs-text-color: ButtonText;
+    --valence-tabs-text-color-disabled: GrayText;
+    --valence-tabs-text-color-hover: ButtonText;
+    --valence-tabs-text-color-key-focus: ButtonText;
+    --valence-tabs-text-color-selected: HighlightText;
+    --valence-tabs-vertical-rule-color: transparent;
+    .Tabs-item {
+      &:before {
+        background-color: ButtonFace;
+      }
+      .Icon {
+        z-index: 1;
+        position: relative;
+      }
+      .Tabs-itemLabel {
+        position: relative;
+        z-index: 1;
+      }
+    }
+    .is-selected {
+      color: HighlightText;
+      .Icon {
+        fill: HighlightText;
+      }
+      &:before {
+        background-color: Highlight;
+        color: HighlightText;
+      }
+      .Tabs-itemLabel {
+        color: HighlightText;
+      }
+    }
+    &.Tabs--isCollapsed {
+      .focus-ring {
+        /* FieldButton Picker focus ring override */
+        outline: none;
+      }
+    }
+  }
+}

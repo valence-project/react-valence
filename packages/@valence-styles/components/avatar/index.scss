@@ -1,0 +1,10 @@
+.Avatar {
+  width: var(--valence-avatar-small-width);
+  height: var(--valence-avatar-small-height);
+
+  border-radius: var(--valence-avatar-small-border-radius);
+  border-style: none;
+
+  -webkit-user-drag: none;
+  user-select: none;
+}

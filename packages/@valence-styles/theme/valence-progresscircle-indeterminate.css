@@ -1,0 +1,11 @@
+.theme {
+  --valence-progresscircle-medium-indeterminate-text-color: var(--valence-alias-text-color);
+  --valence-progresscircle-medium-indeterminate-track-color: var(--valence-alias-track-color-default);
+  --valence-progresscircle-medium-indeterminate-track-fill-color: var(--valence-global-color-blue-500);
+  --valence-progresscircle-medium-indeterminate-track-color-disabled: var(--valence-alias-track-color-disabled);
+  --valence-progresscircle-medium-indeterminate-track-fill-color-disabled: var(--valence-alias-track-color-disabled);
+  --valence-progresscircle-medium-indeterminate-height: var(--valence-global-dimension-size-400);
+  --valence-progresscircle-medium-indeterminate-width: var(--valence-global-dimension-size-400);
+  --valence-progresscircle-medium-indeterminate-spin-animation-duration: var(--valence-global-animation-duration-2000);
+  --valence-progresscircle-medium-indeterminate-spin-animation-ease: var(--valence-global-animation-ease-in-out);
+}

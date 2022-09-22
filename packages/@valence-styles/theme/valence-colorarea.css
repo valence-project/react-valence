@@ -1,0 +1,22 @@
+.theme {
+  --valence-colorarea-border-color-disabled: var(--valence-global-color-gray-300);
+  --valence-colorarea-fill-color-disabled: var(--valence-global-color-gray-300);
+  --valence-colorarea-border-size: var(--valence-alias-border-size-thin);
+  --valence-colorarea-border-radius: var(--valence-alias-border-radius-regular);
+  --valence-colorarea-default-width: var(--valence-global-dimension-size-2400);
+  --valence-colorarea-default-height: var(--valence-global-dimension-size-2400);
+  --valence-colorarea-min-width: var(--valence-global-dimension-size-800);
+  --valence-colorarea-min-height: var(--valence-global-dimension-size-800);
+  --valence-colorarea-cursor-hit-x: var(--valence-global-dimension-size-100);
+  --valence-colorarea-cursor-hit-y: var(--valence-global-dimension-size-100);
+  --valence-colorarea-touch-hit-x: var(--valence-global-dimension-size-100);
+  --valence-colorarea-touch-hit-y: var(--valence-global-dimension-size-100);
+  --valence-colorarea-loupe-entry-animation-delay: 0ms;
+  --valence-colorarea-loupe-entry-animation-duration: var(--valence-alias-loupe-entry-animation-duration);
+  --valence-colorarea-loupe-entry-animation-ease: var(--valence-global-animation-ease-out);
+  --valence-colorarea-loupe-entry-animation-properties: opacity;
+  --valence-colorarea-loupe-exit-animation-delay: 0ms;
+  --valence-colorarea-loupe-exit-animation-duration: var(--valence-alias-loupe-exit-animation-duration);
+  --valence-colorarea-loupe-exit-animation-ease: var(--valence-global-animation-ease-out);
+  --valence-colorarea-loupe-exit-animation-properties: opacity;
+}

@@ -1,0 +1,4 @@
+.theme {
+  --valence-flyout-padding-x: 0px;
+  --valence-flyout-padding-y: var(--valence-global-dimension-size-50);
+}

@@ -1,0 +1,53 @@
+
+.theme {
+    --valence-helptext-neutral-texticon-text-size: var(
+      --valence-global-dimension-font-size-75
+    );
+    --valence-helptext-neutral-texticon-icon-gap: var(
+      --valence-global-dimension-size-100
+    );
+  
+    --valence-helptext-negative-texticon-icon-padding-top: var(
+      --valence-global-dimension-size-40
+    );
+    --valence-helptext-negative-texticon-icon-padding-bottom: var(
+      --valence-global-dimension-size-40
+    );
+  
+    --valence-helptext-neutral-textonly-text-padding-top: var(
+      --valence-global-dimension-static-size-50
+    );
+    --valence-helptext-neutral-textonly-text-transform: none;
+    --valence-helptext-neutral-textonly-text-letter-spacing: var(
+      --valence-global-font-letter-spacing-none
+    );
+  
+    /* Uses value for DNA variable --valence-helptext-l-neutral-textonly-text-padding-bottom, since m variant doesn't exist */
+    --valence-helptext-neutral-textonly-text-padding-bottom: var(
+      --valence-global-dimension-size-115
+    );
+    /* Override: DNA uses --valence-alias-component-text-line-height */
+    --valence-helptext-neutral-textonly-text-line-height: var(
+      --valence-global-font-line-height-small
+    );
+  }
+  
+  
+  .theme {
+    --valence-helptext-neutral-texticon-text-color: var(
+      --valence-alias-label-text-color
+    );
+    --valence-helptext-neutral-texticon-text-color-disabled: var(
+      --valence-alias-text-color-disabled
+    );
+  
+    /* Override: DNA uses --valence-semantic-negative-text-color-small */
+    --valence-helptext-negative-texticon-text-color: var(
+      --valence-semantic-negative-color-text-small
+    );
+    /* Override: DNA uses --valence-semantic-negative-icon-color */
+    --valence-helptext-negative-texticon-icon-color: var(
+      --valence-semantic-negative-color-text-small
+    );
+  }
+  

@@ -1,0 +1,45 @@
+@import "../commons/index.scss";
+@import "../overlay/index.scss";
+
+.QuickActions {
+  box-sizing: border-box;
+
+  @include valence-overlay;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: var(--valence-quickactions-padding-y)
+    var(--valence-quickactions-padding-x);
+
+  height: var(--valence-quickactions-height);
+
+  border-radius: var(--valence-quickactions-border-radius);
+
+  &.is-open {
+    @include valence-overlay--open;
+  }
+
+  .ActionButton + .ActionButton {
+    margin-left: var(--valence-quickactions-icon-button-gap-x);
+  }
+}
+
+.QuickActions--textOnly {
+  .ActionButton + .ActionButton {
+    margin-left: var(--valence-quickactions-text-button-gap-x);
+  }
+}
+
+.QuickActions--right {
+  &.is-open {
+    @include valence-overlay--left--open; /* should animate to the left when aligned right */
+  }
+}
+
+.QuickActions--left {
+  &.is-open {
+    @include valence-overlay--right--open; /* should animate to the right when aligned left */
+  }
+}

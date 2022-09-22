@@ -1,0 +1,33 @@
+{
+  "name": "@valence-stately/toast",
+  "version": "0.0.1",
+  "description": "react-valence toast state managment",
+  "license": "MIT",
+  "private": true,
+  "main": "dist/main.js",
+  "module": "dist/module.js",
+  "types": "dist/types.d.ts",
+  "source": "src/index.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/valence-project/react-valence.git"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.6.2",
+    "@types-valence/toast": "^0.0.1"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0-rc.1 || ^18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prep": "mkdir -p dist; cp src/index.ts dist/types.d.ts; grep -v '^export type' src/index.ts > dist/module.js; babel --root-mode upward src/index.ts -o dist/main.js"
+  }
+}

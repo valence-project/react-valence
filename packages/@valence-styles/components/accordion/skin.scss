@@ -1,0 +1,60 @@
+
+.Accordion-item {
+  border-color: var(--valence-accordion-border-color);
+}
+
+.Accordion-itemIndicator {
+  color: var(--valence-accordion-icon-color);
+}
+
+.Accordion-itemHeader {
+  color: var(--valence-accordion-text-color);
+
+  &:hover {
+    color: var(--valence-accordion-text-color-hover);
+
+    background-color: var(--valence-accordion-background-color-hover);
+
+    + .Accordion-itemIndicator {
+      color: var(--valence-accordion-icon-color-hover);
+    }
+  }
+
+  &.focus-ring {
+    &:after  {
+      background-color: var(--valence-accordion-border-left-color-key-focus);
+    }
+  }
+}
+
+.Accordion-item {
+  &.is-open {
+    .Accordion-itemHeader {
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.Accordion-item.is-disabled {
+  .Accordion-itemHeader {
+    &,
+    &:hover,
+    &.focus-ring {
+      color: var(--valence-accordion-text-color-disabled);
+      background-color: transparent;
+    }
+
+    + .Accordion-itemIndicator {
+      color: var(--valence-accordion-icon-color-disabled);
+    }
+  }
+}
+@media (forced-colors: active) {
+  .Accordion-itemHeader {
+    &.focus-ring {
+      outline: 3px solid CanvasText;
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "name": "@react-valence/toast",
+  "version": "0.0.1",
+  "private": true,
+  "description": "react-valence toast component",
+  "license": "MIT",
+  "module": "index.ts",
+  "types": "dist/types.d.ts",
+  "source": "src/index.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
+  "targets": {
+    "main": {
+      "includeNodeModules": [
+        "@valence-styles/components"
+      ]
+    },
+    "module": {
+      "includeNodeModules": [
+        "@valence-styles/components"
+      ]
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/valence-project/react-valence.git"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.6.2",
+    "@react-aria/toast": "^0.0.1",
+    "@react-valence/button": "^0.0.1",
+    "@react-valence/utils": "^0.0.1",
+    "@types-valence/shared": "^0.0.1",
+    "@types-valence/toast": "^0.0.1",
+    "@valence-icons/ui": "^0.0.1",
+    "@valence-stately/toast": "^0.0.1"
+  },
+  "devDependencies": {
+    "@react-valence/test-utils": "^0.0.1",
+    "@valence-styles/components": "^0.0.1"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0-rc.1 || ^18.0.0",
+    "@react-valence/provider": "^0.0.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "pyramids @react-valence/toast"
+  },
+  "main": "./dist/main.js"
+}

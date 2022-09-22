@@ -1,0 +1,251 @@
+
+.Checkbox {
+  color: var(--valence-checkbox-text-color);
+}
+.Checkbox .Checkbox-checkmark,
+.Checkbox .Checkbox-partialCheckmark {
+  color: var(--valence-checkbox-checkmark-color);
+}
+
+.Checkbox-box {
+  &:before {
+    border-color: var(--valence-checkbox-emphasized-box-border-color);
+    background-color: var(--valence-checkbox-emphasized-box-background-color);
+  }
+}
+
+.Checkbox-label {
+  color: var(--valence-checkbox-emphasized-text-color);
+}
+
+/* Indeterminate is basically a checked state, so handle colors for checked state here */
+.Checkbox.is-indeterminate .Checkbox-box,
+.Checkbox.is-checked .Checkbox-box {
+  &:before {
+    border-color: var(--valence-checkbox-emphasized-box-border-color-selected);
+  }
+}
+
+.Checkbox:hover {
+  &.is-indeterminate .Checkbox-box,
+  .Checkbox-input:checked + .Checkbox-box {
+    &:before {
+      border-color: var(--valence-checkbox-emphasized-box-border-color-selected-hover);
+    }
+  }
+}
+
+.Checkbox:active {
+  &.is-indeterminate .Checkbox-box,
+  .Checkbox-input:checked + .Checkbox-box {
+    &:before {
+      border-color: var(--valence-checkbox-emphasized-box-border-color-selected-down);
+    }
+  }
+}
+
+.Checkbox {
+  border-color: var(--valence-checkbox-emphasized-box-border-color);
+
+  &:hover {
+    .Checkbox-box {
+      &:before {
+        border-color: var(--valence-checkbox-emphasized-box-border-color-hover);
+      }
+    }
+    .Checkbox-label {
+      color: var(--valence-checkbox-emphasized-text-color-hover);
+    }
+  }
+
+  &:active {
+    .Checkbox-box {
+      &:before {
+        border-color: var(--valence-checkbox-emphasized-box-border-color-down);
+      }
+    }
+    .Checkbox-label {
+      color: var(--valence-checkbox-emphasized-text-color-down);
+    }
+  }
+}
+
+.Checkbox .Checkbox-input,
+.Checkbox .Checkbox-input:checked {
+  &:disabled + .Checkbox-box,
+  &:disabled:active + .Checkbox-box {
+    &:before {
+      border-color: var(--valence-checkbox-emphasized-box-border-color-disabled);
+      background-color: var(--valence-checkbox-emphasized-box-background-color-disabled);
+    }
+  }
+
+  &:disabled ~ .Checkbox-label {
+    color: var(--valence-checkbox-text-color-disabled);
+  }
+}
+
+/* Focus */
+.Checkbox-input {
+  & + .Checkbox-box {
+    &:after {
+      box-shadow: 0 0 0 var(--valence-checkbox-focus-ring-size-key-focus) var(--valence-checkbox-focus-ring-color-key-focus);
+      opacity: 0;
+    }
+  }
+  &.focus-ring + .Checkbox-box {
+    &:before {
+      border-color: var(--valence-checkbox-box-border-color-key-focus);
+    }
+    &:after {
+      opacity: 1;
+    }
+  }
+  .Checkbox.is-indeterminate &,
+  &:checked {
+    &.focus-ring + .Checkbox-box {
+      &:before {
+        border-color: var(--valence-checkbox-emphasized-box-border-color-selected-key-focus);
+      }
+    }
+  }
+  &.focus-ring ~ .Checkbox-label {
+    color: var(--valence-checkbox-emphasized-text-color-key-focus);
+  }
+}
+
+.Checkbox--quiet .Checkbox-input:checked + .Checkbox-box,
+.Checkbox--quiet.is-indeterminate .Checkbox-box,
+.Checkbox--quiet.is-indeterminate .Checkbox-input.focus-ring + .Checkbox-box {
+  &:before {
+    border-color: var(--valence-checkbox-quiet-box-border-color-selected);
+  }
+}
+.Checkbox--quiet:hover {
+  &.is-indeterminate .Checkbox-box,
+  .Checkbox-input:checked + .Checkbox-box {
+    &:before {
+      border-color: var(--valence-checkbox-quiet-box-border-color-selected-hover);
+    }
+  }
+}
+.Checkbox--quiet:active {
+  &.is-indeterminate .Checkbox-box,
+  .Checkbox-input:checked + .Checkbox-box {
+    &:before {
+      border-color: var(--valence-checkbox-quiet-box-border-color-selected-down);
+    }
+  }
+}
+
+.Checkbox.is-invalid {
+  /* Extra-specific selectors added here to handle checked state */
+  .Checkbox-input:checked + .Checkbox-box,
+  .Checkbox-box {
+    &:before {
+      border-color: var(--valence-checkbox-box-border-color-error);
+    }
+  }
+
+  .Checkbox-label {
+    color: var(--valence-checkbox-text-color-error);
+  }
+
+  &.is-indeterminate .Checkbox-input.focus-ring,
+  .Checkbox-input.focus-ring {
+    & + .Checkbox-box {
+      &:before {
+        border-color: var(--valence-checkbox-box-border-color-error-hover);
+      }
+    }
+
+    & ~ .Checkbox-label {
+      color: var(--valence-checkbox-text-color-error-hover);
+    }
+  }
+
+  &:hover {
+    .Checkbox-input:checked + .Checkbox-box,
+    .Checkbox-box {
+      &:before {
+        border-color: var(--valence-checkbox-box-border-color-error-hover);
+      }
+    }
+
+    .Checkbox-label {
+      color: var(--valence-checkbox-text-color-error-hover);
+    }
+  }
+
+  &:active {
+    .Checkbox-input:checked + .Checkbox-box,
+    .Checkbox-box {
+      &:before {
+        border-color: var(--valence-checkbox-box-border-color-error-down);
+      }
+    }
+
+    .Checkbox-label {
+      color: var(--valence-checkbox-text-color-error-down);
+    }
+  }
+}
+@media (forced-colors: active) {
+  .Checkbox {
+    forced-color-adjust: none;
+    --valence-checkbox-box-border-color: ButtonText;
+    --valence-checkbox-box-border-color-error: Highlight;
+    --valence-checkbox-box-border-color-error-down: Highlight;
+    --valence-checkbox-box-border-color-error-hover: Highlight;
+    --valence-checkbox-box-border-color-key-focus: Highlight;
+    --valence-checkbox-checkmark-color: HighlightText;
+    --valence-checkbox-emphasized-box-background-color: ButtonFace;
+    --valence-checkbox-emphasized-box-background-color-disabled: ButtonFace;
+    --valence-checkbox-emphasized-box-border-color: ButtonText;
+    --valence-checkbox-emphasized-box-border-color-disabled: GrayText;
+    --valence-checkbox-emphasized-box-border-color-down: Highlight;
+    --valence-checkbox-emphasized-box-border-color-hover: Highlight;
+    --valence-checkbox-emphasized-box-border-color-selected: Highlight;
+    --valence-checkbox-emphasized-box-border-color-selected-down: Highlight;
+    --valence-checkbox-emphasized-box-border-color-selected-hover: Highlight;
+    --valence-checkbox-emphasized-box-border-color-selected-key-focus: Highlight;
+    --valence-checkbox-emphasized-text-color: FieldText;
+    --valence-checkbox-emphasized-text-color-down: FieldText;
+    --valence-checkbox-emphasized-text-color-hover: FieldText;
+    --valence-checkbox-emphasized-text-color-key-focus: FieldText;
+    --valence-checkbox-focus-ring-color-key-focus: ButtonText;
+    --valence-checkbox-quiet-box-border-color-selected: Highlight;
+    --valence-checkbox-quiet-box-border-color-selected-down: Highlight;
+    --valence-checkbox-quiet-box-border-color-selected-hover: Highlight;
+    --valence-checkbox-text-color: FieldText;
+    --valence-checkbox-text-color-disabled: GrayText;
+    --valence-checkbox-text-color-error: FieldText;
+    --valence-checkbox-text-color-error-down: FieldText;
+    --valence-checkbox-text-color-error-hover: FieldText;
+
+     &.is-invalid {
+      .Checkbox-box {
+        &:before {
+          border-color: var(--valence-checkbox-box-border-color);
+        }
+      }
+      &.is-indeterminate .Checkbox-box {
+          &:before {
+            border-color: var(--valence-checkbox-box-border-color-error);
+          }
+        }
+      &.is-disabled .Checkbox-input:checked + .Checkbox-box {
+        &:before {
+          border-color: GrayText;
+        }
+      }
+      /* Extra-specific selectors added here to handle checked state */
+      .Checkbox-input:checked + .Checkbox-box
+      {
+        &:before {
+          border-color: var(--valence-checkbox-box-border-color-error);
+        }
+      }
+    } 
+  }
+}

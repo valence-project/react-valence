@@ -1,0 +1,26 @@
+@import "../commons/index.scss";
+
+.HelpText {
+  display: flex;
+  text-align: start;
+  font-size: var(--valence-helptext-neutral-texticon-text-size);
+  .HelpText-validationIcon {
+    margin-inline-end: var(--valence-helptext-neutral-texticon-icon-gap);
+    padding-block: var(--valence-helptext-negative-texticon-icon-padding-top)
+      var(--valence-helptext-negative-texticon-icon-padding-bottom);
+    flex-shrink: 0;
+  }
+  .HelpText-text {
+    /* Not in DNA: make text fill up all horizontal space. */
+    flex: 1;
+
+    margin-inline-end: var(--valence-helptext-neutral-texticon-icon-gap);
+    padding-block: var(--valence-helptext-neutral-textonly-text-padding-top)
+      var(--valence-helptext-neutral-textonly-text-padding-bottom);
+    line-height: var(--valence-helptext-neutral-textonly-text-line-height);
+    text-transform: var(--valence-helptext-neutral-textonly-text-transform);
+    letter-spacing: var(
+      --valence-helptext-neutral-textonly-text-letter-spacing
+    );
+  }
+}

@@ -1,0 +1,142 @@
+@import "../commons/index.scss";
+
+.Radio {
+  display: inline-flex;
+  align-items: flex-start;
+
+  position: relative;
+
+  min-block-size: var(--valence-radio-height);
+  max-inline-size: 100%;
+
+  margin-inline-end: calc(var(--valence-radio-cursor-hit-x) * 2);
+
+  vertical-align: top;
+
+  isolation: isolate;
+}
+
+.Radio-input {
+  /* Change the font styles in all browsers for input. */
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+
+  /* Remove the margin for input in Firefox and Safari. */
+  margin: 0;
+
+  /* Show the overflow for input in Edge. */
+  overflow: visible;
+
+  /* Add the correct box sizing for [type="radio"] in IE 10-. */
+  box-sizing: border-box;
+
+  /* Remove the padding for [type="radio"] in IE 10-. */
+  padding: 0;
+
+  /* Hit area */
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: calc(var(--valence-radio-cursor-hit-x) * -1);
+  inline-size: calc(100% + var(--valence-radio-cursor-hit-x) * 2);
+  block-size: 100%;
+
+  opacity: 0.0001;
+  z-index: 1;
+
+  cursor: default;
+
+  &:disabled {
+    cursor: default;
+  }
+
+  &:checked + .Radio-button {
+    &:before {
+      border-width: var(--valence-radio-border-width-checked);
+    }
+  }
+
+  &.focus-ring {
+    + .Radio-button {
+      &:after {
+        margin: calc(var(--valence-alias-focus-ring-gap) * -1);
+      }
+    }
+  }
+}
+
+.Radio-label {
+  text-align: start;
+  margin-inline-start: var(--valence-radio-text-gap);
+  /* Hardcoded as no good way to calculate this */
+  margin-block-start: var(--valence-radio-label-margin-top);
+  font-size: var(--valence-radio-text-size);
+  line-height: var(--valence-radio-label-line-height);
+  transition: color var(--valence-global-animation-duration-100) ease-in-out;
+}
+
+.Radio-button {
+  position: relative;
+  box-sizing: border-box;
+  inline-size: var(--valence-radio-circle-diameter);
+  block-size: var(--valence-radio-circle-diameter);
+
+  /* Fix vertical alignment when not wrapping since we're flex-start */
+  margin: calc(
+      (var(--valence-radio-height) - var(--valence-radio-circle-diameter)) / 2
+    )
+    0;
+
+  flex-grow: 0;
+  flex-shrink: 0;
+  &:before {
+    display: block;
+    z-index: 0;
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+
+    width: var(--valence-radio-circle-diameter);
+    height: var(--valence-radio-circle-diameter);
+
+    border-radius: var(--valence-radio-radius);
+    border-width: var(--valence-radio-circle-border-size);
+    border-style: solid;
+
+    transition: border var(--valence-global-animation-duration-100) ease-in-out,
+      box-shadow var(--valence-global-animation-duration-100) ease-in-out;
+  }
+
+  &:after {
+    border-radius: 100%;
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: var(--valence-alias-focus-ring-gap);
+    transform: translateX(0); /* Forces FF to render on the pixel grid */
+
+    transition: box-shadow var(--valence-global-animation-duration-100) ease-out,
+      margin var(--valence-global-animation-duration-100) ease-out;
+  }
+}
+
+.Radio--labelBelow {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  block-size: var(--valence-radio-labelbelow-height);
+
+  .Radio-button {
+    flex-shrink: 0;
+
+    margin: 0;
+  }
+
+  .Radio-label {
+    margin: var(--valence-radio-labelbelow-label-margin);
+  }
+}

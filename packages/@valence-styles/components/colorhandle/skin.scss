@@ -1,0 +1,54 @@
+.ColorHandle {
+  border-color: var(--valence-colorhandle-inner-border-color);
+  box-shadow: 0 0 0 var(--valence-colorhandle-outer-border-size)
+    var(--valence-colorhandle-outer-border-color);
+
+  background-color: var(--valence-global-color-static-white);
+
+  /* Add a half-percent to fix diagonal line issue in Chrome on non-retina displays */
+  background-image: linear-gradient(
+      -45deg,
+      transparent 75.5%,
+      var(--valence-global-color-static-gray-500) 75.5%
+    ),
+    linear-gradient(
+      45deg,
+      transparent 75.5%,
+      var(--valence-global-color-static-gray-500) 75.5%
+    ),
+    linear-gradient(
+      -45deg,
+      var(--valence-global-color-static-gray-500) 25.5%,
+      transparent 25.5%
+    ),
+    linear-gradient(
+      45deg,
+      var(--valence-global-color-static-gray-500) 25.5%,
+      transparent 25.5%
+    );
+
+  &.is-disabled {
+    border-color: var(--valence-colorhandle-inner-border-color-disabled);
+    background: var(--valence-colorhandle-fill-color-disabled);
+    box-shadow: none;
+
+    .ColorHandle-color {
+      display: none;
+    }
+  }
+}
+
+.ColorHandle-color {
+  box-shadow: inset 0 0 0 var(--valence-colorhandle-outer-border-size)
+    var(--valence-colorhandle-outer-border-color);
+}
+
+@media (forced-colors: active) {
+  .ColorHandle {
+    forced-color-adjust: none;
+    --valence-colorhandle-inner-border-color-disabled: GrayText;
+    --valence-colorhandle-fill-color-disabled: GrayText;
+    --valence-colorhandle-inner-border-color: ButtonText;
+    --valence-colorhandle-outer-border-color: ButtonFace;
+  }
+}

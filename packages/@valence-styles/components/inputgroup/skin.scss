@@ -1,0 +1,292 @@
+.InputGroup {
+  &.is-focused {
+    &:not(.InputGroup--invalid):not(.is-disabled) {
+      .InputGroup-input {
+        border-color: var(--valence-textfield-border-color-key-focus);
+      }
+
+      .FieldButton {
+        border-color: var(--valence-textfield-border-color-key-focus);
+      }
+    }
+  }
+
+  &:hover {
+    &:not(.InputGroup--invalid):not(.is-focused):not(.is-disabled) {
+      .InputGroup-input {
+        border-color: var(--valence-textfield-border-color-hover);
+      }
+
+      .FieldButton {
+        border-color: var(--valence-textfield-border-color-hover);
+      }
+    }
+  }
+}
+
+.InputGroup.is-focused {
+  .FieldButton,
+  .InputGroup-input {
+    border-color: var(--valence-dropdown-border-color-key-focus);
+  }
+
+  &.InputGroup--invalid {
+    .FieldButton,
+    .InputGroup-input {
+      border-color: var(--valence-dropdown-border-color-key-focus);
+    }
+  }
+}
+
+/* Only add the 2px ring for keyboard focus */
+.InputGroup.focus-ring:not(.InputGroup--quiet) {
+  .FieldButton {
+    z-index: 1;
+  }
+
+  .FieldButton,
+  .InputGroup-input {
+    box-shadow: 0 0 0 1px var(--valence-dropdown-border-color-key-focus);
+  }
+
+  &.InputGroup--invalid {
+    .FieldButton,
+    .InputGroup-input {
+      box-shadow: 0 0 0 1px var(--valence-dropdown-border-color-key-focus);
+    }
+  }
+}
+
+.InputGroup--quiet {
+  /*
+    specifically for readonly inputgroups that aren't disabled since the button will have the disabled class
+    but we don't want the border color to be the disabled quiet one
+  */
+  &:not(.is-disabled) {
+    .FieldButton {
+      &:disabled,
+      &:disabled:hover {
+        border-color: var(--valence-textfield-quiet-border-color);
+      }
+    }
+  }
+
+  .FieldButton {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.is-selected,
+    &.FieldButton--invalid {
+      border-color: var(--valence-textfield-quiet-border-color);
+    }
+
+    &:disabled,
+    &:disabled:hover {
+      border-color: var(--valence-textfield-quiet-border-color-disabled);
+    }
+  }
+
+  &:hover:not(.InputGroup--invalid):not(.is-focused):not(.is-disabled) {
+    .FieldButton {
+      border-color: var(--valence-textfield-quiet-border-color-hover);
+    }
+  }
+
+  &.InputGroup {
+    &.InputGroup--invalid {
+      .FieldButton,
+      .InputGroup-input {
+        border-color: var(--valence-textfield-border-color-error);
+      }
+    }
+
+    &.is-focused {
+      .FieldButton {
+        border-color: var(--valence-textfield-quiet-border-color-key-focus);
+      }
+
+      &.InputGroup--invalid {
+        .FieldButton,
+        .InputGroup-input {
+          border-color: var(--valence-textfield-quiet-border-color-key-focus);
+        }
+      }
+    }
+
+    &.focus-ring {
+      .InputGroup-input {
+        box-shadow: 0 1px 0
+          var(--valence-textfield-quiet-border-color-key-focus);
+      }
+
+      .FieldButton {
+        box-shadow: 0 1px 0
+          var(--valence-textfield-quiet-border-color-key-focus);
+        border-color: var(--valence-textfield-quiet-border-color-key-focus);
+      }
+
+      &.InputGroup--invalid {
+        .InputGroup-input {
+          box-shadow: 0 1px 0
+            var(--valence-textfield-quiet-border-color-key-focus);
+        }
+
+        .FieldButton {
+          box-shadow: 0 1px 0
+            var(--valence-textfield-quiet-border-color-key-focus);
+        }
+      }
+    }
+  }
+}
+
+.Datepicker--range {
+  &.focus-ring {
+    .InputGroup-input {
+      box-shadow: none !important;
+    }
+  }
+
+  &.is-disabled {
+    .Datepicker--rangeDash {
+      color: var(--valence-textfield-text-color-disabled);
+    }
+  }
+
+  /* Focus ring: When one of the inputs or the button has keyboard focus, render the focus ring border around the entire input group by styling an adjacent descendant element. */
+  &.focus-ring {
+    box-shadow: 0 0 0 1px var(--valence-dropdown-border-color-key-focus);
+
+    &.InputGroup--invalid {
+      box-shadow: 0 0 0 1px
+        var(--valence-textfield-quiet-border-color-key-focus);
+
+      .FieldButton {
+        box-shadow: 0 0 0 1px
+          var(--valence-textfield-quiet-border-color-key-focus);
+      }
+    }
+  }
+
+  &.InputGroup--invalid {
+    .InputGroup-input {
+      border-color: var(--valence-dropdown-border-color-error);
+    }
+
+    /* Focus ring: When one of the inputs or the button has keyboard focus, render the focus ring border around the entire input group by styling an adjacent descendant element. */
+    &.focus-ring {
+      .FieldButton {
+        border-color: var(--valence-dropdown-border-color-key-focus);
+        box-shadow: 0 0 0 1px var(--valence-dropdown-border-color-key-focus);
+      }
+    }
+    .FieldButton {
+      border-color: var(--valence-dropdown-border-color-error);
+      &.FieldButton--invalid {
+        &.focus-ring {
+          border-color: var(--valence-dropdown-border-color-key-focus);
+          box-shadow: 0 0 0 1px var(--valence-dropdown-border-color-key-focus);
+        }
+      }
+    }
+  }
+  &.InputGroup--quiet {
+    &.is-focused {
+      box-shadow: 0 1px 0 0 var(--valence-dropdown-border-color-key-focus);
+
+      &.InputGroup--invalid {
+        .FieldButton {
+          box-shadow: none;
+          border-color: var(--valence-dropdown-border-color-key-focus);
+          &.FieldButton--invalid {
+            &.focus-ring {
+              box-shadow: 0 2px 0 0
+                var(--valence-dropdown-border-color-key-focus);
+            }
+          }
+        }
+        &.focus-ring {
+          box-shadow: 0 0 0 1px var(--valence-dropdown-border-color-key-focus);
+        }
+      }
+    }
+  }
+}
+@media (forced-colors: active) {
+  .InputGroup {
+    --valence-dropdown-border-color-error: Highlight;
+    --valence-dropdown-border-color-key-focus: Highlight;
+    --valence-textfield-border-color-error: Highlight;
+    --valence-textfield-border-color-hover: Highlight;
+    --valence-textfield-border-color-key-focus: Highlight;
+    --valence-textfield-quiet-border-color: CanvasText;
+    --valence-textfield-quiet-border-color-disabled: GrayText;
+    --valence-textfield-quiet-border-color-hover: Highlight;
+    --valence-textfield-quiet-border-color-key-focus: Highlight;
+    --valence-textfield-text-color-disabled: GrayText;
+    forced-color-adjust: none;
+    .InputGroup-input {
+      forced-color-adjust: auto;
+    }
+    .FieldButton {
+      forced-color-adjust: auto;
+    }
+
+    &.is-disabled:not(.InputGroup--invalid):not(.InputGroup--quiet)
+      .FieldButton {
+      border-color: GrayText;
+      border-width: 1px;
+    }
+  }
+
+  .InputGroup--quiet {
+    /*
+      specifically for readonly inputgroups that aren't disabled since the button will have the disabled class
+      but we don't want the border color to be the disabled quiet one
+    */
+    &:not(.is-disabled) {
+      .FieldButton {
+        &:disabled,
+        &:disabled:hover {
+          border-color: var(--valence-textfield-quiet-border-color);
+        }
+      }
+    }
+    &.is-disabled {
+      .FieldButton {
+        border-color: GrayText;
+      }
+    }
+  }
+  .InputGroup--invalid {
+    .FieldButton {
+      border-color: Highlight;
+    }
+    &.is-disabled:not(.InputGroup--quiet) .InputGroup-input {
+      border-color: GrayText;
+    }
+    &.is-disabled {
+      &.InputGroup--quiet .InputGroup-input {
+        border-color: GrayText;
+      }
+      &.InputGroup--quiet .FieldButton {
+        border-color: GrayText;
+      }
+    }
+    &.is-disabled:not(.InputGroup--quiet) .FieldButton {
+      border-color: GrayText;
+    }
+  }
+
+  .InputGroup {
+    &.focus-ring {
+      &:not(.InputGroup--quiet) {
+        outline: 2px solid Highlight;
+      }
+      &.InputGroup--quiet {
+        box-shadow: 0 2px 0 0 var(--valence-dropdown-border-color-key-focus);
+      }
+    }
+  }
+}

@@ -1,0 +1,85 @@
+@mixin valence-ColorControl-handle--focused {
+  /* Bigger handle when focused */
+  width: calc(var(--valence-colorhandle-size) * 2);
+  height: calc(var(--valence-colorhandle-size) * 2);
+
+  margin-left: calc(-1 * var(--valence-colorhandle-size));
+  margin-top: calc(-1 * var(--valence-colorhandle-size));
+}
+
+.ColorHandle {
+  display: block;
+  position: absolute;
+  z-index: 1; /* Be above */
+  box-sizing: border-box;
+  width: var(--valence-colorhandle-size);
+  height: var(--valence-colorhandle-size);
+
+  margin-left: calc(-1 * calc(var(--valence-colorhandle-size) / 2));
+  margin-top: calc(-1 * calc(var(--valence-colorhandle-size) / 2));
+
+  border-width: var(--valence-colorhandle-inner-border-size);
+  border-style: solid;
+
+  background-size: var(--valence-global-dimension-static-size-200)
+    var(--valence-global-dimension-static-size-200);
+  background-position: var(--valence-colorhandle-background-offset)
+      var(--valence-colorhandle-background-offset),
+    var(--valence-colorhandle-background-offset)
+      calc(
+        var(--valence-colorhandle-checkerboard-size) +
+          var(--valence-colorhandle-background-offset)
+      ),
+    calc(
+        var(--valence-colorhandle-checkerboard-size) +
+          var(--valence-colorhandle-background-offset)
+      )
+      calc(
+        -1 * var(--valence-colorhandle-checkerboard-size) + var(--valence-colorhandle-background-offset)
+      ),
+    calc(
+        -1 * var(--valence-colorhandle-checkerboard-size) + var(--valence-colorhandle-background-offset)
+      )
+      var(--valence-colorhandle-background-offset);
+
+  transition: width var(--valence-colorhandle-animation-duration)
+      var(--valence-colorhandle-animation-easing),
+    height var(--valence-colorhandle-animation-duration)
+      var(--valence-colorhandle-animation-easing),
+    border-width var(--valence-colorhandle-animation-duration)
+      var(--valence-colorhandle-animation-easing),
+    margin-left var(--valence-colorhandle-animation-duration)
+      var(--valence-colorhandle-animation-easing),
+    margin-top var(--valence-colorhandle-animation-duration)
+      var(--valence-colorhandle-animation-easing);
+
+  &,
+  &:after {
+    border-radius: 100%;
+  }
+
+  &:after {
+    content: "";
+    left: calc(50% - calc(var(--valence-colorhandle-hitarea-size) / 2));
+    top: calc(50% - calc(var(--valence-colorhandle-hitarea-size) / 2));
+    position: absolute;
+    display: block;
+    width: var(--valence-colorhandle-hitarea-size);
+    height: var(--valence-colorhandle-hitarea-size);
+  }
+
+  &.is-focused,
+  &.focus-ring {
+    @include valence-ColorControl-handle--focused;
+  }
+
+  &.is-disabled {
+    pointer-events: none;
+  }
+}
+
+.ColorHandle-color {
+  border-radius: 100%;
+  width: 100%;
+  height: 100%;
+}

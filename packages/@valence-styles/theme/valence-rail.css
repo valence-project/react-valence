@@ -1,0 +1,13 @@
+.theme {
+  --valence-rail-content-background-color: var(--valence-global-color-gray-100);
+  --valence-rail-handle-background-color: var(--valence-global-color-gray-300);
+  --valence-rail-handle-background-color-hover: var(--valence-global-color-gray-400);
+  --valence-rail-handle-background-color-down: var(--valence-global-color-gray-800);
+  --valence-rail-content-width: 304px;
+  --valence-rail-handle-width: var(--valence-global-dimension-static-size-25);
+  --valence-rail-gripper-width: var(--valence-global-dimension-static-size-50);
+  --valence-rail-gripper-height: var(--valence-global-dimension-static-size-200);
+  --valence-rail-gripper-border-width-vertical: 4px;
+  --valence-rail-gripper-border-width-horizontal: 3px;
+  --valence-rail-gripper-border-radius: var(--valence-alias-border-radius-small);
+}

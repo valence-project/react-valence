@@ -1,0 +1,297 @@
+.Table-headWrapper {
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+
+.Table-headCell {
+  color: var(--valence-table-header-text-color);
+  background-color: var(--valence-alias-background-color-default);
+
+  &.is-sortable {
+    .Table-sortedIcon {
+      color: var(--valence-table-header-sort-icon-color);
+    }
+
+    &.is-hovered {
+      color: var(--valence-table-header-text-color-hover);
+
+      .Table-sortedIcon {
+        color: var(--valence-table-header-sort-icon-color-hover);
+      }
+    }
+
+    &.focus-ring,
+    &.is-focused {
+      color: var(--valence-table-header-text-color-key-focus);
+
+      .Table-sortedIcon {
+        color: var(--valence-table-header-sort-icon-color-key-focus);
+      }
+    }
+
+    &:active {
+      color: var(--valence-table-header-text-color-down);
+
+      .Table-sortedIcon {
+        color: var(--valence-table-header-sort-icon-color-down);
+      }
+    }
+  }
+}
+
+/* Helper for shared drop target overlay */
+%drop-target {
+  border-color: var(--valence-alias-border-color-focus);
+  box-shadow: 0 0 0 1px var(--valence-alias-border-color-focus);
+
+  &::before {
+    background-color: var(--valence-alias-highlight-selected);
+  }
+}
+
+.Table-cell,
+.Table-headCell,
+.Table-headCellButton {
+  &.focus-ring,
+  &.is-focused {
+    &::before {
+      box-shadow: inset 0 0 0 2px
+        var(--valence-table-cell-border-color-key-focus);
+    }
+  }
+}
+
+.Table-body {
+  border-style: solid;
+  border-color: var(--valence-table-border-color);
+  background-color: var(--valence-table-background-color);
+
+  &.is-drop-target {
+    border-color: var(--valence-alias-border-color-focus);
+    box-shadow: 0 0 0 1px var(--valence-alias-border-color-focus);
+
+    &::before {
+      background-color: var(--valence-alias-highlight-selected);
+    }
+  }
+}
+
+/* The tbody tag doesn't allow setting a border-radius, so these hacks are to make that work
+   by putting the border on the individual cells instead. */
+tbody.Table-body {
+  border: none;
+
+  .Table-row {
+    border-top: none;
+  }
+
+  .Table-cell {
+    border-top: 1px solid var(--valence-table-cell-border-color);
+  }
+
+  .Table-row .Table-cell:first-child {
+    border-left: 1px solid var(--valence-table-cell-border-color);
+  }
+
+  .Table-row .Table-cell:last-child {
+    border-right: 1px solid var(--valence-table-cell-border-color);
+  }
+
+  .Table-row:last-child .Table-cell {
+    border-bottom: 1px solid var(--valence-table-cell-border-color);
+  }
+}
+
+.Table-row {
+  box-sizing: border-box;
+
+  .Table-cellWrapper {
+    /* Add an opaque background so that the transparent background
+     * on the cell doesn't allow other cells to show through sticky cells. */
+    background-color: var(--valence-table-background-color);
+  }
+
+  /* We apply background color to the cell rather than the row so that
+   * cells can overlap (e.g. sticky row headers). */
+  &.is-hovered .Table-cell {
+    background-color: var(--valence-table-row-background-color-hover);
+  }
+
+  &.focus-ring .Table-cell,
+  &.is-focused .Table-cell {
+    background-color: var(--valence-table-row-background-color-hover);
+  }
+
+  &.focus-ring {
+    &:before {
+      background: var(--valence-selectlist-option-focus-indicator-color);
+    }
+  }
+
+  &.is-active .Table-cell:not(.is-disabled) {
+    background-color: var(--valence-table-row-background-color-down);
+  }
+
+  /* Alternative to border on rows. Using box shadow since they don't take room unlike border which would cause wiggles
+   * in the highlight case and displace the sticky indicator. Also allows for a nicer bottom curved border to match the container,
+   * the bottom border curved corners were cut off when using borders.
+   */
+
+  /* Box shadow for bottom border for non-selected rows that aren't immediately above a selected row. Can't omit the bottom border for last row unlike listview
+   * due to how table rows always reserve 1px for the bottom border (results in a white gap on hover otherwise).
+   */
+  &:after {
+    box-shadow: inset 0 -1px 0 0 var(--valence-table-cell-border-color);
+    content: "";
+    display: block;
+    position: absolute;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
+    inset-block-end: 0;
+    inset-block-start: 0;
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  /* Box shadow for bottom border for non-selected row that is immediately above a selected row. */
+  &.is-next-selected {
+    &:after {
+      box-shadow: inset 0 -1px 0 0 var(--valence-global-color-blue-500);
+    }
+  }
+
+  &.is-selected {
+    .Table-cell {
+      background-color: var(--valence-table-row-background-color-selected);
+    }
+
+    &.is-hovered .Table-cell,
+    &.is-active .Table-cell:not(.is-disabled) {
+      background-color: var(
+        --valence-table-row-background-color-selected-hover
+      );
+    }
+
+    &.focus-ring .Table-cell,
+    &.is-focused .Table-cell {
+      background-color: var(
+        --valence-table-row-background-color-selected-key-focus
+      );
+    }
+
+    /* Box shadow for bottom, left, and right border for selected rows. */
+    &:after {
+      box-shadow: inset 1px 0 0 0 var(--valence-global-color-blue-500),
+        inset -1px 0 0 0 var(--valence-global-color-blue-500),
+        inset 0 -1px 0 0 var(--valence-global-color-blue-500);
+    }
+  }
+
+  /* Box shadow for bottom, left, right, and top border for first row when selected. When the row isn't selected, it doesn't need
+   * a top border.
+   */
+  &.Table-row--firstRow {
+    &.is-selected {
+      &:after {
+        box-shadow: inset 1px 0 0 0 var(--valence-global-color-blue-500),
+          inset -1px 0 0 0 var(--valence-global-color-blue-500),
+          inset 0 1px 0 0 var(--valence-global-color-blue-500),
+          inset 0 -1px 0 0 var(--valence-global-color-blue-500);
+      }
+    }
+  }
+
+  &.is-drop-target {
+    &::before {
+      box-shadow: inset 0 0 0 2px var(--valence-alias-border-color-focus);
+      background-color: var(--valence-alias-highlight-selected);
+    }
+  }
+}
+
+.Table-cell {
+  color: var(--valence-table-cell-text-color);
+  background-color: var(--valence-table-cell-background-color);
+}
+
+.Table-cell--divider {
+  border-inline-end-style: solid;
+  border-inline-end-color: var(--valence-table-divider-border-color);
+}
+
+.Table--quiet {
+  .Table-body {
+    border-width: 1px 0;
+    background-color: var(--valence-table-quiet-cell-background-color);
+
+    &.is-drop-target {
+      box-shadow: none;
+      border-color: transparent;
+
+      &::before {
+        box-shadow: inset 0 0 0 2px var(--valence-alias-border-color-focus);
+      }
+    }
+  }
+
+  .Table-row {
+    .Table-cellWrapper {
+      background-color: var(--valence-alias-background-color-default);
+    }
+
+    &.is-hovered .Table-cell {
+      background-color: var(--valence-table-quiet-row-background-color-hover);
+    }
+
+    &.focus-ring .Table-cell,
+    &.is-focused .Table-cell {
+      background-color: var(--valence-table-quiet-row-background-color-hover);
+    }
+
+    &.is-active .Table-cell:not(.is-disabled) {
+      background-color: var(--valence-table-quiet-row-background-color-down);
+    }
+
+    &.is-selected {
+      .Table-cell {
+        background-color: var(
+          --valence-table-quiet-row-background-color-selected
+        );
+      }
+
+      &.is-hovered .Table-cell {
+        background-color: var(
+          --valence-table-quiet-row-background-color-selected-hover
+        );
+      }
+
+      &.focus-ring .Table-cell,
+      &.is-focused .Table-cell {
+        background-color: var(
+          --valence-table-quiet-row-background-color-selected-key-focus
+        );
+      }
+    }
+  }
+
+  tbody.Table-body {
+    .Table-row .Table-cell:first-child,
+    .Table-row .Table-cell:last-child {
+      border-left: none;
+      border-right: none;
+    }
+  }
+}
+
+.Table-columnResizer {
+  &::after {
+    background-color: var(--valence-table-divider-border-color);
+  }
+
+  &:active,
+  &.focus-ring {
+    &::after {
+      background-color: var(--valence-global-color-blue-400);
+    }
+  }
+}

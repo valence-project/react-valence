@@ -1,0 +1,7 @@
+.theme {
+  --valence-list-background-color: var(--valence-global-color-gray-75);
+  --valence-list-focus-indicator-color: var(--valence-alias-border-color-focus);
+  --valence-list-text-color: var(--valence-global-color-gray-800);
+  --valence-list-background-color-hover: var(--valence-alias-background-color-hover-overlay);
+  --valence-list-text-color-down: var(--valence-global-color-gray-800);
+}

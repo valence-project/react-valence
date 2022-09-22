@@ -1,0 +1,26 @@
+.theme {
+  --valence-quickactions-shadow-color: var(--valence-alias-dropshadow-color);
+  --valence-quickactions-overlay-color: var(--valence-alias-background-color-quickactions-overlay);
+  --valence-quickactions-background-color: var(--valence-alias-background-color-quickactions);
+  --valence-quickactions-button-gap-y: var(--valence-global-dimension-size-100);
+  --valence-quickactions-button-gap-x: var(--valence-global-dimension-size-100);
+  --valence-quickactions-icon-button-gap-y: var(--valence-global-dimension-size-100);
+  --valence-quickactions-icon-button-gap-x: var(--valence-global-dimension-size-100);
+  --valence-quickactions-text-button-gap-y: var(--valence-global-dimension-size-50);
+  --valence-quickactions-text-button-gap-x: var(--valence-global-dimension-size-50);
+  --valence-quickactions-shadow-blur: var(--valence-alias-dropshadow-blur);
+  --valence-quickactions-shadow-offset-y: var(--valence-alias-dropshadow-offset-y);
+  --valence-quickactions-elevation: 2dp;
+  --valence-quickactions-padding-x: var(--valence-global-dimension-size-50);
+  --valence-quickactions-padding-y: var(--valence-global-dimension-size-50);
+  --valence-quickactions-border-radius: var(--valence-alias-border-radius-regular);
+  --valence-quickactions-height: var(--valence-global-dimension-size-500);
+  --valence-quickactions-entry-animation-delay: 0ms;
+  --valence-quickactions-entry-animation-duration: var(--valence-global-animation-duration-100);
+  --valence-quickactions-entry-animation-ease: var(--valence-global-animation-ease-out);
+  --valence-quickactions-entry-animation-properties: opacity;
+  --valence-quickactions-exit-animation-delay: 0ms;
+  --valence-quickactions-exit-animation-duration: var(--valence-global-animation-duration-100);
+  --valence-quickactions-exit-animation-ease: var(--valence-global-animation-ease-out);
+  --valence-quickactions-exit-animation-properties: opacity;
+}

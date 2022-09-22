@@ -1,0 +1,151 @@
+@import "../commons/index.scss";
+
+.SplitView {
+  display: flex;
+  overflow: hidden;
+}
+
+.SplitView-pane {
+  height: 100%;
+}
+
+.SplitView-gripper {
+  content: "";
+  display: block;
+  position: absolute;
+  border-style: solid;
+  border-radius: var(--valence-rail-gripper-border-radius);
+
+  top: 50%;
+  transform: translate(0, -50%);
+
+  /* half of (width + horizontal border - handle width) * -1 (for negative opposite) */
+  left: calc(
+    (
+        (
+            var(--valence-rail-gripper-width) +
+              (2 * var(--valence-rail-gripper-border-width-horizontal)) -
+              var(--valence-rail-handle-width)
+          ) / 2
+      ) * -1
+  );
+  width: var(--valence-rail-gripper-width);
+  height: var(--valence-rail-gripper-height);
+  border-width: var(--valence-rail-gripper-border-width-vertical)
+    var(--valence-rail-gripper-border-width-horizontal);
+
+  touch-action: none;
+}
+
+.SplitView-splitter {
+  /* Contain the gripper */
+  position: relative;
+
+  /* Prevent text selection while dragging */
+  user-select: none;
+
+  touch-action: none;
+
+  width: var(--valence-rail-handle-width);
+  height: 100%;
+  z-index: 1;
+
+  &.is-collapsed-start,
+  &.is-collapsed-end {
+    .SplitView-gripper {
+      /* make the center line of the gripper */
+      &:before {
+        content: "";
+        position: absolute;
+
+        top: 0;
+        left: calc(50% - calc(var(--valence-rail-handle-width) / 2));
+        width: var(--valence-rail-handle-width);
+        height: 100%;
+      }
+    }
+  }
+
+  &.is-collapsed-start {
+    .SplitView-gripper {
+      left: 0;
+    }
+  }
+
+  &.is-collapsed-end {
+    .SplitView-gripper {
+      right: 0;
+      left: auto;
+    }
+  }
+}
+
+.SplitView--vertical {
+  flex-direction: column;
+
+  .SplitView-pane {
+    height: auto;
+    width: var(--valence-splitview-vertical-width);
+  }
+
+  .SplitView-gripper {
+    /* half of (height + vertical border - handle width) * -1 (for negative opposite) */
+    top: calc(
+      (
+          (
+              var(--valence-rail-gripper-width) +
+                (2 * var(--valence-rail-gripper-border-width-horizontal)) -
+                var(--valence-rail-handle-width)
+            ) / 2
+        ) * -1
+    );
+
+    transform: translate(
+      calc(var(--valence-splitview-vertical-gripper-width) * -1),
+      0
+    );
+    left: var(--valence-splitview-vertical-gripper-width);
+    width: var(--valence-rail-gripper-height); /* same as default height */
+    height: var(--valence-rail-gripper-width); /* same as default width */
+
+    /* opposite of default border-width */
+    border-width: var(--valence-rail-gripper-border-width-horizontal)
+      var(--valence-rail-gripper-border-width-vertical);
+  }
+
+  .SplitView-splitter {
+    width: var(--valence-splitview-vertical-width);
+    height: var(--valence-rail-handle-width);
+
+    &.is-collapsed-start,
+    &.is-collapsed-end {
+      .SplitView-gripper {
+        left: var(--valence-splitview-vertical-gripper-width);
+
+        /* make the center line of the gripper */
+        &:before {
+          top: calc(
+            var(--valence-splitview-vertical-gripper-width) -
+              calc(var(--valence-rail-handle-width) / 2)
+          );
+          left: var(--valence-splitview-vertical-gripper-reset);
+          width: var(--valence-splitview-vertical-gripper-outer-width);
+          height: var(--valence-rail-handle-width);
+        }
+      }
+    }
+
+    &.is-collapsed-start {
+      .SplitView-gripper {
+        top: var(--valence-splitview-vertical-gripper-reset);
+      }
+    }
+
+    &.is-collapsed-end {
+      .SplitView-gripper {
+        top: auto;
+        bottom: var(--valence-splitview-vertical-gripper-reset);
+      }
+    }
+  }
+}

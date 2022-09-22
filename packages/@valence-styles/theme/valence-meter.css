@@ -1,0 +1,28 @@
+.theme {
+  --valence-meter-large-text-color: var(--valence-alias-text-color);
+  --valence-meter-large-track-color: var(--valence-alias-track-color-default);
+  --valence-meter-large-track-fill-color: var(--valence-global-color-blue-500);
+  --valence-meter-large-track-color-positive: var(--valence-semantic-positive-color-status);
+  --valence-meter-large-track-color-warning: var(--valence-semantic-notice-color-status);
+  --valence-meter-large-track-color-critical: var(--valence-semantic-negative-color-status);
+  --valence-meter-large-track-color-disabled: var(--valence-alias-track-color-disabled);
+  --valence-meter-large-track-fill-color-disabled: var(--valence-alias-track-color-disabled);
+  --valence-meter-large-width: var(--valence-global-dimension-size-2400);
+  --valence-meter-large-label-gap-x: var(--valence-global-dimension-size-150);
+  --valence-meter-large-height: var(--valence-global-dimension-size-75);
+  --valence-meter-large-fill-border-radius: 0;
+  --valence-meter-large-label-gap-y: var(--valence-global-dimension-size-115);
+  --valence-meter-small-text-color: var(--valence-alias-text-color);
+  --valence-meter-small-track-color: var(--valence-alias-track-color-default);
+  --valence-meter-small-track-fill-color: var(--valence-global-color-blue-500);
+  --valence-meter-small-track-color-positive: var(--valence-semantic-positive-color-status);
+  --valence-meter-small-track-color-warning: var(--valence-semantic-notice-color-status);
+  --valence-meter-small-track-color-critical: var(--valence-semantic-negative-color-status);
+  --valence-meter-small-track-color-disabled: var(--valence-alias-track-color-disabled);
+  --valence-meter-small-track-fill-color-disabled: var(--valence-alias-track-color-disabled);
+  --valence-meter-small-width: var(--valence-global-dimension-size-2400);
+  --valence-meter-small-label-gap-x: var(--valence-global-dimension-size-150);
+  --valence-meter-small-height: var(--valence-global-dimension-size-50);
+  --valence-meter-small-fill-border-radius: 0;
+  --valence-meter-small-label-gap-y: var(--valence-global-dimension-size-115);
+}

@@ -1,0 +1,68 @@
+.Toast {
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: stretch;
+
+  border-radius: var(--valence-toast-border-radius);
+
+  padding-block-start: var(--valence-toast-padding-y);
+  padding-inline-end: var(--valence-toast-padding-right);
+  padding-block-end: var(--valence-toast-padding-y);
+  padding-inline-start: var(--valence-toast-padding-left);
+
+  font-size: var(--valence-toast-text-size);
+  font-weight: var(--valence-toast-text-font-weight);
+  -webkit-font-smoothing: antialiased;
+}
+
+.Toast-typeIcon {
+  flex-shrink: 0;
+  flex-grow: 0;
+
+  margin-block-start: var(--valence-toast-icon-padding-y);
+  margin-inline-end: var(--valence-toast-icon-padding-right);
+  margin-block-end: var(--valence-toast-icon-padding-y);
+  margin-inline-start: 0;
+}
+
+.Toast-content {
+  flex: 1 1 auto;
+  display: inline-block;
+  box-sizing: border-box;
+  padding-block-start: var(--valence-toast-content-padding-top);
+  padding-inline-end: var(--valence-toast-content-padding-right);
+  padding-block-end: var(--valence-toast-content-padding-bottom);
+  padding-inline-start: 0;
+  text-align: start;
+}
+
+.Toast-buttons {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: flex-start;
+
+  .Button,
+  .ClearButton {
+    & + .Button,
+    & + .ClearButton {
+      margin-inline-start: var(--valence-toast-button-gap);
+    }
+  }
+}
+
+.Toast-body {
+  flex: 1 1 auto;
+  align-self: center;
+
+  .Button {
+    margin-inline-end: var(--valence-toast-button-margin-right);
+  }
+
+  & + .Toast-buttons {
+    padding-inline-start: var(--valence-toast-padding-right);
+
+    border-inline-start-width: 1px;
+    border-inline-start-style: solid;
+  }
+}

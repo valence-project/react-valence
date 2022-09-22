@@ -1,0 +1,12 @@
+.Asset-folderBackground {
+  fill: var(--valence-asset-folder-background-color);
+}
+
+.Asset-fileBackground {
+  fill: var(--valence-asset-file-background-color);
+}
+
+.Asset-folderOutline,
+.Asset-fileOutline {
+  fill: var(--valence-asset-icon-outline-color);
+}

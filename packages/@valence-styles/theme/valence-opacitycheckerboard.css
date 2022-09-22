@@ -1,0 +1,6 @@
+.theme {
+  --valence-opacitycheckerboard-box-color-light: var(--valence-global-color-static-white);
+  --valence-opacitycheckerboard-box-color-gray: var(--valence-global-color-static-gray-400);
+  --valence-opacitycheckerboard-box-height: var(--valence-global-dimension-size-100);
+  --valence-opacitycheckerboard-box-width: var(--valence-global-dimension-size-100);
+}

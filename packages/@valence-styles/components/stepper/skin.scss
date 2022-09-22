@@ -1,0 +1,321 @@
+/* elements in component */
+/*
+.Stepper{}
+.Stepper-container {}
+.Stepper-field {}
+.Stepper-input {}
+.Stepper-icon {}
+.Stepper-button {}
+.Stepper-button-icon {}
+*/
+
+/* move states to the top */
+/*
+.Stepper--isMobile {}
+.Stepper--showStepper {}
+.Stepper--isQuiet {}
+.is-invalid, :invalid {}
+.is-focused, :focus {}
+.focus-ring, .focus-ring {}
+.is-disabled, :disabled {}
+.is-active, :active {}
+.is-hovered, :hover {}
+*/
+
+/* states that might be on individual elements in the component */
+/*
+.Stepper-container--isMobile {}
+.Stepper-button--stepDown {}
+.Stepper-button--stepUp {}
+.is-disabled, :disabled {}
+.is-hovered, :hover {}
+.is-active, :active {}
+*/
+
+/**
+ * order of importance for border colors:
+ * var(invalid, var(disabled, var(focused, var(active, var(hover, var(default)))))
+ *
+ * order of importance for buttons background colors:
+ * var(disabled, var(button-disabled, var(active, var(hover, var(default))))
+ */
+
+.Stepper {
+  .Stepper-button-icon {
+    fill: var(--valence-actionbutton-icon-color);
+  }
+
+  &:not(.Stepper--isQuiet) {
+    .Stepper-input {
+      border-color: var(--valence-textfield-border-color);
+    }
+    .Stepper-button {
+      background-color: var(--valence-actionbutton-background-color);
+      border-color: var(--valence-textfield-border-color);
+      color: var(--valence-actionbutton-text-color);
+    }
+    &.is-hovered,
+    &:hover {
+      .Stepper-input {
+        border-color: var(--valence-textfield-border-color-hover);
+      }
+      .Stepper-button {
+        border-color: var(--valence-textfield-border-color-hover);
+      }
+    }
+    &.is-active,
+    &:active {
+      .Stepper-input {
+        border-color: var(--valence-textfield-border-color-key-focus);
+      }
+      .Stepper-button {
+        border-color: var(--valence-textfield-border-color-key-focus);
+      }
+    }
+    &.is-focused,
+    &:focus {
+      .Stepper-input {
+        border-color: var(--valence-textfield-border-color-key-focus);
+      }
+      .Stepper-button {
+        border-color: var(--valence-textfield-border-color-key-focus);
+      }
+    }
+    &.focus-ring,
+    &.focus-ring {
+      box-shadow: 0 0 0 1px var(--valence-textfield-border-color-key-focus);
+      .Stepper-input {
+        border-color: var(--valence-textfield-border-color-key-focus);
+      }
+      .Stepper-button {
+        border-color: var(--valence-textfield-border-color-key-focus);
+      }
+    }
+    &.is-disabled,
+    &:disabled {
+      .Stepper-input {
+        border-color: var(--valence-textfield-border-color-disabled);
+      }
+      .Stepper-button {
+        border-color: var(--valence-textfield-border-color-disabled);
+      }
+    }
+    &.is-invalid {
+      &.focus-ring,
+      &.focus-ring {
+        box-shadow: 0 0 0 1px var(--valence-textfield-border-color-key-focus);
+      }
+      &.focus-ring,
+      &.focus-ring,
+      &.is-focused {
+        .Stepper-input {
+          border-color: var(--valence-textfield-border-color-key-focus);
+        }
+        .Stepper-button {
+          border-color: var(--valence-textfield-border-color-key-focus);
+        }
+      }
+      .Stepper-input {
+        border-color: var(--valence-textfield-border-color-error);
+      }
+      .Stepper-button {
+        border-color: var(--valence-textfield-border-color-error);
+      }
+    }
+  }
+
+  &.Stepper--isQuiet {
+    .Stepper-input {
+      border-color: var(--valence-textfield-quiet-border-color);
+    }
+    .Stepper-button {
+      background-color: unset;
+      border-color: var(--valence-textfield-quiet-border-color);
+      color: var(--valence-actionbutton-text-color);
+    }
+    &.is-hovered,
+    &:hover {
+      .Stepper-input {
+        border-color: var(--valence-textfield-quiet-border-color-hover);
+      }
+      .Stepper-button {
+        border-color: var(--valence-textfield-quiet-border-color-hover);
+      }
+    }
+    &.is-active,
+    &:active {
+      .Stepper-input {
+        border-color: var(--valence-textfield-quiet-border-color-key-focus);
+      }
+      .Stepper-button {
+        border-color: var(--valence-textfield-quiet-border-color-key-focus);
+      }
+    }
+    &.is-focused,
+    &:focus {
+      .Stepper-input {
+        border-color: var(--valence-textfield-quiet-border-color-key-focus);
+      }
+      .Stepper-button {
+        border-color: var(--valence-textfield-quiet-border-color-key-focus);
+      }
+    }
+    &.focus-ring,
+    &.focus-ring {
+      box-shadow: 0 1px 0 0
+        var(--valence-textfield-quiet-border-color-key-focus);
+      .Stepper-input {
+        border-color: var(--valence-textfield-quiet-border-color-key-focus);
+      }
+      .Stepper-button {
+        border-color: var(--valence-textfield-quiet-border-color-key-focus);
+      }
+    }
+    &.is-disabled,
+    &:disabled {
+      .Stepper-input {
+        border-color: var(--valence-textfield-quiet-border-color-disabled);
+      }
+      .Stepper-button {
+        border-color: var(--valence-textfield-quiet-border-color-disabled);
+      }
+    }
+    &.is-invalid {
+      &.focus-ring,
+      &.focus-ring {
+        box-shadow: 0 1px 0 0
+          var(--valence-textfield-quiet-border-color-key-focus);
+      }
+      &.is-focused {
+        .Stepper-input {
+          border-color: var(--valence-textfield-quiet-border-color-key-focus);
+        }
+        .Stepper-button {
+          border-color: var(--valence-textfield-quiet-border-color-key-focus);
+        }
+      }
+      .Stepper-input {
+        border-color: var(--valence-textfield-quiet-border-color-error);
+      }
+      .Stepper-button {
+        border-color: var(--valence-textfield-quiet-border-color-error);
+      }
+    }
+  }
+}
+
+/* styles that are applied to the stepper buttons independent of component state, cannot chromatic test some of these as a result */
+/* hover and active most notably, we can test disabled using min/max */
+.Stepper {
+  .Stepper-button {
+    &:hover,
+    &.is-hovered {
+      color: var(--valence-actionbutton-text-color-hover);
+
+      .Stepper-button-icon {
+        fill: var(--valence-actionbutton-icon-color-hover);
+      }
+    }
+
+    &.is-active {
+      color: var(--valence-actionbutton-text-color-down);
+
+      .Stepper-button-icon {
+        fill: var(--valence-actionbutton-text-color-down);
+      }
+    }
+
+    &:disabled,
+    &.is-disabled {
+      color: var(--valence-textfield-text-color-disabled);
+
+      .Stepper-button-icon {
+        fill: var(--valence-textfield-text-color-disabled);
+      }
+    }
+  }
+  &:not(.Stepper--isQuiet) {
+    .Stepper-button {
+      &:hover,
+      &.is-hovered {
+        background-color: var(--valence-actionbutton-background-color-hover);
+      }
+
+      &.is-active {
+        background-color: var(--valence-actionbutton-background-color-down);
+      }
+
+      &:disabled,
+      &.is-disabled {
+        background-color: var(--valence-textfield-background-color-disabled);
+      }
+    }
+  }
+  &.Stepper--isQuiet {
+    .Stepper-button {
+      &:disabled,
+      &.is-disabled {
+        color: var(--valence-textfield-quiet-text-color-disabled);
+
+        .Stepper-button-icon {
+          fill: var(--valence-textfield-quiet-text-color-disabled);
+        }
+      }
+    }
+  }
+}
+@media (forced-colors: active) {
+  .Stepper {
+    --valence-textfield-border-color-disabled: GrayText;
+    --valence-textfield-border-color-error: Highlight;
+    --valence-textfield-border-color-hover: Highlight;
+    --valence-textfield-border-color-key-focus: Highlight;
+    --valence-textfield-quiet-border-color-disabled: GrayText;
+    --valence-textfield-quiet-border-color-error: Highlight;
+    --valence-textfield-quiet-border-color-hover: Highlight;
+    --valence-textfield-quiet-border-color-key-focus: Highlight;
+    --valence-textfield-quiet-border-color: ButtonText;
+    --valence-textfield-quiet-text-color-disabled: GrayText;
+    --valence-textfield-text-color-disabled: GrayText;
+    &:not(.Stepper--isQuiet) {
+      &.is-focused,
+      &:focus {
+        outline: 2px solid Highlight;
+      }
+    }
+    &.Stepper--readonly {
+      &.Stepper--isQuiet {
+        .Stepper-button {
+          border-color: var(--valence-textfield-quiet-border-color);
+        }
+      }
+    }
+    &.Stepper--isQuiet {
+      &.is-focused,
+      &:focus,
+      &.focus-ring,
+      &.focus-ring {
+        forced-color-adjust: none;
+        box-shadow: 0 1px 0 0
+          var(--valence-textfield-quiet-border-color-key-focus);
+        .Stepper-input {
+          forced-color-adjust: auto;
+          border-color: var(--valence-textfield-quiet-border-color-key-focus);
+        }
+        .Stepper-button {
+          forced-color-adjust: auto;
+          border-color: var(--valence-textfield-quiet-border-color-key-focus);
+        }
+      }
+      &.is-hovered,
+      &:hover {
+        .Stepper-input {
+          border-color: var(--valence-textfield-quiet-border-color-key-focus);
+        }
+        .Stepper-button {
+          border-color: var(--valence-textfield-quiet-border-color-key-focus);
+        }
+      }
+    }
+  }
+}

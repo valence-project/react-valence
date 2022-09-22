@@ -1,0 +1,39 @@
+.CircleLoader-track {
+  border-color: var(--valence-loader-circle-medium-track-color);
+}
+
+.CircleLoader-fill {
+  border-color: var(--valence-loader-circle-medium-track-fill-color);
+}
+
+.CircleLoader--overBackground {
+  .CircleLoader-track {
+    border-color: var(
+      --valence-loader-circle-medium-over-background-track-color
+    );
+  }
+  .CircleLoader-fill {
+    border-color: var(
+      --valence-loader-circle-medium-over-background-track-fill-color
+    );
+  }
+}
+
+.CircleLoader--indeterminate.CircleLoader--overBackground {
+  .CircleLoader-track {
+    border-color: var(
+      --valence-loader-circle-medium-over-background-track-color
+    );
+  }
+  .CircleLoader-fill {
+    border-color: var(
+      --valence-loader-circle-medium-over-background-track-fill-color
+    );
+  }
+}
+
+@media (forced-colors: active) {
+  .CircleLoader-fill {
+    --valence-loader-circle-medium-track-fill-color: Highlight;
+  }
+}

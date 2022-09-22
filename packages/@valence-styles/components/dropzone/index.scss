@@ -1,0 +1,21 @@
+@import "../commons/index.scss";
+
+.Dropzone {
+  text-align: center;
+  border-width: var(--valence-dropzone-border-width);
+  border-radius: var(--valence-dropzone-border-radius);
+  padding: var(--valence-dropzone-padding);
+  border-style: dashed;
+
+  &:focus {
+    outline: 0;
+    border-style: dashed;
+    &.focus-ring {
+      border-style: solid;
+    }
+  }
+
+  &.is-dragged {
+    border-style: solid;
+  }
+}

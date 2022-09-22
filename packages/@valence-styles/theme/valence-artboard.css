@@ -1,0 +1,6 @@
+.theme {
+  --valence-artboard-border-color: var(--valence-global-color-gray-400);
+  --valence-artboard-border-color-active: var(--valence-global-color-gray-600);
+  --valence-artboard-border-color-selected: var(--valence-global-color-blue-400);
+  --valence-artboard-border-size: var(--valence-alias-border-size-thin);
+}

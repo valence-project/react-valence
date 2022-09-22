@@ -1,0 +1,10 @@
+.theme {
+  --valence-splitbutton-icon-width: var(--valence-global-dimension-size-125);
+}
+
+.theme {
+  --valence-splitbutton-trigger-border-left: 0;
+  --valence-splitbutton-trigger-min-width: 0;
+  --valence-spltibutton-margin-left: 0;
+  --valence-splitbutton-icon-gap: var(--valence-global-dimension-size-150);
+}

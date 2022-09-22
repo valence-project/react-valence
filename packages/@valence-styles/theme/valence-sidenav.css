@@ -1,0 +1,405 @@
+.theme {
+  --valence-sidenav-item-background-color: var(
+    --valence-alias-background-color-transparent
+  );
+  --valence-sidenav-item-text-color: var(--valence-alias-text-color);
+  --valence-sidenav-header-text-color: var(--valence-global-color-gray-700);
+  --valence-sidenav-heading-text-color: var(--valence-global-color-gray-700);
+  --valence-sidenav-item-background-color-hover: var(
+    --valence-alias-highlight-hover
+  );
+  --valence-sidenav-item-text-color-hover: var(
+    --valence-alias-text-color-hover
+  );
+  --valence-sidenav-item-background-color-key-focus: var(
+    --valence-alias-highlight-hover
+  );
+  --valence-sidenav-item-text-color-key-focus: var(
+    --valence-alias-text-color-hover
+  );
+  --valence-sidenav-item-border-color-key-focus: var(
+    --valence-alias-border-color-focus
+  );
+  --valence-sidenav-item-background-color-down: var(
+    --valence-alias-highlight-hover
+  );
+  --valence-sidenav-item-text-color-down: var(--valence-alias-text-color-down);
+  --valence-sidenav-item-background-color-disabled: var(
+    --valence-alias-background-color-transparent
+  );
+  --valence-sidenav-item-text-color-disabled: var(
+    --valence-alias-text-color-disabled
+  );
+  --valence-sidenav-item-background-color-selected: var(
+    --valence-alias-highlight-hover
+  );
+  --valence-sidenav-item-text-color-selected: var(
+    --valence-alias-text-color-hover
+  );
+  --valence-sidenav-item-background-color-selected-hover: var(
+    --valence-alias-highlight-hover
+  );
+  --valence-sidenav-item-text-color-selected-hover: var(
+    --valence-alias-text-color-hover
+  );
+  --valence-sidenav-item-background-color-selected-down: var(
+    --valence-alias-highlight-hover
+  );
+  --valence-sidenav-item-text-color-selected-down: var(
+    --valence-alias-text-color-down
+  );
+  --valence-sidenav-item-background-color-selected-key-focus: var(
+    --valence-alias-highlight-hover
+  );
+  --valence-sidenav-item-border-color-selected-key-focus: var(
+    --valence-alias-border-color-focus
+  );
+  --valence-sidenav-item-text-color-selected-key-focus: var(
+    --valence-alias-text-color-hover
+  );
+  --valence-sidenav-min-width: var(--valence-global-dimension-size-3000);
+  --valence-sidenav-width: var(--valence-global-dimension-size-3000);
+  --valence-sidenav-item-text-size: var(--valence-alias-font-size-default);
+  --valence-sidenav-item-font-weight: var(--valence-global-font-weight-regular);
+  --valence-sidenav-item-text-font-weight: var(
+    --valence-global-font-weight-regular
+  );
+  --valence-sidenav-item-line-height: var(
+    --valence-alias-body-text-line-height
+  );
+  --valence-sidenav-item-text-line-height: var(
+    --valence-alias-body-text-line-height
+  );
+  --valence-sidenav-item-baseline: var(--valence-global-dimension-size-150);
+  --valence-sidenav-item-text-baseline: var(
+    --valence-global-dimension-size-150
+  );
+  --valence-sidenav-item-height: var(--valence-alias-single-line-height);
+  --valence-sidenav-item-padding-x: var(--valence-global-dimension-size-150);
+  --valence-sidenav-item-border-radius: var(
+    --valence-alias-border-radius-regular
+  );
+  --valence-sidenav-item-gap: var(--valence-global-dimension-size-50);
+  --valence-sidenav-icon-size: var(--valence-alias-workflow-icon-size);
+  --valence-sidenav-icon-gap: var(--valence-global-dimension-size-100);
+  --valence-sidenav-icon-padding-y: var(--valence-global-dimension-size-85);
+  --valence-sidenav-header-text-size: var(
+    --valence-global-dimension-font-size-50
+  );
+  --valence-sidenav-header-font-weight: var(
+    --valence-global-font-weight-medium
+  );
+  --valence-sidenav-header-line-height: var(
+    --valence-alias-heading-text-line-height
+  );
+  --valence-sidenav-header-letter-spacing: var(
+    --valence-global-font-letter-spacing-medium
+  );
+  --valence-sidenav-header-baseline: var(--valence-global-dimension-size-150);
+  --valence-sidenav-header-height: var(--valence-alias-single-line-height);
+  --valence-sidenav-header-padding-x: var(--valence-global-dimension-size-150);
+  --valence-sidenav-header-border-radius: var(
+    --valence-alias-border-radius-regular
+  );
+  --valence-sidenav-header-gap-top: var(--valence-global-dimension-size-200);
+  --valence-sidenav-header-gap-bottom: var(--valence-global-dimension-size-50);
+  --valence-sidenav-heading-text-size: var(
+    --valence-global-dimension-font-size-50
+  );
+  --valence-sidenav-heading-font-weight: var(
+    --valence-global-font-weight-medium
+  );
+  --valence-sidenav-heading-text-font-weight: var(
+    --valence-global-font-weight-medium
+  );
+  --valence-sidenav-heading-line-height: var(
+    --valence-alias-heading-text-line-height
+  );
+  --valence-sidenav-heading-text-line-height: var(
+    --valence-alias-heading-text-line-height
+  );
+  --valence-sidenav-heading-letter-spacing: var(
+    --valence-global-font-letter-spacing-medium
+  );
+  --valence-sidenav-heading-text-letter-spacing: var(
+    --valence-global-font-letter-spacing-medium
+  );
+  --valence-sidenav-heading-baseline: var(--valence-global-dimension-size-150);
+  --valence-sidenav-heading-text-baseline: var(
+    --valence-global-dimension-size-150
+  );
+  --valence-sidenav-heading-height: var(--valence-alias-single-line-height);
+  --valence-sidenav-heading-padding-x: var(--valence-global-dimension-size-150);
+  --valence-sidenav-heading-border-radius: var(
+    --valence-alias-border-radius-regular
+  );
+  --valence-sidenav-heading-gap-top: var(--valence-global-dimension-size-200);
+  --valence-sidenav-heading-gap-bottom: var(--valence-global-dimension-size-50);
+  --valence-sidenav-item-touch-hit-top: var(
+    --valence-global-dimension-static-size-25
+  );
+  --valence-sidenav-multilevel-item-background-color: var(
+    --valence-alias-background-color-transparent
+  );
+  --valence-sidenav-multilevel-item-text-color: var(--valence-alias-text-color);
+  --valence-sidenav-multilevel-header-text-color: var(
+    --valence-global-color-gray-700
+  );
+  --valence-sidenav-multilevel-heading-text-color: var(
+    --valence-global-color-gray-700
+  );
+  --valence-sidenav-multilevel-main-item-background-color: var(
+    --valence-alias-background-color-transparent
+  );
+  --valence-sidenav-multilevel-main-item-text-color: var(
+    --valence-alias-text-color
+  );
+  --valence-sidenav-multilevel-item-background-color-hover: var(
+    --valence-alias-highlight-hover
+  );
+  --valence-sidenav-multilevel-item-text-color-hover: var(
+    --valence-alias-text-color-hover
+  );
+  --valence-sidenav-multilevel-main-item-background-color-hover: var(
+    --valence-alias-highlight-hover
+  );
+  --valence-sidenav-multilevel-main-item-text-color-hover: var(
+    --valence-alias-text-color-hover
+  );
+  --valence-sidenav-multilevel-item-background-color-key-focus: var(
+    --valence-alias-highlight-hover
+  );
+  --valence-sidenav-multilevel-item-text-color-key-focus: var(
+    --valence-alias-text-color-hover
+  );
+  --valence-sidenav-multilevel-item-border-color-key-focus: var(
+    --valence-alias-border-color-focus
+  );
+  --valence-sidenav-multilevel-main-item-background-color-key-focus: var(
+    --valence-alias-highlight-hover
+  );
+  --valence-sidenav-multilevel-main-item-text-color-key-focus: var(
+    --valence-alias-text-color-hover
+  );
+  --valence-sidenav-multilevel-main-item-border-color-key-focus: var(
+    --valence-alias-border-color-focus
+  );
+  --valence-sidenav-multilevel-item-background-color-down: var(
+    --valence-alias-highlight-hover
+  );
+  --valence-sidenav-multilevel-item-text-color-down: var(
+    --valence-alias-text-color-down
+  );
+  --valence-sidenav-multilevel-main-item-background-color-down: var(
+    --valence-alias-highlight-hover
+  );
+  --valence-sidenav-multilevel-main-item-text-color-down: var(
+    --valence-alias-text-color-down
+  );
+  --valence-sidenav-multilevel-item-background-color-disabled: var(
+    --valence-alias-background-color-transparent
+  );
+  --valence-sidenav-multilevel-item-text-color-disabled: var(
+    --valence-alias-text-color-disabled
+  );
+  --valence-sidenav-multilevel-main-item-background-color-disabled: var(
+    --valence-alias-background-color-transparent
+  );
+  --valence-sidenav-multilevel-main-item-text-color-disabled: var(
+    --valence-alias-text-color-disabled
+  );
+  --valence-sidenav-multilevel-item-background-color-selected: var(
+    --valence-alias-highlight-hover
+  );
+  --valence-sidenav-multilevel-item-text-color-selected: var(
+    --valence-alias-text-color-hover
+  );
+  --valence-sidenav-multilevel-main-item-background-color-selected: var(
+    --valence-alias-background-color-transparent
+  );
+  --valence-sidenav-multilevel-main-item-text-color-selected: var(
+    --valence-alias-text-color-hover
+  );
+  --valence-sidenav-multilevel-item-background-color-selected-hover: var(
+    --valence-alias-highlight-hover
+  );
+  --valence-sidenav-multilevel-item-text-color-selected-hover: var(
+    --valence-alias-text-color-hover
+  );
+  --valence-sidenav-multilevel-main-item-background-color-selected-hover: var(
+    --valence-alias-highlight-hover
+  );
+  --valence-sidenav-multilevel-main-item-text-color-selected-hover: var(
+    --valence-alias-text-color-hover
+  );
+  --valence-sidenav-multilevel-item-background-color-selected-down: var(
+    --valence-alias-highlight-hover
+  );
+  --valence-sidenav-multilevel-item-text-color-selected-down: var(
+    --valence-alias-text-color-down
+  );
+  --valence-sidenav-multilevel-main-item-background-color-selected-down: var(
+    --valence-alias-highlight-hover
+  );
+  --valence-sidenav-multilevel-main-item-text-color-selected-down: var(
+    --valence-alias-text-color-down
+  );
+  --valence-sidenav-multilevel-item-background-color-selected-key-focus: var(
+    --valence-alias-highlight-hover
+  );
+  --valence-sidenav-multilevel-item-border-color-selected-key-focus: var(
+    --valence-alias-border-color-focus
+  );
+  --valence-sidenav-multilevel-item-text-color-selected-key-focus: var(
+    --valence-alias-text-color-hover
+  );
+  --valence-sidenav-multilevel-main-item-background-color-selected-key-focus: var(
+    --valence-alias-highlight-hover
+  );
+  --valence-sidenav-multilevel-main-item-border-color-selected-key-focus: var(
+    --valence-alias-border-color-focus
+  );
+  --valence-sidenav-multilevel-main-item-text-color-selected-key-focus: var(
+    --valence-alias-text-color-hover
+  );
+  --valence-sidenav-multilevel-min-width: var(
+    --valence-global-dimension-size-3000
+  );
+  --valence-sidenav-multilevel-width: var(--valence-global-dimension-size-3000);
+  --valence-sidenav-multilevel-item-text-size: var(
+    --valence-alias-font-size-default
+  );
+  --valence-sidenav-multilevel-item-font-weight: var(
+    --valence-global-font-weight-regular
+  );
+  --valence-sidenav-multilevel-item-text-font-weight: var(
+    --valence-global-font-weight-regular
+  );
+  --valence-sidenav-multilevel-item-line-height: var(
+    --valence-alias-body-text-line-height
+  );
+  --valence-sidenav-multilevel-item-text-line-height: var(
+    --valence-alias-body-text-line-height
+  );
+  --valence-sidenav-multilevel-item-baseline: var(
+    --valence-global-dimension-size-150
+  );
+  --valence-sidenav-multilevel-item-text-baseline: var(
+    --valence-global-dimension-size-150
+  );
+  --valence-sidenav-multilevel-item-height: var(
+    --valence-alias-single-line-height
+  );
+  --valence-sidenav-multilevel-item-padding-x: var(
+    --valence-global-dimension-size-150
+  );
+  --valence-sidenav-multilevel-item-border-radius: var(
+    --valence-alias-border-radius-regular
+  );
+  --valence-sidenav-multilevel-item-gap: var(
+    --valence-global-dimension-size-50
+  );
+  --valence-sidenav-multilevel-icon-size: var(
+    --valence-alias-workflow-icon-size
+  );
+  --valence-sidenav-multilevel-icon-gap: var(
+    --valence-global-dimension-size-100
+  );
+  --valence-sidenav-multilevel-icon-padding-y: var(
+    --valence-global-dimension-size-85
+  );
+  --valence-sidenav-multilevel-header-text-size: var(
+    --valence-global-dimension-font-size-50
+  );
+  --valence-sidenav-multilevel-header-font-weight: var(
+    --valence-global-font-weight-medium
+  );
+  --valence-sidenav-multilevel-header-line-height: var(
+    --valence-alias-heading-text-line-height
+  );
+  --valence-sidenav-multilevel-header-letter-spacing: var(
+    --valence-global-font-letter-spacing-medium
+  );
+  --valence-sidenav-multilevel-header-baseline: var(
+    --valence-global-dimension-size-150
+  );
+  --valence-sidenav-multilevel-header-height: var(
+    --valence-alias-single-line-height
+  );
+  --valence-sidenav-multilevel-header-padding-x: var(
+    --valence-global-dimension-size-150
+  );
+  --valence-sidenav-multilevel-header-border-radius: var(
+    --valence-alias-border-radius-regular
+  );
+  --valence-sidenav-multilevel-header-gap-top: var(
+    --valence-global-dimension-size-200
+  );
+  --valence-sidenav-multilevel-header-gap-bottom: var(
+    --valence-global-dimension-size-50
+  );
+  --valence-sidenav-multilevel-heading-text-size: var(
+    --valence-global-dimension-font-size-50
+  );
+  --valence-sidenav-multilevel-heading-font-weight: var(
+    --valence-global-font-weight-medium
+  );
+  --valence-sidenav-multilevel-heading-text-font-weight: var(
+    --valence-global-font-weight-medium
+  );
+  --valence-sidenav-multilevel-heading-line-height: var(
+    --valence-alias-heading-text-line-height
+  );
+  --valence-sidenav-multilevel-heading-text-line-height: var(
+    --valence-alias-heading-text-line-height
+  );
+  --valence-sidenav-multilevel-heading-letter-spacing: var(
+    --valence-global-font-letter-spacing-medium
+  );
+  --valence-sidenav-multilevel-heading-text-letter-spacing: var(
+    --valence-global-font-letter-spacing-medium
+  );
+  --valence-sidenav-multilevel-heading-baseline: var(
+    --valence-global-dimension-size-150
+  );
+  --valence-sidenav-multilevel-heading-text-baseline: var(
+    --valence-global-dimension-size-150
+  );
+  --valence-sidenav-multilevel-heading-height: var(
+    --valence-alias-single-line-height
+  );
+  --valence-sidenav-multilevel-heading-padding-x: var(
+    --valence-global-dimension-size-150
+  );
+  --valence-sidenav-multilevel-heading-border-radius: var(
+    --valence-alias-border-radius-regular
+  );
+  --valence-sidenav-multilevel-heading-gap-top: var(
+    --valence-global-dimension-size-200
+  );
+  --valence-sidenav-multilevel-heading-gap-bottom: var(
+    --valence-global-dimension-size-50
+  );
+  --valence-sidenav-multilevel-item-touch-hit-top: var(
+    --valence-global-dimension-static-size-25
+  );
+  --valence-sidenav-multilevel-main-item-font-weight: var(
+    --valence-global-font-weight-bold
+  );
+  --valence-sidenav-multilevel-item-indentation: var(
+    --valence-global-dimension-size-150
+  );
+  --valence-sidenav-multilevel-item-indentation-level1: var(
+    --valence-global-dimension-size-150
+  );
+  --valence-sidenav-multilevel-item-indentation-level2: var(
+    --valence-global-dimension-size-300
+  );
+  --valence-sidenav-multilevel-item-indentation-level3: var(
+    --valence-global-dimension-size-450
+  );
+}
+
+.theme {
+  --valence-sidenav-item-padding-y: var(--valence-global-dimension-size-65);
+}

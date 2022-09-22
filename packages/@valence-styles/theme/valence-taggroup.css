@@ -1,0 +1,4 @@
+.theme {
+  --valence-taggroup-tag-gap-x: var(--valence-global-dimension-size-100);
+  --valence-taggroup-tag-gap-y: var(--valence-global-dimension-size-100);
+}

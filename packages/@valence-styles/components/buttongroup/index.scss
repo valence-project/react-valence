@@ -1,0 +1,44 @@
+.ButtonGroup {
+  --valence-buttongroup-button-gap-reset: 0;
+}
+
+.ButtonGroup {
+  display: inline-flex;
+  align-items: flex-start;
+  /* necessary so that offsetLeft on button children is correct */
+  position: relative;
+
+  .ButtonGroup-Button {
+    flex-shrink: 0;
+  }
+
+  .ButtonGroup-Button + .ButtonGroup-Button {
+    margin-inline-start: var(--valence-buttongroup-button-gap-x);
+  }
+
+  &.ButtonGroup--alignEnd {
+    justify-content: flex-end;
+  }
+
+  &.ButtonGroup--alignCenter {
+    justify-content: center;
+  }
+}
+
+.ButtonGroup--vertical {
+  display: inline-flex;
+  flex-direction: column;
+
+  .ButtonGroup-Button + .ButtonGroup-Button {
+    margin-block-start: var(--valence-buttongroup-button-gap-y);
+    margin-inline-start: var(--valence-buttongroup-button-gap-reset);
+  }
+
+  &.ButtonGroup--alignEnd {
+    align-items: flex-end;
+  }
+
+  &.ButtonGroup--alignCenter {
+    align-items: center;
+  }
+}

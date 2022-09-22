@@ -1,0 +1,8 @@
+.theme {
+  --valence-dropindicator-border-color: var(--valence-global-color-blue-400);
+  --valence-dropindicator-circle-border-color: var(--valence-global-color-blue-400);
+  --valence-dropindicator-circle-border-fill: var(--valence-alias-background-color-transparent);
+  --valence-dropindicator-border-size: var(--valence-alias-border-size-thick);
+  --valence-dropindicator-circle-border-size: var(--valence-alias-border-size-thick);
+  --valence-dropindicator-circle-size: var(--valence-global-dimension-static-size-150);
+}

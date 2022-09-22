@@ -1,0 +1,525 @@
+@import "../commons/index.scss";
+@import "../overlay/index.scss";
+
+.Dialog {
+  /* Be a flexbox to allow a full sized content area that scrolls */
+  display: flex;
+
+  /* Allow 100% width, taking into account padding */
+  box-sizing: border-box;
+
+  /* Be no bigger than max-width, but also be 90% if the viewport is smaller than max-width */
+  width: fit-content;
+  min-width: var(--valence-dialog-min-width);
+  max-width: 100%;
+
+  max-height: inherit;
+
+  outline: none;
+
+  --valence-dialog-padding-x: var(--valence-dialog-padding);
+  --valence-dialog-padding-y: var(--valence-dialog-padding);
+}
+
+.Dialog--small {
+  width: var(--valence-dialog-small-width);
+}
+
+.Dialog--medium {
+  width: var(--valence-dialog-medium-width);
+}
+
+.Dialog--large {
+  width: var(--valence-dialog-large-width);
+}
+
+.Dialog-hero {
+  grid-area: hero;
+  height: var(--valence-dialog-hero-height);
+
+  border-top-left-radius: var(--valence-dialog-border-radius);
+  border-top-right-radius: var(--valence-dialog-border-radius);
+
+  background-size: cover;
+  background-position: center center;
+  overflow: hidden;
+}
+
+.Dialog .Dialog-grid {
+  display: grid;
+  grid-template-columns: var(--valence-dialog-padding-x) auto 1fr auto minmax(
+      0,
+      auto
+    ) var(--valence-dialog-padding-x);
+  grid-template-rows: auto var(--valence-dialog-padding-y) auto auto 1fr auto var(
+      --valence-dialog-padding-y
+    );
+  grid-template-areas:
+    "hero hero    hero    hero        hero        hero"
+    ".    .       .       .           .           ."
+    ".    heading header  header      typeIcon    ."
+    ".    divider divider divider     divider     ."
+    ".    content content content     content     ."
+    ".    footer  footer  buttonGroup buttonGroup ."
+    ".    .       .       .           .           .";
+  width: 100%;
+}
+
+.Dialog-heading {
+  grid-area: heading;
+
+  margin: 0;
+
+  font-size: var(--valence-dialog-title-text-size);
+  font-weight: var(--valence-dialog-title-text-font-weight);
+  line-height: var(--valence-dialog-title-text-line-height);
+
+  outline: none; /* Hide focus outline */
+
+  padding-inline-end: var(--valence-dialog-gap-size);
+
+  &.Dialog-heading--noHeader {
+    grid-area: heading-start / heading-start / header-end / header-end;
+    padding-inline-end: 0;
+  }
+
+  &.Dialog-heading--noHeader.Dialog-heading--noTypeIcon {
+    grid-area: heading-start / heading-start / typeIcon-end / typeIcon-end;
+    padding-inline-end: 0;
+  }
+}
+
+.Dialog-header {
+  grid-area: header;
+  display: flex;
+  /* Without this, buttons will be stretched */
+  align-items: center;
+  justify-content: flex-end;
+
+  box-sizing: border-box;
+
+  outline: none; /* Hide focus outline around header */
+  min-width: fit-content; /* prevents header with width 0px */
+
+  &.Dialog-header--noTypeIcon {
+    grid-area: header-start / header-start / typeIcon-end / typeIcon-end;
+    padding-inline-end: 0;
+  }
+}
+
+.Dialog-typeIcon {
+  grid-area: typeIcon;
+}
+
+.Dialog .Dialog-divider {
+  grid-area: divider;
+  width: 100%;
+  margin-top: var(--valence-dialog-rule-margin-top);
+  margin-bottom: var(--valence-dialog-rule-margin-bottom);
+}
+
+.Dialog--noDivider {
+  .Dialog-divider {
+    display: none;
+  }
+}
+
+.Dialog-content {
+  grid-area: content;
+  box-sizing: border-box;
+
+  /*
+  v2 is currently worse, inputs that get focus rings get a slight clipping unless overflow: visible replaces this line
+  we should think of a better way to handle this, see padding/margin below for fix
+  */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+  outline: none; /* Hide focus outline */
+
+  font-size: var(--valence-dialog-content-text-size);
+  font-weight: var(--valence-dialog-content-text-font-weight);
+  line-height: var(--valence-dialog-content-text-line-height);
+
+  /*
+  this is kinda dumb, but needed for the keyboard focus rings so they don't get clipped.
+  is there a better way to treat this
+  it's needed in every instance of overflow being set to anything other than visible
+  */
+  padding: calc(var(--valence-global-dimension-size-25) * 2);
+  margin: calc(var(--valence-global-dimension-size-25) * -2);
+
+  /* for zoom (a11y) and short windows */
+  min-height: var(--valence-dialog-content-min-height);
+}
+
+.Dialog-footer {
+  grid-area: footer;
+  /* this padding isn't built into the grid because it disappears with this footer */
+  padding-block-start: var(--valence-global-dimension-static-size-500);
+
+  display: flex;
+  flex-wrap: wrap;
+
+  outline: none; /* Hide focus outline */
+
+  /* Both selectors are required to override the button + button rule */
+  > *,
+  > .Button + .Button {
+    margin-bottom: 0;
+  }
+}
+
+.Dialog-buttonGroup {
+  grid-area: buttonGroup;
+  /* this padding isn't built into the grid because it disappears with this buttonGroup */
+  padding-block-start: var(--valence-global-dimension-static-size-500);
+  display: flex;
+  justify-content: flex-end;
+  /* this padding should be safe as button group is always end aligned */
+  padding-inline-start: var(--valence-dialog-gap-size);
+  /* Fixes Firefox buttongroup overflow (switch from horizontal buttongroup to vertical buttongroup) */
+  max-width: 100%;
+
+  &.Dialog-buttonGroup--noFooter {
+    grid-area: footer-start / footer-start / buttonGroup-end / buttonGroup-end;
+  }
+}
+
+.Dialog.Dialog--dismissable .Dialog-grid {
+  grid-template-columns: var(--valence-dialog-padding-x) auto 1fr auto minmax(
+      0,
+      auto
+    ) minmax(0, var(--valence-dialog-close-button-size)) var(
+      --valence-dialog-padding-x
+    );
+  grid-template-rows: auto var(--valence-dialog-padding-y) auto auto 1fr auto var(
+      --valence-dialog-padding-y
+    );
+  grid-template-areas:
+    "hero hero    hero    hero        hero        hero        hero"
+    ".    .       .       .           .           closeButton closeButton"
+    ".    heading header  header      typeIcon    closeButton closeButton"
+    ".    divider divider divider     divider     divider     ."
+    ".    content content content     content     content     ."
+    ".    footer  footer  buttonGroup buttonGroup buttonGroup ."
+    ".    .       .       .           .           .           .";
+
+  .Dialog-buttonGroup {
+    display: none;
+  }
+  .Dialog-footer {
+    grid-area: footer / footer/ buttonGroup / buttonGroup;
+  }
+}
+
+.Dialog.Dialog--dismissable .Dialog-closeButton {
+  grid-area: closeButton;
+  /* align and justify so it doesn't do the default 'stretch' and end up with forced height/width */
+  align-self: flex-start;
+  justify-self: end;
+
+  margin-inline-end: var(--valence-dialog-close-button-padding);
+  margin-block-start: var(--valence-dialog-close-button-padding);
+}
+
+/* Alert Dialog is a specific type of Dialog */
+.Dialog--error {
+  width: var(--valence-dialog-alert-width);
+}
+
+.Dialog--fullscreen {
+  width: 100%;
+  height: 100%;
+}
+.Dialog--fullscreenTakeover {
+  width: 100%;
+  height: 100%;
+
+  border-radius: 0;
+}
+/** @unofficial */
+.Dialog--fullscreen,
+.Dialog--fullscreenTakeover {
+  max-height: none;
+  max-width: none;
+
+  &.Dialog .Dialog-grid {
+    display: grid;
+    grid-template-columns: var(--valence-dialog-padding-x) 1fr auto auto var(
+        --valence-dialog-padding-x
+      );
+    grid-template-rows: var(--valence-dialog-padding-y) auto auto 1fr var(
+        --valence-dialog-padding-y
+      );
+    grid-template-areas:
+      ".    .       .       .            ."
+      ".    heading header  buttonGroup  ."
+      ".    divider divider divider      ."
+      ".    content content content      ."
+      ".    .       .       .            .";
+  }
+
+  .Dialog-heading {
+    font-size: var(--valence-dialog-fullscreen-header-text-size);
+
+    &.Dialog-heading--noHeader {
+      grid-area: heading-start / heading-start / header-end / header-end;
+      padding-inline-end: 0;
+    }
+
+    /* there will never be a typeIcon here */
+    &.Dialog-heading--noHeader.Dialog-heading--noTypeIcon {
+      grid-area: heading-start / heading-start / header-end / header-end;
+      padding-inline-end: 0;
+    }
+  }
+  .Dialog-header {
+    &.Dialog-header--noTypeIcon {
+      grid-area: header;
+      padding-inline-end: 0;
+    }
+  }
+
+  .Dialog-content {
+    max-height: none;
+  }
+
+  .Dialog-footer,
+  .Dialog-buttonGroup {
+    padding-block-start: 0px;
+  }
+
+  .Dialog-footer,
+  .Dialog-typeIcon,
+  .Dialog-closeButton {
+    display: none;
+  }
+
+  .Dialog-buttonGroup {
+    grid-area: buttonGroup;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  /* for zoom (a11y) */
+  .Dialog {
+    --valence-dialog-padding: var(--valence-global-dimension-static-size-300);
+  }
+
+  .Dialog .Dialog-grid {
+    grid-template-columns: var(--valence-dialog-padding-x) auto 1fr auto minmax(
+        0,
+        auto
+      ) var(--valence-dialog-padding-x);
+    grid-template-rows: auto var(--valence-dialog-padding-y) auto auto auto 1fr auto var(
+        --valence-dialog-padding-y
+      );
+    grid-template-areas:
+      "hero hero    hero    hero        hero        hero"
+      ".    .       .       .           .           ."
+      ".    heading heading heading     typeIcon    ."
+      ".    header  header  header      header      ."
+      ".    divider divider divider     divider     ."
+      ".    content content content     content     ."
+      ".    footer  footer  buttonGroup buttonGroup ."
+      ".    .       .       .           .           .";
+  }
+  .Dialog-heading {
+    &.Dialog-heading--noHeader {
+      grid-area: heading;
+    }
+
+    /* match specificity from above where it had noHeader, but here header won't prevent heading from expanding */
+    &.Dialog-heading--noTypeIcon.Dialog-heading--noTypeIcon {
+      grid-area: heading-start / heading-start / typeIcon-end / typeIcon-end;
+    }
+  }
+  .Dialog-header {
+    &.Dialog-header--noTypeIcon {
+      grid-area: header;
+    }
+  }
+
+  .Dialog.Dialog--dismissable .Dialog-grid {
+    grid-template-columns: var(--valence-dialog-padding-x) auto 1fr auto minmax(
+        0,
+        auto
+      ) minmax(0, var(--valence-dialog-close-button-size)) var(
+        --valence-dialog-padding-x
+      );
+    grid-template-rows: auto var(--valence-dialog-padding-y) auto auto auto 1fr auto var(
+        --valence-dialog-padding-y
+      );
+    grid-template-areas:
+      "hero hero    hero    hero        hero        hero        hero"
+      ".    .       .       .           .           closeButton closeButton"
+      ".    heading heading heading     typeIcon    closeButton closeButton"
+      ".    header  header  header      header      header      ."
+      ".    divider divider divider     divider     divider     ."
+      ".    content content content     content     content     ."
+      ".    footer  footer  buttonGroup buttonGroup buttonGroup ."
+      ".    .       .       .           .           .           .";
+  }
+
+  .Dialog .Dialog-header {
+    justify-content: flex-start;
+  }
+
+  .Dialog-footer {
+    min-width: fit-content;
+  }
+
+  .Dialog-buttonGroup {
+    min-width: 0;
+  }
+
+  .Dialog--fullscreen,
+  .Dialog--fullscreenTakeover {
+    &.Dialog .Dialog-grid {
+      display: grid;
+      grid-template-columns: var(--valence-dialog-padding-x) 1fr var(
+          --valence-dialog-padding-x
+        );
+      grid-template-rows: var(--valence-dialog-padding-y) auto auto auto 1fr auto var(
+          --valence-dialog-padding-y
+        );
+      grid-template-areas:
+        ".    .            ."
+        ".    heading      ."
+        ".    header       ."
+        ".    divider      ."
+        ".    content      ."
+        ".    buttonGroup  ."
+        ".    .            .";
+    }
+    .Dialog-heading {
+      &.Dialog-heading--noHeader,
+      &.Dialog-heading--noTypeIcon {
+        grid-area: heading;
+      }
+
+      /* there will never be a typeIcon here */
+      &.Dialog-heading--noHeader.Dialog-heading--noTypeIcon {
+        grid-area: heading;
+      }
+    }
+    .Dialog-header {
+      &.Dialog-header--noTypeIcon {
+        grid-area: header;
+      }
+    }
+
+    .Dialog-buttonGroup {
+      padding-block-start: var(--valence-global-dimension-static-size-500);
+    }
+
+    .Dialog-heading {
+      font-size: var(--valence-dialog-title-text-size);
+    }
+  }
+}
+
+/* additional a11y support by moving scrolling from content to dialog */
+@media screen and (max-height: 400px) {
+  .Dialog .Dialog-grid {
+    border-top-left-radius: var(--valence-dialog-border-radius);
+    border-top-right-radius: var(--valence-dialog-border-radius);
+    overflow-y: auto;
+
+    grid-template-columns: var(--valence-dialog-padding-x) auto 1fr auto minmax(
+        0,
+        auto
+      ) var(--valence-dialog-padding-x);
+    grid-template-rows: auto var(--valence-dialog-padding-y) auto auto auto 1fr auto auto var(
+        --valence-dialog-padding-y
+      );
+    grid-template-areas:
+      "hero hero        hero        hero        hero        hero"
+      ".    .           .           .           .           ."
+      ".    heading     heading     heading     typeIcon    ."
+      ".    header      header      header      header      ."
+      ".    divider     divider     divider     divider     ."
+      ".    content     content     content     content     ."
+      ".    footer      footer      footer      footer      ."
+      ".    buttonGroup buttonGroup buttonGroup buttonGroup ."
+      ".    .           .           .           .           .";
+  }
+
+  .Dialog-heading {
+    &.Dialog-heading--noHeader {
+      grid-area: heading;
+      padding-inline-end: 0;
+    }
+
+    /* match specificity from above where it had noHeader, but here header won't prevent heading from expanding */
+
+    &.Dialog-heading--noTypeIcon.Dialog-heading--noTypeIcon {
+      grid-area: heading-start / heading-start / typeIcon-end / typeIcon-end;
+      padding-inline-end: 0;
+    }
+  }
+
+  .Dialog-header {
+    &.Dialog-header--noTypeIcon {
+      grid-area: header;
+      padding-inline-end: 0;
+    }
+  }
+
+  .Dialog-content {
+    overflow-y: visible;
+    height: min-content;
+    display: inline-table;
+  }
+
+  .Dialog-footer + .Dialog-buttonGroup {
+    padding-block-start: calc(var(--valence-global-dimension-size-25) * 2);
+  }
+}
+@media screen and (max-height: 400px) and (max-width: 700px) {
+  .Dialog--fullscreen,
+  .Dialog--fullscreenTakeover {
+    &.Dialog .Dialog-grid {
+      display: grid;
+      grid-template-columns: var(--valence-dialog-padding-x) 1fr var(
+          --valence-dialog-padding-x
+        );
+      grid-template-rows: var(--valence-dialog-padding-y) auto auto auto 1fr auto var(
+          --valence-dialog-padding-y
+        );
+      grid-template-areas:
+        ".    .            ."
+        ".    heading      ."
+        ".    header       ."
+        ".    divider      ."
+        ".    content      ."
+        ".    buttonGroup  ."
+        ".    .            .";
+    }
+    .Dialog-heading {
+      &.Dialog-heading--noHeader,
+      &.Dialog-heading--noTypeIcon {
+        grid-area: heading;
+      }
+
+      /* there will never be a typeIcon here */
+      &.Dialog-heading--noHeader.Dialog-heading--noTypeIcon {
+        grid-area: heading;
+      }
+    }
+    .Dialog-header {
+      &.Dialog-header--noTypeIcon {
+        grid-area: header;
+      }
+    }
+
+    .Dialog-buttonGroup {
+      padding-block-start: var(--valence-global-dimension-static-size-500);
+    }
+
+    .Dialog-heading {
+      font-size: var(--valence-dialog-title-text-size);
+    }
+  }
+}

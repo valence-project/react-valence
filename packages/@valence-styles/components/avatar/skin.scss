@@ -1,0 +1,17 @@
+.Avatar {
+  opacity: var(--valence-avatar-small-opacity);
+  outline: none;
+  transition: box-shadow var(--valence-global-animation-duration-100) ease-out;
+
+  &.is-disabled {
+    opacity: var(--valence-avatar-small-opacity-disabled);
+  }
+}
+@media (forced-colors: active) {
+  .Avatar {
+    &.is-disabled {
+      opacity: 1;
+      border: 2px solid GrayText;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+.theme {
+  --valence-asset-folder-background-color: var(--valence-global-color-gray-300);
+  --valence-asset-file-background-color: var(--valence-global-color-gray-50);
+  --valence-asset-icon-outline-color: var(--valence-global-color-gray-500);
+  --valence-asset-icon-max-width: var(--valence-global-dimension-static-size-1000);
+  --valence-asset-icon-min-width: var(--valence-global-dimension-size-600);
+  --valence-asset-icon-margin: var(--valence-global-dimension-size-250);
+}
+

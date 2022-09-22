@@ -1,0 +1,4 @@
+.theme {
+  --valence-buttongroup-button-gap-y: var(--valence-global-dimension-static-size-200);
+  --valence-buttongroup-button-gap-x: var(--valence-global-dimension-static-size-200);
+}

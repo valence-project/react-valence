@@ -1,0 +1,40 @@
+.AssetList-item {
+  &:hover {
+    background-color: var(--valence-miller-column-item-background-color-hover);
+  }
+
+  &:focus {
+    &.focus-ring,
+    &.is-focused {
+      background-color: var(
+        --valence-miller-column-item-background-color-hover
+      );
+      &::before {
+        /* we cannot achieve rounded corners with outline so we use box-shadow instead */
+        box-shadow: 0px 0px 0px 2px var(--valence-alias-border-color-focus)
+          inset;
+      }
+    }
+  }
+
+  &.is-navigated {
+    /* gray background */
+    background-color: var(--valence-miller-column-item-background-color-down);
+    &:hover,
+    &:focus {
+      background-color: var(--valence-miller-column-item-background-color-down);
+    }
+  }
+
+  &.is-selected {
+    background-color: var(
+      --valence-miller-column-item-background-color-selected
+    );
+    &:hover,
+    &:focus {
+      background-color: var(
+        --valence-miller-column-item-background-color-selected-hover
+      );
+    }
+  }
+}

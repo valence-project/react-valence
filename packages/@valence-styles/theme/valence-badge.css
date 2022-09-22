@@ -1,0 +1,6 @@
+.theme {
+  --valence-badge-text-color: var(--valence-global-color-static-white);
+  --valence-badge-error-background-color: var(--valence-semantic-negative-color-default);
+  --valence-badge-info-background-color: var(--valence-semantic-informative-color-default);
+  --valence-badge-warning-background-color: var(--valence-semantic-notice-color-default);
+}

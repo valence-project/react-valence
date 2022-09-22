@@ -1,0 +1,85 @@
+.Rating {
+  &.is-focused {
+    box-shadow: 0 0 0 var(--valence-global-dimension-static-size-25)
+      var(--valence-rating-focus-ring-color);
+  }
+
+  &:hover {
+    .Rating-icon {
+      /* Make all stars colored when the component is hovered */
+      color: var(--valence-rating-icon-color-selected);
+
+      &:hover {
+        /* The icon that's actually hovered is darker */
+        color: var(--valence-rating-icon-color-hover);
+      }
+
+      &:active {
+        /* The icon that's actually hovered is darker */
+        color: var(--valence-rating-icon-color-down);
+      }
+
+      /* Show which star is currently selected */
+      &.is-currentValue {
+        &:after {
+          /* Match the color of the star */
+          background: currentColor;
+        }
+      }
+    }
+  }
+}
+
+.Rating-icon {
+  color: var(--valence-rating-icon-color);
+
+  &.is-selected {
+    color: var(--valence-alias-icon-color-selected);
+  }
+
+  &:hover {
+    /* All stars following the hovered star */
+    & ~ .Rating-icon {
+      color: var(--valence-rating-icon-color);
+    }
+  }
+}
+
+.Rating--quiet {
+  .Rating-icon {
+    color: var(--valence-rating-quiet-icon-color);
+
+    &.is-selected {
+      color: var(--valence-rating-quiet-icon-color-selected);
+    }
+  }
+
+  &:hover {
+    .Rating-icon {
+      /* Make all stars selected when the component is hovered */
+      color: var(--valence-rating-quiet-icon-color-selected);
+
+      &:hover {
+        /* The icon that's actually hovered is darker */
+        color: var(--valence-rating-quiet-icon-color-hover);
+      }
+
+      &:active {
+        color: var(--valence-rating-quiet-icon-color-down);
+      }
+    }
+  }
+}
+
+/* Disabled */
+.Rating {
+  &.is-disabled {
+    .Rating-icon {
+      color: var(--valence-rating-icon-color-disabled);
+
+      &.is-selected {
+        color: var(--valence-rating-icon-color-disabled);
+      }
+    }
+  }
+}
