@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef } from "react";
+import { forwardRef, useRef } from "react";
 
 // @react-aria https://react-spectrum.adobe.com/react-aria/
 import { filterDOMProps, mergeProps } from "@react-aria/utils";
@@ -62,7 +62,7 @@ function AccordionItem<T>(props: AccordionItemProps<T>) {
   props = useProviderProps(props);
   let ref = useRef<HTMLButtonElement>();
   let { state, item } = props;
-  
+
   let { buttonProps, regionProps } = useAccordionItem<T>(props, state, ref);
   let isOpen = state.expandedKeys.has(item.key);
   let isDisabled = state.disabledKeys.has(item.key);

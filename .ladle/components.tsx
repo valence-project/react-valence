@@ -4,6 +4,8 @@ import React from 'react';
 import { Provider as ValenceProvider } from "@react-valence/provider/src";
 import { theme } from "@react-valence/theme-default/src";
 
+import { Well } from "@react-valence/well"; 
+
 import styles from './styles.module.scss';
 
 export const Provider: GlobalProvider = ({ children, globalState }) => (
