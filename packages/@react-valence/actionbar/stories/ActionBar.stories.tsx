@@ -143,5 +143,5 @@ export const DefaultExpandedKeys: Story<any> = (
       </ActionBarContainer>
   );
 };
-DefaultExpandedKeys.storyName = "ActionBar Example";
+DefaultExpandedKeys.storyName = "Example";
 DefaultExpandedKeys.args = {  isEmphasized: true, tableWidth: "100vw", isQuiet: false, onAction: action('onAction') };
