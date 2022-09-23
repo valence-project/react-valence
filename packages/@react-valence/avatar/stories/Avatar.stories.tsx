@@ -6,8 +6,8 @@ import { Provider} from "@react-valence/provider";
 import { theme } from "@react-valence/theme-default";
 import { Meta } from "@types-valence/shared";
 
-const SRC_URL_1 = "https://i.imgur.com/7OJui2d.png";
-const SRC_URL_2 = "https://i.imgur.com/7OJui2d.png";
+const SRC_URL_1 = "https://i.imgur.com/wpc67V5.png";
+const SRC_URL_2 = "https://i.imgur.com/wpc67V5.png";
 
 export default {
   title: "Avatar",
