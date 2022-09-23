@@ -26,10 +26,16 @@ function ActionBarContainer(
 
   return (
     <div
-      {...filterDOMProps(props)}
-      {...styleProps}
-      ref={domRef}
-      className={classNames(styles, "ActionBarContainer", styleProps.className)}
+      {...{
+        ...filterDOMProps(props),
+        ...styleProps,
+        ref: domRef,
+        className: classNames(
+          styles,
+          "ActionBarContainer",
+          styleProps.className
+        ),
+      }}
     >
       {children}
     </div>
