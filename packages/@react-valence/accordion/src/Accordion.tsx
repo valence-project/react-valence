@@ -29,7 +29,6 @@ function Accordion<T extends object>(
   props: ValenceAccordionProps<T>,
   ref: DOMRef<HTMLDivElement>
 ) {
-
   props = useProviderProps(props);
 
   let state = useTreeState<T>(props);
@@ -38,13 +37,15 @@ function Accordion<T extends object>(
   let { accordionProps } = useAccordion(props, state, domRef);
 
   return (
-    <div 
-      {...accordionProps}
-      {...filterDOMProps(props)}
-      {...styleProps}
-      ref={domRef}
-      className={classNames(styles, "Accordion", styleProps.className)}
-      >
+    <div
+      {...{
+        ...accordionProps,
+        ...filterDOMProps(props),
+        ...styleProps,
+        ref: domRef,
+        className: classNames(styles, "Accordion", styleProps.className),
+      }}
+    >
       {[...state.collection].map((item) => (
         <AccordionItem<T> {...{ key: item.key, item, state }} />
       ))}
@@ -58,10 +59,10 @@ interface AccordionItemProps<T> {
 }
 
 function AccordionItem<T>(props: AccordionItemProps<T>) {
-
   props = useProviderProps(props);
   let ref = useRef<HTMLButtonElement>();
-  let { state, item } = props; 1
+  let { state, item } = props;
+  
   let { buttonProps, regionProps } = useAccordionItem<T>(props, state, ref);
   let isOpen = state.expandedKeys.has(item.key);
   let isDisabled = state.disabledKeys.has(item.key);
@@ -69,36 +70,46 @@ function AccordionItem<T>(props: AccordionItemProps<T>) {
   let { direction } = useLocale();
 
   return (
-    <div className={classNames(styles, "Accordion-item", {
-      "is-open": isOpen,
-      "is-disabled": isDisabled,
-    })}>
+    <div
+      {...{
+        className: classNames(styles, "Accordion-item", {
+          "is-open": isOpen,
+          "is-disabled": isDisabled,
+        }),
+      }}
+    >
       <h3 className={styles["Accordion-itemHeading"]}>
-        <FocusRing focusRingClass={classNames(styles, "focus-ring")}
-          within >
+        <FocusRing focusRingClass={classNames(styles, "focus-ring")} within>
           <button
-            {...mergeProps(buttonProps, hoverProps)}
-            className={classNames(styles, "Accordion-itemHeader", {
-              "is-hovered": isHovered,
-            })}
-            ref={ref}>
+            {...{
+              ...mergeProps(buttonProps, hoverProps),
+              className: classNames(styles, "Accordion-itemHeader", {
+                "is-hovered": isHovered,
+              }),
+              ref,
+            }}
+          >
             {direction === "ltr" ? (
               <CaretRightFill
                 UNSAFE_className={styles["Accordion-itemIndicator"]}
-                aria-hidden="true"/>
+                aria-hidden="true"
+              />
             ) : (
               <CaretLeftFill
                 UNSAFE_className={styles["Accordion-itemIndicator"]}
-                aria-hidden="true"/>
+                aria-hidden="true"
+              />
             )}
-            { item.props.title }
+            {item.props.title}
           </button>
         </FocusRing>
       </h3>
-      <div {...{
-        ...regionProps,
-        className: classNames(styles, "Accordion-itemContent")
-      }}>
+      <div
+        {...{
+          ...regionProps,
+          className: classNames(styles, "Accordion-itemContent"),
+        }}
+      >
         {item.props.children}
       </div>
     </div>
