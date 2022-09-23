@@ -20,7 +20,7 @@ interface Story<T> extends _Story<T> {
 }
 
 export default {
-  title: "Accordion",
+  title: "Accordion (Alpha)",
   component: Accordion,
 };
 

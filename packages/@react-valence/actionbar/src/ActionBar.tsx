@@ -84,50 +84,48 @@ function ActionBarInner<T>(
   return (
     <FocusScope restoreFocus>
       <div
-        {...filterDOMProps(props)}
-        {...styleProps}
-        {...keyboardProps}
-        ref={domRef}
-        className={classNames(
-          styles,
-          "ActionBar",
-          {
-            "ActionBar--emphasized": isEmphasized,
-            "is-open": isOpen,
-          },
-          styleProps.className
-        )}
+        {...{
+          ...filterDOMProps(props),
+          ...styleProps,
+          ...keyboardProps,
+          ref: domRef,
+          className: classNames(
+            styles,
+            "ActionBar",
+            {
+              "ActionBar--emphasized": isEmphasized,
+              "is-open": isOpen,
+            },
+            styleProps.className
+          ),
+        }}
       >
         <div className={classNames(styles, "ActionBar-bar")}>
           <ActionGroup
-            aria-label={stringFormatter.format("actions")}
-            isQuiet
-            staticColor={isEmphasized ? "white" : undefined}
-            overflowMode="collapse"
-            buttonLabelBehavior="collapse"
-            onAction={onAction}
-            UNSAFE_className={classNames(
-              styles,
-              "ActionBar-actionGroup"
-            )}
+            {...{
+              "aria-label": stringFormatter.format("actions"),
+              isQuiet: true,
+              staticColor: isEmphasized ? "white" : undefined,
+              overflowMode: "collapse",
+              buttonLabelBehavior: "collapse",
+              onAction: onAction,
+              UNSAFE_className: classNames(styles, "ActionBar-actionGroup"),
+            }}
           >
             {children}
           </ActionGroup>
           <ActionButton
-            gridArea="clear"
-            aria-label={stringFormatter.format("clearSelection")}
-            onPress={() => onClearSelection()}
-            isQuiet
-            staticColor={isEmphasized ? "white" : undefined}
+            {...{
+              gridArea: "clear",
+              "aria-label": stringFormatter.format("clearSelection"),
+              onPress: () => onClearSelection(),
+              isQuiet: true,
+              staticColor: isEmphasized ? "white" : undefined,
+            }}
           >
             <Close />
           </ActionButton>
-          <Text
-            UNSAFE_className={classNames(
-              styles,
-              "ActionBar-selectedCount"
-            )}
-          >
+          <Text UNSAFE_className={styles["ActionBar-selectedCount"]}>
             {lastCount.current === "all"
               ? stringFormatter.format("selectedAll")
               : stringFormatter.format("selected", {
