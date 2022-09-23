@@ -203,7 +203,7 @@ const SearchAutocompleteButton = React.forwardRef(
 
     if (icon) {
       icon = React.cloneElement(icon, {
-        UNSAFE_className: classNames(textfieldStyles, "valence-Textfield-icon"),
+        UNSAFE_className: classNames(textfieldStyles, "Textfield-icon"),
         size: "S",
       });
     }
@@ -217,7 +217,7 @@ const SearchAutocompleteButton = React.forwardRef(
         preventFocus
         aria-label={stringFormatter.format("clear")}
         excludeFromTabOrder
-        UNSAFE_className={classNames(searchStyles, "valence-ClearButton")}
+        UNSAFE_className={classNames(searchStyles, "ClearButton")}
         isDisabled={isDisabled}
       />
     );
@@ -225,8 +225,8 @@ const SearchAutocompleteButton = React.forwardRef(
     let validation = React.cloneElement(validationIcon, {
       UNSAFE_className: classNames(
         textfieldStyles,
-        "valence-Textfield-validationIcon",
-        classNames(styles, "valence-InputGroup-input-validationIcon")
+        "Textfield-validationIcon",
+        classNames(styles, "InputGroup-input-validationIcon")
       ),
     });
 
@@ -256,11 +256,11 @@ const SearchAutocompleteButton = React.forwardRef(
         style={{ ...style, outline: "none" }}
         className={classNames(
           styles,
-          "valence-InputGroup",
+          "InputGroup",
           {
-            "valence-InputGroup--quiet": isQuiet,
+            "InputGroup--quiet": isQuiet,
             "is-disabled": isDisabled,
-            "valence-InputGroup--invalid": validationState === "invalid",
+            "InputGroup--invalid": validationState === "invalid",
             "is-hovered": isHovered,
             "is-focused": isFocused,
             "focus-ring": isFocusVisible,
@@ -272,26 +272,26 @@ const SearchAutocompleteButton = React.forwardRef(
         <div
           className={classNames(
             textfieldStyles,
-            "valence-Textfield",
+            "Textfield",
             {
-              "valence-Textfield--invalid": validationState === "invalid",
-              "valence-Textfield--valid": validationState === "valid",
-              "valence-Textfield--quiet": isQuiet,
+              "Textfield--invalid": validationState === "invalid",
+              "Textfield--valid": validationState === "valid",
+              "Textfield--quiet": isQuiet,
             },
-            classNames(searchStyles, "valence-Search", {
+            classNames(searchStyles, "Search", {
               "is-disabled": isDisabled,
               "is-quiet": isQuiet,
-              "valence-Search--invalid": validationState === "invalid",
-              "valence-Search--valid": validationState === "valid",
+              "Search--invalid": validationState === "invalid",
+              "Search--valid": validationState === "valid",
             })
           )}
         >
           <div
             className={classNames(
               textfieldStyles,
-              "valence-Textfield-input",
+              "Textfield-input",
               {
-                "valence-Textfield-inputIcon": !!icon,
+                "Textfield-inputIcon": !!icon,
                 "is-hovered": isHovered,
                 "is-placeholder": isPlaceholder,
                 "is-disabled": isDisabled,
@@ -299,7 +299,7 @@ const SearchAutocompleteButton = React.forwardRef(
                 "is-focused": isFocused,
                 "focus-ring": isFocusVisible,
               },
-              classNames(searchStyles, "valence-Search-input")
+              classNames(searchStyles, "Search-input")
             )}
           >
             {icon}
@@ -400,7 +400,7 @@ function SearchAutocompleteTray(props: SearchAutocompleteTrayProps) {
       preventFocus
       aria-label={stringFormatter.format("clear")}
       excludeFromTabOrder
-      UNSAFE_className={classNames(searchStyles, "valence-ClearButton")}
+      UNSAFE_className={classNames(searchStyles, "ClearButton")}
       isDisabled={isDisabled}
     />
   );
@@ -412,8 +412,8 @@ function SearchAutocompleteTray(props: SearchAutocompleteTrayProps) {
       isIndeterminate
       UNSAFE_className={classNames(
         searchStyles,
-        "valence-Search-circleLoader",
-        classNames(textfieldStyles, "valence-Textfield-circleLoader")
+        "Search-circleLoader",
+        classNames(textfieldStyles, "Textfield-circleLoader")
       )}
     />
   );
@@ -482,7 +482,7 @@ function SearchAutocompleteTray(props: SearchAutocompleteTrayProps) {
 
   if (icon) {
     icon = React.cloneElement(icon, {
-      UNSAFE_className: classNames(textfieldStyles, "valence-Textfield-icon"),
+      UNSAFE_className: classNames(textfieldStyles, "Textfield-icon"),
       size: "S",
     });
   }
@@ -514,21 +514,21 @@ function SearchAutocompleteTray(props: SearchAutocompleteTrayProps) {
           icon={icon}
           UNSAFE_className={classNames(
             searchStyles,
-            "valence-Search",
-            "valence-Textfield",
-            "valence-Search--loadable",
+            "Search",
+            "Textfield",
+            "Search--loadable",
             {
-              "valence-Search--invalid": validationState === "invalid",
-              "valence-Search--valid": validationState === "valid",
+              "Search--invalid": validationState === "invalid",
+              "Search--valid": validationState === "valid",
             },
             classNames(searchAutocompleteStyles, "tray-textfield", {
               "has-label": !!props.label,
             })
           )}
-          inputClassName={classNames(searchStyles, "valence-Search-input")}
+          inputClassName={classNames(searchStyles, "Search-input")}
           validationIconClassName={classNames(
             searchStyles,
-            "valence-Search-validationIcon"
+            "Search-validationIcon"
           )}
         />
         <ListBoxBase

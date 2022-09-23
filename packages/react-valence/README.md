@@ -1,4 +1,4 @@
-# [@valence-io/ui](https://github.com/valence-project/react-valence)
+# [react-valence](https://github.com/valence-project/react-valence)
 
 A component library for generating accesssible, progressive, and flexible user interfaces.
 

@@ -186,8 +186,8 @@ const SearchAutocompleteBase = React.forwardRef(function SearchAutocompleteBase<
       <Popover
         isOpen={state.isOpen}
         UNSAFE_style={style}
-        UNSAFE_className={classNames(styles, "valence-InputGroup-popover", {
-          "valence-InputGroup-popover--quiet": isQuiet,
+        UNSAFE_className={classNames(styles, "InputGroup-popover", {
+          "InputGroup-popover--quiet": isQuiet,
         })}
         ref={popoverRef}
         placement={placement}
@@ -262,8 +262,8 @@ const SearchAutocompleteInput = React.forwardRef(
         isIndeterminate
         UNSAFE_className={classNames(
           textfieldStyles,
-          "valence-Textfield-circleLoader",
-          classNames(styles, "valence-InputGroup-input-circleLoader")
+          "Textfield-circleLoader",
+          classNames(styles, "InputGroup-input-circleLoader")
         )}
       />
     );
@@ -272,7 +272,7 @@ const SearchAutocompleteInput = React.forwardRef(
       <ClearButton
         {...clearButtonProps}
         preventFocus
-        UNSAFE_className={classNames(searchStyles, "valence-ClearButton")}
+        UNSAFE_className={classNames(searchStyles, "ClearButton")}
         isDisabled={isDisabled}
       />
     );
@@ -319,11 +319,11 @@ const SearchAutocompleteInput = React.forwardRef(
           style={style}
           className={classNames(
             styles,
-            "valence-InputGroup",
+            "InputGroup",
             {
-              "valence-InputGroup--quiet": isQuiet,
+              "InputGroup--quiet": isQuiet,
               "is-disabled": isDisabled,
-              "valence-InputGroup--invalid": validationState === "invalid",
+              "InputGroup--invalid": validationState === "invalid",
               "is-hovered": isHovered,
             },
             className
@@ -334,16 +334,16 @@ const SearchAutocompleteInput = React.forwardRef(
             inputRef={inputRef}
             UNSAFE_className={classNames(
               searchStyles,
-              "valence-Search",
-              "valence-Textfield",
+              "Search",
+              "Textfield",
               {
                 "is-disabled": isDisabled,
                 "is-quiet": isQuiet,
-                "valence-Search--invalid": validationState === "invalid",
-                "valence-Search--valid": validationState === "valid",
+                "Search--invalid": validationState === "invalid",
+                "Search--valid": validationState === "valid",
               }
             )}
-            inputClassName={classNames(searchStyles, "valence-Search-input")}
+            inputClassName={classNames(searchStyles, "Search-input")}
             isDisabled={isDisabled}
             isQuiet={isQuiet}
             validationState={validationState}
