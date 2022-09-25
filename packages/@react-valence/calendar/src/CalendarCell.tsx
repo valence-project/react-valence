@@ -85,33 +85,32 @@ export function CalendarCell({
   });
 
   return (
-    <td
-      {...cellProps}
-      className={classNames(styles, "Calendar-tableCell")}
-    >
+    <td {...{ ...cellProps, className: styles["Calendar-tableCell"] }}>
       <span
-        {...mergeProps(buttonProps, hoverProps, focusProps)}
-        ref={ref}
-        className={classNames(styles, "Calendar-date", {
-          "is-today": isToday(props.date, state.timeZone),
-          "is-selected": isSelected,
-          "is-focused": isFocused && isFocusVisible,
-          // Style disabled (i.e. out of min/max range), but selected dates as unavailable
-          // since it is more clear than trying to dim the selection.
-          "is-disabled": isDisabled && !isInvalid,
-          "is-unavailable": isUnavailable || (isInvalid && isDisabled),
-          "is-outsideMonth": !isSameMonth(props.date, currentMonth),
-          "is-range-start": isRangeStart,
-          "is-range-end": isRangeEnd,
-          "is-range-selection": isSelected && "highlightedRange" in state,
-          "is-selection-start": isSelectionStart,
-          "is-selection-end": isSelectionEnd,
-          "is-hovered": isHovered,
-          "is-pressed": isPressed && !state.isReadOnly,
-          "is-invalid": isInvalid,
-        })}
+        {...{
+          ...mergeProps(buttonProps, hoverProps, focusProps),
+          ref,
+          className: classNames(styles, "Calendar-date", {
+            "is-today": isToday(props.date, state.timeZone),
+            "is-selected": isSelected,
+            "is-focused": isFocused && isFocusVisible,
+            // Style disabled (i.e. out of min/max range), but selected dates as unavailable
+            // since it is more clear than trying to dim the selection.
+            "is-disabled": isDisabled && !isInvalid,
+            "is-unavailable": isUnavailable || (isInvalid && isDisabled),
+            "is-outsideMonth": !isSameMonth(props.date, currentMonth),
+            "is-range-start": isRangeStart,
+            "is-range-end": isRangeEnd,
+            "is-range-selection": isSelected && "highlightedRange" in state,
+            "is-selection-start": isSelectionStart,
+            "is-selection-end": isSelectionEnd,
+            "is-hovered": isHovered,
+            "is-pressed": isPressed && !state.isReadOnly,
+            "is-invalid": isInvalid,
+          }),
+        }}
       >
-        <span className={classNames(styles, "Calendar-dateText")}>
+        <span className={styles["Calendar-dateText"]}>
           <span>{formattedDate}</span>
         </span>
       </span>
