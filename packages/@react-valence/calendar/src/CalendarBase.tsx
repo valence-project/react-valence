@@ -78,15 +78,14 @@ export function CalendarBase<T extends CalendarState | RangeCalendarState>(
   for (let i = 0; i < visibleMonths; i++) {
     let d = currentMonth.add({ months: i });
     titles.push(
-      <div
-        key={i}
-        className={classNames(styles, "Calendar-monthHeader")}
-      >
+      <div {...{ key: i, className: styles["Calendar-monthHeader"] }}>
         {i === 0 && (
           <ActionButton
-            {...prevButtonProps}
-            UNSAFE_className={classNames(styles, "Calendar-prevMonth")}
-            isQuiet
+            {...{
+              ...prevButtonProps,
+              UNSAFE_className: styles["Calendar-prevMonth"],
+              isQuiet: true,
+            }}
           >
             {direction === "rtl" ? <ChevronRight /> : <ChevronLeft />}
           </ActionButton>
@@ -95,16 +94,17 @@ export function CalendarBase<T extends CalendarState | RangeCalendarState>(
           // We have a visually hidden heading describing the entire visible range,
           // and the calendar itself describes the individual month
           // so we don't need to repeat that here for screen reader users.
-          aria-hidden
-          className={classNames(styles, "Calendar-title")}
+          {...{ "aria-hidden": true, className: styles["Calendar-title"] }}
         >
           {monthDateFormatter.format(d.toDate(state.timeZone))}
         </h2>
         {i === visibleMonths - 1 && (
           <ActionButton
-            {...nextButtonProps}
-            UNSAFE_className={classNames(styles, "Calendar-nextMonth")}
-            isQuiet
+            {...{
+              ...nextButtonProps,
+              UNSAFE_className: styles["Calendar-nextMonth"],
+              isQuiet: true,
+            }}
           >
             {direction === "rtl" ? <ChevronLeft /> : <ChevronRight />}
           </ActionButton>
@@ -113,16 +113,18 @@ export function CalendarBase<T extends CalendarState | RangeCalendarState>(
     );
 
     calendars.push(
-      <CalendarMonth {...props} key={i} state={state} startDate={d} />
+      <CalendarMonth {...{ ...props, key: i, state, startDate: d }} />
     );
   }
 
   return (
     <div
-      {...styleProps}
-      {...calendarProps}
-      ref={ref}
-      className={classNames(styles, "Calendar", styleProps.className)}
+      {...{
+        ...styleProps,
+        ...calendarProps,
+        ref,
+        className: classNames(styles, "Calendar", styleProps.className),
+      }}
     >
       {/* Add a screen reader only description of the entire visible range rather than
        * a separate heading above each month grid. This is placed first in the DOM order
@@ -132,36 +134,35 @@ export function CalendarBase<T extends CalendarState | RangeCalendarState>(
       <VisuallyHidden>
         <h2>{calendarProps["aria-label"]}</h2>
       </VisuallyHidden>
-      <div className={classNames(styles, "Calendar-header")}>
-        {titles}
-      </div>
-      <div className={classNames(styles, "Calendar-months")}>
-        {calendars}
-      </div>
+      <div className={styles["Calendar-header"]}>{titles}</div>
+      <div className={styles["Calendar-months"]}>{calendars}</div>
       {/* For touch screen readers, add a visually hidden next button after the month grid
        * so it's easy to navigate after reaching the end without going all the way
        * back to the start of the month. */}
       <VisuallyHidden>
         <button
-          aria-label={nextButtonProps["aria-label"]}
-          disabled={nextButtonProps.isDisabled}
-          onClick={() => state.focusNextPage()}
-          tabIndex={-1}
+          {...{
+            "aria-label": nextButtonProps["aria-label"],
+            disabled: nextButtonProps.isDisabled,
+            onClick: () => state.focusNextPage(),
+            tabIndex: -1,
+          }}
         />
       </VisuallyHidden>
       {state.validationState === "invalid" && (
         <HelpText
-          showErrorIcon
-          errorMessage={
-            props.errorMessage ||
-            stringFormatter.format("invalidSelection", {
-              selectedCount: "highlightedRange" in state ? 2 : 1,
-            })
-          }
-          errorMessageProps={errorMessageProps}
-          validationState="invalid"
-          // Intentionally a global class name so it can be targeted in DatePicker CSS...
-          UNSAFE_className="Calendar-helpText"
+          {...{
+            showErrorIcon: true,
+            errorMessage:
+              props.errorMessage ||
+              stringFormatter.format("invalidSelection", {
+                selectedCount: "highlightedRange" in state ? 2 : 1,
+              }),
+            errorMessageProps,
+            validationState: "invalid",
+            // Intentionally a global class name so it can be targeted in DatePicker CSS...
+            UNSAFE_className: "Calendar-helpText",
+          }}
         />
       )}
     </div>
