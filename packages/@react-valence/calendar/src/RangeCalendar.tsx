@@ -54,13 +54,15 @@ function RangeCalendar<T extends DateValue>(
 
   return (
     <CalendarBase
-      {...props}
-      state={state}
-      calendarRef={domRef}
-      calendarProps={calendarProps}
-      prevButtonProps={prevButtonProps}
-      nextButtonProps={nextButtonProps}
-      errorMessageProps={errorMessageProps}
+      {...{
+        ...props,
+        state,
+        calendarRef: domRef,
+        calendarProps,
+        prevButtonProps,
+        nextButtonProps,
+        errorMessageProps,
+      }}
     />
   );
 }
