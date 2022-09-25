@@ -150,13 +150,15 @@ function Breadcrumbs<T>(props: ValenceBreadcrumbsProps<T>, ref: DOMRef) {
     let menuItem = (
       <BreadcrumbItem key="menu">
         <MenuTrigger>
-          <ActionButton aria-label="…" isQuiet isDisabled={isDisabled}>
+          <ActionButton {...{ "aria-label": "…", isQuiet: true, isDisabled }}>
             <Folder />
           </ActionButton>
           <Menu
-            selectionMode="single"
-            selectedKeys={[selectedKey]}
-            onAction={onMenuAction}
+            {...{
+              selectionMode: "single",
+              selectedKeys: [selectedKey],
+              onAction: onMenuAction,
+            }}
           >
             {childArray}
           </Menu>
@@ -185,16 +187,15 @@ function Breadcrumbs<T>(props: ValenceBreadcrumbsProps<T>, ref: DOMRef) {
     };
 
     return (
-      <li
-        key={index}
-        className={classNames(styles, "Breadcrumbs-item")}
-      >
+      <li key={index} className={styles["Breadcrumbs-item"]}>
         <BreadcrumbItem
-          key={key}
-          isCurrent={isCurrent}
-          isDisabled={isDisabled}
-          onPress={onPress}
-          autoFocus={isCurrent && autoFocusCurrent}
+          {...{
+            key,
+            isCurrent,
+            isDisabled,
+            onPress,
+            autoFocus: isCurrent && autoFocusCurrent,
+          }}
         >
           {child.props.children}
         </BreadcrumbItem>
@@ -203,21 +204,23 @@ function Breadcrumbs<T>(props: ValenceBreadcrumbsProps<T>, ref: DOMRef) {
   });
 
   return (
-    <nav {...styleProps} {...navProps} ref={domRef}>
+    <nav {...{ ...styleProps, ...navProps, ref: domRef }}>
       <ul
-        ref={listRef}
-        className={classNames(
-          styles,
-          "Breadcrumbs",
-          {
-            "Breadcrumbs--small": size === "S",
-            "Breadcrumbs--medium": size === "M",
-            "Breadcrumbs--multiline": isMultiline,
-            "Breadcrumbs--showRoot": showRoot,
-            "is-disabled": isDisabled,
-          },
-          styleProps.className
-        )}
+        {...{
+          ref: listRef,
+          className: classNames(
+            styles,
+            "Breadcrumbs",
+            {
+              "Breadcrumbs--small": size === "S",
+              "Breadcrumbs--medium": size === "M",
+              "Breadcrumbs--multiline": isMultiline,
+              "Breadcrumbs--showRoot": showRoot,
+              "is-disabled": isDisabled,
+            },
+            styleProps.className
+          ),
+        }}
       >
         {breadcrumbItems}
       </ul>
