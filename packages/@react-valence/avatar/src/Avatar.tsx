@@ -47,22 +47,24 @@ function Avatar(props: ValenceAvatarProps, ref: DOMRef<HTMLImageElement>) {
 
   return (
     <img
-      {...styleProps}
-      {...domProps}
-      alt={alt}
-      className={classNames(
-        styles,
-        "Avatar",
-        {
-          "is-disabled": isDisabled,
+      {...{
+        ...styleProps,
+        ...domProps,
+        alt,
+        className: classNames(
+          styles,
+          "Avatar",
+          {
+            "is-disabled": isDisabled,
+          },
+          styleProps.className
+        ),
+        ref: domRef,
+        src,
+        style: {
+          ...styleProps.style,
+          ...(sizeValue && { height: sizeValue, width: sizeValue }),
         },
-        styleProps.className
-      )}
-      ref={domRef}
-      src={src}
-      style={{
-        ...styleProps.style,
-        ...(sizeValue && { height: sizeValue, width: sizeValue }),
       }}
     />
   );
