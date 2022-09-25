@@ -173,43 +173,48 @@ const SearchAutocompleteBase = React.forwardRef(function SearchAutocompleteBase<
 
   return (
     <>
-      <Field {...props} labelProps={labelProps} ref={domRef}>
+      <Field {...{ ...props, labelProps, ref: domRef }}>
         <SearchAutocompleteInput
-          {...props}
-          isOpen={state.isOpen}
-          loadingState={loadingState}
-          inputProps={inputProps}
-          inputRef={inputRef}
-          clearButtonProps={clearButtonProps}
+          {...{
+            ...props,
+            isOpen: state.isOpen,
+            loadingState,
+            inputProps,
+            inputRef,
+            clearButtonProps,
+          }}
         />
       </Field>
       <Popover
-        isOpen={state.isOpen}
-        UNSAFE_style={style}
-        UNSAFE_className={classNames(styles, "InputGroup-popover", {
-          "InputGroup-popover--quiet": isQuiet,
-        })}
-        ref={popoverRef}
-        placement={placement}
-        hideArrow
-        isNonModal
-        isDismissable={false}
+        {...{
+          isOpen: state.isOpen,
+          UNSAFE_style: style,
+          UNSAFE_className: classNames(styles, "InputGroup-popover", {
+            "InputGroup-popover--quiet": isQuiet,
+          }),
+          ref: popoverRef,
+          placement,
+          hideArrow: true,
+          isNonModal: true,
+          isDismissable: false,
+        }}
       >
         <ListBoxBase
-          {...listBoxProps}
-          ref={listBoxRef}
-          disallowEmptySelection
-          autoFocus={state.focusStrategy}
-          shouldSelectOnPressUp
-          focusOnPointerEnter
-          layout={layout}
-          state={state}
-          shouldUseVirtualFocus
-          isLoading={loadingState === "loadingMore"}
-          onLoadMore={onLoadMore}
-          renderEmptyState={() =>
-            isAsync && <span>{stringFormatter.format("noResults")}</span>
-          }
+          {...{
+            ...listBoxProps,
+            ref: listBoxRef,
+            disallowEmptySelection: true,
+            autoFocus: state.focusStrategy,
+            shouldSelectOnPressUp: true,
+            focusOnPointerEnter: true,
+            layout,
+            state,
+            shouldUseVirtualFocus: true,
+            isLoading: loadingState === "loadingMore",
+            onLoadMore,
+            renderEmptyState: () =>
+              isAsync && <span>{stringFormatter.format("noResults")}</span>,
+          }}
         />
         <DismissButton onDismiss={() => state.close()} />
       </Popover>
@@ -257,23 +262,27 @@ const SearchAutocompleteInput = React.forwardRef(
 
     let loadingCircle = (
       <ProgressCircle
-        aria-label={stringFormatter.format("loading")}
-        size="S"
-        isIndeterminate
-        UNSAFE_className={classNames(
-          textfieldStyles,
-          "Textfield-circleLoader",
-          classNames(styles, "InputGroup-input-circleLoader")
-        )}
+        {...{
+          "aria-label": stringFormatter.format("loading"),
+          size: "S",
+          isIndeterminate: true,
+          UNSAFE_className: classNames(
+            textfieldStyles,
+            "Textfield-circleLoader",
+            classNames(styles, "InputGroup-input-circleLoader")
+          ),
+        }}
       />
     );
 
     let clearButton = (
       <ClearButton
-        {...clearButtonProps}
-        preventFocus
-        UNSAFE_className={classNames(searchStyles, "ClearButton")}
-        isDisabled={isDisabled}
+        {...{
+          ...clearButtonProps,
+          preventFocus: true,
+          UNSAFE_className: searchStyles["ClearButton"],
+          isDisabled,
+        }}
       />
     );
 
@@ -307,53 +316,60 @@ const SearchAutocompleteInput = React.forwardRef(
 
     return (
       <FocusRing
-        within
-        isTextInput
-        focusClass={classNames(styles, "is-focused")}
-        focusRingClass={classNames(styles, "focus-ring")}
-        autoFocus={autoFocus}
+        {...{
+          within: true,
+          isTextInput: true,
+          focusClass: styles["is-focused"],
+          focusRingClass: styles["focus-ring"],
+          autoFocus,
+        }}
       >
         <div
-          {...hoverProps}
-          ref={ref as RefObject<HTMLDivElement>}
-          style={style}
-          className={classNames(
-            styles,
-            "InputGroup",
-            {
-              "InputGroup--quiet": isQuiet,
-              "is-disabled": isDisabled,
-              "InputGroup--invalid": validationState === "invalid",
-              "is-hovered": isHovered,
-            },
-            className
-          )}
+          {...{
+            ...hoverProps,
+            ref: ref as RefObject<HTMLDivElement>,
+            style,
+            className: classNames(
+              styles,
+              "InputGroup",
+              {
+                "InputGroup--quiet": isQuiet,
+                "is-disabled": isDisabled,
+                "InputGroup--invalid": validationState === "invalid",
+                "is-hovered": isHovered,
+              },
+              className
+            ),
+          }}
         >
           <TextFieldBase
-            inputProps={inputProps}
-            inputRef={inputRef}
-            UNSAFE_className={classNames(
-              searchStyles,
-              "Search",
-              "Textfield",
-              {
-                "is-disabled": isDisabled,
-                "is-quiet": isQuiet,
-                "Search--invalid": validationState === "invalid",
-                "Search--valid": validationState === "valid",
-              }
-            )}
-            inputClassName={classNames(searchStyles, "Search-input")}
-            isDisabled={isDisabled}
-            isQuiet={isQuiet}
-            validationState={validationState}
-            isLoading={
-              showLoading &&
-              (isOpen || menuTrigger === "manual" || loadingState === "loading")
-            }
-            loadingIndicator={loadingState != null && loadingCircle}
-            icon={icon}
-            wrapperChildren={inputValue !== "" && !isReadOnly && clearButton}
+            {...{
+              inputProps,
+              inputRef,
+              UNSAFE_className: classNames(
+                searchStyles,
+                "Search",
+                "Textfield",
+                {
+                  "is-disabled": isDisabled,
+                  "is-quiet": isQuiet,
+                  "Search--invalid": validationState === "invalid",
+                  "Search--valid": validationState === "valid",
+                }
+              ),
+              inputClassName: searchStyles["Search-input"],
+              isDisabled,
+              isQuiet,
+              validationState,
+              isLoading:
+                showLoading &&
+                (isOpen ||
+                  menuTrigger === "manual" ||
+                  loadingState === "loading"),
+              loadingIndicator: loadingState != null && loadingCircle,
+              icon,
+              wrapperChildren: inputValue !== "" && !isReadOnly && clearButton,
+            }}
           />
         </div>
       </FocusRing>
