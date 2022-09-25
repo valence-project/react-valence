@@ -54,45 +54,39 @@ function ActionButton(
   );
 
   return (
-    <FocusRing
-      focusRingClass={classNames(styles, "focus-ring")}
-      autoFocus={autoFocus}
-    >
+    <FocusRing {...{ focusRingClass: styles["focus-ring"], autoFocus }}>
       <button
-        {...styleProps}
-        {...mergeProps(buttonProps, hoverProps)}
-        ref={domRef}
-        className={classNames(
-          styles,
-          "ActionButton",
-          {
-            "ActionButton--quiet": isQuiet,
-            "ActionButton--staticColor": !!staticColor,
-            "ActionButton--staticWhite": staticColor === "white",
-            "ActionButton--staticBlack": staticColor === "black",
-            "is-active": isPressed,
-            "is-disabled": isDisabled,
-            "is-hovered": isHovered,
-          },
-          styleProps.className
-        )}
+        {...{
+          ...styleProps,
+          ...mergeProps(buttonProps, hoverProps),
+          ref: domRef,
+          className: classNames(
+            styles,
+            "ActionButton",
+            {
+              "ActionButton--quiet": isQuiet,
+              "ActionButton--staticColor": !!staticColor,
+              "ActionButton--staticWhite": staticColor === "white",
+              "ActionButton--staticBlack": staticColor === "black",
+              "is-active": isPressed,
+              "is-disabled": isDisabled,
+              "is-hovered": isHovered,
+            },
+            styleProps.className
+          ),
+        }}
       >
         {holdAffordance && (
-          <CarrotRight
-            UNSAFE_className={classNames(styles, "ActionButton-hold")}
-          />
+          <CarrotRight UNSAFE_className={styles["ActionButton-hold"]} />
         )}
         <SlotProvider
           slots={{
             icon: {
               size: "S",
-              UNSAFE_className: classNames(styles, "Icon"),
+              UNSAFE_className: styles["Icon"],
             },
             text: {
-              UNSAFE_className: classNames(
-                styles,
-                "ActionButton-label"
-              ),
+              UNSAFE_className: styles["ActionButton-label"],
             },
           }}
         >
