@@ -561,20 +561,17 @@ function SearchAutocompleteTray(props: SearchAutocompleteTrayProps) {
             domProps: { onTouchStart, onTouchEnd },
             disallowEmptySelection: true,
             shouldSelectOnPressUp: true,
+            shouldUseVirtualFocus: true,
             focusOnPointerEnter: true,
             layout,
             state,
-            shouldUseVirtualFocus: true,
             renderEmptyState: () =>
               loadingState !== "loading" && (
                 <span className={searchAutocompleteStyles["no-results"]}>
                   {stringFormatter.format("noResults")}
                 </span>
               ),
-            UNSAFE_className: classNames(
-              searchAutocompleteStyles,
-              "tray-listbox"
-            ),
+            UNSAFE_className: searchAutocompleteStyles["tray-listbox"],
             ref: listBoxRef,
             onScroll,
             onLoadMore,
