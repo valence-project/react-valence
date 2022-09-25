@@ -63,24 +63,28 @@ function ClearButton(
   let ElementType = elementType;
   return (
     <FocusRing
-      focusRingClass={classNames(styles, "focus-ring", focusClassName)}
-      autoFocus={autoFocus}
+      {...{
+        focusRingClass: classNames(styles, "focus-ring", focusClassName),
+        autoFocus,
+      }}
     >
       <ElementType
-        {...styleProps}
-        {...mergeProps(buttonProps, hoverProps)}
-        ref={domRef}
-        className={classNames(
-          styles,
-          "ClearButton",
-          {
-            [`ClearButton--${variant}`]: variant,
-            "is-disabled": isDisabled,
-            "is-active": isPressed,
-            "is-hovered": isHovered,
-          },
-          styleProps.className
-        )}
+        {...{
+          ...styleProps,
+          ...mergeProps(buttonProps, hoverProps),
+          ref: domRef,
+          className: classNames(
+            styles,
+            "ClearButton",
+            {
+              [`ClearButton--${variant}`]: variant,
+              "is-disabled": isDisabled,
+              "is-active": isPressed,
+              "is-hovered": isHovered,
+            },
+            styleProps.className
+          ),
+        }}
       >
         {children}
       </ElementType>
