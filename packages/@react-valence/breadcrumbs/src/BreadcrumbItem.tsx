@@ -44,18 +44,16 @@ export function BreadcrumbItem(props: BreadcrumbItemProps) {
 
   return (
     <Fragment>
-      <FocusRing focusRingClass={classNames(styles, "focus-ring")}>
+      <FocusRing focusRingClass={styles["focus-ring"]}>
         {element}
       </FocusRing>
       {isCurrent === false && (
         <ChevronRight
-          UNSAFE_className={classNames(
-            styles,
-            "Breadcrumbs-itemSeparator",
-            {
+          {...{
+            UNSAFE_className: classNames(styles, "Breadcrumbs-itemSeparator", {
               "is-reversed": direction === "rtl",
-            }
-          )}
+            }),
+          }}
         />
       )}
     </Fragment>
