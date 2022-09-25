@@ -33,29 +33,26 @@ function LogicButton(
   let { styleProps } = useStyleProps(otherProps);
 
   return (
-    <FocusRing
-      focusRingClass={classNames(styles, "focus-ring")}
-      autoFocus={autoFocus}
-    >
+    <FocusRing {...{ focusRingClass: styles["focus-ring"], autoFocus }}>
       <button
-        {...styleProps}
-        {...mergeProps(buttonProps, hoverProps)}
-        ref={domRef}
-        className={classNames(
-          styles,
-          "LogicButton",
-          {
-            [`LogicButton--${variant}`]: variant,
-            "is-disabled": isDisabled,
-            "is-active": isPressed,
-            "is-hovered": isHovered,
-          },
-          styleProps.className
-        )}
+        {...{
+          ...styleProps,
+          ...mergeProps(buttonProps, hoverProps),
+          ref: domRef,
+          className: classNames(
+            styles,
+            "LogicButton",
+            {
+              [`LogicButton--${variant}`]: variant,
+              "is-disabled": isDisabled,
+              "is-active": isPressed,
+              "is-hovered": isHovered,
+            },
+            styleProps.className
+          ),
+        }}
       >
-        <span className={classNames(styles, "Button-label")}>
-          {children}
-        </span>
+        <span className={styles["Button-label"]}>{children}</span>
       </button>
     </FocusRing>
   );
