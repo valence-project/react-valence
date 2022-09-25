@@ -98,29 +98,30 @@ function ButtonGroup(
 
   return (
     <div
-      {...filterDOMProps(otherProps)}
-      {...styleProps}
-      ref={domRef}
-      className={classNames(
-        styles,
-        "ButtonGroup",
-        {
-          "ButtonGroup--vertical":
-            orientation === "vertical" || hasOverflow,
-          "ButtonGroup--alignEnd": align === "end",
-          "ButtonGroup--alignCenter": align === "center",
-        },
-        styleProps.className
-      )}
+      {...{
+        ...filterDOMProps(otherProps),
+        ...styleProps,
+        ref: domRef,
+        className: classNames(
+          styles,
+          "ButtonGroup",
+          {
+            "ButtonGroup--vertical": orientation === "vertical" || hasOverflow,
+            "ButtonGroup--alignEnd": align === "end",
+            "ButtonGroup--alignCenter": align === "center",
+          },
+          styleProps.className
+        ),
+      }}
     >
       <SlotProvider
         slots={{
           button: {
-            UNSAFE_className: classNames(styles, "ButtonGroup-Button"),
+            UNSAFE_className: styles["ButtonGroup-Button"],
           },
         }}
       >
-        <Provider isDisabled={isDisabled}>{children}</Provider>
+        <Provider {...{ isDisabled }}>{children}</Provider>
       </SlotProvider>
     </div>
   );
