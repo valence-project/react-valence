@@ -111,42 +111,50 @@ export const MobileSearchAutocomplete = React.forwardRef(
     return (
       <>
         <Field
-          {...props}
-          labelProps={labelProps}
-          elementType="span"
-          ref={domRef}
-          includeNecessityIndicatorInAccessibilityName
+          {...{
+            ...props,
+            labelProps,
+            elementType: "span",
+            ref: domRef,
+            includeNecessityIndicatorInAccessibilityName: true,
+          }}
         >
           <SearchAutocompleteButton
-            {...mergeProps(triggerProps, fieldProps, {
-              autoFocus: props.autoFocus,
-              icon: props.icon,
-            })}
-            ref={buttonRef}
-            isQuiet={isQuiet}
-            isDisabled={isDisabled}
-            isReadOnly={isReadOnly}
-            isPlaceholder={!state.inputValue}
-            validationState={validationState}
-            inputValue={state.inputValue}
-            clearInput={() => state.setInputValue("")}
-            onPress={() => !isReadOnly && state.open(null, "manual")}
+            {...{
+              ...mergeProps(triggerProps, fieldProps, {
+                autoFocus: props.autoFocus,
+                icon: props.icon,
+              }),
+              ref: buttonRef,
+              isQuiet,
+              isDisabled,
+              isReadOnly,
+              isPlaceholder: !state.inputValue,
+              validationState,
+              inputValue: state.inputValue,
+              clearInput: () => state.setInputValue(""),
+              onPress: () => !isReadOnly && state.open(null, "manual"),
+            }}
           >
             {state.inputValue || props.placeholder || ""}
           </SearchAutocompleteButton>
         </Field>
         <Tray
-          isOpen={state.isOpen}
-          onClose={onClose}
-          isFixedHeight
-          isNonModal
-          {...overlayProps}
+          {...{
+            ...overlayProps,
+            isOpen: state.isOpen,
+            onClose,
+            isFixedHeight: true,
+            isNonModal: true,
+          }}
         >
           <SearchAutocompleteTray
-            {...props}
-            onClose={onClose}
-            overlayProps={overlayProps}
-            state={state}
+            {...{
+              ...props,
+              onClose,
+              overlayProps,
+              state,
+            }}
           />
         </Tray>
       </>
@@ -194,8 +202,10 @@ const SearchAutocompleteButton = React.forwardRef(
     let validationIcon =
       validationState === "invalid" ? (
         <AlertTriangle
-          id={invalidId}
-          aria-label={stringFormatter.format("invalid")}
+          {...{
+            id: invalidId,
+            "aria-label": stringFormatter.format("invalid"),
+          }}
         />
       ) : (
         <Check />
@@ -203,22 +213,24 @@ const SearchAutocompleteButton = React.forwardRef(
 
     if (icon) {
       icon = React.cloneElement(icon, {
-        UNSAFE_className: classNames(textfieldStyles, "Textfield-icon"),
+        UNSAFE_className: textfieldStyles["Textfield-icon"],
         size: "S",
       });
     }
 
     let clearButton = (
       <ClearButton
-        onPress={(e) => {
-          clearInput();
-          props.onPress(e);
+        {...{
+          onPress: (e) => {
+            clearInput();
+            props.onPress(e);
+          },
+          preventFocus: true,
+          "aria-label": stringFormatter.format("clear"),
+          excludeFromTabOrder: true,
+          UNSAFE_className: searchStyles["ClearButton"],
+          isDisabled,
         }}
-        preventFocus
-        aria-label={stringFormatter.format("clear")}
-        excludeFromTabOrder
-        UNSAFE_className={classNames(searchStyles, "ClearButton")}
-        isDisabled={isDisabled}
       />
     );
 
@@ -250,62 +262,70 @@ const SearchAutocompleteButton = React.forwardRef(
 
     return (
       <div
-        {...mergeProps(hoverProps, focusProps, buttonProps)}
-        aria-haspopup="dialog"
-        ref={ref as RefObject<HTMLDivElement>}
-        style={{ ...style, outline: "none" }}
-        className={classNames(
-          styles,
-          "InputGroup",
-          {
-            "InputGroup--quiet": isQuiet,
-            "is-disabled": isDisabled,
-            "InputGroup--invalid": validationState === "invalid",
-            "is-hovered": isHovered,
-            "is-focused": isFocused,
-            "focus-ring": isFocusVisible,
-          },
-          classNames(searchAutocompleteStyles, "mobile-searchautocomplete"),
-          className
-        )}
+        {...{
+          ...mergeProps(hoverProps, focusProps, buttonProps),
+          "aria-haspopup": "dialog",
+          ref: ref as RefObject<HTMLDivElement>,
+          style: { ...style, outline: "none" },
+          className: classNames(
+            styles,
+            "InputGroup",
+            {
+              "InputGroup--quiet": isQuiet,
+              "is-disabled": isDisabled,
+              "InputGroup--invalid": validationState === "invalid",
+              "is-hovered": isHovered,
+              "is-focused": isFocused,
+              "focus-ring": isFocusVisible,
+            },
+            classNames(searchAutocompleteStyles, "mobile-searchautocomplete"),
+            className
+          ),
+        }}
       >
         <div
-          className={classNames(
-            textfieldStyles,
-            "Textfield",
-            {
-              "Textfield--invalid": validationState === "invalid",
-              "Textfield--valid": validationState === "valid",
-              "Textfield--quiet": isQuiet,
-            },
-            classNames(searchStyles, "Search", {
-              "is-disabled": isDisabled,
-              "is-quiet": isQuiet,
-              "Search--invalid": validationState === "invalid",
-              "Search--valid": validationState === "valid",
-            })
-          )}
-        >
-          <div
-            className={classNames(
+          {...{
+            className: classNames(
               textfieldStyles,
-              "Textfield-input",
+              "Textfield",
               {
-                "Textfield-inputIcon": !!icon,
-                "is-hovered": isHovered,
-                "is-placeholder": isPlaceholder,
+                "Textfield--invalid": validationState === "invalid",
+                "Textfield--valid": validationState === "valid",
+                "Textfield--quiet": isQuiet,
+              },
+              classNames(searchStyles, "Search", {
                 "is-disabled": isDisabled,
                 "is-quiet": isQuiet,
-                "is-focused": isFocused,
-                "focus-ring": isFocusVisible,
-              },
-              classNames(searchStyles, "Search-input")
-            )}
+                "Search--invalid": validationState === "invalid",
+                "Search--valid": validationState === "valid",
+              })
+            ),
+          }}
+        >
+          <div
+            {...{
+              className: classNames(
+                textfieldStyles,
+                "Textfield-input",
+                {
+                  "Textfield-inputIcon": !!icon,
+                  "is-hovered": isHovered,
+                  "is-placeholder": isPlaceholder,
+                  "is-disabled": isDisabled,
+                  "is-quiet": isQuiet,
+                  "is-focused": isFocused,
+                  "focus-ring": isFocusVisible,
+                },
+                classNames(searchStyles, "Search-input")
+              ),
+            }}
           >
             {icon}
             <span
-              id={valueId}
-              className={classNames(searchAutocompleteStyles, "mobile-value")}
+              {...{
+                id: valueId,
+                className: searchAutocompleteStyles["mobile-value"],
+              }}
             >
               {children}
             </span>
@@ -396,25 +416,29 @@ function SearchAutocompleteTray(props: SearchAutocompleteTrayProps) {
 
   let clearButton = (
     <ClearButton
-      {...clearButtonProps}
-      preventFocus
-      aria-label={stringFormatter.format("clear")}
-      excludeFromTabOrder
-      UNSAFE_className={classNames(searchStyles, "ClearButton")}
-      isDisabled={isDisabled}
+      {...{
+        ...clearButtonProps,
+        preventFocus: true,
+        "aria-label": stringFormatter.format("clear"),
+        excludeFromTabOrder: true,
+        UNSAFE_className: classNames(searchStyles, "ClearButton"),
+        isDisabled,
+      }}
     />
   );
 
   let loadingCircle = (
     <ProgressCircle
-      aria-label={stringFormatter.format("loading")}
-      size="S"
-      isIndeterminate
-      UNSAFE_className={classNames(
-        searchStyles,
-        "Search-circleLoader",
-        classNames(textfieldStyles, "Textfield-circleLoader")
-      )}
+      {...{
+        "aria-label": stringFormatter.format("loading"),
+        size: "S",
+        isIndeterminate: true,
+        UNSAFE_className: classNames(
+          searchStyles,
+          "Search-circleLoader",
+          classNames(textfieldStyles, "Textfield-circleLoader")
+        ),
+      }}
     />
   );
 
@@ -490,75 +514,73 @@ function SearchAutocompleteTray(props: SearchAutocompleteTrayProps) {
   return (
     <FocusScope restoreFocus contain>
       <div
-        {...mergeProps(overlayProps, dialogProps)}
-        ref={popoverRef}
-        className={classNames(searchAutocompleteStyles, "tray-dialog")}
+        {...{
+          ...mergeProps(overlayProps, dialogProps),
+          ref: popoverRef,
+          className: classNames(searchAutocompleteStyles, "tray-dialog"),
+        }}
       >
         <DismissButton onDismiss={onClose} />
         <TextFieldBase
-          label={label}
-          labelProps={labelProps}
-          inputProps={{ ...inputProps, onKeyDown }}
-          inputRef={inputRef}
-          isDisabled={isDisabled}
-          isLoading={showLoading && loadingState === "filtering"}
-          loadingIndicator={loadingState != null && loadingCircle}
-          validationState={validationState}
-          wrapperChildren={
-            (state.inputValue !== "" ||
-              loadingState === "filtering" ||
-              validationState != null) &&
-            !props.isReadOnly &&
-            clearButton
-          }
-          icon={icon}
-          UNSAFE_className={classNames(
-            searchStyles,
-            "Search",
-            "Textfield",
-            "Search--loadable",
-            {
-              "Search--invalid": validationState === "invalid",
-              "Search--valid": validationState === "valid",
-            },
-            classNames(searchAutocompleteStyles, "tray-textfield", {
-              "has-label": !!props.label,
-            })
-          )}
-          inputClassName={classNames(searchStyles, "Search-input")}
-          validationIconClassName={classNames(
-            searchStyles,
-            "Search-validationIcon"
-          )}
+          {...{
+            label,
+            labelProps,
+            inputProps: { ...inputProps, onKeyDown },
+            inputRef,
+            isDisabled,
+            isLoading: showLoading && loadingState === "filtering",
+            loadingIndicator: loadingState != null && loadingCircle,
+            validationState,
+            wrapperChildren:
+              (state.inputValue !== "" ||
+                loadingState === "filtering" ||
+                validationState != null) &&
+              !props.isReadOnly &&
+              clearButton,
+            icon,
+            UNSAFE_className: classNames(
+              searchStyles,
+              "Search",
+              "Textfield",
+              "Search--loadable",
+              {
+                "Search--invalid": validationState === "invalid",
+                "Search--valid": validationState === "valid",
+              },
+              classNames(searchAutocompleteStyles, "tray-textfield", {
+                "has-label": !!props.label,
+              })
+            ),
+            inputClassName: searchStyles["Search-input"],
+            validationIconClassName: searchStyles["Search-validationIcon"],
+          }}
         />
         <ListBoxBase
-          {...listBoxProps}
-          domProps={{ onTouchStart, onTouchEnd }}
-          disallowEmptySelection
-          shouldSelectOnPressUp
-          focusOnPointerEnter
-          layout={layout}
-          state={state}
-          shouldUseVirtualFocus
-          renderEmptyState={() =>
-            loadingState !== "loading" && (
-              <span
-                className={classNames(searchAutocompleteStyles, "no-results")}
-              >
-                {stringFormatter.format("noResults")}
-              </span>
-            )
-          }
-          UNSAFE_className={classNames(
-            searchAutocompleteStyles,
-            "tray-listbox"
-          )}
-          ref={listBoxRef}
-          onScroll={onScroll}
-          onLoadMore={onLoadMore}
-          isLoading={
-            loadingState === "loading" || loadingState === "loadingMore"
-          }
+          {...{
+            ...listBoxProps,
+            domProps: { onTouchStart, onTouchEnd },
+            disallowEmptySelection: true,
+            shouldSelectOnPressUp: true,
+            focusOnPointerEnter: true,
+            layout,
+            state,
+            shouldUseVirtualFocus: true,
+            renderEmptyState: () =>
+              loadingState !== "loading" && (
+                <span className={searchAutocompleteStyles["no-results"]}>
+                  {stringFormatter.format("noResults")}
+                </span>
+              ),
+            UNSAFE_className: classNames(
+              searchAutocompleteStyles,
+              "tray-listbox"
+            ),
+            ref: listBoxRef,
+            onScroll,
+            onLoadMore,
+            isLoading:
+              loadingState === "loading" || loadingState === "loadingMore",
+          }}
         />
         <DismissButton onDismiss={onClose} />
       </div>
