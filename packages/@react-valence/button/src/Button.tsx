@@ -50,7 +50,7 @@ function Button<T extends ElementType = "button">(
   let { hoverProps, isHovered } = useHover({ isDisabled });
   let { styleProps } = useStyleProps(otherProps);
   let hasLabel = useHasChild(`.${styles["Button-label"]}`, domRef);
-  let hasIcon = useHasChild(`.${styles['Icon']}`, domRef);
+  let hasIcon = useHasChild(`.${styles["Icon"]}`, domRef);
 
   let buttonVariant = variant;
   if (VARIANT_MAPPING[variant]) {
@@ -58,37 +58,35 @@ function Button<T extends ElementType = "button">(
   }
 
   return (
-    <FocusRing
-      focusRingClass={styles["focus-ring"]}
-      autoFocus={autoFocus}
-    >
+    <FocusRing {...{ focusRingClass: styles["focus-ring"], autoFocus }}>
       <ElementType
-        {...styleProps}
-        {...mergeProps(buttonProps, hoverProps)}
-        ref={domRef}
-        className={classNames(
-          styles,
-          'Button',
-          `Button--${buttonVariant}`,
-          {
-            'Button--quiet': isQuiet,
-            'Button--iconOnly': hasIcon && !hasLabel,
-            'is-disabled': isDisabled,
-            'is-active': isPressed,
-            'is-hovered': isHovered
-          },
-          styleProps.className
-        )
-      }
+        {...{
+          ...styleProps,
+          ...mergeProps(buttonProps, hoverProps),
+          ref: domRef,
+          className: classNames(
+            styles,
+            "Button",
+            `Button--${buttonVariant}`,
+            {
+              "Button--quiet": isQuiet,
+              "Button--iconOnly": hasIcon && !hasLabel,
+              "is-disabled": isDisabled,
+              "is-active": isPressed,
+              "is-hovered": isHovered,
+            },
+            styleProps.className
+          ),
+        }}
       >
         <SlotProvider
           slots={{
             icon: {
               size: "S",
-              UNSAFE_className: classNames(styles, "Icon"),
+              UNSAFE_className: styles["Icon"],
             },
             text: {
-              UNSAFE_className: classNames(styles, "Button-label"),
+              UNSAFE_className: styles["Button-label"],
             },
           }}
         >
