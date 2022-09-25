@@ -49,30 +49,34 @@ function FieldButton(props: FieldButtonProps, ref: FocusableRef) {
 
   return (
     <FocusRing
-      focusRingClass={classNames(styles, "focus-ring", focusRingClass)}
-      autoFocus={autoFocus}
+      {...{
+        focusRingClass: classNames(styles, "focus-ring", focusRingClass),
+        autoFocus,
+      }}
     >
       <button
-        {...mergeProps(buttonProps, hoverProps)}
-        ref={domRef}
-        className={classNames(
-          styles,
-          "FieldButton",
-          {
-            "FieldButton--quiet": isQuiet,
-            "is-active": isActive || isPressed,
-            "is-disabled": isDisabled,
-            "FieldButton--invalid": validationState === "invalid",
-            "is-hovered": isHovered,
-          },
-          styleProps.className
-        )}
+        {...{
+          ...mergeProps(buttonProps, hoverProps),
+          ref: domRef,
+          className: classNames(
+            styles,
+            "FieldButton",
+            {
+              "FieldButton--quiet": isQuiet,
+              "is-active": isActive || isPressed,
+              "is-disabled": isDisabled,
+              "FieldButton--invalid": validationState === "invalid",
+              "is-hovered": isHovered,
+            },
+            styleProps.className
+          ),
+        }}
       >
         <SlotProvider
           slots={{
             icon: {
               size: "S",
-              UNSAFE_className: classNames(styles, "Icon"),
+              UNSAFE_className: styles["Icon"],
             },
           }}
         >
