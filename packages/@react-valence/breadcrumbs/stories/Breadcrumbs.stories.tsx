@@ -131,13 +131,49 @@ export default {
 
 export const Default: Story<ValenceBreadcrumbsProps<object>> = (args) =>
   (
+    <div
+      style={{
+        minWidth: "100px",
+        width: "300px",
+        padding: "10px",
+        resize: "horizontal",
+        overflow: "auto",
+        backgroundColor: "var(--valence-global-color-gray-50)",
+      }}
+    >
+      <Breadcrumbs {...args} onAction={action("onAction")}>
+        <Item key="Folder 1">The quick brown fox jumps over</Item>
+        <Item key="Folder 2">My Documents</Item>
+        <Item key="Folder 3">Kangaroos jump high</Item>
+        <Item key="Folder 4">Koalas are very cute</Item>
+        <Item key="Folder 5">Wombat's noses</Item>
+        <Item key="Folder 6">Wattle trees</Item>
+        <Item key="Folder 7">April 7</Item>
+      </Breadcrumbs>
+    </div>
+  );
+
+  export const OnlyOneItem: Story<ValenceBreadcrumbsProps<object>> = (args) =>
+  (
     <Breadcrumbs {...args} onAction={action("onAction")}>
-      <Item key="Folder 1">The quick brown fox jumps over</Item>
-      <Item key="Folder 2">My Documents</Item>
-      <Item key="Folder 3">Kangaroos jump high</Item>
-      <Item key="Folder 4">Koalas are very cute</Item>
-      <Item key="Folder 5">Wombat's noses</Item>
-      <Item key="Folder 6">Wattle trees</Item>
-      <Item key="Folder 7">April 7</Item>
+      <Item key="1">One</Item>
     </Breadcrumbs>
   );
+  export const OnlyOneItemIsMultiline: Story<ValenceBreadcrumbsProps<object>> = (args) =>
+  (
+    <Breadcrumbs {...args} onAction={action("onAction")}>
+      <Item key="1">One</Item>
+    </Breadcrumbs>
+  );
+  OnlyOneItemIsMultiline.args = { isMultiline: true}
+
+  export const OnlyOneItemShowRoot: Story<ValenceBreadcrumbsProps<object>> = (args) =>
+  (
+    <Breadcrumbs {...args} onAction={action("onAction")}>
+      <Item key="1">One</Item>
+    </Breadcrumbs>
+  );
+  OnlyOneItemShowRoot.args = { showRoot: true}
+
+  export const AutoFocusCurrent = Default.bind({});
+  AutoFocusCurrent.args = { autoFocusCurrent: true }

@@ -27,7 +27,7 @@ Disabled.args = { isDisabled: true, src: SRC_URL_1 };
 Disabled.storyName = "isDisabled";
 
 export const WithAltText = AvatarTemplate.bind({});
-WithAltText.args = { alt: "Cartoon Character", src: SRC_URL_2 };
+WithAltText.args = { alt: "Generic Avatar Image", src: SRC_URL_2 };
 WithAltText.storyName = "with alt text";
 
 export const CustomSize = AvatarTemplate.bind({});

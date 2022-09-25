@@ -50,6 +50,7 @@ import ViewListIcon from "@valence-icons/ui/FileListFill";
 
 import { ValenceActionGroupProps } from "@types-valence/actiongroup";
 
+
 const docItems = [
   { children: "Document setup", name: "1" },
   { children: "Settings", name: "2" },
@@ -111,38 +112,40 @@ export default {
 };
 
 export const Default: Story<ValenceActionGroupProps<ItemType>> = (args) => (
-  <Flex direction="column" gap="size-200" width="100%" margin="size-100">
-    <ActionGroup onAction={action("onAction")} {...args}>
-      {docItems.map((itemProps) => (
-        <Item key={itemProps.name} textValue={itemProps.name} {...itemProps} />
-      ))}
-    </ActionGroup>
-    <ActionGroup onAction={action("onAction")} {...args}>
-      {docItems.map((itemProps) => {
-        let IconElement = iconMap[itemProps.children];
-        return (
-          <Item key={itemProps.name} textValue={itemProps.name}>
-            <Text>{itemProps.children}</Text>
-            <IconElement />
-          </Item>
-        );
-      })}
-    </ActionGroup>
-    <ActionGroup onAction={action("onAction")} {...args}>
-      {docItems.map((itemProps) => {
-        let IconElement = iconMap[itemProps.children];
-        return (
-          <Item
-            key={itemProps.name}
-            textValue={itemProps.name}
-            aria-label={itemProps.children}
-          >
-            <IconElement />
-          </Item>
-        );
-      })}
-    </ActionGroup>
-  </Flex>
+  <>
+    <Flex direction="column" gap="size-200" width="100%" margin="size-100">
+      <ActionGroup onAction={action("onAction")} {...args}>
+        {docItems.map((itemProps) => (
+          <Item key={itemProps.name} textValue={itemProps.name} {...itemProps} />
+        ))}
+      </ActionGroup>
+      <ActionGroup onAction={action("onAction")} {...args}>
+        {docItems.map((itemProps) => {
+          let IconElement = iconMap[itemProps.children];
+          return (
+            <Item key={itemProps.name} textValue={itemProps.name}>
+              <Text>{itemProps.children}</Text>
+              <IconElement />
+            </Item>
+          );
+        })}
+      </ActionGroup>
+      <ActionGroup onAction={action("onAction")} {...args}>
+        {docItems.map((itemProps) => {
+          let IconElement = iconMap[itemProps.children];
+          return (
+            <Item
+              key={itemProps.name}
+              textValue={itemProps.name}
+              aria-label={itemProps.children}
+            >
+              <IconElement />
+            </Item>
+          );
+        })}
+      </ActionGroup>
+    </Flex>
+  </>
 );
 
 export const Falsey: Story<ValenceActionGroupProps<ItemType>> = (args) => (

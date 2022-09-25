@@ -39,7 +39,6 @@ export function Alert(props: ValenceAlertProps) {
   } = props;
   let { styleProps } = useStyleProps(otherProps);
 
-  // let AlertIcon = ICONS[variant];
   let stringFormatter = useLocalizedStringFormatter(intlMessages);
   if (!iconAlt) {
     iconAlt = stringFormatter.format(variant);
@@ -48,23 +47,25 @@ export function Alert(props: ValenceAlertProps) {
 
   return (
     <div
-      {...styleProps}
-      className={classNames(
-        styles,
-        "Alert",
-        `Alert--${variant}`,
-        styleProps.className
-      )}
-      role="alert"
+      {...{
+        ...styleProps,
+        className: classNames(
+          styles,
+          "Alert",
+          `Alert--${variant}`,
+          styleProps.className
+        ),
+        role: "alert",
+      }}
     >
       <Icon
-        UNSAFE_className={classNames(styles, "Alert-icon")}
-        aria-label={iconAlt}
+        {...{
+          UNSAFE_className: styles["Alert-icon"],
+          "aria-label": iconAlt,
+        }}
       />
-      <div className={classNames(styles, "Alert-header")}>{title}</div>
-      <div className={classNames(styles, "Alert-content")}>
-        {children}
-      </div>
+      <div className={styles["Alert-header"]}>{title}</div>
+      <div className={styles["Alert-content"]}>{children}</div>
     </div>
   );
 }
