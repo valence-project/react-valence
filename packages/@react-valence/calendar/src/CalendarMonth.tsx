@@ -44,12 +44,10 @@ export function CalendarMonth(props: CalendarMonthProps) {
 
   return (
     <table
-      {...gridProps}
-      className={classNames(
-        styles,
-        "Calendar-body",
-        "Calendar-table"
-      )}
+      {...{
+        ...gridProps,
+        className: classNames(styles, "Calendar-body", "Calendar-table"),
+      }}
     >
       <thead {...headerProps}>
         <tr>
@@ -58,9 +56,7 @@ export function CalendarMonth(props: CalendarMonthProps) {
               key={index}
               className={classNames(styles, "Calendar-tableCell")}
             >
-              <span
-                className={classNames(styles, "Calendar-dayOfWeek")}
-              >
+              <span className={classNames(styles, "Calendar-dayOfWeek")}>
                 {day}
               </span>
             </th>
