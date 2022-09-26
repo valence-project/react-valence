@@ -19,7 +19,9 @@ function Heading(props: HeadingProps, ref: DOMRef<HTMLHeadingElement>) {
   let HeadingTag = `h${level}` as ElementType;
 
   return (
-    <HeadingTag {...filterDOMProps(otherProps)} {...styleProps} ref={domRef}>
+    <HeadingTag
+      {...{ ...filterDOMProps(otherProps), ...styleProps, ref: domRef }}
+    >
       {children}
     </HeadingTag>
   );

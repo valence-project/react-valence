@@ -17,7 +17,7 @@ function Text(props: TextProps, ref: DOMRef) {
   let domRef = useDOMRef(ref);
 
   return (
-    <span {...filterDOMProps(otherProps)} {...styleProps} ref={domRef}>
+    <span {...{ ...filterDOMProps(otherProps), ...styleProps, ref: domRef }}>
       {children}
     </span>
   );
