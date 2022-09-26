@@ -142,24 +142,21 @@ function SliderBase(props: SliderBaseProps, ref: FocusableRef<HTMLDivElement>) {
   }
 
   let labelNode = (
-    <label
-      className={classNames(styles, "Slider-label")}
-      {...labelProps}
-    >
+    <label {...{ className: styles["Slider-label"], ...labelProps }}>
       {props.label}
     </label>
   );
 
   let valueNode = (
     <output
-      {...outputProps}
-      className={classNames(styles, "Slider-value")}
-      style={
-        maxLabelLength && {
+      {...{
+        ...outputProps,
+        className: styles["Slider-value"],
+        style: maxLabelLength && {
           width: `${maxLabelLength}ch`,
           minWidth: `${maxLabelLength}ch`,
-        }
-      }
+        },
+      }}
     >
       {displayValue}
     </output>
@@ -167,38 +164,44 @@ function SliderBase(props: SliderBaseProps, ref: FocusableRef<HTMLDivElement>) {
 
   return (
     <div
-      ref={domRef}
-      className={classNames(
-        styles,
-        "Slider",
-        {
-          "Slider--positionTop": labelPosition === "top",
-          "Slider--positionSide": labelPosition === "side",
-          "is-disabled": isDisabled,
+      {...{
+        ref: domRef,
+        className: classNames(
+          styles,
+          "Slider",
+          {
+            "Slider--positionTop": labelPosition === "top",
+            "Slider--positionSide": labelPosition === "side",
+            "is-disabled": isDisabled,
+          },
+          classes,
+          styleProps.className
+        ),
+        style: {
+          ...style,
+          ...styleProps.style,
         },
-        classes,
-        styleProps.className
-      )}
-      style={{
-        ...style,
-        ...styleProps.style,
+        ...groupProps,
       }}
-      {...groupProps}
     >
       {props.label && (
         <div
-          className={classNames(styles, "Slider-labelContainer")}
-          role="presentation"
+          {...{
+            className: styles["Slider-labelContainer"],
+            role: "presentation",
+          }}
         >
           {props.label && labelNode}
           {labelPosition === "top" && showValueLabel && valueNode}
         </div>
       )}
       <div
-        className={classNames(styles, "Slider-controls")}
-        ref={trackRef}
-        {...trackProps}
-        role="presentation"
+        {...{
+          className: styles["Slider-controls"],
+          ref: trackRef,
+          ...trackProps,
+          role: "presentation",
+        }}
       >
         {children({
           trackRef,
@@ -208,8 +211,10 @@ function SliderBase(props: SliderBaseProps, ref: FocusableRef<HTMLDivElement>) {
       </div>
       {labelPosition === "side" && (
         <div
-          className={classNames(styles, "Slider-valueLabelContainer")}
-          role="presentation"
+          {...{
+            className: styles["Slider-valueLabelContainer"],
+            role: "presentation",
+          }}
         >
           {showValueLabel && valueNode}
         </div>

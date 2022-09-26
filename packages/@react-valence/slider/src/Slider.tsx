@@ -52,21 +52,22 @@ function Slider(props: ValenceSliderProps, ref: FocusableRef<HTMLDivElement>) {
 
   return (
     <SliderBase
-      {...baseProps}
-      ref={ref}
-      classes={{
-        "Slider--filled": isFilled && fillOffset == null,
+      {...{
+        ...baseProps,
+        ref,
+        classes: {
+          "Slider--filled": isFilled && fillOffset == null,
+        },
+        style:
+          // @ts-ignore
+          {
+            "--valence-slider-track-gradient":
+              trackGradient &&
+              `linear-gradient(to ${
+                direction === "ltr" ? "right" : "left"
+              }, ${trackGradient.join(", ")})`,
+          },
       }}
-      style={
-        // @ts-ignore
-        {
-          "--valence-slider-track-gradient":
-            trackGradient &&
-            `linear-gradient(to ${
-              direction === "ltr" ? "right" : "left"
-            }, ${trackGradient.join(", ")})`,
-        }
-      }
     >
       {({ trackRef, inputRef, state }: SliderBaseChildArguments) => {
         fillOffset =
@@ -80,35 +81,39 @@ function Slider(props: ValenceSliderProps, ref: FocusableRef<HTMLDivElement>) {
         let cssDirection = direction === "rtl" ? "right" : "left";
 
         let lowerTrack = (
+          // @ts-ignore it's the css variables in the style
           <div
-            className={classNames(styles, "Slider-track")}
-            style={{
-              width: `${state.getThumbPercent(0) * 100}%`,
-              // TODO not sure if it has advantages, but this could also be implemented as CSS calc():
-              // .track::before {
-              //    background-size: calc((1/ (var(--width)/100)) * 100%);
-              //    width: calc(var(--width) * 1%)M
-              // }
-              // @ts-ignore
-              "--valence-track-background-size": `${
-                (1 / state.getThumbPercent(0)) * 100
-              }%`,
-              "--valence-track-background-position":
-                direction === "ltr" ? "0" : "100%",
+            {...{
+              className: styles["Slider-track"],
+              style: {
+                width: `${state.getThumbPercent(0) * 100}%`,
+                // TODO not sure if it has advantages, but this could also be implemented as CSS calc():
+                // .track::before {
+                //    background-size: calc((1/ (var(--width)/100)) * 100%);
+                //    width: calc(var(--width) * 1%)M
+                // }
+                "--valence-track-background-size": `${
+                  (1 / state.getThumbPercent(0)) * 100
+                }%`,
+                "--valence-track-background-position":
+                  direction === "ltr" ? "0" : "100%",
+              },
             }}
           />
         );
         let upperTrack = (
+          // @ts-ignore
           <div
-            className={classNames(styles, "Slider-track")}
-            style={{
-              width: `${(1 - state.getThumbPercent(0)) * 100}%`,
-              // @ts-ignore
-              "--valence-track-background-size": `${
-                (1 / (1 - state.getThumbPercent(0))) * 100
-              }%`,
-              "--valence-track-background-position":
-                direction === "ltr" ? "100%" : "0",
+            {...{
+              className: styles["Slider-track"],
+              style: {
+                width: `${(1 - state.getThumbPercent(0)) * 100}%`,
+                "--valence-track-background-size": `${
+                  (1 / (1 - state.getThumbPercent(0))) * 100
+                }%`,
+                "--valence-track-background-position":
+                  direction === "ltr" ? "100%" : "0",
+              },
             }}
           />
         );
@@ -123,12 +128,14 @@ function Slider(props: ValenceSliderProps, ref: FocusableRef<HTMLDivElement>) {
             : state.getThumbPercent(0);
           filledTrack = (
             <div
-              className={classNames(styles, "Slider-fill", {
-                "Slider-fill--right": isRightOfOffset,
-              })}
-              style={{
-                [cssDirection]: `${offset * 100}%`,
-                width: `${Math.abs(width) * 100}%`,
+              {...{
+                className: classNames(styles, "Slider-fill", {
+                  "Slider-fill--right": isRightOfOffset,
+                }),
+                style: {
+                  [cssDirection]: `${offset * 100}%`,
+                  width: `${Math.abs(width) * 100}%`,
+                },
               }}
             />
           );
@@ -138,11 +145,13 @@ function Slider(props: ValenceSliderProps, ref: FocusableRef<HTMLDivElement>) {
           <>
             {lowerTrack}
             <SliderThumb
-              index={0}
-              isDisabled={props.isDisabled}
-              trackRef={trackRef}
-              inputRef={inputRef}
-              state={state}
+              {...{
+                index: 0,
+                isDisabled: props.isDisabled,
+                trackRef,
+                inputRef,
+                state,
+              }}
             />
             {upperTrack}
             {filledTrack}

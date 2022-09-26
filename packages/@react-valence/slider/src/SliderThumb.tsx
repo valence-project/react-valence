@@ -43,19 +43,23 @@ export function SliderThumb(props: SliderThumbProps) {
   return (
     <FocusRing within focusRingClass={classNames(styles, "is-focused")}>
       <div
-        className={classNames(styles, "Slider-handle", {
-          "is-hovered": isHovered,
-          "is-dragged": isDragging,
-          "is-tophandle": isFocused,
-        })}
-        {...mergeProps(thumbProps, hoverProps)}
-        role="presentation"
+        {...{
+          className: classNames(styles, "Slider-handle", {
+            "is-hovered": isHovered,
+            "is-dragged": isDragging,
+            "is-tophandle": isFocused,
+          }),
+          ...mergeProps(thumbProps, hoverProps),
+          role: "presentation",
+        }}
       >
         <VisuallyHidden>
           <input
-            className={classNames(styles, "Slider-input")}
-            ref={inputRef}
-            {...inputProps}
+            {...{
+              className: styles["Slider-input"],
+              ref: inputRef,
+              ...inputProps,
+            }}
           />
         </VisuallyHidden>
       </div>

@@ -64,39 +64,49 @@ function RangeSlider(
         return (
           <>
             <div
-              className={classNames(styles, "Slider-track")}
-              style={{ width: `${state.getThumbPercent(0) * 100}%` }}
-            />
-            <SliderThumb
-              index={0}
-              aria-label={stringFormatter.format("minimum")}
-              isDisabled={props.isDisabled}
-              trackRef={trackRef}
-              inputRef={inputRef}
-              state={state}
-            />
-            <div
-              className={classNames(styles, "Slider-track")}
-              style={{
-                [cssDirection]: `${state.getThumbPercent(0) * 100}%`,
-                width: `${
-                  Math.abs(
-                    state.getThumbPercent(0) - state.getThumbPercent(1)
-                  ) * 100
-                }%`,
+              {...{
+                className: styles["Slider-track"],
+                style: { width: `${state.getThumbPercent(0) * 100}%` },
               }}
             />
             <SliderThumb
-              index={1}
-              aria-label={stringFormatter.format("maximum")}
-              isDisabled={props.isDisabled}
-              trackRef={trackRef}
-              state={state}
+              {...{
+                index: 0,
+                "aria-label": stringFormatter.format("minimum"),
+                isDisabled: props.isDisabled,
+                trackRef,
+                inputRef,
+                state,
+              }}
             />
             <div
-              className={classNames(styles, "Slider-track")}
-              style={{
-                width: `${(1 - state.getThumbPercent(1)) * 100}%`,
+              {...{
+                className: styles["Slider-track"],
+                style: {
+                  [cssDirection]: `${state.getThumbPercent(0) * 100}%`,
+                  width: `${
+                    Math.abs(
+                      state.getThumbPercent(0) - state.getThumbPercent(1)
+                    ) * 100
+                  }%`,
+                },
+              }}
+            />
+            <SliderThumb
+              {...{
+                index: 1,
+                "aria-label": stringFormatter.format("maximum"),
+                isDisabled: props.isDisabled,
+                trackRef,
+                state,
+              }}
+            />
+            <div
+              {...{
+                className: styles["Slider-track"],
+                style: {
+                  width: `${(1 - state.getThumbPercent(1)) * 100}%`,
+                },
               }}
             />
           </>
