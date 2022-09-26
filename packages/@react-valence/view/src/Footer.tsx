@@ -22,7 +22,7 @@ function Footer(props: FooterProps, ref: DOMRef) {
   let domRef = useDOMRef(ref);
 
   return (
-    <footer {...filterDOMProps(otherProps)} {...styleProps} ref={domRef}>
+    <footer {...{ ...filterDOMProps(otherProps), ...styleProps, ref: domRef }}>
       <ClearSlots>{children}</ClearSlots>
     </footer>
   );
