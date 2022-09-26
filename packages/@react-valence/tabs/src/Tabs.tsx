@@ -143,15 +143,17 @@ function Tabs<T extends object>(
       }}
     >
       <div
-        {...filterDOMProps(otherProps)}
-        {...styleProps}
-        ref={domRef}
-        className={classNames(
-          styles,
-          "TabsPanel",
-          `TabsPanel--${orientation}`,
-          styleProps.className
-        )}
+        {...{
+          ...filterDOMProps(otherProps),
+          ...styleProps,
+          ref: domRef,
+          className: classNames(
+            styles,
+            "TabsPanel",
+            `TabsPanel--${orientation}`,
+            styleProps.className
+          ),
+        }}
       >
         {props.children}
       </div>
@@ -181,24 +183,26 @@ function Tab<T>(props: TabProps<T>) {
   delete domProps.id;
 
   return (
-    <FocusRing focusRingClass={classNames(styles, "focus-ring")}>
+    <FocusRing focusRingClass={styles["focus-ring"]}>
       <div
-        {...mergeProps(tabProps, hoverProps, domProps)}
-        ref={ref}
-        className={classNames(styles, "Tabs-item", {
-          "is-selected": isSelected,
-          "is-disabled": isDisabled,
-          "is-hovered": isHovered,
-        })}
+        {...{
+          ...mergeProps(tabProps, hoverProps, domProps),
+          ref,
+          className: classNames(styles, "Tabs-item", {
+            "is-selected": isSelected,
+            "is-disabled": isDisabled,
+            "is-hovered": isHovered,
+          }),
+        }}
       >
         <SlotProvider
           slots={{
             icon: {
               size: "S",
-              UNSAFE_className: classNames(styles, "Icon"),
+              UNSAFE_className: styles["Icon"],
             },
             text: {
-              UNSAFE_className: classNames(styles, "Tabs-itemLabel"),
+              UNSAFE_className: styles["Tabs-itemLabel"],
             },
           }}
         >
@@ -264,9 +268,11 @@ function TabLine(props: TabLineProps) {
 
   return (
     <div
-      className={classNames(styles, "Tabs-selectionIndicator")}
-      role="presentation"
-      style={style}
+      {...{
+        className: styles["Tabs-selectionIndicator"],
+        role: "presentation",
+        style,
+      }}
     />
   );
 }
@@ -321,31 +327,28 @@ export function TabList<T>(props: ValenceTabListProps<T>) {
   let tabListclassName = classNames(styles, "TabsPanel-tabs");
   const tabContent = (
     <div
-      {...stylePropsFinal}
-      {...tabListProps}
-      ref={tablistRef}
-      className={classNames(
-        styles,
-        "Tabs",
-        `Tabs--${orientation}`,
-        tabListclassName,
-        {
-          "Tabs--quiet": isQuiet,
-          "Tabs--emphasized": isEmphasized,
-          ["Tabs--compact"]: density === "compact",
-        },
-        orientation === "vertical" && styleProps.className
-      )}
+      {...{
+        ...stylePropsFinal,
+        ...tabListProps,
+        ref: tablistRef,
+        className: classNames(
+          styles,
+          "Tabs",
+          `Tabs--${orientation}`,
+          tabListclassName,
+          {
+            "Tabs--quiet": isQuiet,
+            "Tabs--emphasized": isEmphasized,
+            ["Tabs--compact"]: density === "compact",
+          },
+          orientation === "vertical" && styleProps.className
+        ),
+      }}
     >
       {[...state.collection].map((item) => (
-        <Tab
-          key={item.key}
-          item={item}
-          state={state}
-          orientation={orientation}
-        />
+        <Tab {...{ key: item.key, item, state, orientation }} />
       ))}
-      <TabLine orientation={orientation} selectedTab={selectedTab} />
+      <TabLine {...{ orientation, selectedTab }} />
     </div>
   );
 
@@ -354,21 +357,25 @@ export function TabList<T>(props: ValenceTabListProps<T>) {
   } else {
     return (
       <div
-        {...styleProps}
-        ref={wrapperRef}
-        className={classNames(
-          styles,
-          "TabsPanel-collapseWrapper",
-          styleProps.className
-        )}
+        {...{
+          ...styleProps,
+          ref: wrapperRef,
+          className: classNames(
+            styles,
+            "TabsPanel-collapseWrapper",
+            styleProps.className
+          ),
+        }}
       >
         <TabPicker
-          {...props}
-          {...tabProps}
-          visible={collapsed}
-          id={tabPanelProps["aria-labelledby"]}
-          state={state}
-          className={tabListclassName}
+          {...{
+            ...props,
+            ...tabProps,
+            visible: collapsed,
+            id: tabPanelProps["aria-labelledby"],
+            state,
+            className: tabListclassName,
+          }}
         />
         {tabContent}
       </div>
@@ -414,16 +421,18 @@ function TabPanel<T>(props: ValenceTabPanelsProps<T>) {
   }
 
   return (
-    <FocusRing focusRingClass={classNames(styles, "focus-ring")}>
+    <FocusRing focusRingClass={styles["focus-ring"]}>
       <div
-        {...styleProps}
-        {...tabPanelProps}
-        ref={ref}
-        className={classNames(
-          styles,
-          "TabsPanel-tabpanel",
-          styleProps.className
-        )}
+        {...{
+          ...styleProps,
+          ...tabPanelProps,
+          ref,
+          className: classNames(
+            styles,
+            "TabsPanel-tabpanel",
+            styleProps.className
+          ),
+        }}
       >
         {props.children}
       </div>
@@ -479,20 +488,22 @@ function TabPicker<T>(props: TabPickerProps<T>) {
   // TODO: Figure out if tabListProps should go onto the div here, v2 doesn't do it
   return (
     <div
-      className={classNames(
-        styles,
-        "Tabs",
-        "Tabs--horizontal",
-        "Tabs--isCollapsed",
-        {
-          "Tabs--quiet": isQuiet,
-          ["Tabs--compact"]: density === "compact",
-          "Tabs--emphasized": isEmphasized,
-        },
-        className
-      )}
-      style={style}
-      aria-hidden={visible ? undefined : true}
+      {...{
+        className: classNames(
+          styles,
+          "Tabs",
+          "Tabs--horizontal",
+          "Tabs--isCollapsed",
+          {
+            "Tabs--quiet": isQuiet,
+            ["Tabs--compact"]: density === "compact",
+            "Tabs--emphasized": isEmphasized,
+          },
+          className
+        ),
+        style,
+        "aria-hidden": visible ? undefined : true,
+      }}
     >
       <SlotProvider
         slots={{
@@ -506,23 +517,27 @@ function TabPicker<T>(props: TabPickerProps<T>) {
         }}
       >
         <Picker
-          {...pickerProps}
-          id={id}
-          items={items}
-          ref={ref}
-          isQuiet
-          isDisabled={!visible || isDisabled}
-          selectedKey={state.selectedKey}
-          disabledKeys={state.disabledKeys}
-          onSelectionChange={state.setSelectedKey}
+          {...{
+            ...pickerProps,
+            id,
+            items,
+            ref,
+            isQuiet: true,
+            isDisabled: !visible || isDisabled,
+            selectedKey: state.selectedKey,
+            disabledKeys: state.disabledKeys,
+            onSelectionChange: state.setSelectedKey,
+          }}
         >
           {(item) => <Item textValue={item.textValue}>{item.rendered}</Item>}
         </Picker>
         {pickerNode && (
           <TabLine
-            orientation="horizontal"
-            selectedTab={pickerNode}
-            selectedKey={state.selectedKey}
+            {...{
+              orientation: "horizontal",
+              selectedTab: pickerNode,
+              selectedKey: state.selectedKey,
+            }}
           />
         )}
       </SlotProvider>
