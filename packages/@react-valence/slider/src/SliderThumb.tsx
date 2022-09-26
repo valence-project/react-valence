@@ -41,7 +41,7 @@ export function SliderThumb(props: SliderThumbProps) {
   let { hoverProps, isHovered } = useHover({});
 
   return (
-    <FocusRing within focusRingClass={classNames(styles, "is-focused")}>
+    <FocusRing within focusRingClass={styles["is-focused"]}>
       <div
         {...{
           className: classNames(styles, "Slider-handle", {
