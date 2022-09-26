@@ -59,21 +59,18 @@ function Switch(
         styleProps.className
       )}
     >
-      <FocusRing
-        focusRingClass={classNames(styles, "focus-ring")}
-        autoFocus={autoFocus}
-      >
+      <FocusRing {...{ focusRingClass: styles["focus-ring"], autoFocus }}>
         <input
-          {...inputProps}
-          ref={inputRef}
-          className={classNames(styles, "ToggleSwitch-input")}
+          {...{
+            ...inputProps,
+            ref: inputRef,
+            className: styles["ToggleSwitch-input"],
+          }}
         />
       </FocusRing>
-      <span className={classNames(styles, "ToggleSwitch-switch")} />
+      <span className={styles["ToggleSwitch-switch"]} />
       {children && (
-        <span className={classNames(styles, "ToggleSwitch-label")}>
-          {children}
-        </span>
+        <span className={styles["ToggleSwitch-label"]}>{children}</span>
       )}
     </label>
   );
