@@ -57,19 +57,21 @@ export function Tree<T extends object>(
 
   return (
     <Virtualizer
-      {...collectionProps}
-      ref={ref}
-      focusedKey={state.selectionManager.focusedKey}
-      className={classNames(styles, "TreeView")}
-      layout={layout}
-      collection={state.collection}
+      {...{
+        ...collectionProps,
+        ref,
+        focusedKey: state.selectionManager.focusedKey,
+        className: styles["TreeView"],
+        layout,
+        collection: state.collection,
+      }}
     >
       {(type, item) => {
         if (type === "section") {
-          return <TreeHeading item={item} />;
+          return <TreeHeading {...{ item }} />;
         }
 
-        return <TreeItem item={item} state={state} />;
+        return <TreeItem {...{ item, state }} />;
       }}
     </Virtualizer>
   );
@@ -104,16 +106,11 @@ function TreeItem<T>(props: TreeItemProps<T>) {
   });
 
   return (
-    <div className={itemClassName} role="presentation">
-      <FocusRing focusRingClass={classNames(styles, "focus-ring")}>
-        <div {...itemProps} ref={ref} className={linkClassName}>
+    <div {...{ className: itemClassName, role: "presentation" }}>
+      <FocusRing focusRingClass={styles["focus-ring"]}>
+        <div {...{ ...itemProps, ref, className: linkClassName }}>
           {hasChildNodes && (
-            <ChevronRight
-              UNSAFE_className={classNames(
-                styles,
-                "TreeView-indicator"
-              )}
-            />
+            <ChevronRight UNSAFE_className={styles["TreeView-indicator"]} />
           )}
           {rendered}
         </div>
@@ -123,9 +120,5 @@ function TreeItem<T>(props: TreeItemProps<T>) {
 }
 
 function TreeHeading({ item }) {
-  return (
-    <div className={classNames(styles, "TreeView-heading")}>
-      {item.rendered}
-    </div>
-  );
+  return <div className={styles["TreeView-heading"]}>{item.rendered}</div>;
 }
