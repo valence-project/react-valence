@@ -24,11 +24,13 @@ function Well(props: ValenceWellProps, ref: DOMRef<HTMLDivElement>) {
 
   return (
     <div
-      {...filterDOMProps(otherProps, { labelable: !!role })}
-      {...styleProps}
-      role={role}
-      ref={domRef}
-      className={classNames(styles, "Well", styleProps.className)}
+      {...{
+        ...filterDOMProps(otherProps, { labelable: !!role }),
+        ...styleProps,
+        role: role,
+        ref: domRef,
+        className: classNames(styles, "Well", styleProps.className),
+      }}
     >
       {children}
     </div>
