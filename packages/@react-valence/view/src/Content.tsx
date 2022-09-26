@@ -18,7 +18,7 @@ function Content(props: ContentProps, ref: DOMRef) {
   let domRef = useDOMRef(ref);
 
   return (
-    <section {...filterDOMProps(otherProps)} {...styleProps} ref={domRef}>
+    <section {...{ ...filterDOMProps(otherProps), ...styleProps, ref: domRef }}>
       <ClearSlots>{children}</ClearSlots>
     </section>
   );
