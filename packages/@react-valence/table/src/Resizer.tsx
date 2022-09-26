@@ -60,15 +60,17 @@ function Resizer<T>(props: ResizerProps<T>, ref: RefObject<HTMLInputElement>) {
   }
 
   return (
-    <FocusRing within focusRingClass={classNames(styles, "focus-ring")}>
+    <FocusRing within focusRingClass={styles["focus-ring"]}>
       <div
-        role="presentation"
-        style={style}
-        className={classNames(styles, "valence-Table-columnResizer")}
-        {...resizerProps}
+        {...{
+          role: "presentation",
+          style,
+          className: styles["valence-Table-columnResizer"],
+          ...resizerProps,
+        }}
       >
         <VisuallyHidden>
-          <input ref={ref} type="range" {...inputProps} />
+          <input {...{ ref, type: "range", ...inputProps }} />
         </VisuallyHidden>
       </div>
     </FocusRing>
