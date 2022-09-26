@@ -35,19 +35,21 @@ function StatusLight(
 
   return (
     <div
-      {...filterDOMProps(otherProps, { labelable: !!role })}
-      {...styleProps}
-      role={role}
-      className={classNames(
-        styles,
-        "StatusLight",
-        `StatusLight--${variant}`,
-        {
-          "is-disabled": isDisabled,
-        },
-        styleProps.className
-      )}
-      ref={domRef}
+      {...{
+        ...filterDOMProps(otherProps, { labelable: !!role }),
+        ...styleProps,
+        role,
+        className: classNames(
+          styles,
+          "StatusLight",
+          `StatusLight--${variant}`,
+          {
+            "is-disabled": isDisabled,
+          },
+          styleProps.className
+        ),
+        ref: domRef,
+      }}
     >
       {children}
     </div>

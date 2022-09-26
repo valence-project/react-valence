@@ -109,32 +109,31 @@ function StaticField<T extends ValenceStaticFieldTypes>(
 
   return (
     <div
-      {...filterDOMProps(props)}
-      {...styleProps}
-      className={classNames(
-        labelStyles,
-        "StaticField",
-        { [labelWrapperClass]: label },
-        styleProps.className
-      )}
-      ref={ref}
+      {...{
+        ...filterDOMProps(props),
+        ...styleProps,
+        className: classNames(
+          labelStyles,
+          "StaticField",
+          { [labelWrapperClass]: label },
+          styleProps.className
+        ),
+        ref,
+      }}
     >
       {props.label && (
-        <Label
-          labelPosition={labelPosition}
-          labelAlign={labelAlign}
-          elementType="span"
-        >
+        <Label {...{ labelPosition, labelAlign, elementType: "span" }}>
           {props.label}
         </Label>
       )}
-      <div className={classNames(labelStyles, "Field-wrapper")}>
-        <div className={classNames(labelStyles, "Field-field")}>
+      <div className={labelStyles["Field-wrapper"]}>
+        <div className={labelStyles["Field-field"]}>
           {Array.isArray(value) && (
-            // @ts-ignore
             <FormattedStringList
-              value={value}
-              formatOptions={formatOptions as Intl.ListFormatOptions}
+              {...{
+                value,
+                formatOptions: formatOptions as Intl.ListFormatOptions,
+              }}
             />
           )}
 
@@ -143,8 +142,10 @@ function StaticField<T extends ValenceStaticFieldTypes>(
             typeof value.start === "number" &&
             typeof value.end === "number" && (
               <FormattedNumber
-                value={value as NumberValue}
-                formatOptions={formatOptions as Intl.NumberFormatOptions}
+                {...{
+                  value: value as NumberValue,
+                  formatOptions: formatOptions as Intl.NumberFormatOptions,
+                }}
               />
             )}
 
@@ -153,15 +154,19 @@ function StaticField<T extends ValenceStaticFieldTypes>(
             typeof value.start !== "number" &&
             typeof value.end !== "number" && (
               <FormattedDate
-                value={value as DateTimeValue}
-                formatOptions={formatOptions as Intl.DateTimeFormatOptions}
+                {...{
+                  value: value as DateTimeValue,
+                  formatOptions: formatOptions as Intl.DateTimeFormatOptions,
+                }}
               />
             )}
 
           {typeof value === "number" && (
             <FormattedNumber
-              value={value}
-              formatOptions={formatOptions as Intl.NumberFormatOptions}
+              {...{
+                value: value as NumberValue,
+                formatOptions: formatOptions as Intl.NumberFormatOptions,
+              }}
             />
           )}
 
@@ -169,8 +174,10 @@ function StaticField<T extends ValenceStaticFieldTypes>(
             ("calendar" in value || "hour" in value)) ||
             value instanceof Date) && (
             <FormattedDate
-              value={value}
-              formatOptions={formatOptions as Intl.DateTimeFormatOptions}
+              {...{
+                value,
+                formatOptions: formatOptions as Intl.DateTimeFormatOptions,
+              }}
             />
           )}
 
