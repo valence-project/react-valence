@@ -79,7 +79,7 @@ function AccordionItem<T>(props: AccordionItemProps<T>) {
       }}
     >
       <h3 className={styles["Accordion-itemHeading"]}>
-        <FocusRing focusRingClass={classNames(styles, "focus-ring")} within>
+        <FocusRing focusRingClass={styles["focus-ring"]} within>
           <button
             {...{
               ...mergeProps(buttonProps, hoverProps),
