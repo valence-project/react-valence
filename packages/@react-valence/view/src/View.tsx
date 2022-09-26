@@ -23,7 +23,9 @@ function View(props: ViewProps, ref: DOMRef) {
   let domRef = useDOMRef(ref);
 
   return (
-    <ElementType {...filterDOMProps(otherProps)} {...styleProps} ref={domRef}>
+    <ElementType
+      {...{ ...filterDOMProps(otherProps), ...styleProps, ref: domRef }}
+    >
       <ClearSlots>{children}</ClearSlots>
     </ElementType>
   );

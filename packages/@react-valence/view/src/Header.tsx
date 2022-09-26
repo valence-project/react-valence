@@ -22,7 +22,7 @@ function Header(props: HeaderProps, ref: DOMRef) {
   let domRef = useDOMRef(ref);
 
   return (
-    <header {...filterDOMProps(otherProps)} {...styleProps} ref={domRef}>
+    <header {...{ ...filterDOMProps(otherProps), ...styleProps, ref: domRef }}>
       <ClearSlots>{children}</ClearSlots>
     </header>
   );
