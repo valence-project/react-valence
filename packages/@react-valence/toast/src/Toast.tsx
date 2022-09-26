@@ -42,40 +42,41 @@ function Toast(props: ValenceToastProps, ref: DOMRef<HTMLDivElement>) {
 
   return (
     <div
-      {...styleProps}
-      {...toastProps}
-      ref={domRef}
-      className={classNames(
-        styles,
-        "Toast",
-        { ["Toast--" + variant]: variant },
-        styleProps.className,
-        classNames(toastContainerStyles, "Toast")
-      )}
+      {...{
+        ...styleProps,
+        ...toastProps,
+        ref: domRef,
+        className: classNames(
+          styles,
+          "Toast",
+          { ["Toast--" + variant]: variant },
+          styleProps.className,
+          classNames(toastContainerStyles, "Toast")
+        ),
+      }}
     >
       {Icon && (
         <Icon
-          {...iconProps}
-          UNSAFE_className={classNames(styles, "Toast-typeIcon")}
+          {...{ ...iconProps, UNSAFE_className: styles["Toast-typeIcon"] }}
         />
       )}
-      <div className={classNames(styles, "Toast-body")}>
-        <div className={classNames(styles, "Toast-content")}>
-          {children}
-        </div>
+      <div className={styles["Toast-body"]}>
+        <div className={styles["Toast-content"]}>{children}</div>
         {actionLabel && (
           <Button
-            {...actionButtonProps}
-            UNSAFE_className={classNames(styles, "Button")}
-            isQuiet
-            variant="overBackground"
+            {...{
+              ...actionButtonProps,
+              UNSAFE_className: styles["Button"],
+              isQuiet: true,
+              variant: "overBackground",
+            }}
           >
             {actionLabel}
           </Button>
         )}
       </div>
-      <div className={classNames(styles, "Toast-buttons")}>
-        <ClearButton {...closeButtonProps} variant="overBackground">
+      <div className={styles["Toast-buttons"]}>
+        <ClearButton {...{ ...closeButtonProps, variant: "overBackground" }}>
           <Close />
         </ClearButton>
       </div>

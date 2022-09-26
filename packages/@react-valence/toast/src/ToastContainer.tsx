@@ -21,10 +21,12 @@ export function ToastContainer(props: ToastState): ReactElement {
   let renderToasts = () =>
     toasts.map((toast) => (
       <Toast
-        {...toast.props}
-        key={toast.props.toastKey}
-        onRemove={onRemove}
-        timer={toast.timer}
+        {...{
+          ...toast.props,
+          key: toast.props.toastKey,
+          onRemove,
+          timer: toast.timer,
+        }}
       >
         {toast.content}
       </Toast>
@@ -32,12 +34,14 @@ export function ToastContainer(props: ToastState): ReactElement {
 
   return (
     <div
-      className={classNames(
-        toastContainerStyles,
-        "ToastContainer",
-        containerPosition && `ToastContainer--${containerPosition}`,
-        containerPlacement && `ToastContainer--${containerPlacement}`
-      )}
+      {...{
+        className: classNames(
+          toastContainerStyles,
+          "ToastContainer",
+          containerPosition && `ToastContainer--${containerPosition}`,
+          containerPlacement && `ToastContainer--${containerPlacement}`
+        ),
+      }}
     >
       {renderToasts()}
     </div>

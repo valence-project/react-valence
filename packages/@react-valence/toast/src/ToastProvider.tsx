@@ -62,7 +62,7 @@ export function ToastProvider(props: ToastProviderProps): ReactElement {
 
   return (
     <ToastContext.Provider value={contextValue}>
-      <ToastContainer toasts={toasts} onRemove={onRemove} />
+      <ToastContainer {...{ toasts, onRemove }} />
       {children}
     </ToastContext.Provider>
   );
