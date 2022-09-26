@@ -56,22 +56,24 @@ export function Tag<T>(props: ValenceTagProps<T>) {
   );
 
   return (
-    <div {...tagRowProps} ref={tagRowRef}>
+    <div {...{ ...tagRowProps, ref: tagRowRef }}>
       <div
-        {...mergeProps(tagProps, hoverProps, focusProps)}
-        className={classNames(
-          styles,
-          "Tags-item",
-          {
-            "is-disabled": isDisabled,
-            "focus-ring": isFocusVisible,
-            "is-focused": isFocused,
-            "not-removable": !isRemovable,
-            "is-hovered": isHovered,
-          },
-          styleProps.className
-        )}
-        ref={tagRef}
+        {...{
+          ...mergeProps(tagProps, hoverProps, focusProps),
+          className: classNames(
+            styles,
+            "Tags-item",
+            {
+              "is-disabled": isDisabled,
+              "focus-ring": isFocusVisible,
+              "is-focused": isFocused,
+              "not-removable": !isRemovable,
+              "is-hovered": isHovered,
+            },
+            styleProps.className
+          ),
+          ref: tagRef,
+        }}
       >
         <SlotProvider
           slots={{
@@ -90,9 +92,11 @@ export function Tag<T>(props: ValenceTagProps<T>) {
           {typeof children === "string" ? <Text>{children}</Text> : children}
           {isRemovable && (
             <TagRemoveButton
-              item={item}
-              {...clearButtonProps}
-              UNSAFE_className={classNames(styles, "Tag-action")}
+              {...{
+                ...clearButtonProps,
+                UNSAFE_className: styles["Tag-action"],
+                item
+              }}
             />
           )}
         </SlotProvider>

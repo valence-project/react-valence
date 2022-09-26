@@ -81,29 +81,32 @@ function TagGroup<T extends object>(
   let { tabIndex, role, ...otherGridProps } = gridProps;
   return (
     <div
-      {...mergeProps(styleProps, tagGroupProps, otherGridProps)}
-      className={classNames(
-        styles,
-        "Tags",
-        {
-          "is-disabled": isDisabled,
-        },
-        styleProps.className
-      )}
-      role={state.collection.size ? "grid" : null}
-      ref={domRef}
+      {...{
+        ...mergeProps(styleProps, tagGroupProps, otherGridProps),
+        className: classNames(
+          styles,
+          "Tags",
+          {
+            "is-disabled": isDisabled,
+          },
+          styleProps.className
+        ),
+        role: state.collection.size ? "grid" : null,
+        ref: domRef,
+      }}
     >
       {[...gridCollection].map((item) => (
         <Tag
-          {...item.childNodes[0].props}
-          key={item.key}
-          item={item}
-          state={state}
-          isDisabled={
-            isDisabled || state.disabledKeys.has(item?.childNodes[0]?.key)
-          }
-          isRemovable={isRemovable}
-          onRemove={onRemove}
+          {...{
+            ...item.childNodes[0].props,
+            key: item.key,
+            item,
+            state,
+            isDisabled:
+              isDisabled || state.disabledKeys.has(item?.childNodes[0]?.key),
+            isRemovable,
+            onRemove,
+          }}
         >
           {item.childNodes[0].rendered}
         </Tag>
