@@ -12,7 +12,7 @@
 
 import { Item, Section, Tree } from "../src";
 import React from "react";
-import { storiesOf, action } from "@ladle/react";
+import { action, Story } from "@ladle/react";
 
 interface ItemType {
   name: string;

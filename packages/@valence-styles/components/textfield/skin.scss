@@ -43,7 +43,7 @@
     border-color: var(--valence-textfield-border-color-down);
   }
 
-  &:focus-ring {
+  &.focus-ring {
     &:not(:active) {
       border-color: var(--valence-textfield-border-color-key-focus);
       box-shadow: 0 0 0 1px var(--valence-textfield-border-color-key-focus);
@@ -85,7 +85,7 @@
       border-color: var(--valence-textfield-border-color-key-focus);
     }
 
-    &:focus-ring { /* might break things due to pre-defined focus-ring */
+    &.focus-ring { /* might break things due to pre-defined focus-ring */
       &:not(:active) {
         border-color: var(--valence-textfield-border-color-key-focus);
         box-shadow: 0 0 0 1px var(--valence-textfield-border-color-key-focus);
@@ -110,7 +110,7 @@
       border-color: var(--valence-textfield-quiet-border-color-key-focus);
     }
 
-    &:focus-ring {
+    &.focus-ring {
       &:not(:active) {
         border-color: var(--valence-textfield-border-color-key-focus);
         box-shadow: 0 1px 0 var(--valence-textfield-border-color-key-focus);
@@ -131,7 +131,7 @@
       border-color: var(--valence-textfield-border-color-key-focus);
     }
 
-    &:focus-ring { /* might break things due to pre-defined focus-ring */
+    &.focus-ring { /* might break things due to pre-defined focus-ring */
       &:not(:active) {
         border-color: var(--valence-textfield-border-color-key-focus);
         box-shadow: 0 0 0 1px var(--valence-textfield-border-color-key-focus);
@@ -140,7 +140,7 @@
   }
 
   .Textfield--quiet.Textfield--invalid & {
-    &:focus-ring { /* might break things due to pre-defined focus-ring */
+    &.focus-ring { /* might break things due to pre-defined focus-ring */
       &:not(:active) {
         box-shadow: 0 1px 0 var(--valence-textfield-quiet-border-color-key-focus);
       }
@@ -172,12 +172,12 @@
     --valence-textfield-placeholder-text-color: GrayText;
     --valence-textfield-placeholder-text-color-hover: GrayText;
     &.focus-ring, 
-    &:focus-ring {
+    &.focus-ring {
       outline: 2px solid Highlight;
     }  
     .Textfield--quiet & {
       &.focus-ring, 
-      &:focus-ring {
+      &.focus-ring {
         forced-color-adjust: none;
         outline: 0;
         box-shadow: 0 1px 0 0 var(--valence-textfield-quiet-border-color-key-focus);

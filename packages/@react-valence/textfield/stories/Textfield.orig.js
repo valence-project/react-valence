@@ -18,88 +18,10 @@ import { TextField } from "../";
 
 storiesOf("TextField", module)
   .addParameters({ providerSwitcher: { status: "positive" } })
-  .add("Default", () => render())
-  .add("value: Test (controlled)", () => render({ value: "Test" }))
-  .add("defaultValue: Test (uncontrolled)", () =>
-    render({ defaultValue: "Test" })
-  )
-  .add("isQuiet: true", () => render({ isQuiet: true }))
-  .add("isDisabled: true", () => render({ isDisabled: true }))
-  .add("isQuiet, isDisabled", () => render({ isDisabled: true, isQuiet: true }))
-  .add("validationState: invalid", () => render({ validationState: "invalid" }))
-  .add("validationState: valid", () => render({ validationState: "valid" }))
-  .add("type: email", () => render({ type: "email" }))
-  .add("pattern: [0-9]+", () => render({ pattern: "[0-9]+" }))
-  .add("isReadOnly: true", () => render({ isReadOnly: true }))
-  .add("isReadOnly: true, value: read only value", () =>
-    render({ value: "read only value", isReadOnly: true })
-  )
-  .add("isRequired: true", () => render({ isRequired: true }))
-  .add("isRequired: true, necessityIndicator: label", () =>
-    render({ isRequired: true, necessityIndicator: "label" })
-  )
-  .add("isRequired: false, necessityIndicator: label", () =>
-    render({ isRequired: false, necessityIndicator: "label" })
-  )
-  .add("autoFocus: true", () => render({ autoFocus: true }))
-  .add("icon: Info", () => render({ icon: <Info /> }))
-  .add("icon: Info, isQuiet", () => render({ icon: <Info />, isQuiet: true }))
-  .add("icon: Info, isDisabled", () =>
-    render({ icon: <Info />, isDisabled: true })
-  )
-  .add("icon: Info, isQuiet, isDisabled", () =>
-    render({ icon: <Info />, isQuiet: true, isDisabled: true })
-  )
-  .add("icon: Info, validationState: invalid, isQuiet", () =>
-    render({ icon: <Info />, validationState: "invalid", isQuiet: true })
-  )
-  .add("labelAlign: end", () => render({ labelAlign: "end" }))
-  .add("labelPosition: side", () => render({ labelPosition: "side" }))
-  .add("no visible label", () =>
-    render({ label: null, "aria-label": "Street address" })
-  )
-  .add("with description", () =>
-    render({ description: "Please enter your street address." })
-  )
-  .add("with error message", () =>
-    render({
-      errorMessage: "Please enter a valid street address.",
-      validationState: "invalid",
-    })
-  )
   .add("with description, error message and validation", () =>
     renderWithDescriptionErrorMessageAndValidation()
   )
-  .add("custom width", () =>
-    render({ icon: <Info />, validationState: "invalid", width: "300px" })
-  )
-  .add("custom width small", () =>
-    render({ icon: <Info />, validationState: "invalid", width: "30px" })
-  )
-  .add("custom width, quiet", () =>
-    render({
-      icon: <Info />,
-      validationState: "invalid",
-      width: "300px",
-      isQuiet: true,
-    })
-  )
-  .add("custom width, labelPosition: side", () =>
-    render({
-      icon: <Info />,
-      validationState: "invalid",
-      width: "500px",
-      labelPosition: "side",
-    })
-  )
-  .add("custom width small, labelPosition: side", () =>
-    render({
-      icon: <Info />,
-      validationState: "invalid",
-      width: "30px",
-      labelPosition: "side",
-    })
-  );
+
 
 function render(props = {}) {
   return (
