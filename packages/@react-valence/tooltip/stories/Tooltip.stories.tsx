@@ -1,8 +1,5 @@
 import { Story } from "@ladle/react";
 import { Tooltip } from "@react-valence/tooltip";
-import BatteryHalf from "@valence-icons/ui/StopwatchFill";
-import X from "@valence-icons/ui/ExclamationCircleFill";
-import React from "react";
 
 import { ValenceTooltipProps } from "@types-valence/tooltip";
 
@@ -19,10 +16,6 @@ const TooltipRender: Story<ValenceTooltipProps> = (args) => {
   };
   return <Tooltip {...args}>{args.children}</Tooltip>;
 };
-
-// type TooltipStory = ComponentStoryObj<typeof Tooltip>;
-
-// export const Default: TooltipStory = {};
 
 export const PlacementTop = TooltipRender.bind({});
 PlacementTop.storyName = "Placement: Top";
