@@ -287,7 +287,8 @@ ValidationStateInvalid.args = {
 };
 
 export const ValidationStateInvalidCustomMessage = CalendarRender.bind({});
-ValidationStateInvalidCustomMessage.storyName = "ValidationStateInvalidCustomMessage";
+ValidationStateInvalidCustomMessage.storyName =
+  "ValidationStateInvalidCustomMessage";
 ValidationStateInvalidCustomMessage.args = {
   validationState: "invalid",
   errorMessage: "Unfortunately, that day doesn't work for me.",
@@ -298,10 +299,10 @@ export const DateUnavailable = CalendarRender.bind({});
 DateUnavailable.storyName = "DateUnavailable";
 let locale = navigator.languages[0];
 DateUnavailable.args = {
-        isDateUnavailable: (date: DateValue) => isWeekend(date, locale),
-        allowsNonContiguousRanges: true,
-        defaultValue: new CalendarDate(2021, 10, 3),
-      };
+  isDateUnavailable: (date: DateValue) => isWeekend(date, locale),
+  allowsNonContiguousRanges: true,
+  defaultValue: new CalendarDate(2021, 10, 3),
+};
 
 export const AriaLabel = CalendarRender.bind({});
 AriaLabel.storyName = "Aria Label";
