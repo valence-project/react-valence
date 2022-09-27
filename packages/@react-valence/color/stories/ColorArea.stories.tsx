@@ -1,15 +1,3 @@
-/*
- * Copyright 2020 Adobe. All rights reserved.
- * This file is licensed to you under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License. You may obtain a copy
- * of the License at http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
- * OF ANY KIND, either express or implied. See the License for the specific language
- * governing permissions and limitations under the License.
- */
-
 import { action, Story } from "@ladle/react";
 import { ColorArea, ColorField, ColorSlider, ColorWheel } from "../";
 import { Flex, Grid} from "@react-valence/layout";
@@ -18,6 +6,7 @@ import { parseColor } from "@react-stately/color";
 import React, { useState } from "react";
 import { ValenceColorAreaProps } from "@types-valence/color";
 import { Meta } from "@types-valence/shared";
+import SearchAutocompleteStories from "@react-valence/autocomplete/stories/SearchAutocomplete.stories";
 
 const meta: Meta<ValenceColorAreaProps> = {
   title: "ColorArea",
@@ -142,8 +131,8 @@ XBlueYGreen.args = {
   defaultValue: "#0FF",
   xChannel: "blue",
   yChannel: "green",
-  onChange: action("onChange"),
-  onChangeEnd: action("onChangeEnd"),
+  onChange: (x)=>console.log(x),
+  onChangeEnd: (x)=>console.log(x),
 };
 
 export let XGreenYBlue = Template.bind({});

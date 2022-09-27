@@ -1,87 +1,73 @@
-/*
- * Copyright 2020 Adobe. All rights reserved.
- * This file is licensed to you under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License. You may obtain a copy
- * of the License at http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
- * OF ANY KIND, either express or implied. See the License for the specific language
- * governing permissions and limitations under the License.
- */
+import { useState } from "react";
 
-import { action } from "@storybook/addon-actions";
-import Add from "@spectrum-icons/workflow/Add";
-import { Flex, Text, View } from "@adobe/react-spectrum";
-import React, { useState } from "react";
-import { storiesOf } from "@storybook/react";
-import { ToggleButton } from "../";
+import { action, Story } from "@ladle/react";
+import { ToggleButton } from "@react-valence/button";
 
-storiesOf("Button/ToggleButton", module)
-  .addParameters({ providerSwitcher: { status: "positive" } })
-  .add("default", () => render())
-  .add("emphasized", () => render({ isEmphasized: true }))
-  .add("isQuiet", () => render({ isQuiet: true }))
-  .add("isQuiet & emphasized", () =>
-    render({ isEmphasized: true, isQuiet: true })
-  )
-  .add("staticColor: white", () => (
-    <View backgroundColor="static-seafoam-600" padding="size-1000">
-      <Flex direction="column" rowGap="size-150">
-        {render({ staticColor: "white" })}
-        {render({ staticColor: "white", isQuiet: true })}
-      </Flex>
-    </View>
-  ))
-  .add("staticColor: black", () => (
-    <View backgroundColor="static-yellow-400" padding="size-1000">
-      <Flex direction="column" rowGap="size-150">
-        {render({ staticColor: "black" })}
-        {render({ staticColor: "black", isQuiet: true })}
-      </Flex>
-    </View>
-  ))
-  .add("styles to check WHCM support", () => (
-    <View backgroundColor="static-yellow-400" padding="size-1000">
-      <Flex direction="column" rowGap="size-150">
-        {render()}
-        {render({ isEmphasized: true })}
-        {render({ isQuiet: true })}
-        {render({ isQuiet: true, isEmphasized: true })}
-      </Flex>
-    </View>
-  ))
-  .add("controlled state", () => <ControlledToggleButton />);
+import { ValenceToggleButtonProps } from "@types-valence/button";
 
-function render(props = {}) {
-  return (
-    <Flex gap="size-100">
-      <ToggleButton
-        onChange={action("change")}
-        onPress={action("press")}
-        {...props}
-      >
-        <Add />
-        <Text>Default</Text>
-      </ToggleButton>
-      <ToggleButton
-        onChange={action("change")}
-        onPress={action("press")}
-        defaultSelected
-        {...props}
-      >
-        <Add />
-        <Text>Selected</Text>
-      </ToggleButton>
-      <ToggleButton defaultSelected isDisabled {...props}>
-        <Add />
-        <Text>Disabled + selected</Text>
-      </ToggleButton>
-    </Flex>
-  );
-}
+import { Flex } from "@react-valence/layout";
+import { Text } from "@react-valence/text";
+import { View } from "@react-valence/view";
 
-function ControlledToggleButton() {
+import Robot from "@valence-icons/ui/RobotFill";
+
+export default {
+  title: "ToggleButton",
+  component: ToggleButton,
+};
+
+const ToggleButtonRender: Story<ValenceToggleButtonProps> = (props) => (
+  <Flex gap="size-100">
+    <ToggleButton
+      onChange={action("change")}
+      onPress={action("press")}
+      {...props}
+    >
+      <Robot />
+      <Text>Default</Text>
+    </ToggleButton>
+    <ToggleButton
+      onChange={action("change")}
+      onPress={action("press")}
+      defaultSelected
+      {...props}
+    >
+      <Robot />
+      <Text>Selected</Text>
+    </ToggleButton>
+    <ToggleButton defaultSelected isDisabled {...props}>
+      <Robot />
+      <Text>Disabled and selected</Text>
+    </ToggleButton>
+  </Flex>
+);
+
+export const Default = ToggleButtonRender.bind({});
+Default.storyName = "Default";
+Default.args = {};
+
+export const Emphasized = ToggleButtonRender.bind({});
+Emphasized.storyName = "Emphasized";
+Emphasized.args = {
+  isEmphasized: true,
+};
+
+export const Quiet = ToggleButtonRender.bind({});
+Quiet.storyName = "Quiet";
+Quiet.args = {
+  isQuiet: true,
+};
+
+export const QuietEmphasized = ToggleButtonRender.bind({});
+QuietEmphasized.storyName = "Quiet and Emphasized";
+QuietEmphasized.args = {
+  isQuiet: true,
+  isEmphasized: true,
+};
+
+const ControlledToggleButtonRender: Story<ValenceToggleButtonProps> = (
+  props
+) => {
   let [selected, setSelected] = useState(false);
   return (
     <div>
@@ -92,4 +78,38 @@ function ControlledToggleButton() {
       {selected ? "true" : "false"}
     </div>
   );
-}
+};
+
+export const Controlled = ControlledToggleButtonRender.bind({});
+Controlled.storyName = "Controlled";
+Controlled.args = {};
+
+const StaticColorToggleButtonRender: Story<ValenceToggleButtonProps> = (
+  props
+) => {
+  let background =
+    props.staticColor === "black" ? "static-seafoam-200" : "static-seafoam-600";
+  return (
+    <div>
+      {/* @ts-ignore */}
+      <View backgroundColor={background} padding="size-1000">
+        <Flex direction="column" rowGap="size-150">
+          {Default(props)}
+          {Default({ ...props, isQuiet: true })}
+        </Flex>
+      </View>
+    </div>
+  );
+};
+
+export const StaticColorWhite = StaticColorToggleButtonRender.bind({});
+StaticColorWhite.storyName = "Static Color White";
+StaticColorWhite.args = {
+  staticColor: "white",
+};
+
+export const StaticColorBlack = StaticColorToggleButtonRender.bind({});
+StaticColorBlack.storyName = "Static Color Black";
+StaticColorBlack.args = {
+  staticColor: "black",
+};
