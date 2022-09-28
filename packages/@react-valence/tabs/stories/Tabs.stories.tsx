@@ -1,204 +1,28 @@
-/*
- * Copyright 2020 Adobe. All rights reserved.
- * This file is licensed to you under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License. You may obtain a copy
- * of the License at http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
- * OF ANY KIND, either express or implied. See the License for the specific language
- * governing permissions and limitations under the License.
- */
-
-import { action } from "@storybook/addon-actions";
-import { ActionGroup, Flex, Heading, Text } from "@adobe/react-spectrum";
-import Bookmark from "@spectrum-icons/workflow/Bookmark";
-import { Button } from "@react-spectrum/button";
-import { ButtonGroup } from "@react-spectrum/buttongroup";
-import Calendar from "@spectrum-icons/workflow/Calendar";
-import Dashboard from "@spectrum-icons/workflow/Dashboard";
+import { action, Story } from "@ladle/react";
+import { ActionGroup } from "@react-valence/actiongroup";
+import { Heading, Text } from "@react-valence/text";
+import { Flex } from "@react-valence/layout";
+import Bookmark from "@valence-icons/ui/Bookmark2Fill";
+import { Button } from "@react-valence/button";
+import { ButtonGroup } from "@react-valence/buttongroup";
+import Calendar from "@valence-icons/ui/CalendarFill";
+import Dashboard from "@valence-icons/ui/DashboardFill";
 import { Item, TabList, TabPanels, Tabs } from "..";
-import { Picker } from "@react-spectrum/picker";
+import { Picker } from "@react-valence/picker";
 import React, { ReactNode, useState } from "react";
-import { ValenceTabsProps } from "@react-types/tabs";
-import { storiesOf } from "@storybook/react";
-import { TextField } from "@react-spectrum/textfield";
+import { TextField } from "@react-valence/textfield";
 
-storiesOf("Tabs", module)
-  .add("Default", () => render())
-  .add("with falsy item key", () => renderWithFalsyKey())
-  .add("defaultSelectedKey: val2", () => render({ defaultSelectedKey: "val2" }))
-  .add("controlled: selectedKey: val3", () => render({ selectedKey: "val3" }))
-  .add("orientation: vertical", () => render({ orientation: "vertical" }))
-  .add("density: compact", () => render({ density: "compact" }))
-  .add("isQuiet", () => render({ isQuiet: true }))
-  .add("isQuiet, density: compact", () =>
-    render({ isQuiet: true, density: "compact" })
-  )
-  .add("density: compact, orientation: vertical", () =>
-    render({ density: "compact", orientation: "vertical" })
-  )
-  .add("icons", () => renderWithIcons())
-  .add("icons, density: compact", () => renderWithIcons({ density: "compact" }))
-  .add("icons, orientation: vertical", () =>
-    renderWithIcons({ orientation: "vertical" })
-  )
-  .add("icons, density: compact, orientation: vertical", () =>
-    renderWithIcons({ orientation: "vertical", density: "compact" })
-  )
-  .add("isEmphasized: true", () => render({ isEmphasized: true }))
-  .add("isEmphasized: true, icons, isQuiet: true", () =>
-    renderWithIcons({ isEmphasized: true, isQuiet: true })
-  )
-  .add("isEmphasized: true, orientation: vertical", () =>
-    render({ isEmphasized: true, orientation: "vertical" })
-  )
-  .add("disable all tabs", () => render({ isDisabled: true }))
-  .add("keyboardActivation: manual", () =>
-    render({ keyboardActivation: "manual" })
-  )
-  .add("middle disabled", () => render({ disabledKeys: ["val2"] }))
-  .add("all disabled", () =>
-    render({ disabledKeys: ["val1", "val2", "val3", "val4", "val5"] })
-  )
-  .add("resizeable", () => (
-    <div
-      style={{
-        minWidth: "100px",
-        width: "300px",
-        height: "400px",
-        padding: "10px",
-        resize: "horizontal",
-        overflow: "auto",
-        backgroundColor: "var(--spectrum-global-color-gray-50)",
-      }}
-    >
-      {render()}
-    </div>
-  ))
-  .add("collapse behavior", () => <DynamicTabs />)
-  .add("collapse behavior, isQuiet", () => <DynamicTabs isQuiet />)
-  .add("collapse behavior, density: compact", () => (
-    <DynamicTabs density="compact" />
-  ))
-  .add("collapse behavior, density: compact, isQuiet", () => (
-    <DynamicTabs isQuiet density="compact" />
-  ))
-  .add("collapse behavior, isEmphasized: true", () => (
-    <DynamicTabs isEmphasized />
-  ))
-  .add("orientation flip", () => <OrientationFlip />)
-  .add("testing: tabs in flex", () => (
-    <Flex
-      minHeight={400}
-      minWidth={400}
-      UNSAFE_style={{
-        borderWidth: 1,
-        borderStyle: "solid",
-        borderColor: "var(--spectrum-global-color-gray-800)",
-        padding: "10px",
-      }}
-    >
-      <Tabs>
-        <TabList>
-          <Item>Tab 1</Item>
-          <Item>Tab 2</Item>
-        </TabList>
-        <TabPanels>
-          <Item>Hello World</Item>
-          <Item>Goodbye World</Item>
-        </TabPanels>
-      </Tabs>
-    </Flex>
-  ))
-  .add("transition between tab sizes", () => (
-    <Tabs maxWidth={500}>
-      <TabList>
-        <Item>
-          <Text>Tab 1 long long long name</Text>
-        </Item>
-        <Item>
-          <Text>Tab 2</Text>
-        </Item>
-      </TabList>
-      <TabPanels>
-        <Item>Text</Item>
-        <Item>Text 2</Item>
-      </TabPanels>
-    </Tabs>
-  ))
-  .add("Tab with flex container in between", () => (
-    <DynamicTabsWithDecoration />
-  ))
-  .add("tabs at the bottom", () => (
-    <Tabs maxWidth={500}>
-      <TabPanels height="size-1000">
-        <Item>Text 1</Item>
-        <Item>Text 2</Item>
-      </TabPanels>
-      <TabList>
-        <Item>Tab 1</Item>
-        <Item>Tab 2</Item>
-      </TabList>
-    </Tabs>
-  ))
-  .add("tabs on the right", () => (
-    <Tabs maxWidth={500} orientation="vertical">
-      <TabPanels>
-        <Item>Text 1</Item>
-        <Item>Text 2</Item>
-      </TabPanels>
-      <TabList>
-        <Item>Tab 1</Item>
-        <Item>Tab 2</Item>
-      </TabList>
-    </Tabs>
-  ))
-  .add("focusable element in tab panel", () => (
-    <Tabs maxWidth={500}>
-      <TabList>
-        <Item>Tab 1</Item>
-        <Item>Tab 2</Item>
-      </TabList>
-      <TabPanels>
-        <Item>
-          <TextField label="Tab 1" />
-        </Item>
-        <Item>
-          <TextField label="Tab 2" isDisabled />
-        </Item>
-      </TabPanels>
-    </Tabs>
-  ))
-  .add("Tab 1 controlled child", () => {
-    let [tab1Text, setTab1Text] = useState("");
+import { ValenceTabsProps } from "@types-valence/tabs";
 
-    return (
-      <Tabs maxWidth={500}>
-        <TabList>
-          <Item>Tab 1</Item>
-          <Item>Tab 2</Item>
-        </TabList>
-        <TabPanels>
-          <Item>
-            <TextField label="Tab 1" value={tab1Text} onChange={setTab1Text} />
-          </Item>
-          <Item>
-            <TextField label="Tab 2" />
-          </Item>
-        </TabPanels>
-      </Tabs>
-    );
-  })
-  .add("changing selection programatically", () => <ControlledSelection />);
+const TabsRender: Story<ValenceTabsProps<object>> = (props) => {
+  let tags = ["Testing tag", "Other testing label"];
 
-function render(props = {}) {
   return (
     <Tabs
       {...props}
       aria-label="Tab example"
       maxWidth={500}
-      onSelectionChange={action("onSelectionChange")}
+      onSelectionChange={() => console.log("change")}
     >
       <TabList>
         <Item key="val1">Tab 1</Item>
@@ -311,15 +135,15 @@ function render(props = {}) {
       </TabPanels>
     </Tabs>
   );
-}
+};
 
-function renderWithIcons(props = {}) {
+const TabsWithIconsRender: Story<ValenceTabsProps<object>> = (props) => {
   return (
     <Tabs
       {...props}
       aria-label="Tab example"
       maxWidth={500}
-      onSelectionChange={action("onSelectionChange")}
+      onSelectionChange={() => console.log("log selection change")}
     >
       <TabList>
         <Item key="dashboard">
@@ -399,7 +223,257 @@ function renderWithIcons(props = {}) {
       </TabPanels>
     </Tabs>
   );
-}
+};
+
+export const Default = TabsRender.bind({});
+Default.storyName = "TextOnly:Default";
+
+export const DefaultSelectedKey = TabsRender.bind({});
+DefaultSelectedKey.storyName = "TextOnly:DefaultSelectedKey";
+DefaultSelectedKey.args = { defaultSelectedKey: "val2" };
+
+export const ControlledSelectedKey = TabsRender.bind({});
+ControlledSelectedKey.storyName = "TextOnly:ControlledSelectedKey";
+ControlledSelectedKey.args = { selectedKey: "val3" };
+
+export const OrientationVertical = TabsRender.bind({});
+OrientationVertical.storyName = "TextOnly:OrientationVertical";
+OrientationVertical.args = { orientation: "vertical" };
+
+export const OrientationVerticalCompact = TabsRender.bind({});
+OrientationVerticalCompact.storyName = "TextOnly:OrientationVerticalCompact";
+OrientationVerticalCompact.args = {
+  orientation: "vertical",
+  density: "compact",
+};
+
+export const Compact = TabsRender.bind({});
+Compact.storyName = "TextOnly:Compact";
+Compact.args = { density: "compact" };
+
+export const CompactQuiet = TabsRender.bind({});
+CompactQuiet.storyName = "TextOnly:CompactQuiet";
+CompactQuiet.args = { density: "compact", isQuiet: true };
+
+export const Quiet = TabsRender.bind({});
+Quiet.storyName = "TextOnly:Quiet";
+Quiet.args = { isQuiet: true };
+
+export const Emphasized = TabsRender.bind({});
+Emphasized.storyName = "TextOnly:Emphasized";
+Emphasized.args = { isEmphasized: true };
+
+export const EmphasizedQuietVertical = TabsRender.bind({});
+EmphasizedQuietVertical.storyName = "TextOnly:EmphasizedQuietVertical";
+EmphasizedQuietVertical.args = {
+  isEmphasized: true,
+  isQuiet: true,
+  orientation: "vertical",
+};
+
+export const Disabled = TabsRender.bind({});
+Disabled.storyName = "TextOnly:Disabled";
+Disabled.args = { isDisabled: true };
+
+export const DisabledKeys = TabsRender.bind({});
+DisabledKeys.storyName = "TextOnly:DisabledKeys";
+DisabledKeys.args = { disabledKeys: ['val1'] };
+
+export const WithIconsDefault = TabsWithIconsRender.bind({});
+WithIconsDefault.storyName = "WithIcons:Default";
+
+export const WithIconsDefaultSelectedKey = TabsWithIconsRender.bind({});
+WithIconsDefaultSelectedKey.storyName = "WithIcons:DefaultSelectedKey";
+WithIconsDefaultSelectedKey.args = { defaultSelectedKey: "val2" };
+
+export const WithIconsControlledSelectedKey = TabsWithIconsRender.bind({});
+WithIconsControlledSelectedKey.storyName = "WithIcons:ControlledSelectedKey";
+WithIconsControlledSelectedKey.args = { selectedKey: "val3" };
+
+export const WithIconsOrientationVertical = TabsWithIconsRender.bind({});
+WithIconsOrientationVertical.storyName = "WithIcons:OrientationVertical";
+WithIconsOrientationVertical.args = { orientation: "vertical" };
+
+export const WithIconsOrientationVerticalCompact = TabsWithIconsRender.bind({});
+WithIconsOrientationVerticalCompact.storyName =
+  "WithIcons:OrientationVerticalCompact";
+WithIconsOrientationVerticalCompact.args = {
+  orientation: "vertical",
+  density: "compact",
+};
+
+export const WithIconsCompact = TabsWithIconsRender.bind({});
+WithIconsCompact.storyName = "WithIcons:Compact";
+WithIconsCompact.args = { density: "compact" };
+
+export const WithIconsCompactQuiet = TabsWithIconsRender.bind({});
+WithIconsCompactQuiet.storyName = "WithIcons:CompactQuiet";
+WithIconsCompactQuiet.args = { density: "compact", isQuiet: true };
+
+export const WithIconsQuiet = TabsWithIconsRender.bind({});
+WithIconsQuiet.storyName = "WithIcons:Quiet";
+WithIconsQuiet.args = { isQuiet: true };
+
+export const WithIconsEmphasized = TabsWithIconsRender.bind({});
+WithIconsEmphasized.storyName = "WithIcons:Emphasized";
+WithIconsEmphasized.args = { isEmphasized: true };
+
+export const WithIconsEmphasizedQuiet = TabsWithIconsRender.bind({});
+WithIconsEmphasizedQuiet.storyName = "WithIcons:EmphasizedQuiet";
+WithIconsEmphasizedQuiet.args = { isEmphasized: true, isQuiet: true };
+
+
+const ResizeableRender: Story<ValenceTabsProps<object>> = (props) => {
+  return (
+    <div
+      style={{
+        minWidth: "100px",
+        width: "300px",
+        height: "400px",
+        padding: "10px",
+        resize: "horizontal",
+        overflow: "auto",
+        backgroundColor: "var(--spectrum-global-color-gray-50)",
+      }}
+    >
+      <TabsRender/>
+    </div>   
+  );
+};
+
+export const Resizeable = ResizeableRender.bind({});
+Resizeable.storyName = "TextOnly:Resizeable";
+
+//   .add("resizeable", () => (
+//     <div
+//       style={{
+//         minWidth: "100px",
+//         width: "300px",
+//         height: "400px",
+//         padding: "10px",
+//         resize: "horizontal",
+//         overflow: "auto",
+//         backgroundColor: "var(--spectrum-global-color-gray-50)",
+//       }}
+//     >
+//       {render()}
+//     </div>
+//   ))
+//   .add("collapse behavior", () => <DynamicTabs />)
+//   .add("collapse behavior, isQuiet", () => <DynamicTabs isQuiet />)
+//   .add("collapse behavior, density: compact", () => (
+//     <DynamicTabs density="compact" />
+//   ))
+//   .add("collapse behavior, density: compact, isQuiet", () => (
+//     <DynamicTabs isQuiet density="compact" />
+//   ))
+//   .add("collapse behavior, isEmphasized: true", () => (
+//     <DynamicTabs isEmphasized />
+//   ))
+//   .add("orientation flip", () => <OrientationFlip />)
+//   .add("testing: tabs in flex", () => (
+//     <Flex
+//       minHeight={400}
+//       minWidth={400}
+//       UNSAFE_style={{
+//         borderWidth: 1,
+//         borderStyle: "solid",
+//         borderColor: "var(--spectrum-global-color-gray-800)",
+//         padding: "10px",
+//       }}
+//     >
+//       <Tabs>
+//         <TabList>
+//           <Item>Tab 1</Item>
+//           <Item>Tab 2</Item>
+//         </TabList>
+//         <TabPanels>
+//           <Item>Hello World</Item>
+//           <Item>Goodbye World</Item>
+//         </TabPanels>
+//       </Tabs>
+//     </Flex>
+//   ))
+//   .add("transition between tab sizes", () => (
+//     <Tabs maxWidth={500}>
+//       <TabList>
+//         <Item>
+//           <Text>Tab 1 long long long name</Text>
+//         </Item>
+//         <Item>
+//           <Text>Tab 2</Text>
+//         </Item>
+//       </TabList>
+//       <TabPanels>
+//         <Item>Text</Item>
+//         <Item>Text 2</Item>
+//       </TabPanels>
+//     </Tabs>
+//   ))
+//   .add("Tab with flex container in between", () => (
+//     <DynamicTabsWithDecoration />
+//   ))
+//   .add("tabs at the bottom", () => (
+//     <Tabs maxWidth={500}>
+//       <TabPanels height="size-1000">
+//         <Item>Text 1</Item>
+//         <Item>Text 2</Item>
+//       </TabPanels>
+//       <TabList>
+//         <Item>Tab 1</Item>
+//         <Item>Tab 2</Item>
+//       </TabList>
+//     </Tabs>
+//   ))
+//   .add("tabs on the right", () => (
+//     <Tabs maxWidth={500} orientation="vertical">
+//       <TabPanels>
+//         <Item>Text 1</Item>
+//         <Item>Text 2</Item>
+//       </TabPanels>
+//       <TabList>
+//         <Item>Tab 1</Item>
+//         <Item>Tab 2</Item>
+//       </TabList>
+//     </Tabs>
+//   ))
+//   .add("focusable element in tab panel", () => (
+//     <Tabs maxWidth={500}>
+//       <TabList>
+//         <Item>Tab 1</Item>
+//         <Item>Tab 2</Item>
+//       </TabList>
+//       <TabPanels>
+//         <Item>
+//           <TextField label="Tab 1" />
+//         </Item>
+//         <Item>
+//           <TextField label="Tab 2" isDisabled />
+//         </Item>
+//       </TabPanels>
+//     </Tabs>
+//   ))
+//   .add("Tab 1 controlled child", () => {
+//     let [tab1Text, setTab1Text] = useState("");
+
+//     return (
+//       <Tabs maxWidth={500}>
+//         <TabList>
+//           <Item>Tab 1</Item>
+//           <Item>Tab 2</Item>
+//         </TabList>
+//         <TabPanels>
+//           <Item>
+//             <TextField label="Tab 1" value={tab1Text} onChange={setTab1Text} />
+//           </Item>
+//           <Item>
+//             <TextField label="Tab 2" />
+//           </Item>
+//         </TabPanels>
+//       </Tabs>
+//     );
+//   })
+//   .add("changing selection programatically", () => <ControlledSelection />);
 
 function renderWithFalsyKey(props = {}) {
   return (
