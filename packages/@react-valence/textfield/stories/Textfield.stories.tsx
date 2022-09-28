@@ -5,27 +5,30 @@ import React from "react";
 import { ValenceTextFieldProps } from "@types-valence/textfield";
 import Robot from "@valence-icons/ui/RobotFill";
 
-type ItemType = {
-  key: React.Key;
-  title: string;
-};
-
 export default {
   title: "TextField",
   component: TextField,
 };
 
 const TextFieldRender: Story<ValenceTextFieldProps> = (args) => {
-  let props = {
-    label: 'Field Label',
-    ...args
-  }
-  return <TextField {...props}/>;
+  args = {
+    label: "Field Label",
+    ...args,
+  };
+  return <TextField {...args} />;
 };
 
 export const Default = TextFieldRender.bind({});
 Default.storyName = "Default";
-Default.args = {};
+Default.argTypes = {
+  validationState: {
+    options: [undefined, "valid", "invalid"],
+    control: { type: "select" },
+  },
+};
+Default.args = {
+  validationState: undefined,
+};
 
 export const ValueControlled = TextFieldRender.bind({});
 ValueControlled.storyName = "Value: Controlled";
@@ -205,13 +208,13 @@ LabelPositionSide.args = {
 export const LabelNoVisible = TextFieldRender.bind({});
 LabelNoVisible.storyName = "Label: No Visible Label";
 LabelNoVisible.args = {
-  label: null
+  label: null,
 };
 
 export const WithDescription = TextFieldRender.bind({});
 WithDescription.storyName = "With Description";
 WithDescription.args = {
-  description: "This is the field description text"
+  description: "This is the field description text",
 };
 
 export const WithErrorMessage = TextFieldRender.bind({});
@@ -221,8 +224,9 @@ WithErrorMessage.args = {
   validationState: "invalid",
 };
 
-
-const TextFieldDescriptionErrorRender: Story<ValenceTextFieldProps> = (args) => {
+const TextFieldDescriptionErrorRender: Story<ValenceTextFieldProps> = (
+  args
+) => {
   function Example() {
     let [value, setValue] = React.useState("0");
     let isValid = React.useMemo(() => /^\d$/.test(value), [value]);
@@ -245,9 +249,8 @@ const TextFieldDescriptionErrorRender: Story<ValenceTextFieldProps> = (args) => 
   }
 
   return <Example />;
-}
+};
 
 export const ExampleValidation = TextFieldDescriptionErrorRender.bind({});
 ExampleValidation.storyName = "Validation Example";
-ExampleValidation.args = {
-};
+ExampleValidation.args = {};

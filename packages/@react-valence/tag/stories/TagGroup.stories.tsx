@@ -1,18 +1,24 @@
 import { action, Story } from "@ladle/react";
-import Audio from "@valence-icons/ui/RobotFill";
+import Audio from "@valence-icons/ui/Music2Fill";
 import { Icon } from "@react-valence/icon";
 import { Item, TagGroup } from "../src";
 import React from "react";
 import { Text } from "@react-valence/text";
 
-storiesOf("TagGroup", module)
-  .add("default", () => render({}))
-  .add("disabledKeys", () =>
-    render({
-      disabledKeys: ["1"],
-    })
-  )
-  .add("icons", () => (
+import { ValenceTagGroupProps } from "@types-valence/tag";
+
+const TagGroupRender: Story<ValenceTagGroupProps<object>> = (args) => {
+  return (
+    <TagGroup {...args} aria-label="tag group">
+      <Item key="1">Cool Tag 1</Item>
+      <Item key="2">Cool Tag 2</Item>
+      <Item key="3">Cool Tag 3</Item>
+    </TagGroup>
+  );
+};
+
+const TagGroupIconsRender: Story<ValenceTagGroupProps<object>> = (args) => {
+  return (
     <TagGroup
       aria-label="tag group"
       items={[
@@ -29,33 +35,45 @@ storiesOf("TagGroup", module)
         </Item>
       )}
     </TagGroup>
-  ))
-  .add("isDisabled", () =>
-    render({
-      isDisabled: true,
-    })
-  )
-  .add("onRemove", () =>
-    render({
-      isRemovable: true,
-      onRemove: action("onRemove"),
-    })
-  )
-  .add("onRemove + disabledKeys", () =>
-    render({
-      disabledKeys: ["2"],
-      isRemovable: true,
-      onRemove: action("onRemove"),
-    })
-  )
-  .add("onRemove + isDisabled", () =>
-    render({
-      isDisabled: true,
-      isRemovable: true,
-      onRemove: action("onRemove"),
-    })
-  )
-  .add("wrapping", () => (
+  );
+};
+
+export const Default = TagGroupRender.bind({});
+Default.storyName = "Default";
+
+export const DisabledKeys = TagGroupRender.bind({});
+DisabledKeys.storyName = "DisabledKeys";
+DisabledKeys.args = {
+  disabledKeys: ["1"],
+};
+
+export const Disabled = TagGroupRender.bind({});
+Disabled.storyName = "Disabled";
+Disabled.args = {
+  isDisabled: true,
+};
+
+export const WithIcons = TagGroupIconsRender.bind({});
+WithIcons.storyName = "With Icons";
+WithIcons.args = {};
+
+export const Removeable = TagGroupRender.bind({});
+Removeable.storyName = "Removeable";
+Removeable.args = {
+  isRemovable: true,
+  onRemove: action("onRemove"),
+};
+
+export const RemoveableDisabledKeys = TagGroupRender.bind({});
+RemoveableDisabledKeys.storyName = "RemoveableDisabledKeys";
+RemoveableDisabledKeys.args = {
+  disabledKeys: ["2"],
+  isRemovable: true,
+  onRemove: action("onRemove"),
+};
+
+const WrappingRender: Story<ValenceTagGroupProps<object>> = (args) => {
+  return (
     <div style={{ width: "200px" }}>
       <TagGroup aria-label="tag group">
         <Item key="1">Cool Tag 1</Item>
@@ -66,8 +84,14 @@ storiesOf("TagGroup", module)
         <Item key="6">Shy tag</Item>
       </TagGroup>
     </div>
-  ))
-  .add("truncation", () => (
+  );
+};
+
+export const Wrapping = WrappingRender.bind({});
+Wrapping.storyName = "Wrapping";
+
+const TruncationRender: Story<ValenceTagGroupProps<object>> = (args) => {
+  return (
     <div style={{ width: "100px" }}>
       <TagGroup aria-label="tag group">
         <Item key="1">Cool Tag 1 with a really long label</Item>
@@ -75,8 +99,14 @@ storiesOf("TagGroup", module)
         <Item key="3">This tag</Item>
       </TagGroup>
     </div>
-  ))
-  .add("using items prop", () => (
+  );
+};
+
+export const Truncation = TruncationRender.bind({});
+Truncation.storyName = "Truncation";
+
+const ItemPropsRender: Story<ValenceTagGroupProps<object>> = (args) => {
+  return (
     <TagGroup
       aria-label="tag group"
       items={[
@@ -90,20 +120,13 @@ storiesOf("TagGroup", module)
         </Item>
       )}
     </TagGroup>
-  ))
-  .add("with announcing", () => <WithAnnouncing />);
-
-function render(props: any = {}) {
-  return (
-    <TagGroup {...props} aria-label="tag group">
-      <Item key="1">Cool Tag 1</Item>
-      <Item key="2">Cool Tag 2</Item>
-      <Item key="3">Cool Tag 3</Item>
-    </TagGroup>
   );
-}
+};
 
-function WithAnnouncing() {
+export const ItemProps = ItemPropsRender.bind({});
+ItemProps.storyName = "ItemProps";
+
+const AnnouncingRender: Story<ValenceTagGroupProps<object>> = (args) => {
   let tags = ["Testing tag", "Other testing label"];
 
   return (
@@ -115,4 +138,7 @@ function WithAnnouncing() {
       </TagGroup>
     </React.Fragment>
   );
-}
+};
+
+export const Announcing = AnnouncingRender.bind({});
+Announcing.storyName = "Announcing";
