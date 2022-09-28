@@ -277,7 +277,7 @@ Disabled.args = { isDisabled: true };
 
 export const DisabledKeys = TabsRender.bind({});
 DisabledKeys.storyName = "TextOnly:DisabledKeys";
-DisabledKeys.args = { disabledKeys: ['val1'] };
+DisabledKeys.args = { disabledKeys: ["val1"] };
 
 export const WithIconsDefault = TabsWithIconsRender.bind({});
 WithIconsDefault.storyName = "WithIcons:Default";
@@ -322,7 +322,6 @@ export const WithIconsEmphasizedQuiet = TabsWithIconsRender.bind({});
 WithIconsEmphasizedQuiet.storyName = "WithIcons:EmphasizedQuiet";
 WithIconsEmphasizedQuiet.args = { isEmphasized: true, isQuiet: true };
 
-
 const ResizeableRender: Story<ValenceTabsProps<object>> = (props) => {
   return (
     <div
@@ -336,266 +335,15 @@ const ResizeableRender: Story<ValenceTabsProps<object>> = (props) => {
         backgroundColor: "var(--spectrum-global-color-gray-50)",
       }}
     >
-      <TabsRender/>
-    </div>   
+      <TabsRender />
+    </div>
   );
 };
 
 export const Resizeable = ResizeableRender.bind({});
 Resizeable.storyName = "TextOnly:Resizeable";
 
-//   .add("resizeable", () => (
-//     <div
-//       style={{
-//         minWidth: "100px",
-//         width: "300px",
-//         height: "400px",
-//         padding: "10px",
-//         resize: "horizontal",
-//         overflow: "auto",
-//         backgroundColor: "var(--spectrum-global-color-gray-50)",
-//       }}
-//     >
-//       {render()}
-//     </div>
-//   ))
-//   .add("collapse behavior", () => <DynamicTabs />)
-//   .add("collapse behavior, isQuiet", () => <DynamicTabs isQuiet />)
-//   .add("collapse behavior, density: compact", () => (
-//     <DynamicTabs density="compact" />
-//   ))
-//   .add("collapse behavior, density: compact, isQuiet", () => (
-//     <DynamicTabs isQuiet density="compact" />
-//   ))
-//   .add("collapse behavior, isEmphasized: true", () => (
-//     <DynamicTabs isEmphasized />
-//   ))
-//   .add("orientation flip", () => <OrientationFlip />)
-//   .add("testing: tabs in flex", () => (
-//     <Flex
-//       minHeight={400}
-//       minWidth={400}
-//       UNSAFE_style={{
-//         borderWidth: 1,
-//         borderStyle: "solid",
-//         borderColor: "var(--spectrum-global-color-gray-800)",
-//         padding: "10px",
-//       }}
-//     >
-//       <Tabs>
-//         <TabList>
-//           <Item>Tab 1</Item>
-//           <Item>Tab 2</Item>
-//         </TabList>
-//         <TabPanels>
-//           <Item>Hello World</Item>
-//           <Item>Goodbye World</Item>
-//         </TabPanels>
-//       </Tabs>
-//     </Flex>
-//   ))
-//   .add("transition between tab sizes", () => (
-//     <Tabs maxWidth={500}>
-//       <TabList>
-//         <Item>
-//           <Text>Tab 1 long long long name</Text>
-//         </Item>
-//         <Item>
-//           <Text>Tab 2</Text>
-//         </Item>
-//       </TabList>
-//       <TabPanels>
-//         <Item>Text</Item>
-//         <Item>Text 2</Item>
-//       </TabPanels>
-//     </Tabs>
-//   ))
-//   .add("Tab with flex container in between", () => (
-//     <DynamicTabsWithDecoration />
-//   ))
-//   .add("tabs at the bottom", () => (
-//     <Tabs maxWidth={500}>
-//       <TabPanels height="size-1000">
-//         <Item>Text 1</Item>
-//         <Item>Text 2</Item>
-//       </TabPanels>
-//       <TabList>
-//         <Item>Tab 1</Item>
-//         <Item>Tab 2</Item>
-//       </TabList>
-//     </Tabs>
-//   ))
-//   .add("tabs on the right", () => (
-//     <Tabs maxWidth={500} orientation="vertical">
-//       <TabPanels>
-//         <Item>Text 1</Item>
-//         <Item>Text 2</Item>
-//       </TabPanels>
-//       <TabList>
-//         <Item>Tab 1</Item>
-//         <Item>Tab 2</Item>
-//       </TabList>
-//     </Tabs>
-//   ))
-//   .add("focusable element in tab panel", () => (
-//     <Tabs maxWidth={500}>
-//       <TabList>
-//         <Item>Tab 1</Item>
-//         <Item>Tab 2</Item>
-//       </TabList>
-//       <TabPanels>
-//         <Item>
-//           <TextField label="Tab 1" />
-//         </Item>
-//         <Item>
-//           <TextField label="Tab 2" isDisabled />
-//         </Item>
-//       </TabPanels>
-//     </Tabs>
-//   ))
-//   .add("Tab 1 controlled child", () => {
-//     let [tab1Text, setTab1Text] = useState("");
-
-//     return (
-//       <Tabs maxWidth={500}>
-//         <TabList>
-//           <Item>Tab 1</Item>
-//           <Item>Tab 2</Item>
-//         </TabList>
-//         <TabPanels>
-//           <Item>
-//             <TextField label="Tab 1" value={tab1Text} onChange={setTab1Text} />
-//           </Item>
-//           <Item>
-//             <TextField label="Tab 2" />
-//           </Item>
-//         </TabPanels>
-//       </Tabs>
-//     );
-//   })
-//   .add("changing selection programatically", () => <ControlledSelection />);
-
-function renderWithFalsyKey(props = {}) {
-  return (
-    <Tabs
-      {...props}
-      aria-label="Tab example"
-      maxWidth={500}
-      onSelectionChange={action("onSelectionChange")}
-    >
-      <TabList>
-        <Item key="">Tab 1</Item>
-        <Item key="val2">Tab 2</Item>
-        <Item key="val3">Tab 3</Item>
-        <Item key="val4">Tab 4</Item>
-        <Item key="val5">Tab 5</Item>
-      </TabList>
-      <TabPanels>
-        <Item key="">
-          <Heading>Tab Body 1</Heading>
-          <Text>
-            Dolore ex esse laboris elit magna esse sunt. Pariatur in veniam
-            Lorem est occaecat do magna nisi mollit ipsum sit adipisicing fugiat
-            ex. Pariatur ullamco exercitation ea qui adipisicing. Id cupidatat
-            aute id ut excepteur exercitation magna pariatur. Mollit irure irure
-            reprehenderit pariatur eiusmod proident Lorem deserunt duis cillum
-            mollit. Do reprehenderit sit cupidatat quis laborum in do culpa nisi
-            ipsum. Velit aliquip commodo ea ipsum incididunt culpa nostrud
-            deserunt incididunt exercitation. In quis proident sit ad dolore
-            tempor. Eiusmod pariatur quis commodo labore cupidatat cillum enim
-            eiusmod voluptate laborum culpa. Laborum cupidatat incididunt velit
-            voluptate incididunt occaecat quis do. Consequat adipisicing irure
-            Lorem commodo officia sint id. Velit sit magna aliquip eiusmod non
-            id deserunt. Magna veniam ad consequat dolor cupidatat esse enim
-            Lorem ullamco. Anim excepteur consectetur id in. Mollit laboris duis
-            labore enim duis esse reprehenderit.
-          </Text>
-        </Item>
-        <Item key="val2">
-          <Heading>Tab Body 2</Heading>
-          <Text>
-            Dolore ex esse laboris elit magna esse sunt. Pariatur in veniam
-            Lorem est occaecat do magna nisi mollit ipsum sit adipisicing fugiat
-            ex. Pariatur ullamco exercitation ea qui adipisicing. Id cupidatat
-            aute id ut excepteur exercitation magna pariatur. Mollit irure irure
-            reprehenderit pariatur eiusmod proident Lorem deserunt duis cillum
-            mollit. Do reprehenderit sit cupidatat quis laborum in do culpa nisi
-            ipsum. Velit aliquip commodo ea ipsum incididunt culpa nostrud
-            deserunt incididunt exercitation. In quis proident sit ad dolore
-            tempor. Eiusmod pariatur quis commodo labore cupidatat cillum enim
-            eiusmod voluptate laborum culpa. Laborum cupidatat incididunt velit
-            voluptate incididunt occaecat quis do. Consequat adipisicing irure
-            Lorem commodo officia sint id. Velit sit magna aliquip eiusmod non
-            id deserunt. Magna veniam ad consequat dolor cupidatat esse enim
-            Lorem ullamco. Anim excepteur consectetur id in. Mollit laboris duis
-            labore enim duis esse reprehenderit.
-          </Text>
-        </Item>
-        <Item key="val3">
-          <Heading>Tab Body 3</Heading>
-          <Text>
-            Dolore ex esse laboris elit magna esse sunt. Pariatur in veniam
-            Lorem est occaecat do magna nisi mollit ipsum sit adipisicing fugiat
-            ex. Pariatur ullamco exercitation ea qui adipisicing. Id cupidatat
-            aute id ut excepteur exercitation magna pariatur. Mollit irure irure
-            reprehenderit pariatur eiusmod proident Lorem deserunt duis cillum
-            mollit. Do reprehenderit sit cupidatat quis laborum in do culpa nisi
-            ipsum. Velit aliquip commodo ea ipsum incididunt culpa nostrud
-            deserunt incididunt exercitation. In quis proident sit ad dolore
-            tempor. Eiusmod pariatur quis commodo labore cupidatat cillum enim
-            eiusmod voluptate laborum culpa. Laborum cupidatat incididunt velit
-            voluptate incididunt occaecat quis do. Consequat adipisicing irure
-            Lorem commodo officia sint id. Velit sit magna aliquip eiusmod non
-            id deserunt. Magna veniam ad consequat dolor cupidatat esse enim
-            Lorem ullamco. Anim excepteur consectetur id in. Mollit laboris duis
-            labore enim duis esse reprehenderit.
-          </Text>
-        </Item>
-        <Item key="val4">
-          <Heading>Tab Body 4</Heading>
-          <Text>
-            Dolore ex esse laboris elit magna esse sunt. Pariatur in veniam
-            Lorem est occaecat do magna nisi mollit ipsum sit adipisicing fugiat
-            ex. Pariatur ullamco exercitation ea qui adipisicing. Id cupidatat
-            aute id ut excepteur exercitation magna pariatur. Mollit irure irure
-            reprehenderit pariatur eiusmod proident Lorem deserunt duis cillum
-            mollit. Do reprehenderit sit cupidatat quis laborum in do culpa nisi
-            ipsum. Velit aliquip commodo ea ipsum incididunt culpa nostrud
-            deserunt incididunt exercitation. In quis proident sit ad dolore
-            tempor. Eiusmod pariatur quis commodo labore cupidatat cillum enim
-            eiusmod voluptate laborum culpa. Laborum cupidatat incididunt velit
-            voluptate incididunt occaecat quis do. Consequat adipisicing irure
-            Lorem commodo officia sint id. Velit sit magna aliquip eiusmod non
-            id deserunt. Magna veniam ad consequat dolor cupidatat esse enim
-            Lorem ullamco. Anim excepteur consectetur id in. Mollit laboris duis
-            labore enim duis esse reprehenderit.
-          </Text>
-        </Item>
-        <Item key="val5">
-          <Heading>Tab Body 5</Heading>
-          <Text>
-            Dolore ex esse laboris elit magna esse sunt. Pariatur in veniam
-            Lorem est occaecat do magna nisi mollit ipsum sit adipisicing fugiat
-            ex. Pariatur ullamco exercitation ea qui adipisicing. Id cupidatat
-            aute id ut excepteur exercitation magna pariatur. Mollit irure irure
-            reprehenderit pariatur eiusmod proident Lorem deserunt duis cillum
-            mollit. Do reprehenderit sit cupidatat quis laborum in do culpa nisi
-            ipsum. Velit aliquip commodo ea ipsum incididunt culpa nostrud
-            deserunt incididunt exercitation. In quis proident sit ad dolore
-            tempor. Eiusmod pariatur quis commodo labore cupidatat cillum enim
-            eiusmod voluptate laborum culpa. Laborum cupidatat incididunt velit
-            voluptate incididunt occaecat quis do. Consequat adipisicing irure
-            Lorem commodo officia sint id. Velit sit magna aliquip eiusmod non
-            id deserunt. Magna veniam ad consequat dolor cupidatat esse enim
-            Lorem ullamco. Anim excepteur consectetur id in. Mollit laboris duis
-            labore enim duis esse reprehenderit.
-          </Text>
-        </Item>
-      </TabPanels>
-    </Tabs>
-  );
-}
-
+// Dynamic Tabs
 interface DynamicTabItem {
   name: string;
   children: ReactNode;
@@ -611,9 +359,9 @@ let items = [
   { name: "Tab 6", children: "Tab Body 6", icon: <Bookmark size="S" /> },
 ] as DynamicTabItem[];
 
-let DynamicTabs = (
+function DynamicTabsRender(
   props: Omit<ValenceTabsProps<DynamicTabItem>, "children">
-) => {
+) {
   let [tabs, setTabs] = React.useState(items);
   let addTab = () => {
     let newTabs = [...tabs];
@@ -637,7 +385,7 @@ let DynamicTabs = (
         {...props}
         aria-label="Tab example"
         items={tabs}
-        onSelectionChange={action("onSelectionChange")}
+        onSelectionChange={console.log}
       >
         <TabList>
           {(item: DynamicTabItem) => (
@@ -683,9 +431,28 @@ let DynamicTabs = (
       </ButtonGroup>
     </div>
   );
-};
+}
 
-let OrientationFlip = (props = {}) => {
+export const DynamicTabsDefault = DynamicTabsRender.bind({});
+DynamicTabsDefault.storyName = "DynamicTabs:Default";
+
+export const DynamicTabsQuiet = DynamicTabsRender.bind({});
+DynamicTabsQuiet.storyName = "DynamicTabs:Quiet";
+DynamicTabsQuiet.args = { isQuiet: true };
+
+export const DynamicTabsQuietCompact = DynamicTabsRender.bind({});
+DynamicTabsQuietCompact.storyName = "DynamicTabs:QuietCompact";
+DynamicTabsQuietCompact.args = { isQuiet: true, density: "compact" };
+
+export const DynamicTabsCompact = DynamicTabsRender.bind({});
+DynamicTabsCompact.storyName = "DynamicTabs:Compact";
+DynamicTabsCompact.args = { density: "compact" };
+
+export const DynamicTabsEmphasized = DynamicTabsRender.bind({});
+DynamicTabsEmphasized.storyName = "DynamicTabs:Emphasized";
+DynamicTabsEmphasized.args = { isEmpasized: true };
+
+const OrientationFlipRender: Story<ValenceTabsProps<object>> = (props) => {
   let [flipOrientation, setFlipOrientation] = React.useState(true);
 
   return (
@@ -694,7 +461,7 @@ let OrientationFlip = (props = {}) => {
         {...props}
         aria-label="Tab example"
         items={items}
-        onSelectionChange={action("onSelectionChange")}
+        onSelectionChange={console.log}
         orientation={flipOrientation ? "horizontal" : "vertical"}
       >
         <TabList>
@@ -741,7 +508,68 @@ let OrientationFlip = (props = {}) => {
   );
 };
 
-let DynamicTabsWithDecoration = (props = {}) => {
+export const OrientationFlip = OrientationFlipRender.bind({});
+OrientationFlip.storyName = "OrientationFlip";
+OrientationFlip.args = {};
+
+const TabsInFlexRender: Story<ValenceTabsProps<object>> = (props) => {
+  return (
+    <div style={{ width: "80%" }}>
+      <Flex
+        minHeight={400}
+        minWidth={400}
+        UNSAFE_style={{
+          borderWidth: 1,
+          borderStyle: "solid",
+          borderColor: "var(--spectrum-global-color-gray-800)",
+          padding: "10px",
+        }}
+      >
+        <Tabs>
+          <TabList>
+            <Item>Tab 1</Item>
+            <Item>Tab 2</Item>
+          </TabList>
+          <TabPanels>
+            <Item>Hello World</Item>
+            <Item>Goodbye World</Item>
+          </TabPanels>
+        </Tabs>
+      </Flex>
+    </div>
+  );
+};
+
+export const TabsInFlex = TabsInFlexRender.bind({});
+TabsInFlex.storyName = "Testing:TabsInFlex";
+TabsInFlex.args = {};
+
+const TabSizeTransitionRender: Story<ValenceTabsProps<object>> = (props) => {
+  return (
+    <Tabs maxWidth={500}>
+      <TabList>
+        <Item>
+          <Text>Tab 1 long long long name</Text>
+        </Item>
+        <Item>
+          <Text>Tab 2</Text>
+        </Item>
+      </TabList>
+      <TabPanels>
+        <Item>Text</Item>
+        <Item>Text 2</Item>
+      </TabPanels>
+    </Tabs>
+  );
+};
+
+export const TabSizeTransition = TabSizeTransitionRender.bind({});
+TabSizeTransition.storyName = "TabSizeTransition";
+TabSizeTransition.args = {};
+
+const DynamicTabsWithDecorationRender: Story<ValenceTabsProps<object>> = (
+  props
+) => {
   let [tabs, setTabs] = React.useState(items);
   let addTab = () => {
     let newTabs = [...tabs];
@@ -767,7 +595,7 @@ let DynamicTabsWithDecoration = (props = {}) => {
         {...props}
         aria-label="Tab example"
         items={tabs}
-        onSelectionChange={action("onSelectionChange")}
+        onSelectionChange={console.log}
       >
         <Flex direction="row" alignItems="center">
           <TabList flex="1 1 auto" UNSAFE_style={{ overflow: "hidden" }}>
@@ -832,7 +660,99 @@ let DynamicTabsWithDecoration = (props = {}) => {
   );
 };
 
-let ControlledSelection = () => {
+export const TabWithFlexContainerBetween = DynamicTabsWithDecorationRender.bind(
+  {}
+);
+TabWithFlexContainerBetween.storyName = "TabsWithFlexContainerBetween";
+TabWithFlexContainerBetween.args = {};
+
+const TabsBottomRender: Story<ValenceTabsProps<object>> = (props) => {
+  return (
+    <Tabs maxWidth={500}>
+      <TabPanels height="size-1000">
+        <Item>Text 1</Item>
+        <Item>Text 2</Item>
+      </TabPanels>
+      <TabList>
+        <Item>Tab 1</Item>
+        <Item>Tab 2</Item>
+      </TabList>
+    </Tabs>
+  );
+};
+
+export const TabsBottom = TabsBottomRender.bind({});
+TabsBottom.storyName = "TabsBottom";
+TabsBottom.args = {};
+
+const TabsRightRender: Story<ValenceTabsProps<object>> = (props) => {
+  return (
+    <Tabs maxWidth={500} orientation="vertical">
+      <TabPanels>
+        <Item>Text 1</Item>
+        <Item>Text 2</Item>
+      </TabPanels>
+      <TabList>
+        <Item>Tab 1</Item>
+        <Item>Tab 2</Item>
+      </TabList>
+    </Tabs>
+  );
+};
+
+export const TabsRight = TabsRightRender.bind({});
+TabsRight.storyName = "TabsRight";
+TabsRight.args = {};
+
+const FocusableInPanelRender: Story<ValenceTabsProps<object>> = (props) => {
+  return (
+    <Tabs maxWidth={500}>
+      <TabList>
+        <Item>Tab 1</Item>
+        <Item>Tab 2</Item>
+      </TabList>
+      <TabPanels>
+        <Item>
+          <TextField label="Tab 1" />
+        </Item>
+        <Item>
+          <TextField label="Tab 2" isDisabled />
+        </Item>
+      </TabPanels>
+    </Tabs>
+  );
+};
+
+export const FocusableElementInPanel = FocusableInPanelRender.bind({});
+FocusableElementInPanel.storyName = "FocusableElementInPanel";
+FocusableElementInPanel.args = {};
+
+const ControlledTabRender: Story<ValenceTabsProps<object>> = (props) => {
+    let [tab1Text, setTab1Text] = useState("");
+
+    return (
+      <Tabs maxWidth={500}>
+        <TabList>
+          <Item>Tab 1</Item>
+          <Item>Tab 2</Item>
+        </TabList>
+        <TabPanels>
+          <Item>
+            <TextField label="Tab 1" value={tab1Text} onChange={setTab1Text} />
+          </Item>
+          <Item>
+            <TextField label="Tab 2" />
+          </Item>
+        </TabPanels>
+      </Tabs>
+    );
+};
+
+export const ControlledTab = ControlledTabRender.bind({});
+ControlledTab.storyName = "ControlledTab";
+ControlledTab.args = {};
+
+const ControlledSelectionRender: Story<ValenceTabsProps<object>> = (props) => {
   let [selectedKey, setSelectedKey] = useState<React.Key>("Tab 1");
 
   return (
@@ -888,3 +808,7 @@ let ControlledSelection = () => {
     </div>
   );
 };
+
+export const ControlledSelection = ControlledSelectionRender.bind({});
+ControlledSelection.storyName = "ControlledSelection";
+ControlledSelection.args = {};
