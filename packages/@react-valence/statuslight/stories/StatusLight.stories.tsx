@@ -1,39 +1,39 @@
-
 import { StatusLight } from "@react-valence/statuslight";
-import { Story as _Story } from "@ladle/react";
-import {ValenceStatusLightProps} from "@types-valence/statuslight";
-
-type ItemType = {
-  key: React.Key;
-  title: string;
-};
-
-/**
- * Helper type so `bind` returns the actual Story type.
- */
-interface Story<T> extends _Story<T> {
-  bind: (
-    this: ThisParameterType<typeof Function.bind>,
-    thisArg: Parameters<typeof Function.bind>[0],
-    ...argArray: Parameters<typeof Function.bind>[1][]
-  ) => _Story<T>;
-}
-
+import { Story } from "@ladle/react";
+import { ValenceStatusLightProps } from "@types-valence/statuslight";
 
 export default {
   title: "StatusLight",
   component: StatusLight
 };
 
-const AccordionRenderPropsTemplate: Story<ValenceStatusLightProps> = (
-  args
-) => (
-    <StatusLight {...args}/>
-);
+const StatusLightRender: Story<ValenceStatusLightProps> = (args) => (
+  <StatusLight {...args} />
+)
 
-export const Default = AccordionRenderPropsTemplate.bind({});
+export const Default = StatusLightRender.bind({});
 Default.storyName = "Default";
+Default.argTypes = {
+  variant: {
+    options: [
+      "positive",
+      "negative",
+      "notice",
+      "info",
+      "neutral",
+      "celery",
+      "chartreuse",
+      "yellow",
+      "magenta",
+      "fuchsia",
+      "purple",
+      "indigo",
+      "seafoam",
+    ],
+    control: { type: "select" },
+  },
+}
 Default.args = {
-  children: 'Status of love',
+  children: "Status of love",
   variant: 'positive'
 };
