@@ -19,7 +19,7 @@ const SliderRender: Story<ValenceSliderProps> = (props) => {
   return <Slider {...props} />;
 };
 
-export const Default = SliderRender.bind({});
+export const Default: Story<ValenceSliderProps> = SliderRender.bind({});
 Default.args = { "aria-label": "Label" };
 
 export const Label = SliderRender.bind({});

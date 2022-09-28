@@ -1,94 +1,103 @@
-/*
- * Copyright 2020 Adobe. All rights reserved.
- * This file is licensed to you under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License. You may obtain a copy
- * of the License at http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
- * OF ANY KIND, either express or implied. See the License for the specific language
- * governing permissions and limitations under the License.
- */
-
-import { action } from "@storybook/addon-actions";
-import { ErrorBoundary } from "@react-spectrum/story-utils";
+import { action, Story } from "@ladle/react";
+//import { ErrorBoundary } from "@react-spectrum/story-utils";
 import { RangeSlider } from "../";
-import React from "react";
-import { ValenceRangeSliderProps } from "@react-types/slider";
-import { storiesOf } from "@storybook/react";
+import { ValenceRangeSliderProps } from "@types-valence/slider";
 
-let message = "Your browser may not support this set of format options.";
+// let message = "Your browser may not support this set of format options.";
+// .addDecorator((story) => (
+//   <ErrorBoundary message={message}>{story()}</ErrorBoundary>
+// ))
 
-storiesOf("Slider/RangeSlider", module)
-  .addDecorator((story) => (
-    <ErrorBoundary message={message}>{story()}</ErrorBoundary>
-  ))
-  .add("Default", () => render({ "aria-label": "Label" }))
-  .add("label", () => render({ label: "Label" }))
-  .add("isDisabled", () =>
-    render({
-      label: "Label",
-      defaultValue: { start: 30, end: 70 },
-      isDisabled: true,
-    })
-  )
-  .add("custom width", () => render({ label: "Label", width: "300px" }))
-  .add("label overflow", () =>
-    render({
-      label: "This is a rather long label for this narrow slider element.",
-      maxValue: 1000,
-      width: "300px",
-    })
-  )
-  .add("showValueLabel: false", () =>
-    render({ label: "Label", showValueLabel: false })
-  )
-  .add("formatOptions percent", () =>
-    render({
-      label: "Label",
-      minValue: 0,
-      maxValue: 1,
-      step: 0.01,
-      formatOptions: { style: "percent" },
-    })
-  )
-  .add(
-    "formatOptions centimeter",
-    // @ts-ignore TODO why is "unit" even missing? How well is it supported?
-    () =>
-      render({
-        label: "Label",
-        maxValue: 1000,
-        formatOptions: { style: "unit", unit: "centimeter" },
-      })
-  )
-  .add("custom valueLabel", () =>
-    render({
-      label: "Label",
-      getValueLabel: (value) => `${value.start} <-> ${value.end}`,
-    })
-  )
-  .add("custom valueLabel with label overflow", () =>
-    render({
-      label: "This is a rather long label for this narrow slider element.",
-      getValueLabel: (value) => `${value.start} <-> ${value.end}`,
-    })
-  )
-  .add("labelPosition: side", () =>
-    render({ label: "Label", labelPosition: "side" })
-  )
-  .add("min/max", () => render({ label: "Label", minValue: 30, maxValue: 70 }));
 
-function render(props: ValenceRangeSliderProps = {}) {
-  if (props.onChange == null) {
-    props.onChange = (v) => {
-      action("change")(v.start, v.end);
-    };
-  }
-  if (props.onChangeEnd == null) {
-    props.onChangeEnd = (v) => {
-      action("changeEnd")(v.start, v.end);
-    };
-  }
+export default {
+  title: "RangeSlider",
+  component: RangeSlider,
+};
+
+const RangeSliderRender: Story<ValenceRangeSliderProps> = (props) => {
   return <RangeSlider {...props} />;
-}
+};
+
+export const Default: Story<ValenceRangeSliderProps> = RangeSliderRender.bind({});
+Default.args = { "aria-label": "Label" };
+
+export const Label = RangeSliderRender.bind({});
+Label.args = { label: "Label" };
+
+export const Disabled = RangeSliderRender.bind({});
+Disabled.args = { label: "Label", defaultValue: 50, isDisabled: true };
+
+export const CustomWidth = RangeSliderRender.bind({});
+CustomWidth.args = { label: "Label", width: "300px" };
+CustomWidth.storyName = "CustomWidth:Large";
+
+export const CustomWidthSmall = RangeSliderRender.bind({});
+CustomWidthSmall.args = { label: "Label", width: "150px" };
+CustomWidthSmall.storyName = "CustomWidth:Small";
+
+export const LongLabel = RangeSliderRender.bind({});
+LongLabel.args = {
+  label: "This is a rather long label for this narrow slider element.",
+  width: "300px",
+};
+
+export const ValueLabelFalse = RangeSliderRender.bind({});
+ValueLabelFalse.args = { label: "Label", showValueLabel: false };
+
+export const FormatOptionsPercent = RangeSliderRender.bind({});
+FormatOptionsPercent.args = {
+  label: "Label",
+  minValue: 0,
+  maxValue: 1,
+  step: 0.01,
+  formatOptions: { style: "percent" },
+};
+FormatOptionsPercent.storyName = "FormatOptions:Percent";
+
+export const FormatOptionsCentimeter = RangeSliderRender.bind({});
+FormatOptionsCentimeter.args = {
+  label: "Label",
+  maxValue: 1000,
+  formatOptions: { style: "unit", unit: "centimeter" },
+};
+FormatOptionsCentimeter.storyName = "FormatOptions:Centimeter";
+
+
+export const CustomValueLabel = RangeSliderRender.bind({});
+CustomValueLabel.args = {
+  label: "Label",
+  getValueLabel: (state) => `A ${state} B`,
+};
+CustomValueLabel.storyName = "CustomValueLabel:Default";
+
+export const CustomValueLabelOverflow = RangeSliderRender.bind({});
+CustomValueLabelOverflow.args = {
+  label: "This is a rather long label for this narrow slider element.",
+  getValueLabel: (state) => `A ${state} B`,
+};
+CustomValueLabelOverflow.storyName = "CustomValueLabel:LabelOverflow";
+
+export const LabelPositionSide = RangeSliderRender.bind({});
+LabelPositionSide.args = { label: "Label", labelPosition: "side" };
+LabelPositionSide.storyName = "LabelPosition:Side";
+
+export const LabelPositionSideCustomWidth = RangeSliderRender.bind({});
+LabelPositionSideCustomWidth.args = {
+  label: "Label",
+  labelPosition: "side",
+  width: "400px",
+};
+LabelPositionSideCustomWidth.storyName = "LabelPosition:SideCustomWidth";
+
+export const LabelPositionSideCustomWidthSmall = RangeSliderRender.bind({});
+LabelPositionSideCustomWidthSmall.args = {
+  label: "Label",
+  labelPosition: "side",
+  width: "150px",
+};
+LabelPositionSideCustomWidthSmall.storyName =
+  "LabelPosition:SideCustomWidthSmall";
+
+export const MinMax = RangeSliderRender.bind({});
+MinMax.args = { label: "Label", minValue: 30, maxValue: 70 };
+MinMax.storyName = "MinMax";
