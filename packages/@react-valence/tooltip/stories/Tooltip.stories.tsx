@@ -50,12 +50,12 @@ VariantNeutral.storyName = "Variant: Neutral";
 VariantNeutral.args = {};
 
 export const ShowIcon = TooltipRender.bind({});
-ShowIcon.storyName = "Variant: ShowIcon";
+ShowIcon.storyName = "ShowIcon: Info";
 ShowIcon.args = { showIcon: true, variant: "info" };
 
-export const LongContentShowIcon = TooltipRender.bind({});
-LongContentShowIcon.storyName = "LongContentShowIcon";
-LongContentShowIcon.args = {
+export const ShowIconLongContent = TooltipRender.bind({});
+ShowIconLongContent.storyName = "ShowIcon: WarningLong";
+ShowIconLongContent.args = {
   showIcon: true,
   variant: "negative",
   children: (
