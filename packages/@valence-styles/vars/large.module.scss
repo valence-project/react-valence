@@ -409,8 +409,8 @@
   );
   --valence-icon-arrow-down-small-height: 12px;
   --valence-icon-arrow-left-medium-height: 12px;
-  --valence-icon-checkmark-medium-width: 16px;
-  --valence-icon-checkmark-medium-height: 16px;
+  --valence-icon-checkmark-medium-width: var(--valence-global-dimension-size-300);
+  --valence-icon-checkmark-medium-height: var(--valence-global-dimension-size-300);
   --valence-icon-checkmark-small-width: 12px;
   --valence-icon-checkmark-small-height: 12px;
   --valence-icon-chevron-down-medium-width: 12px;
