@@ -11,7 +11,7 @@ A component library for generating accesssible, progressive, and flexible user i
 
 ## Example
 
-Here is a very basic example of using react-valence.
+An example of using react-valence.
 
 ```jsx
 import { Provider, defaultTheme, Button } from "react-valence";
