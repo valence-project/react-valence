@@ -192,15 +192,15 @@
 }
 
 .Textfield--invalid .Textfield-validationIcon {
-  width: var(--valence-icon-alert-medium-width);
-  height: var(--valence-icon-alert-medium-height);
-  top: calc(calc(var(--valence-textfield-icon-frame) / 2) - calc(var(--valence-icon-alert-medium-height) / 2));
-  inset-inline-end: calc(calc(var(--valence-textfield-icon-frame) / 2) - calc(var(--valence-icon-alert-medium-width) / 2));
+  width: var(--valence-icon-indicator-medium);
+  height: var(--valence-icon-indicator-medium);
+  top: calc(calc(var(--valence-textfield-icon-frame) / 2) - calc(var(--valence-icon-indicator-medium) / 2));
+  inset-inline-end: calc(calc(var(--valence-textfield-icon-frame) / 2) - calc(var(--valence-icon-indicator-medium) / 2));
 }
 .Textfield--valid .Textfield-validationIcon {
-  width: var(--valence-icon-checkmark-medium-width);
-  height: var(--valence-icon-checkmark-medium-height);
-  top: calc(calc(var(--valence-textfield-icon-frame) / 2) - calc(var(--valence-icon-checkmark-medium-height) / 2));
+  width: var(--valence-icon-indicator-medium);
+  height: var(--valence-icon-indicator-medium);
+  top: calc(calc(var(--valence-textfield-icon-frame) / 2) - calc(var(--valence-icon-indicator-medium) / 2));
   inset-inline-end: var(--valence-global-dimension-size-150);
 }
 
@@ -208,8 +208,9 @@
 .Textfield-icon {
   display: block;
   position: absolute;
-  height: 100%;
-  width: var(--valence-icon-info-medium-width);
+  height: var(--valence-icon-indicator-medium);
+  width: var(--valence-icon-indicator-medium);
+  top: calc(calc(var(--valence-textfield-icon-frame) / 2) - calc(var(--valence-icon-indicator-medium) / 2));
   /* This has a named variable in a future update of spectrum-css. */
   inset-inline-start: var(--valence-global-dimension-size-150);
   transition: fill var(--valence-global-animation-duration-100) ease-in-out;
