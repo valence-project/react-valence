@@ -17,7 +17,7 @@ import { ValenceSearchFieldProps } from "@types-valence/searchfield";
 import { TextFieldRef } from "@types-valence/textfield";
 
 // @valence-icons
-import Search from "@valence-icons/ui/SearchLine";
+import Search from "@valence-icons/ui/Search2Line";
 
 // @valence-styles
 import styles from "@valence-styles/components/search/vars.module.scss";

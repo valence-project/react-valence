@@ -3,7 +3,7 @@ import { TextField } from "@react-valence/textfield";
 import React from "react";
 
 import { ValenceTextFieldProps } from "@types-valence/textfield";
-import Robot from "@valence-icons/ui/RobotFill";
+import Robot from "@valence-icons/ui/AliensFill";
 
 export default {
   title: "TextField",

@@ -288,7 +288,7 @@
   --valence-global-dimension-static-size-225: 18px;
   --valence-global-dimension-static-size-250: 20px;
   --valence-global-dimension-static-size-300: 24px;
-  --valence-global-dimension-static-size-400: 32px;
+  --valence-global-dimension-static-size-400: 36px;
   --valence-global-dimension-static-size-450: 36px;
   --valence-global-dimension-static-size-500: 40px;
   --valence-global-dimension-static-size-550: 44px;
@@ -658,7 +658,7 @@
   --valence-alias-dropshadow-blur: var(--valence-global-dimension-size-50);
   --valence-alias-dropshadow-offset-y: var(--valence-global-dimension-size-10);
   --valence-alias-font-size-default: var(
-    --valence-global-dimension-font-size-100
+    --valence-global-dimension-font-size-125
   );
   --valence-alias-line-height-small: var(--valence-global-dimension-size-200);
   --valence-alias-line-height-medium: var(--valence-global-dimension-size-250);
@@ -672,7 +672,7 @@
     --valence-global-dimension-font-size-100
   );
   --valence-alias-pill-button-text-baseline: var(
-    --valence-global-dimension-static-size-150
+    --valence-global-dimension-static-size-200
   );
   --valence-alias-border-radius-xsmall: var(--valence-global-dimension-size-10);
   --valence-alias-border-radius-small: var(--valence-global-dimension-size-25);
