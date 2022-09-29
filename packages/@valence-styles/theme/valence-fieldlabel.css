@@ -12,7 +12,7 @@
   --valence-fieldlabel-text-letter-spacing: var(--valence-global-font-letter-spacing-none);
   --valence-fieldlabel-text-transform: none;
   --valence-fieldlabel-icon-size: var(--valence-alias-workflow-icon-size);
-  --valence-fieldlabel-text-size: var(--valence-global-dimension-font-size-75);
+  --valence-fieldlabel-text-size: var(--valence-global-dimension-font-size-100);
   --valence-fieldlabel-asterisk-size: var(--valence-global-dimension-size-100);
   --valence-fieldlabel-asterisk-gap: var(--valence-global-dimension-size-25);
   --valence-fieldlabel-asterisk-margin-y: var(--valence-global-dimension-size-50);

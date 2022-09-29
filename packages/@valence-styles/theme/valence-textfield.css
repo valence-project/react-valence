@@ -66,7 +66,7 @@
   --valence-textfield-min-width: var(--valence-global-dimension-size-600);
   --valence-textfield-padding-x: var(--valence-global-dimension-size-150);
   --valence-textfield-padding-top: var(--valence-global-dimension-size-75);
-  --valence-textfield-padding-bottom: var(--valence-global-dimension-size-115);
+  --valence-textfield-padding-bottom: var(--valence-global-dimension-size-100);
   --valence-textfield-border-radius: var(--valence-alias-border-radius-regular);
   --valence-textfield-label-gap-x: var(--valence-global-dimension-size-100);
   --valence-textfield-label-gap-y: var(--valence-global-dimension-size-100);
