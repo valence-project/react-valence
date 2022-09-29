@@ -1,6 +1,6 @@
 .theme {
-  --valence-icon-alert-medium-width: var(--valence-global-dimension-size-300);
-  --valence-icon-alert-medium-height: var(--valence-global-dimension-size-300);
+  --valence-icon-alert-medium-width: var(--valence-global-dimension-size-275);
+  --valence-icon-alert-medium-height: var(--valence-global-dimension-size-275);
   --valence-icon-alert-small-width: var(--valence-global-dimension-size-175);
   --valence-icon-alert-small-height: var(--valence-global-dimension-size-175);
   --valence-icon-arrow-down-small-width: var(
@@ -56,8 +56,8 @@
   --valence-icon-folderbreadcrumb-height: var(
     --valence-global-dimension-size-225
   );
-  --valence-icon-info-medium-width: var(--valence-global-dimension-size-300);
-  --valence-icon-info-medium-height: var(--valence-global-dimension-size-300);
+  --valence-icon-info-medium-width: var(--valence-global-dimension-size-275);
+  --valence-icon-info-medium-height: var(--valence-global-dimension-size-275);
   --valence-icon-info-small-width: var(--valence-global-dimension-size-175);
   --valence-icon-info-small-height: var(--valence-global-dimension-size-175);
   --valence-icon-magnifier-width: var(--valence-global-dimension-size-200);
