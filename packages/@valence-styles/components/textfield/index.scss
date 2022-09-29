@@ -208,11 +208,10 @@
 .Textfield-icon {
   display: block;
   position: absolute;
-  height: var(--valence-icon-info-medium-height);
+  height: 100%;
   width: var(--valence-icon-info-medium-width);
   /* This has a named variable in a future update of spectrum-css. */
   inset-inline-start: var(--valence-global-dimension-size-150);
-  top: var(--valence-global-dimension-size-85);
   transition: fill var(--valence-global-animation-duration-100) ease-in-out;
 }
 

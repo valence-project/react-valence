@@ -64,7 +64,7 @@
   --valence-textfield-text-size: var(--valence-alias-font-size-default);
   --valence-textfield-height: var(--valence-alias-single-line-height);
   --valence-textfield-min-width: var(--valence-global-dimension-size-600);
-  --valence-textfield-padding-x: var(--valence-global-dimension-size-150);
+  --valence-textfield-padding-x: var(--valence-global-dimension-size-100);
   --valence-textfield-padding-top: var(--valence-global-dimension-size-75);
   --valence-textfield-padding-bottom: var(--valence-global-dimension-size-100);
   --valence-textfield-border-radius: var(--valence-alias-border-radius-regular);
@@ -83,7 +83,7 @@
   --valence-textfield-text-baseline: var(--valence-global-dimension-size-150);
   --valence-textfield-cursor-hit-x: var(--valence-global-dimension-size-50);
   --valence-textfield-icon-margin-left: var(--valence-global-dimension-size-150);
-  --valence-textfield-icon-margin-right: var(--valence-global-dimension-size-0);
+  --valence-textfield-icon-margin-right: var(--valence-global-dimension-size-150);
   --valence-textfield-quiet-placeholder-text-color: var(--valence-alias-placeholder-text-color);
   --valence-textfield-quiet-text-color: var(--valence-alias-text-color);
   --valence-textfield-quiet-border-size: var(--valence-alias-border-size-thin);
