@@ -100,5 +100,5 @@
 }
 
 .theme {
-  --valence-icon-indicator-medium: 22px;
+  --valence-icon-indicator-medium: var(--valence-alias-font-size-default);
 }

@@ -59,7 +59,7 @@
   --valence-global-dimension-font-size-25: 10px;
   --valence-global-dimension-font-size-50: 11px;
   --valence-global-dimension-font-size-75: 12px;
-  --valence-global-dimension-font-size-100: 14px;
+  --valence-global-dimension-font-size-100: 13px;
   --valence-global-dimension-font-size-150: 15px;
   --valence-global-dimension-font-size-200: 16px;
   --valence-global-dimension-font-size-300: 18px;
@@ -810,9 +810,7 @@
   --valence-textfield-touch-hit-y: var(
     --valence-global-dimension-static-size-100
   );
-  --valence-textfield-icon-frame: var(
-    --valence-global-dimension-static-size-400
-  );
+  --valence-textfield-icon-frame: calc(var(--valence-alias-single-line-height) + (var(--valence-textfield-border-size)*2));
   --valence-textfield-quiet-touch-hit-x: var(
     --valence-global-dimension-static-size-100
   );

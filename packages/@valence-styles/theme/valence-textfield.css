@@ -62,7 +62,7 @@
   --valence-textfield-text-letter-spacing: var(--valence-global-font-letter-spacing-none);
   --valence-textfield-text-transform: none;
   --valence-textfield-text-size: var(--valence-alias-font-size-default);
-  --valence-textfield-height: var(--valence-alias-single-line-height);
+  --valence-textfield-height: calc(var(--valence-alias-single-line-height) + (var(--valence-textfield-border-size)*2));
   --valence-textfield-min-width: var(--valence-global-dimension-size-600);
   --valence-textfield-padding-x: var(--valence-global-dimension-size-100);
   --valence-textfield-padding-top: var(--valence-global-dimension-size-75);

@@ -1,15 +1,3 @@
-/*
- * Copyright 2020 Adobe. All rights reserved.
- * This file is licensed to you under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License. You may obtain a copy
- * of the License at http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
- * OF ANY KIND, either express or implied. See the License for the specific language
- * governing permissions and limitations under the License.
- */
-
 .valence {
   /* valence-animationGlobals.css */
   --valence-global-animation-duration-0: 0ms;
@@ -308,7 +296,7 @@
   --valence-global-dimension-static-size-6000: 480px;
   --valence-global-dimension-static-font-size-50: 11px;
   --valence-global-dimension-static-font-size-75: 12px;
-  --valence-global-dimension-static-font-size-100: 14px;
+  --valence-global-dimension-static-font-size-100: 13px;
   --valence-global-dimension-static-font-size-150: 15px;
   --valence-global-dimension-static-font-size-200: 16px;
   --valence-global-dimension-static-font-size-300: 18px;
@@ -657,9 +645,7 @@
   /* valence-dimensionAliases.css */
   --valence-alias-dropshadow-blur: var(--valence-global-dimension-size-50);
   --valence-alias-dropshadow-offset-y: var(--valence-global-dimension-size-10);
-  --valence-alias-font-size-default: var(
-    --valence-global-dimension-font-size-125
-  );
+  --valence-alias-font-size-default: 16px;
   --valence-alias-line-height-small: var(--valence-global-dimension-size-200);
   --valence-alias-line-height-medium: var(--valence-global-dimension-size-250);
   --valence-alias-line-height-large: var(--valence-global-dimension-size-300);
@@ -683,7 +669,8 @@
     --valence-global-dimension-size-100
   );
   --valence-alias-border-radius-large: var(--valence-global-dimension-size-200);
-  --valence-alias-single-line-height: var(--valence-global-dimension-size-400);
+  // base-font-size * 1.618
+  --valence-alias-single-line-height: calc(var(--valence-alias-font-size-default)*1.618);
   --valence-alias-single-line-width: var(--valence-global-dimension-size-2400);
   --valence-alias-workflow-icon-size: var(--valence-global-dimension-size-225);
   --valence-alias-heading-display1-text-size: var(
@@ -848,6 +835,10 @@
   --valence-alias-avatar-size-300: var(--valence-global-dimension-size-325);
   --valence-alias-avatar-size-500: var(--valence-global-dimension-size-400);
   --valence-alias-avatar-size-700: var(--valence-global-dimension-size-500);
+}
+
+.valence--large {
+  --valence-alias-font-size-default: 24px;
 }
 
 .valence--darkest,
