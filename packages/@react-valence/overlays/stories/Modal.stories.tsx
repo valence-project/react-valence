@@ -1,33 +1,16 @@
-/*
- * Copyright 2020 Adobe. All rights reserved.
- * This file is licensed to you under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License. You may obtain a copy
- * of the License at http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
- * OF ANY KIND, either express or implied. See the License for the specific language
- * governing permissions and limitations under the License.
- */
-
-import { ActionButton, Button } from "@react-spectrum/button";
-import { ButtonGroup } from "@react-spectrum/buttongroup";
-import { Content } from "@react-spectrum/view";
-import { Dialog, DialogTrigger } from "@react-spectrum/dialog";
-import { Divider } from "@react-spectrum/divider";
-import { Heading, Text } from "@react-spectrum/text";
+import { ActionButton, Button } from "@react-valence/button";
+import { ButtonGroup } from "@react-valence/buttongroup";
+import { Content } from "@react-valence/view";
+import { Dialog, DialogTrigger } from "@react-valence/dialog";
+import { Divider } from "@react-valence/divider";
+import { Heading, Text } from "@react-valence/text";
 import { Modal } from "../";
 import React, { Fragment, useState } from "react";
-import { storiesOf } from "@storybook/react";
+import { Story } from "@ladle/react";
+import { ModalProps } from "@types-valence/overlays";
 
-storiesOf("Modal", module)
-  .addParameters({ providerSwitcher: { status: "notice" } })
-  .add("default", () => <ModalExample />)
-  .add("unmounting trigger", () => <UnmountingTrigger />);
-
-function ModalExample() {
+const ModalExample: Story<ModalProps> = (props) => {
   let [isOpen, setOpen] = useState(false);
-
   return (
     <Fragment>
       <ActionButton onPress={() => setOpen(true)}>Open modal</ActionButton>
@@ -47,9 +30,9 @@ function ModalExample() {
       </Modal>
     </Fragment>
   );
-}
+};
 
-function UnmountingTrigger() {
+export const UnmountingTrigger: Story<ModalProps> = (props) => {
   let [isPopoverOpen, setPopoverOpen] = useState(false);
   let [isModalOpen, setModalOpen] = useState(false);
 
@@ -94,4 +77,6 @@ function UnmountingTrigger() {
       </Modal>
     </Fragment>
   );
-}
+};
+
+export const Default: Story<ModalProps> = ModalExample.bind({});
