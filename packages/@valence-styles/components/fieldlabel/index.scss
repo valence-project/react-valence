@@ -9,12 +9,12 @@
   text-transform: uppercase;
   letter-spacing: 0.025rem;
 
-  padding: var(--valence-fieldlabel-padding-top) 0
-    var(--valence-fieldlabel-padding-bottom);
+  // padding: var(--valence-fieldlabel-padding-top) 0
+  //   var(--valence-fieldlabel-padding-bottom);
 
   font-size: var(--valence-fieldlabel-text-size);
   font-weight: var(--valence-fieldlabel-text-font-weight);
-  line-height: var(--valence-fieldlabel-text-line-height);
+  line-height: var(--sandia-line-height);
 
   vertical-align: top;
 
@@ -28,15 +28,13 @@
 
 .FieldLabel--positionSide {
   display: inline-flex;
-  padding-top: var(--valence-fieldlabel-side-padding-top);
-  padding-inline-end: var(--valence-fieldlabel-side-padding-x);
+  line-height: var(--sandia-frame-unit-with-border);
+  padding-inline-end: var(--sandia-padding-reg);
 }
 
 .FieldLabel-requiredIcon {
-  margin-top: var(--valence-fieldlabel-asterisk-margin-y);
-  margin-inline-end: 0;
-  margin-bottom: 0;
-  margin-inline-start: var(--valence-fieldlabel-asterisk-gap);
+  block-size: 13px !important;
+  inline-size: 13px !important;
 }
 
 .FieldLabel--alignEnd {

@@ -34,7 +34,7 @@ export default {
 const AccordionRenderPropsTemplate: Story<ValencePickerProps<ItemType>> = (
   args
 ) => (
-    <Picker {...args} width={'size-3000'}>
+    <Picker {...args}>
     <Item key="One" textValue="One"><ExclamationTriangleFill/><Text>One</Text><Text slot="description">Probably first</Text></Item>
     <Item key="Two" textValue="Two"><BandaidFill/><Text>Two</Text><Text slot="description">After One</Text></Item>
     <Item key="Three" textValue="Three"><Robot/><Text>Three</Text><Text slot="description">Following two</Text></Item>

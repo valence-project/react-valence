@@ -36,7 +36,7 @@
     Renamed from padding-y to padding-height to fix docs issue where fallback var replaced this value
     (due to old spectrum-css postcss-custom-properties-custom-mapping plugin).
   */
-  padding-block-start: calc(var(--valence-selectlist-option-icon-padding-y) - var(--valence-selectlist-option-padding-height));
+  //padding-block-start: var(--sandia-framed-icon-offset);
 }
 
 .Menu-item {
@@ -47,10 +47,11 @@
 
   margin: 0;
 
-  border-inline-start: var(--valence-selectlist-border-size-key-focus) solid transparent;
-
-  font-size: var(--valence-selectlist-option-text-size);
-  font-weight: var(--valence-selectlist-option-text-font-weight);
+  //border-inline-start: var(--valence-selectlist-border-size-key-focus) solid transparent;
+  box-shadow: inset var(--valence-selectlist-border-size-key-focus) 0 0 transparent;
+    
+  font-size: var(--sandia-input-font-size);
+  //font-weight: var(--valence-selectlist-option-text-font-weight);
   font-style: normal;
   text-decoration: none;
 
@@ -66,13 +67,13 @@
 
   .Icon + .Menu-itemLabel,
   .Menu-itemIcon  + .Menu-itemLabel {
-    margin-inline-start: var(--valence-selectlist-thumbnail-image-padding-x);
+    margin-inline-start: var(--sandia-framed-icon-offset);
   }
 }
 
 .Menu-itemLabel {
   grid-area: text;
-  line-height: var(--valence-global-font-line-height-small);
+  line-height: var(--sandia-base-unit);
   word-break: break-word;
 }
 
@@ -125,25 +126,22 @@
 
 .Menu-itemGrid {
   display: grid;
-  grid-template-columns: calc(var(--valence-selectlist-option-padding) - var(--valence-selectlist-border-size-key-focus)) auto 1fr auto auto auto var(--valence-selectlist-option-padding);
+  grid-template-columns: var(--sandia-framed-icon-offset) auto 1fr auto auto auto 0;
   /*
     Renamed from padding-y to padding-height to fix docs issue where fallback var replaced this value
     (due to old spectrum-css postcss-custom-properties-custom-mapping plugin).
   */
-  grid-template-rows: var(--valence-selectlist-option-padding-height) 1fr auto var(--valence-selectlist-option-padding-height);
-  grid-template-areas:
-    ". .    .            .         .     .            ."
-    ". icon text         checkmark end   keyboard     ."
-    ". icon description  checkmark end   keyboard     ."
-    ". .    .            .         .     .            .";
+  grid-template-rows: var(--sandia-framed-icon-offset);
+  grid-template-areas:  ". .    . .           . .         .   .       "
+                        ". icon . text        . checkmark end keyboard"
+                        ". icon . description . checkmark end keyboard"
 }
 
 .Menu-item.is-selectable {
   .Menu-itemGrid {
-    grid-template-columns: calc(var(--valence-selectlist-option-padding) - var(--valence-selectlist-border-size-key-focus)) auto 1fr calc(var(--valence-icon-checkmark-medium-width) + var(--valence-selectlist-option-icon-padding-x)) auto auto var(--valence-selectlist-option-padding);
+    grid-template-columns: var(--sandia-framed-icon-offset) var(--sandia-base-unit) var(--sandia-framed-icon-offset) auto auto 1fr auto auto auto var(--sandia-framed-icon-offset);
   }
 }
-
 /* Added .Menu so paddings from component styles are overriden */
 .Menu .Menu-end {
   grid-area: end;
@@ -153,14 +151,14 @@
 }
 .Menu-icon {
   grid-area: icon;
-  /* Margin around the whole menu item is 6px. Icon should be 7px from the top according to XD. */
-  padding-block-start: var(--valence-global-dimension-size-10);
-  padding-inline-end: var(--valence-global-dimension-size-100);
+  position: relative;
 }
 .Menu-description {
   grid-area: description;
-  line-height: var(--valence-global-font-line-height-small);
+  line-height: 1;
   font-size: var(--valence-global-dimension-size-150);
+  line-height: 1.328rem;
+  margin-bottom: var(--sandia-padding-min);
 }
 .Menu-keyboard {
   grid-area: keyboard;

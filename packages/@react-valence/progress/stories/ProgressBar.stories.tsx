@@ -31,98 +31,172 @@ export const ProgressDefault: Story<ValenceProgressBarProps> =
 
 export const Value50: Story<ValenceProgressBarProps> = ProgressRender.bind({});
 Value50.args = { value: 50 };
-Value50.storyName = "Value:FiftyPercent"
+Value50.storyName = "Value:FiftyPercent";
 
 export const Value100: Story<ValenceProgressBarProps> = ProgressRender.bind({});
 Value100.args = { value: 100 };
-Value100.storyName = "Value:Full"
+Value100.storyName = "Value:Full";
 
-export const SizeSmall: Story<ValenceProgressBarProps> = ProgressRender.bind({});
-SizeSmall.args = { size: 's' };
-SizeSmall.storyName = "Size:Small"
+export const SizeSmall: Story<ValenceProgressBarProps> = ProgressRender.bind(
+  {}
+);
+SizeSmall.args = { size: "s" };
+SizeSmall.storyName = "Size:Small";
 
-export const ShowValueLabel: Story<ValenceProgressBarProps> = ProgressRender.bind({});
+export const ShowValueLabel: Story<ValenceProgressBarProps> =
+  ProgressRender.bind({});
 ShowValueLabel.args = { showValueLabel: true };
-ShowValueLabel.storyName = "ValueLabel:ShowValueLabelTrue"
+ShowValueLabel.storyName = "ValueLabel:ShowValueLabelTrue";
 
-export const ShowValueLabelFalse: Story<ValenceProgressBarProps> = ProgressRender.bind({});
+export const ShowValueLabelFalse: Story<ValenceProgressBarProps> =
+  ProgressRender.bind({});
 ShowValueLabelFalse.args = { showValueLabel: false };
-ShowValueLabelFalse.storyName = "ValueLabel:ShowValueLabelFalse"
+ShowValueLabelFalse.storyName = "ValueLabel:ShowValueLabelFalse";
 
-export const ValueLabelOneOfFour: Story<ValenceProgressBarProps> = ProgressRender.bind({});
-ValueLabelOneOfFour.args = { value: 25, valueLabel: '1 of 4' };
-ValueLabelOneOfFour.storyName = "ValueLabel:Custom"
+export const ValueLabelOneOfFour: Story<ValenceProgressBarProps> =
+  ProgressRender.bind({});
+ValueLabelOneOfFour.args = { value: 25, valueLabel: "1 of 4" };
+ValueLabelOneOfFour.storyName = "ValueLabel:Custom";
 
-export const LabelNoneVisible: Story<ValenceProgressBarProps> = ProgressRender.bind({});
+export const LabelNoneVisible: Story<ValenceProgressBarProps> =
+  ProgressRender.bind({});
 LabelNoneVisible.args = { value: 25, label: null, "aria-label": "Loading…" };
-LabelNoneVisible.storyName = "Label:NoneVisible"
+LabelNoneVisible.storyName = "Label:NoneVisible";
 
-export const LabelPositionSide: Story<ValenceProgressBarProps> = ProgressRender.bind({});
-LabelPositionSide.args = { labelPosition: 'side' };
-LabelPositionSide.storyName = "Label:LabelPositionSide"
+export const LabelPositionSide: Story<ValenceProgressBarProps> =
+  ProgressRender.bind({});
+LabelPositionSide.args = { labelPosition: "side" };
+LabelPositionSide.storyName = "Label:LabelPositionSide";
 
-export const LabelPositionTop: Story<ValenceProgressBarProps> = ProgressRender.bind({});
-LabelPositionTop.args = { labelPosition: 'top' };
-LabelPositionTop.storyName = "Label:LabelPositionTop"
+export const LabelPositionTop: Story<ValenceProgressBarProps> =
+  ProgressRender.bind({});
+LabelPositionTop.args = { labelPosition: "top" };
+LabelPositionTop.storyName = "Label:LabelPositionTop";
 
-export const LabelLong: Story<ValenceProgressBarProps> = ProgressRender.bind({});
-LabelLong.args = { label: "Super long progress bar label. Sample label copy. Loading..." };
-LabelLong.storyName = "Label:Long"
+export const LabelLong: Story<ValenceProgressBarProps> = ProgressRender.bind(
+  {}
+);
+LabelLong.args = {
+  label: "Super long progress bar label. Sample label copy. Loading...",
+};
+LabelLong.storyName = "Label:Long";
 
-export const LabelLongPositionSide: Story<ValenceProgressBarProps> = ProgressRender.bind({});
-LabelLongPositionSide.args = { labelPosition: 'side', label: "Super long progress bar label. Sample label copy. Loading..." };
-LabelLongPositionSide.storyName = "Label:LongPositionSide"
+export const LabelLongPositionSide: Story<ValenceProgressBarProps> =
+  ProgressRender.bind({});
+LabelLongPositionSide.args = {
+  labelPosition: "side",
+  label: "Super long progress bar label. Sample label copy. Loading...",
+};
+LabelLongPositionSide.storyName = "Label:LongPositionSide";
 
-// storiesOf("Progress/ProgressBar", module)
-//   .addParameters({
-//     providerSwitcher: { status: "positive" },
-//     args: { value: 32 },
-//     argTypes: {
-//       value: {
-//         control: {
-//           type: "range",
-//           min: 0,
-//           max: 100,
-//         },
-//       },
-//     },
-//   })
-//   .add("Using number formatOptions with currency style", (args) =>
-//     render({
-//       ...args,
-//       showValueLabel: true,
-//       formatOptions,
-//     })
-//   )
-//   .add("isIndeterminate: true", (args) =>
-//     render({ isIndeterminate: true, ...args })
-//   )
-//   .add("isIndeterminate: true, size: S", () =>
-//     render({ isIndeterminate: true, size: "S" })
-//   )
-//   .add("variant: overBackground", (args) => (
-//     <div style={grayedBoxStyle}>
-//       {render({ variant: "overBackground", ...args })}
-//     </div>
-//   ))
-//   .add("parent width 100%", () => (
-//     <span style={{ width: "100%" }}>{render()}</span>
-//   ))
-//   .add("parent width 100px", () => (
-//     <span style={{ width: "100px" }}>{render()}</span>
-//   ))
-//   .add("width: 300px", () => render({ width: "300px", value: 100 }))
-//   .add("width: 300px, isIndeterminate: true", () =>
-//     render({ width: "300px", isIndeterminate: true })
-//   )
-//   .add("width: 300px, labelPosition: side", () =>
-//     render({ width: "300px", labelPosition: "side" })
-//   )
-//   .add("width: 300px, labelPosition: side, isIndeterminate: true", () =>
-//     render({ width: "300px", labelPosition: "side", isIndeterminate: true })
-//   )
-//   .add("width: 30px", () => render({ width: "30px" }))
-//   .add("width: 30px, size: S", () => render({ width: "30px", size: "S" }))
+export const FormatOptionCurrencyStyle: Story<ValenceProgressBarProps> =
+  ProgressRender.bind({});
+FormatOptionCurrencyStyle.args = {
+  showValueLabel: true,
+  formatOptions,
+};
+FormatOptionCurrencyStyle.storyName = "FormatOptions:CurrencyStyle";
+
+export const Indeterminate: Story<ValenceProgressBarProps> =
+  ProgressRender.bind({});
+Indeterminate.args = { isIndeterminate: true };
+Indeterminate.storyName = "Indeterminate";
+
+export const IndeterminateSizeS: Story<ValenceProgressBarProps> =
+  ProgressRender.bind({});
+IndeterminateSizeS.args = { isIndeterminate: true, size: 's' };
+IndeterminateSizeS.storyName = "IndeterminateSizeS";
+
+
+export const OverBackground: Story<ValenceProgressBarProps> = (props: any = {}) => {
+  return ( <div style={grayedBoxStyle}>
+            <ProgressRender {...props}/>
+           </div>
+        );
+};
+OverBackground.args = {
+  variant: 'overBackground'
+}
+
+export const ParentWidth: Story<ValenceProgressBarProps> = (props: any = {}) => {
+  return ( <div style={{width: '100%'}}>
+            <ProgressRender {...props}/>
+           </div>
+        );
+};
+ParentWidth.storyName = 'ParentWidth:FullWidth';
+
+export const ParentWidthNarrow: Story<ValenceProgressBarProps> = (props: any = {}) => {
+  return ( <div style={{width: '100px'}}>
+            <ProgressRender {...props}/>
+           </div>
+        );
+};
+ParentWidthNarrow.storyName = 'ParentWidth:Narrow';
+
+export const WidthShort: Story<ValenceProgressBarProps> = ProgressRender.bind({});
+WidthShort.storyName = 'Width:Short';
+WidthShort.args = {
+  width: 100
+}
+
+export const WidthShortIndeterminate: Story<ValenceProgressBarProps> = ProgressRender.bind({});
+WidthShortIndeterminate.storyName = 'Width:ShortIndeterminate';
+WidthShortIndeterminate.args = {
+  width: 100,
+  value: 100,
+  isIndeterminate: true
+}
+
+export const WidthShortLabelPositionSide: Story<ValenceProgressBarProps> = ProgressRender.bind({});
+WidthShortLabelPositionSide.storyName = 'Width:ShortLabelPositionSide';
+WidthShortLabelPositionSide.args = {
+  width: 100,
+  value: 100,
+  labelPosition: 'side'
+}
+
+export const WidthShortIndeterminateLabelPositionSide: Story<ValenceProgressBarProps> = ProgressRender.bind({});
+WidthShortIndeterminateLabelPositionSide.storyName = 'Width:ShortIndeterminateLabelPositionSide';
+WidthShortIndeterminateLabelPositionSide.args = {
+  width: 100,
+  value: 100,
+  labelPosition: 'side',
+  isIndeterminate: true
+}
+
+export const WidthLong: Story<ValenceProgressBarProps> = ProgressRender.bind({});
+WidthLong.storyName = 'Width:Long';
+WidthLong.args = {
+  width: 400,
+  value: 100
+}
+
+export const WidthLongIndeterminate: Story<ValenceProgressBarProps> = ProgressRender.bind({});
+WidthLongIndeterminate.storyName = 'Width:LongIndeterminate';
+WidthLongIndeterminate.args = {
+  width: 400,
+  value: 100,
+  isIndeterminate: true
+}
+
+export const WidthLongLabelPositionSide: Story<ValenceProgressBarProps> = ProgressRender.bind({});
+WidthLongLabelPositionSide.storyName = 'Width:LongLabelPositionSide';
+WidthLongLabelPositionSide.args = {
+  width: 400,
+  value: 100,
+  labelPosition: 'side'
+}
+
+export const WidthLongIndeterminateLabelPositionSide: Story<ValenceProgressBarProps> = ProgressRender.bind({});
+WidthLongIndeterminateLabelPositionSide.storyName = 'Width:LongIndeterminateLabelPositionSide';
+WidthLongIndeterminateLabelPositionSide.args = {
+  width: 400,
+  value: 100,
+  labelPosition: 'side',
+  isIndeterminate: true
+}
+
 //   .add("width: 30px, labelPosition: side, long label", () =>
 //     render({
 //       width: "30px",

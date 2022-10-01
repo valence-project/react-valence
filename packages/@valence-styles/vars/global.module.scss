@@ -662,9 +662,7 @@
   );
   --valence-alias-border-radius-xsmall: var(--valence-global-dimension-size-10);
   --valence-alias-border-radius-small: var(--valence-global-dimension-size-25);
-  --valence-alias-border-radius-regular: var(
-    --valence-global-dimension-size-50
-  );
+  --valence-alias-border-radius-regular: .236rem;
   --valence-alias-border-radius-medium: var(
     --valence-global-dimension-size-100
   );
