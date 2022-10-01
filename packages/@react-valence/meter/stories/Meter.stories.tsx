@@ -1,17 +1,4 @@
-/*
- * Copyright 2020 Adobe. All rights reserved.
- * This file is licensed to you under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License. You may obtain a copy
- * of the License at http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
- * OF ANY KIND, either express or implied. See the License for the specific language
- * governing permissions and limitations under the License.
- */
-
-
-import { Story as _Story } from "@ladle/react";
+import { Story } from "@ladle/react";
 import { Meter } from "@react-valence/meter";
 import { ValenceMeterProps } from "@types-valence/meter";
 import React from "react";
@@ -19,146 +6,104 @@ import React from "react";
 /**
  * Helper type so `bind` returns the actual Story type.
  */
- interface Story<T> extends _Story<T> {
-  bind: (
-    this: ThisParameterType<typeof Function.bind>,
-    thisArg: Parameters<typeof Function.bind>[0],
-    ...argArray: Parameters<typeof Function.bind>[1][]
-  ) => _Story<T>;
-}
 
 export default {
   title: "Meter",
-  component: Meter
+  component: Meter,
 };
 
-const AccordionRenderPropsTemplate: Story<ValenceMeterProps> = (
-  args
-) => (
-    <Meter {...args}/>
-);
+const MeterRender: Story<ValenceMeterProps> = (args) => <Meter {...args} />;
 
-export const Default = AccordionRenderPropsTemplate.bind({});
-Default.storyName = "default";
+const formatOptions = {
+  style: "currency",
+  currency: "JPY",
+};
+
+const argTypes = {
+  variant: {
+    options: ["critical", "positive", "warning", "neutral"],
+    control: {
+      type: "select",
+    },
+  },
+  size: {
+    options: ["S", "L"],
+    control: {
+      type: "radio",
+    },
+  },
+  labelPosition: {
+    options: ["top", "side"],
+    control: { type: "radio" },
+  },
+};
+
+export const Default: Story<ValenceMeterProps> = MeterRender.bind({});
+Default.argTypes = argTypes;
 Default.args = {
   value: 90,
-  variant: 'critical',
-  label: 'Fo sho'
+  variant: "critical",
+  label: "meter",
+  showValueLabel: true,
 };
 
-// type MeterStory = ComponentStoryObj<typeof Meter>;
+export const ValueLabel1Of4: Story<ValenceMeterProps> = MeterRender.bind({});
+ValueLabel1Of4.args = { ...Default.args, value: 25, valueLabel: "1 of 4" };
 
-// const formatOptions = {
-//   style: "currency",
-//   currency: "JPY",
-// };
+export const UsingNumberFormatOptionsWithCurrencyStyle: Story<ValenceMeterProps> =
+  MeterRender.bind({});
+UsingNumberFormatOptionsWithCurrencyStyle.args = {
+  ...Default.args,
+  showValueLabel: true,
+  formatOptions,
+};
 
-// export default {
-//   title: "Meter",
-//   component: Meter,
-//   argTypes: {
-//     value: {
-//       control: {
-//         type: "range",
-//         min: 0,
-//         max: 100,
-//       },
-//     },
-//     variant: {
-//       control: {
-//         type: "radio",
-//         options: ["positive", "warning", "critical"],
-//       },
-//     },
-//     size: {
-//       control: {
-//         type: "radio",
-//         options: ["S", "L"],
-//       },
-//     },
-//     showValueLabel: {
-//       control: "boolean",
-//     },
-//     labelPosition: {
-//       control: "radio",
-//       options: ["top", "side"],
-//     },
-//   },
-// } as ComponentMeta<typeof Meter>;
+export const NoVisibleLabel: Story<ValenceMeterProps> = MeterRender.bind({});
+NoVisibleLabel.args = { ...Default.args, label: null, "aria-label": "Meter" };
 
-// export const Default: MeterStory = {
-//   args: { label: "Meter", value: 50 },
-//   name: "value: 50",
-// };
+export const ParentWidth100: Story<ValenceMeterProps> = MeterRender.bind({});
+(ParentWidth100.args = { ...Default.args, value: 32 }),
+  (ParentWidth100.decorators = [
+    (Story) => (
+      <span style={{ width: "100%" }}>
+        <Story />
+      </span>
+    ),
+  ]);
 
-// export const ValueLabel1Of4: MeterStory = {
-//   args: { ...Default.args, value: 25, valueLabel: "1 of 4" },
-//   name: "valueLabel: 1 of 4",
-// };
+export const ParentWidth100Px: Story<ValenceMeterProps> = MeterRender.bind({});
+(ParentWidth100Px.args = { ...Default.args, value: 32 }),
+  (ParentWidth100Px.decorators = [
+    (Story) => (
+      <span style={{ width: "100px" }}>
+        <Story />
+      </span>
+    ),
+  ]);
 
-// export const UsingNumberFormatOptionsWithCurrencyStyle: MeterStory = {
-//   args: { ...Default.args, showValueLabel: true, formatOptions },
-//   name: "Using number formatOptions with currency style",
-// };
+export const Width300Px: Story<ValenceMeterProps> = MeterRender.bind({});
+Width300Px.args = { ...Default.args, value: 32, width: "300px" };
 
-// export const NoVisibleLabel: MeterStory = {
-//   args: { ...Default.args, label: null, "aria-label": "Meter" },
-//   name: "no visible label",
-// };
+export const Width30Px: Story<ValenceMeterProps> = MeterRender.bind({});
+Width30Px.args = { ...Default.args, value: 32, width: "30px" };
 
-// export const ParentWidth100: MeterStory = {
-//   args: { ...Default.args, value: 32 },
-//   decorators: [
-//     (Story) => (
-//       <span style={{ width: "100%" }}>
-//         <Story />
-//       </span>
-//     ),
-//   ],
-//   name: "parent width 100%",
-// };
+export const UsingRawValuesForMinValueMaxValueAndValue: Story<ValenceMeterProps> =
+  MeterRender.bind({});
+UsingRawValuesForMinValueMaxValueAndValue.args = {
+  ...Default.args,
+  showValueLabel: true,
+  labelPosition: "top",
+  maxValue: 2147483648,
+  value: 715827883,
+};
 
-// export const ParentWidth100Px: MeterStory = {
-//   args: { ...Default.args, value: 32 },
-//   decorators: [
-//     (Story) => (
-//       <span style={{ width: "100px" }}>
-//         <Story />
-//       </span>
-//     ),
-//   ],
-//   name: "parent width 100px",
-// };
-
-// export const Width300Px: MeterStory = {
-//   args: { ...Default.args, value: 32, width: "300px" },
-//   name: "width: 300px",
-// };
-
-// export const Width30Px: MeterStory = {
-//   args: { ...Default.args, value: 32, width: "30px" },
-//   name: "width: 30px",
-// };
-
-// export const UsingRawValuesForMinValueMaxValueAndValue: MeterStory = {
-//   args: {
-//     ...Default.args,
-//     showValueLabel: true,
-//     labelPosition: "top",
-//     maxValue: 2147483648,
-//     value: 715827883,
-//   },
-//   name: "Using raw values for minValue, maxValue, and value",
-// };
-
-// export const UsingRawValuesWithNumberFormatter: MeterStory = {
-//   args: {
-//     ...Default.args,
-//     showValueLabel: true,
-//     labelPosition: "top",
-//     maxValue: 2147483648,
-//     value: 715827883,
-//     formatOptions,
-//   },
-//   name: "Using raw values with number formatter",
-// };
+export const UsingRawValuesWithNumberFormatter: Story<ValenceMeterProps> =
+  MeterRender.bind({});
+UsingRawValuesWithNumberFormatter.args = {
+  ...Default.args,
+  showValueLabel: true,
+  labelPosition: "top",
+  maxValue: 2147483648,
+  value: 715827883,
+  formatOptions,
+};
