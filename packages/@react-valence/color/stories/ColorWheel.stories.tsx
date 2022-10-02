@@ -8,6 +8,8 @@ import { parseColor } from "@react-stately/color";
 import React, { useState } from "react";
 
 import { ValenceColorWheelProps } from "@types-valence/color";
+import { ActionGroup, Item } from "@react-valence/actiongroup";
+import { ActionButton } from "@react-valence/button";
 
 export default {
   title: "Colorwheel",
@@ -15,9 +17,7 @@ export default {
 };
 
 const ColorWheelRender: Story<ValenceColorWheelProps> = (args) => (
-  <Well>
-    <ColorWheel {...args} />
-  </Well>
+  <ColorWheel {...args} />
 );
 
 export const Default: Story<ValenceColorWheelProps> = ColorWheelRender.bind({});
@@ -38,9 +38,11 @@ export const CustomSize: Story<ValenceColorWheelProps> = (props) => {
   return (
     <Flex direction="column" alignItems="center" gap="size-200">
       <Flex direction="row">
-        <button onClick={() => setSize("size-2400")}>size-2400</button>
-        <button onClick={() => setSize("size-5000")}>size-5000</button>
-        <button onClick={() => setSize("50vh")}>50vh</button>
+        <ActionGroup density="compact" onAction={(key: string) => setSize(key)}>
+          <Item key="size-2400">size-2400</Item>
+          <Item key="size-5000">size-5000</Item>
+          <Item key="50vh">50vh</Item>
+        </ActionGroup>
       </Flex>
       <ColorWheel defaultValue="hsl(0, 100%, 50%)" size={size} />
     </Flex>
