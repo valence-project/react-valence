@@ -60,6 +60,7 @@ export const Default: Story<ValencePickerProps<object>> = (args) => (
 );
 Default.args = {
   label: "Pick An Option",
+  isOpen: true,
   isLoading: true,
   validationState: "invalid",
 };
