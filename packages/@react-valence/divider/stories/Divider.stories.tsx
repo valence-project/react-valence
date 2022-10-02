@@ -1,56 +1,13 @@
-/*
- * Copyright 2020 Adobe. All rights reserved.
- * This file is licensed to you under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License. You may obtain a copy
- * of the License at http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
- * OF ANY KIND, either express or implied. See the License for the specific language
- * governing permissions and limitations under the License.
- */
-
-import { ActionButton } from "@react-spectrum/button/src";
+import { action, Story } from "@ladle/react";
+import { ActionButton } from "@react-valence/button/src";
 import { Divider } from "../";
-import Properties from "@spectrum-icons/workflow/Properties";
+import Properties from "@valence-icons/ui/Settings2Fill";
 import React from "react";
-import Select from "@spectrum-icons/workflow/Select";
-import { storiesOf } from "@storybook/react";
+import Select from "@valence-icons/ui/SeedlingFill";
 
-storiesOf("Divider", module)
-  .addParameters({ providerSwitcher: { status: "positive" } })
-  .add("Large (Default)", () => (
-    <section>
-      <h1>Large</h1>
-      <Divider />
-      <p>Page or Section Titles.</p>
-    </section>
-  ))
-  .add("Medium", () => (
-    <section>
-      <h1>Medium</h1>
-      <Divider size="M" />
-      <p>
-        Divide subsections, or divide different groups of elements (between
-        panels, rails, etc.)
-      </p>
-    </section>
-  ))
-  .add("Small", () => (
-    <section>
-      <h1>Small</h1>
-      <Divider size="S" />
-      <p>
-        Divide like-elements (tables, tool groups, elements within a panel,
-        etc.)
-      </p>
-    </section>
-  ))
-  .add("Vertical, Large (Default)", () => renderVertical())
-  .add("Vertical, Medium", () => renderVertical({ size: "M" }))
-  .add("Vertical, Small", () => renderVertical({ size: "S" }));
+import { ValenceDividerProps } from "@types-valence/divider";
 
-function renderVertical(props = {}) {
+const RenderVertical: Story<ValenceDividerProps> = (props) => {
   return (
     <section style={{ display: "flex" }}>
       <ActionButton aria-label="Properties" isQuiet>
@@ -60,6 +17,52 @@ function renderVertical(props = {}) {
       <ActionButton aria-label="Select" isQuiet>
         <Select />
       </ActionButton>
+    </section>
+  );
+}
+
+export const VerticalLarge: Story<ValenceDividerProps> = RenderVertical.bind({});
+VerticalLarge.args = {};
+
+export const VerticalMedium: Story<ValenceDividerProps> = RenderVertical.bind({});
+VerticalMedium.args = { size: "M" };
+
+export const VerticalSmall: Story<ValenceDividerProps> = RenderVertical.bind({});
+VerticalSmall.args = { size: "S" };
+
+
+export const DividerLarge: Story<ValenceDividerProps> = (props) => {
+  return (
+    <section>
+      <h1>Large</h1>
+      <Divider />
+      <p>Page or Section Titles.</p>
+    </section>
+  );
+}
+
+export const DividerMedium: Story<ValenceDividerProps> = (props) => {
+  return (
+    <section>
+      <h1>Medium</h1>
+      <Divider size="M" />
+      <p>
+        Divide subsections, or divide different groups of elements (between
+        panels, rails, etc.)
+      </p>
+    </section>
+  );
+}
+
+export const DividerSmall: Story<ValenceDividerProps> = (props) => {
+  return (
+    <section>
+      <h1>Small</h1>
+      <Divider size="S" />
+      <p>
+        Divide like-elements (tables, tool groups, elements within a panel,
+        etc.)
+      </p>
     </section>
   );
 }
