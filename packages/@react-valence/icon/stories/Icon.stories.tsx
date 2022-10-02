@@ -1,7 +1,7 @@
 import { Icon } from "@react-valence/icon";
 import { Story } from "@ladle/react";
 
-export const IconRender: Story<any> = () => {
+export const IconRender: Story<typeof Icon> = () => {
   return (
     <Icon>
       <svg viewBox="0 0 25 25">
