@@ -1,21 +1,20 @@
 import { action, Story } from "@ladle/react";
 import { ActionButton } from "@react-valence/button/src";
 import { Divider } from "../";
-import Properties from "@valence-icons/ui/Settings2Fill";
-import React from "react";
-import Select from "@valence-icons/ui/SeedlingFill";
+import Settings from "@valence-icons/ui/Settings2Fill";
+import Seedling from "@valence-icons/ui/SeedlingFill";
 
 import { ValenceDividerProps } from "@types-valence/divider";
 
 const RenderVertical: Story<ValenceDividerProps> = (props) => {
   return (
     <section style={{ display: "flex" }}>
-      <ActionButton aria-label="Properties" isQuiet>
-        <Properties />
+      <ActionButton aria-label="Settings" isQuiet>
+        <Settings />
       </ActionButton>
       <Divider orientation="vertical" {...props} />
       <ActionButton aria-label="Select" isQuiet>
-        <Select />
+        <Seedling />
       </ActionButton>
     </section>
   );
