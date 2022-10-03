@@ -9,8 +9,8 @@
   display: block;
 
   position: absolute;
-  inset-inline-start: var(--valence-accordion-icon-spacing);
-  inset-block-start: calc(var(--valence-accordion-item-height-actual) / 2 - var(--valence-accordion-icon-height) / 2);
+  inset-inline-start: var(--sandia-padding-unit);
+  inset-block-start: var(--sandia-padding-unit);
 
   transition: transform ease var(--valence-global-animation-duration-100);
 }
@@ -42,12 +42,11 @@
 
   box-sizing: border-box;
   /* left padding takes into account the icon's size as well as the focus state's left border */
-  padding-block: var(--valence-accordion-item-title-padding-y);
-  padding-inline-start: calc(calc(var(--valence-accordion-item-padding) * 2) + 2px);
-  padding-inline-end: var(--valence-accordion-item-padding);
+  padding-inline-start: var(--sandia-line-height);
+  padding-inline-end: var(--sandia-line-height);
   margin: 0;
 
-  min-height: var(--valence-accordion-item-height-actual);
+  min-height: var(--sandia-line-height);
 
   font-size: var(--valence-accordion-item-title-text-size);
   line-height: var(--valence-accordion-item-line-height);

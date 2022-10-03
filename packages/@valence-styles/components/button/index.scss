@@ -3,7 +3,6 @@
 @mixin valence-BaseButton {
   /* Contain halo */
   position: relative;
-
   display: inline-flex;
   box-sizing: border-box;
 
@@ -20,6 +19,7 @@
 
   /* Remove the inheritance of text transform on button in Edge, Firefox, and IE. */
   text-transform: none;
+  text-transform: uppercase;
   -webkit-font-smoothing: antialiased;
   /* Font smoothing for Firefox */
   -moz-osx-font-smoothing: grayscale;
@@ -227,7 +227,7 @@ a.ActionButton {
 
   /* Fixes horizontal alignment of text in anchor buttons */
   text-align: center;
-
+  letter-spacing: 0.040rem;
   /* @safari10 Workaround for https://bugs.webkit.org/show_bug.cgi?id=169700 */
   inline-size: 100%;
 
