@@ -503,9 +503,9 @@ export const IsOpenControlled: Story<ValencePickerProps<object>> = (args) => (
     onOpenChange={console.log}
     onSelectionChange={console.log}
   >
-    <Item>One</Item>
-    <Item>Two</Item>
-    <Item>Three</Item>
+    <Item><Robot/><Text>One</Text></Item>
+    <Item><Skull/><Text>Two</Text></Item>
+    <Item><Aliens/><Text>Three</Text></Item>
   </Picker>
 );
 export const DefaultOpenUncontrolled: Story<ValencePickerProps<object>> = (

@@ -15,7 +15,7 @@
 
   /* Remove button the margin in Firefox and Safari. */
   margin: 0;
-
+  padding: 0 var(--sandia-padding-unit);
   border-style: solid;
 
   /* Remove the inheritance of text transform on button in Edge, Firefox, and IE. */
@@ -129,7 +129,7 @@
   //padding-block-end: calc(var(--valence-button-padding-y) + 1px);
   //padding-block-start: calc(var(--valence-button-padding-y) - 1px);
 
-  font-size: var(--valence-button-primary-text-size);
+  font-size: var(--sandia-button-text-size);
   font-weight: var(--valence-button-primary-text-font-weight);
 
   &:hover,
@@ -139,19 +139,17 @@
 
   /* there should be space between the icon and text no matter the DOM order */
   .Icon + .Button-label {
-    margin-inline-start: var(--valence-button-primary-text-gap);
+    margin-inline-start: var(--sandia-icon-text-padding);
   }
 
   .Button-label + .Icon {
-    margin-inline-end: var(--valence-button-primary-text-gap);
+    margin-inline-end: var(--sandia-icon-text-padding);
   }
 
   &.Button--iconOnly {
     min-inline-size: unset;
-    padding: var(--valence-global-dimension-size-65);
+    padding: var(--sandia-padding-min);
   }
-
-
 }
 
 a.Button,

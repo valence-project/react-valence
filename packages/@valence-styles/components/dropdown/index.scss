@@ -27,7 +27,7 @@
 
     & + .Dropdown-chevron {
       position: absolute;
-      inset-inline-end: var(--sandia-frame-offset);
+      inset-inline-end: var(--sandia-padding-unit);
       inset-block-start: 50%;
       //margin-block-start: var(--sandia-frame-offset);
     }
@@ -63,26 +63,27 @@
   text-overflow: ellipsis;
   text-align: start;
   align-content: center;
+  margin-left: var(--sandia-padding-min);
 
   &.is-placeholder {
     font-style: var(--sandia-placeholder-font-style);
     transition: color var(--valence-global-animation-duration-100) ease-in-out;
-    margin-left: var(--sandia-padding-min);
+    margin-left: var(--sandia-padding-unit);
   }
 }
 
 /* Only apply margin to the icon if there's a label */
 .Dropdown-label + .Dropdown-chevron {
-  margin-inline-start: var(--sandia-padding-min);
+  margin-inline-start: var(--sandia-padding-unit);
 }
 
 .Icon + .Dropdown-label {
-  margin-inline-start: var(--sandia-framed-icon-offset);
+  margin-inline-start: var(--sandia-padding-unit);
 }
 
 /* Only apply margin if there's a label */
 .Dropdown-label ~ .Dropdown-chevron {
-  margin-inline-start: var(--sandia-padding-min);
+  margin-inline-start: var(--sandia-padding-unit);
 }
 
 .Dropdown-chevron {
@@ -93,9 +94,9 @@
   flex-shrink: 0;
 
   /* Fix Safari 10 bug where align-items is ignored inside of buttons */
-  margin-top: var(--sandia-framed-icon-offset);
-  margin-bottom: var(--sandia-framed-icon-offset);
-  margin-inline-end: var(--sandia-framed-icon-offset);
+  margin-top: var(--sandia-padding-unit);
+  margin-bottom: var(--sandia-padding-unit);
+  margin-inline-end: var(--sandia-padding-unit);
   opacity: 1;
 }
 

@@ -67,7 +67,7 @@
 
   .Icon + .Menu-itemLabel,
   .Menu-itemIcon  + .Menu-itemLabel {
-    margin-inline-start: var(--sandia-framed-icon-offset);
+    margin-inline-start: var(--sandia-padding-unit);
   }
 }
 
@@ -126,20 +126,22 @@
 
 .Menu-itemGrid {
   display: grid;
-  grid-template-columns: var(--sandia-framed-icon-offset) 1fr auto auto auto 0;
+  grid-template-columns: var(--sandia-padding-unit) auto 1fr auto auto auto var(--sandia-padding-unit);
   /*
     Renamed from padding-y to padding-height to fix docs issue where fallback var replaced this value
     (due to old spectrum-css postcss-custom-properties-custom-mapping plugin).
   */
-  grid-template-rows: var(--sandia-framed-icon-offset);
-  grid-template-areas:  ". .    .           . .         .   .       "
-                        ". icon text        . checkmark end keyboard"
-                        ". icon description . checkmark end keyboard"
+  grid-template-rows: var(--sandia-padding-unit) 1fr auto var(--sandia-padding-unit);
+  grid-template-areas:
+  ". .    .            .         .     .            ."
+  ". icon text         checkmark end   keyboard     ."
+  ". icon description  checkmark end   keyboard     ."
+  ". .    .            .         .     .            .";
 }
 
 .Menu-item.is-selectable {
   .Menu-itemGrid {
-    grid-template-columns: var(--sandia-framed-icon-offset) var(--sandia-framed-icon-offset) auto auto 1fr auto auto auto var(--sandia-framed-icon-offset);
+    grid-template-columns: calc(var(--sandia-padding-unit) + 1px) auto 1fr calc(var(--valence-icon-checkmark-medium-width) + var(--valence-selectlist-option-icon-padding-x)) auto auto var(--valence-selectlist-option-padding);
   }
 }
 /* Added .Menu so paddings from component styles are overriden */
@@ -152,14 +154,14 @@
 .Menu-icon {
   grid-area: icon;
   position: relative;
-  inset-inline-start: var(--sandia-framed-icon-offset);
+  padding-inline-end: var(--sandia-padding-unit);
 }
 .Menu-description {
   grid-area: description;
-  line-height: 1;
   font-size: var(--valence-global-dimension-size-150);
-  line-height: 1.328rem;
-  margin-bottom: var(--sandia-padding-min);
+  line-height: 1.328;
+  inset-inline-start: var(--sandia-padding-unit);
+  margin-block-start: var(--sandia-padding-unit);
 }
 .Menu-keyboard {
   grid-area: keyboard;
