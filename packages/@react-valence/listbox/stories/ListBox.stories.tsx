@@ -142,6 +142,7 @@ export const AsyncLoadingExample: Story<any> = (props) => {
     </ListBox>
   );
 };
+AsyncLoadingExample.storyName = "AsyncLoading:Default";
 
 let itemsForDemo = Array.from(new Array(100)).map((val, index) => ({
   val,
@@ -246,7 +247,7 @@ export const DefaultListBox: Story<ValenceListBoxProps<object>> = (args) => (
     {(item) => <Item key={item.name}>{item.name}</Item>}
   </ListBox>
 );
-export const ListBoxWSections: Story<ValenceListBoxProps<object>> = (args) => (
+export const SectionsDefault: Story<ValenceListBoxProps<object>> = (args) => (
   <ListBox flexGrow={1} aria-labelledby="label" items={withSection}>
     {(item) => (
       <Section key={item.name} items={item.children} title={item.name}>
@@ -255,7 +256,9 @@ export const ListBoxWSections: Story<ValenceListBoxProps<object>> = (args) => (
     )}
   </ListBox>
 );
-export const ListBoxWManySectionsAndSelection: Story<
+SectionsDefault.storyName = "Sections:Default";
+
+export const SectionsManyAndSelection: Story<
   ValenceListBoxProps<object>
 > = (args) => (
   <ListBox
@@ -271,8 +274,9 @@ export const ListBoxWManySectionsAndSelection: Story<
       </Section>
     )}
   </ListBox>
-);
-export const ListBoxWSectionsAndFalsyIds: Story<ValenceListBoxProps<object>> = (
+);SectionsManyAndSelection.storyName = "Sections:ManyAndSelection"
+
+export const SectionsFalsyIds: Story<ValenceListBoxProps<object>> = (
   args
 ) => (
   <ListBox
@@ -289,7 +293,9 @@ export const ListBoxWSectionsAndFalsyIds: Story<ValenceListBoxProps<object>> = (
     )}
   </ListBox>
 );
-export const ListBoxWSectionsAndNoTitle: Story<ValenceListBoxProps<object>> = (
+SectionsFalsyIds.storyName = "Sections:FalsyIds"
+
+export const SectionsNoTitle: Story<ValenceListBoxProps<object>> = (
   args
 ) => (
   <ListBox flexGrow={1} aria-labelledby="label" items={withSection}>
@@ -300,6 +306,8 @@ export const ListBoxWSectionsAndNoTitle: Story<ValenceListBoxProps<object>> = (
     )}
   </ListBox>
 );
+SectionsNoTitle.storyName = "Sections:NoTitle";
+
 export const Static: Story<ValenceListBoxProps<object>> = (args) => (
   <ListBox flexGrow={1} aria-labelledby="label">
     <Item>One</Item>
@@ -307,6 +315,8 @@ export const Static: Story<ValenceListBoxProps<object>> = (args) => (
     <Item>Three</Item>
   </ListBox>
 );
+Static.storyName = "Static:Default";
+
 export const StaticWithSectionsAndSelection: Story<
   ValenceListBoxProps<object>
 > = (args) => (
@@ -323,6 +333,8 @@ export const StaticWithSectionsAndSelection: Story<
     </Section>
   </ListBox>
 );
+StaticWithSectionsAndSelection.storyName = "Static:SectionsAndSelection"
+
 export const StaticWithSectionsAndNoTitle: Story<
   ValenceListBoxProps<object>
 > = (args) => (
@@ -339,6 +351,8 @@ export const StaticWithSectionsAndNoTitle: Story<
     </Section>
   </ListBox>
 );
+StaticWithSectionsAndNoTitle.storyName = "Static:SectionsAndNoTitle";
+
 export const WithDefaultSelectedOption: Story<ValenceListBoxProps<object>> = (
   args
 ) => (
@@ -535,7 +549,7 @@ export const NoSelectionAllowedStatic: Story<ValenceListBoxProps<object>> = (
     </Section>
   </ListBox>
 );
-export const ListBoxWithAutoFocusTrue: Story<ValenceListBoxProps<object>> = (
+export const AutoFocusTrue: Story<ValenceListBoxProps<object>> = (
   args
 ) => (
   <ListBox flexGrow={1} aria-labelledby="label" items={withSection} autoFocus>
@@ -564,7 +578,7 @@ export const ListBoxWithKeyboardSelectionWrapping: Story<
     )}
   </ListBox>
 );
-export const WithSemanticElementsStatic: Story<ValenceListBoxProps<object>> = (
+export const SemanticElementsStatic: Story<ValenceListBoxProps<object>> = (
   args
 ) => (
   <ListBox
@@ -608,7 +622,9 @@ export const WithSemanticElementsStatic: Story<ValenceListBoxProps<object>> = (
     </Section>
   </ListBox>
 );
-export const WithSemanticElementsGenerativeMultipleSelection: Story<
+SemanticElementsStatic.storyName = "SemanticElements:Static";
+
+export const SemanticElementsGenerativeMultipleSelection: Story<
   ValenceListBoxProps<object>
 > = (args) => (
   <ListBox
@@ -630,12 +646,19 @@ export const IsLoading: Story<ValenceListBoxProps<object>> = (args) => (
     {(item) => <Item>{item.name}</Item>}
   </ListBox>
 );
+IsLoading.storyName = "IsLoading:Empty List";
+
 export const IsLoadingMore: Story<ValenceListBoxProps<object>> = (args) => (
   <ListBox flexGrow={1} aria-labelledby="label" items={flatOptions} isLoading>
     {(item) => <Item key={item.name}>{item.name}</Item>}
   </ListBox>
 );
+IsLoadingMore.storyName = "IsLoading:Populated List";
+
+SemanticElementsGenerativeMultipleSelection.storyName = "SemanticElements:GenerativeMultipleSelection";
+
 //export const AsyncLoading: Story<ValenceListBoxProps<object>> = (args) => (  storiesOf("ListBox", module) .addDecorator((story) => ( <div style={{ display: "flex", flexDirection: "column" }}><Label id="label">Choose an item</Label><div style={{ display: "flex", minWidth: "200px", background: "var(--spectrum-global-color-gray-50)", border: "1px solid lightgray", }} >{story()}</div></div> );
+
 export const AsyncLoadingResizable: Story<ValenceListBoxProps<object>> = (
   args
 ) => (
@@ -654,3 +677,5 @@ export const AsyncLoadingResizable: Story<ValenceListBoxProps<object>> = (
     <AsyncLoadingExample />
   </div>
 );
+
+AsyncLoadingResizable.storyName = "AsyncLoading:Resizable";

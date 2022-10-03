@@ -282,7 +282,7 @@ a.ActionButton {
 
   font-size: var(--valence-logicbutton-and-text-size);
   font-weight: var(--valence-logicbutton-and-text-font-weight);
-  line-height: 0;
+  line-height: var(--sandia-line-height);
 
   &:after {
     /* Override border-radius set in %valence-ButtonWithFocusRing since this is not a pill button */
