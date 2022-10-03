@@ -3,7 +3,6 @@
 
 .Underlay {
   @include valence-overlay;
-
   position: fixed;
   top: 0;
   right: 0;
@@ -14,23 +13,8 @@
   z-index: 1;
 
   overflow: hidden;
-
-  /* Exit animations */
-  transition: opacity var(--valence-dialog-background-exit-animation-duration)
-      var(--valence-dialog-background-exit-animation-ease)
-      var(--valence-dialog-background-exit-animation-delay),
-    visibility 0ms linear
-      calc(
-        var(--valence-dialog-background-exit-animation-delay) +
-          var(--valence-dialog-background-exit-animation-duration)
-      );
 }
 
 .Underlay.is-open {
   @include valence-overlay--open;
-
-  /* Entry animations */
-  transition: opacity var(--valence-dialog-background-entry-animation-duration)
-    var(--valence-dialog-background-entry-animation-ease)
-    var(--valence-dialog-background-entry-animation-delay);
 }

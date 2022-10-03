@@ -121,13 +121,13 @@
   border-style: solid;
   border-radius: var(--valence-button-primary-border-radius);
 
-  min-block-size: var(--valence-button-primary-height);
+  min-block-size: var(--sandia-frame-unit-with-border);
   block-size: 0%;
   min-inline-size: var(--valence-button-primary-min-width);
 
   /* @hack: fix button text vertical alignment at 14px */
-  padding-block-end: calc(var(--valence-button-padding-y) + 1px);
-  padding-block-start: calc(var(--valence-button-padding-y) - 1px);
+  //padding-block-end: calc(var(--valence-button-padding-y) + 1px);
+  //padding-block-start: calc(var(--valence-button-padding-y) - 1px);
 
   font-size: var(--valence-button-primary-text-size);
   font-weight: var(--valence-button-primary-text-font-weight);
