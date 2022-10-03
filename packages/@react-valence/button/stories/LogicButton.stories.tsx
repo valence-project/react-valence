@@ -13,18 +13,18 @@ export default {
 const ActionButtonRender: Story<ValenceLogicButtonProps> = (props) => (
   <Flex gap="size-100">
     <LogicButton
-      onPress={action("press")}
-      onPressStart={action("pressstart")}
-      onPressEnd={action("pressend")}
+      onPress={()=>console.log("press")}
+      onPressStart={()=>console.log("pressstart")}
+      onPressEnd={()=>console.log("pressend")}
       {...props}
     >
       Default
     </LogicButton>
     <LogicButton
       marginStart="10px"
-      onPress={action("press")}
-      onPressStart={action("pressstart")}
-      onPressEnd={action("pressend")}
+      onPress={()=>console.log("press")}
+      onPressStart={()=>console.log("pressstart")}
+      onPressEnd={()=>console.log("pressend")}
       isDisabled
       {...props}
     >

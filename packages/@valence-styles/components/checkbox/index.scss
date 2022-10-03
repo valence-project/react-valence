@@ -13,7 +13,6 @@
   padding-inline-end: calc(var(--valence-checkbox-cursor-hit-x) * 2);
 
   vertical-align: top;
-
   isolation: isolate;
 }
 
@@ -21,7 +20,7 @@
   /* Change the font styles in all browsers for input. */
   font-family: inherit;
   font-size: 100%;
-  line-height: 1.15;
+  line-height: var(--sandia-line-height);
 
   /* Remove the margin for input in Firefox and Safari. */
   margin: 0;
@@ -82,7 +81,7 @@
 .Checkbox.is-checked {
   .Checkbox-box {
     &:before {
-      border-width: calc(var(--valence-checkbox-box-size) / 2);
+      border-width: calc(var(--sandia-base-unit) / 2);
     }
 
 
@@ -96,21 +95,20 @@
 
 .Checkbox-label {
   text-align: start;
-  margin-inline-start: var(--valence-checkbox-text-gap);
-  margin-block-start: var(--valence-checkbox-label-margin-top);
-  font-size: var(--valence-checkbox-text-size);
-  font-weight: var(--valence-checkbox-text-font-weight);
-  line-height: var(--valence-checkbox-label-line-height);
+  margin-inline-start: var(--sandia-padding-unit);
+  font-size: var(--sandia-input-font-size);
+  font-weight: var(--sandia-input-font-weight);
+  line-height: var(--sandia-line-height);
 }
 
 .Checkbox-box {
   position: relative;
   box-sizing: border-box;
-  inline-size: var(--valence-checkbox-box-size);
-  block-size: var(--valence-checkbox-box-size);
+  inline-size: var(--sandia-base-unit);
+  block-size: var(--sandia-base-unit);
 
   /* Fix vertical alignment when not wrapping since we're flex-start */
-  margin: calc((var(--valence-checkbox-height) - var(--valence-checkbox-box-size)) / 2) 0;
+  margin: var(--sandia-padding-unit) 0;
 
   flex-grow: 0;
   flex-shrink: 0;
@@ -123,8 +121,8 @@
     box-sizing: border-box;
     position: absolute;
 
-    width: var(--valence-checkbox-box-size);
-    height: var(--valence-checkbox-box-size);
+    width: var(--sandia-base-unit);
+    height: var(--sandia-base-unit);
 
     border-radius: var(--valence-checkbox-box-border-radius);
     border-width: var(--valence-checkbox-box-border-size);
@@ -153,11 +151,11 @@
 .Checkbox-checkmark,
 .Checkbox-partialCheckmark {
   position: absolute;
-  inset-block-start: 50%;
-  inset-inline-start: 50%;
+  // inset-block-start: 50%;
+  // inset-inline-start: 50%;
 
-  margin-block-start: calc(var(--valence-icon-checkmark-small-height) / -2);
-  margin-inline-start: calc(var(--valence-icon-checkmark-small-width) / -2);
+  margin-block-start: 0;
+  margin-inline-start: 0;
 
   opacity: 0;
   transform: scale(0);

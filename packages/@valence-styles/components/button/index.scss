@@ -23,6 +23,8 @@
   -webkit-font-smoothing: antialiased;
   /* Font smoothing for Firefox */
   -moz-osx-font-smoothing: grayscale;
+  font-size: var(--sandia-button-text-size);
+  font-weight: var(--sandia-font-weight-semibold);
 
   button {
     /* Correct the inability to style clickable types in iOS and Safari. */
@@ -166,46 +168,43 @@ a.ActionButton {
   position: relative;
 
   block-size: var(--sandia-line-height);
-  min-inline-size: var(--valence-actionbutton-min-width);
+  min-inline-size: var(--sandia-line-height);
 
   /* Use icon padding by default as it's smaller */
   padding: 0;
 
-  border-width: var(--valence-actionbutton-border-size);
-  border-radius: var(--valence-actionbutton-border-radius);
-
-  font-size: var(--valence-actionbutton-text-size);
-  font-weight: var(--valence-actionbutton-text-font-weight);
+  border-width: var(--sandia-actionbutton-border-size);
+  border-radius: var(--sandia-actionbutton-border-radius);
 
   /* icon should always have padding at the start */
   .Icon {
-    padding-inline-start: var(--valence-actionbutton-icon-padding-x);
+    padding-inline-start: var(--sandia-padding-unit);
   }
 
   /* label should always have padding at the end */
   .ActionButton-label {
-    padding-inline-end: var(--valence-actionbutton-text-padding-x);
+    padding-inline-end: var(--sandia-padding-unit);
   }
 
   /* icon + text buttons should have padding between the text and icon no matter the order */
   .Icon + .ActionButton-label {
-    padding-inline-start: var(--valence-actionbutton-icon-padding-x);
+    padding-inline-start: var(--sandia-padding-unit);
   }
 
   .ActionButton-label:not([hidden]) + .Icon {
-    padding-inline-end: var(--valence-actionbutton-icon-padding-x);
+    padding-inline-end: var(--sandia-padding-unit);
   }
 
   /* text only buttons should have padding at the start */
   .ActionButton-label:only-child,
   .ActionButton-hold + .ActionButton-label:last-child {
-    padding-inline-start: var(--valence-actionbutton-text-padding-x);
+    padding-inline-start: var(--sandia-padding-unit);
   }
 
   /* icon only buttons should have padding at the end */
   .Icon:only-child,
   .ActionButton-hold + .Icon:last-child {
-    padding-inline-end: var(--valence-actionbutton-icon-padding-x);
+    padding-inline-end: var(--sandia-padding-unit);
   }
 }
 
@@ -244,11 +243,8 @@ a.ActionButton {
 }
 
 .ActionButton--quiet {
-  border-width: var(--valence-actionbutton-quiet-border-size);
-  border-radius: var(--valence-actionbutton-quiet-border-radius);
-
-  font-size: var(--valence-actionbutton-quiet-text-size);
-  font-weight: var(--valence-actionbutton-quiet-text-font-weight);
+  border-width: var(--sandia-button-border-radius);
+  border-radius: var(--sandia-button-border-radius);
 }
 
 .ActionButton--emphasized,
@@ -256,14 +252,14 @@ a.ActionButton {
   @include valence-ButtonWithFocusRing;
 
   &:after {
-    /* Override border-radius set in %valence-ButtonWithFocusRing since this is not a pill button */
-    border-radius: calc(var(--valence-actionbutton-border-radius) + var(--valence-alias-focus-ring-gap));
+    /* Override border-radius set in %sandia-ButtonWithFocusRing since this is an action button */
+    border-radius: calc(var(--sandia-button-border-radius) + var(--sandia-focus-ring-gap));
   }
 
   &.focus-ring {
     &:after {
       /* action buttons only have a 1px border, not 2px */
-      margin: calc(calc(var(--valence-alias-focus-ring-gap) * -1) - var(--valence-actionbutton-quiet-border-size));
+      margin: calc(calc(var(--sandia-focus-ring-gap) * -1) - var(--valence-actionbutton-quiet-border-size));
     }
   }
 }
@@ -272,34 +268,33 @@ a.ActionButton {
   @include valence-BaseButton;
   @include valence-ButtonWithFocusRing;
 
-  block-size: var(--valence-logicbutton-and-height);
-  padding: var(--valence-logicbutton-and-padding-x);
+  block-size: var(--sandia-line-height);
 
-  border-width: var(--valence-logicbutton-and-border-size);
-  border-radius: var(--valence-logicbutton-and-border-radius);
+  border-width: var(--sandia-logicbutton-border-size);
+  border-radius: var(--sandia-logicbutton-border-radius);
 
-  font-size: var(--valence-logicbutton-and-text-size);
-  font-weight: var(--valence-logicbutton-and-text-font-weight);
   line-height: var(--sandia-line-height);
 
   &:after {
-    /* Override border-radius set in %valence-ButtonWithFocusRing since this is not a pill button */
-    border-radius: calc(var(--valence-logicbutton-and-border-radius) + var(--valence-alias-focus-ring-gap));
+    /* Override border-radius set in %sandia-ButtonWithFocusRing since this is not a pill button */
+    border-radius: calc(var(--sandia-logicbutton-border-radius) + var(--sandia-focus-ring-gap));
   }
 }
 
 .FieldButton {
   @include valence-BaseButton;
 
-  block-size: var(--sandia-frame-unit-with-border);
+  block-size: var(--sandia-line-height);
 
-  padding: 0 var(--valence-dropdown-padding-x);
+  padding: 0 0;
 
   font-family: inherit;
   font-weight: normal;
-  font-size: var(--valence-dropdown-text-size);
+  font-size: var(--sandia-input-font-size);
   line-height: normal;
   -webkit-font-smoothing: initial;
+
+  text-transform: none;
 
   cursor: default;
   outline: none;
@@ -308,7 +303,7 @@ a.ActionButton {
 .FieldButton {
   margin: 0;
   padding-block: 0;
-  padding-inline: var(--valence-dropdown-padding-x);
+  padding-inline: 0;
 
   border-width: var(--valence-dropdown-border-size);
   border-style: solid;

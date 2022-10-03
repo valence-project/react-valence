@@ -1,12 +1,18 @@
 .theme {
+
+  --sandia-font-weight-semibold: 700;
+
   --sandia-base-unit: 1rem;
   --sandia-input-font-size: var(--sandia-base-unit);
+  --sandia-input-text-size: var(--sandia-base-unit);
   --sandia-line-height: 2rem;
   --sandia-frame-unit: var(--sandia-line-height);
 
+  --sandia-focus-ring-gap: 2px;
+
   --sandia-icon-indicator: var(--sandia-base-unit);
   --sandia-input-icon-offset: calc(var(--sandia-padding-unit) + var(--sandia-input-border-size));
-  
+
   --sandia-input-border-size: 1px;
   --sandia-input-border-radius: 0.235458rem;
   --sandia-input-min-width: 150px;
@@ -17,8 +23,17 @@
   --sandia-padding-unit: calc((var(--sandia-line-height) - var(--sandia-base-unit))/2);
   --sandia-padding-min: var(--sandia-padding-unit); 
   --sandia-padding-reg: 0.618rem;
+
+  --sandia-button-border-radius: .236rem;
   --sandia-button-text-size: 13px;
   --sandia-button-padding-x: calc(var(--sandia-line-height) - var(--sandia-button-text-size));
+  
+  --sandia-actionbutton-border-radius: var(--sandia-button-border-radius);
+  --sandia-actionbutton-border-size: 1px; 
+
+  --sandia-logicbutton-border-radius: var(--sandia-button-border-radius);
+  --sandia-logicbutton-border-size: 1px;
+
   --sandia-icon-text-padding: var(--sandia-padding-unit);
 
   --sandia-placeholder-font-style: italic;
