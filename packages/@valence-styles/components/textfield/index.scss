@@ -3,12 +3,12 @@
 .Textfield {
   display: inline-flex;
   position: relative;
-  min-width: var(--valence-textfield-min-width);
-  width: var(--valence-component-single-line-width);
+  min-width: var(--sandia-input-min-width);
+  width: var(--sandia-input-width-default);
 
   &.Textfield--quiet.Textfield--multiline .Textfield-input {
-    height: var(--valence-textfield-height);
-    min-height: var(--valence-textfield-height);
+    height: var(--sandia-frame-unit-with-border);
+    min-height: var(--sandia-frame-unit-with-border);
     overflow-x: hidden;
   }
 }
@@ -16,16 +16,18 @@
 .Textfield-input {
   /* box */
   box-sizing: border-box;
-  border: var(--valence-textfield-border-size) solid;
-  border-radius: var(--valence-textfield-border-radius);
+  border: var(--sandia-input-border-size) solid;
+  border-radius: var(--sandia-input-border-radius);
 
-  /* Apply padding by default to center text, giving consistency between input and textfield */
-  padding: var(--valence-textfield-padding-top) var(--valence-textfield-padding-x) var(--valence-textfield-padding-bottom) calc(var(--valence-textfield-padding-x) - 1px);
+  // react-spectrum used padding to center text, this is different
+  //padding: unset;
+  padding-inline-start: var(--sandia-padding-min);
+
   /* Use padding instead of text-indent because text-indent does not left align the text in Edge browser  */
   text-indent: 0;
 
   inline-size: 100%;
-  height: var(--valence-textfield-height);
+  height: var(--sandia-frame-unit-with-border);
 
   vertical-align: top; /* used to align them correctly in forms. */
 
@@ -37,8 +39,8 @@
 
   /* Change the input font styles in all browsers */
   @include i18nFontFamily;
-  font-size: var(--valence-textfield-text-size);
-  line-height: var(--valence-textfield-text-line-height);
+  font-size: var(--sandia-base-unit);
+  line-height: var(--sandia-line-height);
   text-overflow: ellipsis;
 
   transition: border-color var(--valence-global-animation-duration-100) ease-in-out,
@@ -137,25 +139,12 @@
     overflow: auto;
   }
 
-  .Textfield--quiet {
-    border-radius: var(--valence-textfield-quiet-border-radius);
-    border-width: 0 0 var(--valence-textfield-quiet-border-size) 0;
-
-    /* removes the side padding to align the text properly */
-    padding-inline-start: var(--valence-textfield-quiet-padding-x);
-    padding-inline-end: var(--valence-textfield-quiet-padding-x);
-  }
-
-  .Textfield--valid {
-    padding-inline-end: calc(var(--valence-textfield-padding-x) + var(--valence-icon-checkmark-medium-width) + var(--valence-textfield-icon-margin-left));
-  }
-
-  .Textfield--invalid {
-    padding-inline-end: calc(var(--valence-textfield-padding-x) + var(--valence-icon-alert-medium-width) + var(--valence-textfield-icon-margin-left));
+  .Textfield--valid, .Textfield--invalid {
+    padding-right: var(--sandia-frame-unit-with-border);
   }
 
   .Textfield--loadable {
-    padding-inline-end: calc(var(--valence-textfield-padding-x) + var(--valence-icon-alert-medium-width) + var(--valence-textfield-icon-margin-left));
+    padding-inline-end: calc(var(--sandia-frame-unit) * 2)
   }
 }
 
@@ -182,7 +171,7 @@
     Note that the sizes are a bit different when compared with old background icons(more noticable for checkmark)
   */
   position: absolute;
-  padding-inline-end: calc(var(--valence-textfield-padding-x, var(--valence-global-dimension-size-150)) / 2);
+  padding-inline-end: 0;
   pointer-events: all;
   transition: color var(--valence-global-animation-duration-100) ease-in-out;
 
@@ -191,53 +180,41 @@
   }
 }
 
-.Textfield--invalid .Textfield-validationIcon {
-  width: var(--valence-icon-alert-medium-width);
-  height: var(--valence-icon-alert-medium-height);
-  top: calc(calc(var(--valence-textfield-icon-frame) / 2) - calc(var(--valence-icon-alert-medium-height) / 2));
-  inset-inline-end: calc(calc(var(--valence-textfield-icon-frame) / 2) - calc(var(--valence-icon-alert-medium-width) / 2));
-}
-.Textfield--valid .Textfield-validationIcon {
-  width: var(--valence-icon-checkmark-medium-width);
-  height: var(--valence-icon-checkmark-medium-height);
-  top: calc(calc(var(--valence-textfield-icon-frame) / 2) - calc(var(--valence-icon-checkmark-medium-height) / 2));
-  inset-inline-end: var(--valence-global-dimension-size-150);
+.Textfield .Textfield-validationIcon {
+  width: var(--sandia-icon-indicator);
+  height: var(--sandia-icon-indicator);
+  top: var(--sandia-framed-icon-offset);
+  inset-inline-end: var(--sandia-framed-icon-offset);
 }
 
 /* styles the left icon for textfield, assumes usage of workflow icon sizing (18px by 18px) */
 .Textfield-icon {
   display: block;
   position: absolute;
-  height: var(--valence-icon-info-medium-height);
-  width: var(--valence-icon-info-medium-width);
+  height: var(--sandia-icon-indicator);
+  width: var(--sandia-icon-indicator);
+  top: calc(calc(var(--sandia-frame-unit) / 2) - calc(var(--sandia-icon-indicator) / 2));
   /* This has a named variable in a future update of spectrum-css. */
-  inset-inline-start: var(--valence-global-dimension-size-150);
-  top: var(--valence-global-dimension-size-85);
+  inset-inline-start: calc(calc(var(--sandia-frame-unit) / 2) - calc(var(--sandia-icon-indicator) / 2) + var(--sandia-input-border-size));
   transition: fill var(--valence-global-animation-duration-100) ease-in-out;
 }
 
 /* styles the textfield properly if the left icon is provided */
 .Textfield-inputIcon {
-  /* Use padding instead of text-indent so long strings don't overlap the icon */
-  /* These values have real names in a spectrum-css update, when we update, use those. */
-  padding-inline-start: calc(
-    var(--valence-global-dimension-size-150) +
-    var(--valence-global-dimension-size-225) +
-    var(--valence-global-dimension-size-65)
-  );
+  padding-inline-start: var(--sandia-frame-unit);
 
-  .Textfield--quiet {
-    padding-inline-start: calc(var(--valence-global-dimension-size-100) + var(--valence-icon-info-medium-width));
+  // .Textfield--quiet {
+  //   padding-inline-start: calc(var(--valence-global-dimension-size-100) + var(--valence-icon-info-medium-width));
 
-    /* Since quiet button has no left padding, push the icon all the way to the left */
-    & ~ .Textfield-icon {
-      inset-inline-start: 0;
-    }
-  }
+  //   /* Since quiet button has no left padding, push the icon all the way to the left */
+  //   & ~ .Textfield-icon {
+  //     inset-inline-start: 0;
+  //   }
+  // }
 
   &.Textfield--multiline {
-    height: var(--valence-textfield-height);
-    min-height: var(--valence-textfield-height);
+    height: var(--sandia-frame-unit-with-border);
+    min-height: var(--sandia-frame-unit-with-border);
   }
 }
 
@@ -245,9 +222,9 @@
 /* same positioning as invalid icon */
 .Textfield--loadable .Textfield-circleLoader {
   position: absolute;
-  top: calc(calc(var(--valence-textfield-icon-frame) / 2) - calc(var(--valence-loader-circle-small-width) / 2));
+  top: var(--sandia-framed-icon-offset);
   /* can't use padding right since it breaks the circle loader so add here */
-  inset-inline-end: calc(calc(calc(var(--valence-textfield-icon-frame) / 2) - calc(var(--valence-icon-alert-medium-width) / 2)) + calc(var(--valence-textfield-padding-x, var(--valence-global-dimension-size-150)) / 2));
+  inset-inline-end: var(--sandia-framed-icon-offset);
 
   .Textfield--quiet {
     padding-inline-end: 0;

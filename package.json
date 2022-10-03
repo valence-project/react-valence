@@ -24,6 +24,7 @@
     "@lerna/filter-packages": "^5.4.3",
     "@lerna/project": "^5.4.3",
     "@valence-dev/build": "^0.0.1",
+    "camel-case": "^4.1.2",
     "esbuild": "^0.15.7",
     "esbuild-sass-plugin": "^2.3.2",
     "lerna": "^5.5.1",

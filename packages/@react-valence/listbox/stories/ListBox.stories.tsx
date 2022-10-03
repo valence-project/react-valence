@@ -1,31 +1,21 @@
-/*
- * Copyright 2020 Adobe. All rights reserved.
- * This file is licensed to you under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License. You may obtain a copy
- * of the License at http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
- * OF ANY KIND, either express or implied. See the License for the specific language
- * governing permissions and limitations under the License.
- */
-
-import { action } from "@storybook/addon-actions";
-import AlignCenter from "@spectrum-icons/workflow/AlignCenter";
-import AlignLeft from "@spectrum-icons/workflow/AlignLeft";
-import AlignRight from "@spectrum-icons/workflow/AlignRight";
-import Blower from "@spectrum-icons/workflow/Blower";
-import Book from "@spectrum-icons/workflow/Book";
-import { Button, Flex } from "@adobe/react-spectrum";
-import Copy from "@spectrum-icons/workflow/Copy";
-import Cut from "@spectrum-icons/workflow/Cut";
+import { action, Story } from "@ladle/react";
+import AlignCenter from "@valence-icons/ui/AlignCenter";
+import AlignLeft from "@valence-icons/ui/AlignLeft";
+import AlignRight from "@valence-icons/ui/AlignRight";
+import Blower from "@valence-icons/ui/WindyFill";
+import Book from "@valence-icons/ui/Book2Fill";
+import { Button } from "@react-valence/button";
+import { Flex } from "@react-valence/layout";
+import Copy from "@valence-icons/ui/FileCopy2Fill";
+import Cut from "@valence-icons/ui/Scissors2Fill";
 import { Item, ListBox, Section } from "../";
-import { Label } from "@react-spectrum/label";
-import Paste from "@spectrum-icons/workflow/Paste";
+import { Label } from "@react-valence/label";
+import Paste from "@valence-icons/ui/ClipboardFill";
 import React, { useState } from "react";
-import { storiesOf } from "@storybook/react";
-import { Text } from "@react-spectrum/text";
+import { Text } from "@react-valence/text";
 import { useAsyncList } from "@react-stately/data";
+
+import { ValenceListBoxProps } from "@types-valence/listbox";
 
 let iconMap = {
   AlignCenter,
@@ -111,466 +101,6 @@ for (let i = 0; i < 50; i++) {
   lotsOfSections.push({ name: "Section " + i, children });
 }
 
-storiesOf("ListBox", module)
-  .addDecorator((story) => (
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      <Label id="label">Choose an item</Label>
-      <div
-        style={{
-          display: "flex",
-          minWidth: "200px",
-          background: "var(--spectrum-global-color-gray-50)",
-          border: "1px solid lightgray",
-          maxHeight: 300,
-        }}
-      >
-        {story()}
-      </div>
-    </div>
-  ))
-  .add("Default ListBox", () => (
-    <ListBox flexGrow={1} aria-labelledby="label" items={flatOptions}>
-      {(item) => <Item key={item.name}>{item.name}</Item>}
-    </ListBox>
-  ))
-  .add("ListBox w/ sections", () => (
-    <ListBox flexGrow={1} aria-labelledby="label" items={withSection}>
-      {(item) => (
-        <Section key={item.name} items={item.children} title={item.name}>
-          {(item) => <Item key={item.name}>{item.name}</Item>}
-        </Section>
-      )}
-    </ListBox>
-  ))
-  .add("ListBox w/ many sections and selection", () => (
-    <ListBox
-      flexGrow={1}
-      aria-labelledby="label"
-      selectionMode="multiple"
-      items={lotsOfSections}
-      onSelectionChange={action("onSelectionChange")}
-    >
-      {(item) => (
-        <Section key={item.name} items={item.children} title={item.name}>
-          {(item: any) => <Item key={item.name}>{item.name}</Item>}
-        </Section>
-      )}
-    </ListBox>
-  ))
-  .add("ListBox w/ sections and falsy ids", () => (
-    <ListBox
-      flexGrow={1}
-      aria-labelledby="label"
-      items={itemsWithFalsyId}
-      selectionMode="multiple"
-      onSelectionChange={action("onSelectionChange")}
-    >
-      {(item) => (
-        <Section items={item.children} title={item.name}>
-          {(item) => <Item>{item.name}</Item>}
-        </Section>
-      )}
-    </ListBox>
-  ))
-  .add("ListBox w/ sections and no title", () => (
-    <ListBox flexGrow={1} aria-labelledby="label" items={withSection}>
-      {(item) => (
-        <Section key={item.name} items={item.children} aria-label={item.name}>
-          {(item) => <Item key={item.name}>{item.name}</Item>}
-        </Section>
-      )}
-    </ListBox>
-  ))
-  .add("Static", () => (
-    <ListBox flexGrow={1} aria-labelledby="label">
-      <Item>One</Item>
-      <Item>Two</Item>
-      <Item>Three</Item>
-    </ListBox>
-  ))
-  .add("Static with sections and selection", () => (
-    <ListBox flexGrow={1} aria-labelledby="label" selectionMode="multiple">
-      <Section title="Section 1">
-        <Item>One</Item>
-        <Item>Two</Item>
-        <Item>Three</Item>
-      </Section>
-      <Section title="Section 2">
-        <Item>One</Item>
-        <Item>Two</Item>
-        <Item>Three</Item>
-      </Section>
-    </ListBox>
-  ))
-  .add("Static with sections and no title", () => (
-    <ListBox flexGrow={1} aria-labelledby="label">
-      <Section aria-label="Section 1">
-        <Item>One</Item>
-        <Item>Two</Item>
-        <Item>Three</Item>
-      </Section>
-      <Section aria-label="Section 2">
-        <Item>One</Item>
-        <Item>Two</Item>
-        <Item>Three</Item>
-      </Section>
-    </ListBox>
-  ))
-  .add("with default selected option", () => (
-    <ListBox
-      flexGrow={1}
-      aria-labelledby="label"
-      selectionMode="multiple"
-      onSelectionChange={action("onSelectionChange")}
-      items={withSection}
-      defaultSelectedKeys={["Kangaroo"]}
-    >
-      {(item) => (
-        <Section key={item.name} items={item.children} title={item.name}>
-          {(item) => <Item key={item.name}>{item.name}</Item>}
-        </Section>
-      )}
-    </ListBox>
-  ))
-  .add("single selection with default selected option", () => (
-    <ListBox
-      flexGrow={1}
-      selectionMode="single"
-      onSelectionChange={action("onSelectionChange")}
-      aria-labelledby="label"
-      items={flatOptions}
-      defaultSelectedKeys={["Kangaroo"]}
-    >
-      {(item) => <Item key={item.name}>{item.name}</Item>}
-    </ListBox>
-  ))
-  .add("static with default selected options", () => (
-    <ListBox
-      flexGrow={1}
-      aria-labelledby="label"
-      selectionMode="multiple"
-      onSelectionChange={action("onSelectionChange")}
-      defaultSelectedKeys={["2", "3"]}
-    >
-      <Section title="Section 1">
-        <Item key="1">One</Item>
-        <Item key="2">Two</Item>
-        <Item key="3">Three</Item>
-      </Section>
-      <Section title="Section 2">
-        <Item key="4">Four</Item>
-        <Item key="5">Five</Item>
-        <Item key="6">Six</Item>
-        <Item key="7">Seven</Item>
-      </Section>
-    </ListBox>
-  ))
-  .add("with selected options (controlled)", () => (
-    <ListBox
-      flexGrow={1}
-      aria-labelledby="label"
-      selectionMode="multiple"
-      onSelectionChange={action("onSelectionChange")}
-      items={withSection}
-      selectedKeys={["Kangaroo"]}
-    >
-      {(item) => (
-        <Section key={item.name} items={item.children} title={item.name}>
-          {(item) => <Item key={item.name}>{item.name}</Item>}
-        </Section>
-      )}
-    </ListBox>
-  ))
-  .add("static with selected options (controlled)", () => (
-    <ListBox
-      flexGrow={1}
-      aria-labelledby="label"
-      selectionMode="multiple"
-      onSelectionChange={action("onSelectionChange")}
-      selectedKeys={["2"]}
-    >
-      <Section title="Section 1">
-        <Item key="1">One</Item>
-        <Item key="2">Two</Item>
-        <Item key="3">Three</Item>
-      </Section>
-      <Section title="Section 2">
-        <Item key="4">Four</Item>
-        <Item key="5">Five</Item>
-        <Item key="6">Six</Item>
-        <Item key="7">Seven</Item>
-      </Section>
-    </ListBox>
-  ))
-  .add("with disabled options", () => (
-    <ListBox
-      flexGrow={1}
-      aria-labelledby="label"
-      items={withSection}
-      disabledKeys={["Kangaroo", "Ross"]}
-    >
-      {(item) => (
-        <Section key={item.name} items={item.children} title={item.name}>
-          {(item) => <Item key={item.name}>{item.name}</Item>}
-        </Section>
-      )}
-    </ListBox>
-  ))
-  .add("static with disabled options", () => (
-    <ListBox flexGrow={1} aria-labelledby="label" disabledKeys={["3", "5"]}>
-      <Section title="Section 1">
-        <Item key="1">One</Item>
-        <Item key="2">Two</Item>
-        <Item key="3">Three</Item>
-      </Section>
-      <Section title="Section 2">
-        <Item key="4">Four</Item>
-        <Item key="5">Five</Item>
-        <Item key="6">Six</Item>
-        <Item key="7">Seven</Item>
-      </Section>
-    </ListBox>
-  ))
-  .add("Multiple selection", () => (
-    <ListBox
-      flexGrow={1}
-      aria-labelledby="label"
-      items={withSection}
-      onSelectionChange={action("onSelectionChange")}
-      selectionMode="multiple"
-      defaultSelectedKeys={["Aardvark", "Snake"]}
-      disabledKeys={["Kangaroo", "Ross"]}
-    >
-      {(item) => (
-        <Section key={item.name} items={item.children} title={item.name}>
-          {(item) => <Item key={item.name}>{item.name}</Item>}
-        </Section>
-      )}
-    </ListBox>
-  ))
-  .add("Multiple selection, static", () => (
-    <ListBox
-      flexGrow={1}
-      aria-labelledby="label"
-      onSelectionChange={action("onSelectionChange")}
-      selectionMode="multiple"
-      defaultSelectedKeys={["2", "5"]}
-      disabledKeys={["1", "3"]}
-    >
-      <Section title="Section 1">
-        <Item key="1">One</Item>
-        <Item key="2">Two</Item>
-        <Item key="3">Three</Item>
-      </Section>
-      <Section title="Section 2">
-        <Item key="4">Four</Item>
-        <Item key="5">Five</Item>
-        <Item key="6">Six</Item>
-      </Section>
-    </ListBox>
-  ))
-  .add("No selection allowed", () => (
-    <ListBox flexGrow={1} aria-labelledby="label" items={withSection}>
-      {(item) => (
-        <Section key={item.name} items={item.children} title={item.name}>
-          {(item) => <Item key={item.name}>{item.name}</Item>}
-        </Section>
-      )}
-    </ListBox>
-  ))
-  .add("No selection allowed, static", () => (
-    <ListBox flexGrow={1} aria-labelledby="label">
-      <Section title="Section 1">
-        <Item>One</Item>
-        <Item>Two</Item>
-        <Item>Three</Item>
-      </Section>
-      <Section title="Section 2">
-        <Item>Four</Item>
-        <Item>Five</Item>
-        <Item>Six</Item>
-      </Section>
-    </ListBox>
-  ))
-  .add("ListBox with autoFocus=true", () => (
-    <ListBox flexGrow={1} aria-labelledby="label" items={withSection} autoFocus>
-      {(item) => (
-        <Section key={item.name} items={item.children} title={item.name}>
-          {(item) => <Item key={item.name}>{item.name}</Item>}
-        </Section>
-      )}
-    </ListBox>
-  ))
-  .add(
-    "ListBox with autoFocus=true, selectionMode=single, default selected key (uncontrolled)",
-    () => (
-      <ListBox
-        flexGrow={1}
-        aria-labelledby="label"
-        items={withSection}
-        autoFocus
-        defaultSelectedKeys={["Snake"]}
-        selectionMode="single"
-      >
-        {(item) => (
-          <Section key={item.name} items={item.children} title={item.name}>
-            {(item) => <Item key={item.name}>{item.name}</Item>}
-          </Section>
-        )}
-      </ListBox>
-    )
-  )
-  .add('ListBox with autoFocus="first"', () => (
-    <ListBox
-      flexGrow={1}
-      aria-labelledby="label"
-      items={withSection}
-      selectionMode="multiple"
-      onSelectionChange={action("onSelectionChange")}
-      autoFocus="first"
-    >
-      {(item) => (
-        <Section key={item.name} items={item.children} title={item.name}>
-          {(item) => <Item key={item.name}>{item.name}</Item>}
-        </Section>
-      )}
-    </ListBox>
-  ))
-  .add('ListBox with autoFocus="last"', () => (
-    <ListBox
-      flexGrow={1}
-      aria-labelledby="label"
-      items={withSection}
-      selectionMode="multiple"
-      onSelectionChange={action("onSelectionChange")}
-      autoFocus="last"
-    >
-      {(item) => (
-        <Section key={item.name} items={item.children} title={item.name}>
-          {(item) => <Item key={item.name}>{item.name}</Item>}
-        </Section>
-      )}
-    </ListBox>
-  ))
-  .add("ListBox with keyboard selection wrapping", () => (
-    <ListBox
-      flexGrow={1}
-      aria-labelledby="label"
-      items={withSection}
-      selectionMode="multiple"
-      onSelectionChange={action("onSelectionChange")}
-      shouldFocusWrap
-    >
-      {(item) => (
-        <Section key={item.name} items={item.children} title={item.name}>
-          {(item) => <Item key={item.name}>{item.name}</Item>}
-        </Section>
-      )}
-    </ListBox>
-  ))
-  .add("with semantic elements (static)", () => (
-    <ListBox
-      flexGrow={1}
-      aria-labelledby="label"
-      selectionMode="multiple"
-      onSelectionChange={action("onSelectionChange")}
-    >
-      <Section title="Section 1">
-        <Item textValue="Copy">
-          <Copy size="S" />
-          <Text>Copy</Text>
-        </Item>
-        <Item textValue="Cut">
-          <Cut size="S" />
-          <Text>Cut</Text>
-        </Item>
-        <Item textValue="Paste">
-          <Paste size="S" />
-          <Text>Paste</Text>
-        </Item>
-      </Section>
-      <Section title="Section 2">
-        <Item textValue="Puppy">
-          <AlignLeft size="S" />
-          <Text>Puppy</Text>
-          <Text slot="description">
-            Puppy description super long as well geez
-          </Text>
-        </Item>
-        <Item textValue="Doggo with really really really long long long text">
-          <AlignCenter size="S" />
-          <Text>Doggo with really really really long long long text</Text>
-        </Item>
-        <Item textValue="Floof">
-          <AlignRight size="S" />
-          <Text>Floof</Text>
-        </Item>
-        <Item>Basic Item</Item>
-      </Section>
-    </ListBox>
-  ))
-  .add("with semantic elements (generative), multiple selection", () => (
-    <ListBox
-      flexGrow={1}
-      aria-labelledby="label"
-      items={hardModeProgrammatic}
-      onSelectionChange={action("onSelectionChange")}
-      selectionMode="multiple"
-    >
-      {(item) => (
-        <Section key={item.name} items={item.children} title={item.name}>
-          {(item) => customOption(item)}
-        </Section>
-      )}
-    </ListBox>
-  ))
-  .add("isLoading", () => (
-    <ListBox flexGrow={1} aria-labelledby="label" items={[]} isLoading>
-      {(item) => <Item>{item.name}</Item>}
-    </ListBox>
-  ))
-  .add("isLoading more", () => (
-    <ListBox flexGrow={1} aria-labelledby="label" items={flatOptions} isLoading>
-      {(item) => <Item key={item.name}>{item.name}</Item>}
-    </ListBox>
-  ))
-  .add("async loading", () => <AsyncLoadingExample />);
-
-storiesOf("ListBox", module)
-  .addDecorator((story) => (
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      <Label id="label">Choose an item</Label>
-      <div
-        style={{
-          display: "flex",
-          minWidth: "200px",
-          background: "var(--spectrum-global-color-gray-50)",
-          border: "1px solid lightgray",
-        }}
-      >
-        {story()}
-      </div>
-    </div>
-  ))
-  .add("async loading, resizable", () => (
-    // need display flex or set a height on the listbox so it doesn't keep getting more elements
-    <div
-      style={{
-        display: "flex",
-        height: "200px",
-        flexGrow: 1,
-        minWidth: "200px",
-        padding: "10px",
-        resize: "both",
-        overflow: "auto",
-      }}
-    >
-      <AsyncLoadingExample />
-    </div>
-  ));
-
-storiesOf("ListBox", module).add("listbox containers", () => <App />);
-
 let customOption = (item) => {
   let Icon = iconMap[item.icon];
   return (
@@ -581,7 +111,7 @@ let customOption = (item) => {
   );
 };
 
-function AsyncLoadingExample() {
+export const AsyncLoadingExample: Story<any> = (props) => {
   interface Pokemon {
     name: string;
     url: string;
@@ -611,13 +141,14 @@ function AsyncLoadingExample() {
       {(item) => <Item key={item.name}>{item.name}</Item>}
     </ListBox>
   );
-}
+};
 
 let itemsForDemo = Array.from(new Array(100)).map((val, index) => ({
   val,
   index,
 }));
-function App() {
+
+const AppExample: Story<any> = (props) => {
   let [size, setSize] = useState("700px");
 
   const toggleSize = () => {
@@ -708,4 +239,418 @@ function App() {
       </div>
     </>
   );
-}
+};
+
+export const DefaultListBox: Story<ValenceListBoxProps<object>> = (args) => (
+  <ListBox flexGrow={1} aria-labelledby="label" items={flatOptions}>
+    {(item) => <Item key={item.name}>{item.name}</Item>}
+  </ListBox>
+);
+export const ListBoxWSections: Story<ValenceListBoxProps<object>> = (args) => (
+  <ListBox flexGrow={1} aria-labelledby="label" items={withSection}>
+    {(item) => (
+      <Section key={item.name} items={item.children} title={item.name}>
+        {(item) => <Item key={item.name}>{item.name}</Item>}
+      </Section>
+    )}
+  </ListBox>
+);
+export const ListBoxWManySectionsAndSelection: Story<
+  ValenceListBoxProps<object>
+> = (args) => (
+  <ListBox
+    flexGrow={1}
+    aria-labelledby="label"
+    selectionMode="multiple"
+    items={lotsOfSections}
+    onSelectionChange={action("onSelectionChange")}
+  >
+    {(item) => (
+      <Section key={item.name} items={item.children} title={item.name}>
+        {(item: any) => <Item key={item.name}>{item.name}</Item>}
+      </Section>
+    )}
+  </ListBox>
+);
+export const ListBoxWSectionsAndFalsyIds: Story<ValenceListBoxProps<object>> = (
+  args
+) => (
+  <ListBox
+    flexGrow={1}
+    aria-labelledby="label"
+    items={itemsWithFalsyId}
+    selectionMode="multiple"
+    onSelectionChange={action("onSelectionChange")}
+  >
+    {(item) => (
+      <Section items={item.children} title={item.name}>
+        {(item) => <Item>{item.name}</Item>}
+      </Section>
+    )}
+  </ListBox>
+);
+export const ListBoxWSectionsAndNoTitle: Story<ValenceListBoxProps<object>> = (
+  args
+) => (
+  <ListBox flexGrow={1} aria-labelledby="label" items={withSection}>
+    {(item) => (
+      <Section key={item.name} items={item.children} aria-label={item.name}>
+        {(item) => <Item key={item.name}>{item.name}</Item>}
+      </Section>
+    )}
+  </ListBox>
+);
+export const Static: Story<ValenceListBoxProps<object>> = (args) => (
+  <ListBox flexGrow={1} aria-labelledby="label">
+    <Item>One</Item>
+    <Item>Two</Item>
+    <Item>Three</Item>
+  </ListBox>
+);
+export const StaticWithSectionsAndSelection: Story<
+  ValenceListBoxProps<object>
+> = (args) => (
+  <ListBox flexGrow={1} aria-labelledby="label" selectionMode="multiple">
+    <Section title="Section 1">
+      <Item>One</Item>
+      <Item>Two</Item>
+      <Item>Three</Item>
+    </Section>
+    <Section title="Section 2">
+      <Item>One</Item>
+      <Item>Two</Item>
+      <Item>Three</Item>
+    </Section>
+  </ListBox>
+);
+export const StaticWithSectionsAndNoTitle: Story<
+  ValenceListBoxProps<object>
+> = (args) => (
+  <ListBox flexGrow={1} aria-labelledby="label">
+    <Section aria-label="Section 1">
+      <Item>One</Item>
+      <Item>Two</Item>
+      <Item>Three</Item>
+    </Section>
+    <Section aria-label="Section 2">
+      <Item>One</Item>
+      <Item>Two</Item>
+      <Item>Three</Item>
+    </Section>
+  </ListBox>
+);
+export const WithDefaultSelectedOption: Story<ValenceListBoxProps<object>> = (
+  args
+) => (
+  <ListBox
+    flexGrow={1}
+    aria-labelledby="label"
+    selectionMode="multiple"
+    onSelectionChange={action("onSelectionChange")}
+    items={withSection}
+    defaultSelectedKeys={["Kangaroo"]}
+  >
+    {(item) => (
+      <Section key={item.name} items={item.children} title={item.name}>
+        {(item) => <Item key={item.name}>{item.name}</Item>}
+      </Section>
+    )}
+  </ListBox>
+);
+export const SingleSelectionWithDefaultSelectedOption: Story<
+  ValenceListBoxProps<object>
+> = (args) => (
+  <ListBox
+    flexGrow={1}
+    selectionMode="single"
+    onSelectionChange={action("onSelectionChange")}
+    aria-labelledby="label"
+    items={flatOptions}
+    defaultSelectedKeys={["Kangaroo"]}
+  >
+    {(item) => <Item key={item.name}>{item.name}</Item>}
+  </ListBox>
+);
+export const StaticWithDefaultSelectedOptions: Story<
+  ValenceListBoxProps<object>
+> = (args) => (
+  <ListBox
+    flexGrow={1}
+    aria-labelledby="label"
+    selectionMode="multiple"
+    onSelectionChange={action("onSelectionChange")}
+    defaultSelectedKeys={["2", "3"]}
+  >
+    <Section title="Section 1">
+      <Item key="1">One</Item>
+      <Item key="2">Two</Item>
+      <Item key="3">Three</Item>
+    </Section>
+    <Section title="Section 2">
+      <Item key="4">Four</Item>
+      <Item key="5">Five</Item>
+      <Item key="6">Six</Item>
+      <Item key="7">Seven</Item>
+    </Section>
+  </ListBox>
+);
+export const WithSelectedOptionsControlled: Story<
+  ValenceListBoxProps<object>
+> = (args) => (
+  <ListBox
+    flexGrow={1}
+    aria-labelledby="label"
+    selectionMode="multiple"
+    onSelectionChange={action("onSelectionChange")}
+    items={withSection}
+    selectedKeys={["Kangaroo"]}
+  >
+    {(item) => (
+      <Section key={item.name} items={item.children} title={item.name}>
+        {(item) => <Item key={item.name}>{item.name}</Item>}
+      </Section>
+    )}
+  </ListBox>
+);
+export const StaticWithSelectedOptionsControlled: Story<
+  ValenceListBoxProps<object>
+> = (args) => (
+  <ListBox
+    flexGrow={1}
+    aria-labelledby="label"
+    selectionMode="multiple"
+    onSelectionChange={action("onSelectionChange")}
+    selectedKeys={["2"]}
+  >
+    <Section title="Section 1">
+      <Item key="1">One</Item>
+      <Item key="2">Two</Item>
+      <Item key="3">Three</Item>
+    </Section>
+    <Section title="Section 2">
+      <Item key="4">Four</Item>
+      <Item key="5">Five</Item>
+      <Item key="6">Six</Item>
+      <Item key="7">Seven</Item>
+    </Section>
+  </ListBox>
+);
+export const WithDisabledOptions: Story<ValenceListBoxProps<object>> = (
+  args
+) => (
+  <ListBox
+    flexGrow={1}
+    aria-labelledby="label"
+    items={withSection}
+    disabledKeys={["Kangaroo", "Ross"]}
+  >
+    {(item) => (
+      <Section key={item.name} items={item.children} title={item.name}>
+        {(item) => <Item key={item.name}>{item.name}</Item>}
+      </Section>
+    )}
+  </ListBox>
+);
+export const StaticWithDisabledOptions: Story<ValenceListBoxProps<object>> = (
+  args
+) => (
+  <ListBox flexGrow={1} aria-labelledby="label" disabledKeys={["3", "5"]}>
+    <Section title="Section 1">
+      <Item key="1">One</Item>
+      <Item key="2">Two</Item>
+      <Item key="3">Three</Item>
+    </Section>
+    <Section title="Section 2">
+      <Item key="4">Four</Item>
+      <Item key="5">Five</Item>
+      <Item key="6">Six</Item>
+      <Item key="7">Seven</Item>
+    </Section>
+  </ListBox>
+);
+export const MultipleSelection: Story<ValenceListBoxProps<object>> = (args) => (
+  <ListBox
+    flexGrow={1}
+    aria-labelledby="label"
+    items={withSection}
+    onSelectionChange={action("onSelectionChange")}
+    selectionMode="multiple"
+    defaultSelectedKeys={["Aardvark", "Snake"]}
+    disabledKeys={["Kangaroo", "Ross"]}
+  >
+    {(item) => (
+      <Section key={item.name} items={item.children} title={item.name}>
+        {(item) => <Item key={item.name}>{item.name}</Item>}
+      </Section>
+    )}
+  </ListBox>
+);
+export const MultipleSelectionStatic: Story<ValenceListBoxProps<object>> = (
+  args
+) => (
+  <ListBox
+    flexGrow={1}
+    aria-labelledby="label"
+    onSelectionChange={action("onSelectionChange")}
+    selectionMode="multiple"
+    defaultSelectedKeys={["2", "5"]}
+    disabledKeys={["1", "3"]}
+  >
+    <Section title="Section 1">
+      <Item key="1">One</Item>
+      <Item key="2">Two</Item>
+      <Item key="3">Three</Item>
+    </Section>
+    <Section title="Section 2">
+      <Item key="4">Four</Item>
+      <Item key="5">Five</Item>
+      <Item key="6">Six</Item>
+    </Section>
+  </ListBox>
+);
+export const NoSelectionAllowed: Story<ValenceListBoxProps<object>> = (
+  args
+) => (
+  <ListBox flexGrow={1} aria-labelledby="label" items={withSection}>
+    {(item) => (
+      <Section key={item.name} items={item.children} title={item.name}>
+        {(item) => <Item key={item.name}>{item.name}</Item>}
+      </Section>
+    )}
+  </ListBox>
+);
+export const NoSelectionAllowedStatic: Story<ValenceListBoxProps<object>> = (
+  args
+) => (
+  <ListBox flexGrow={1} aria-labelledby="label">
+    <Section title="Section 1">
+      <Item>One</Item>
+      <Item>Two</Item>
+      <Item>Three</Item>
+    </Section>
+    <Section title="Section 2">
+      <Item>Four</Item>
+      <Item>Five</Item>
+      <Item>Six</Item>
+    </Section>
+  </ListBox>
+);
+export const ListBoxWithAutoFocusTrue: Story<ValenceListBoxProps<object>> = (
+  args
+) => (
+  <ListBox flexGrow={1} aria-labelledby="label" items={withSection} autoFocus>
+    {(item) => (
+      <Section key={item.name} items={item.children} title={item.name}>
+        {(item) => <Item key={item.name}>{item.name}</Item>}
+      </Section>
+    )}
+  </ListBox>
+);
+export const ListBoxWithKeyboardSelectionWrapping: Story<
+  ValenceListBoxProps<object>
+> = (args) => (
+  <ListBox
+    flexGrow={1}
+    aria-labelledby="label"
+    items={withSection}
+    selectionMode="multiple"
+    onSelectionChange={action("onSelectionChange")}
+    shouldFocusWrap
+  >
+    {(item) => (
+      <Section key={item.name} items={item.children} title={item.name}>
+        {(item) => <Item key={item.name}>{item.name}</Item>}
+      </Section>
+    )}
+  </ListBox>
+);
+export const WithSemanticElementsStatic: Story<ValenceListBoxProps<object>> = (
+  args
+) => (
+  <ListBox
+    flexGrow={1}
+    aria-labelledby="label"
+    selectionMode="multiple"
+    onSelectionChange={action("onSelectionChange")}
+  >
+    <Section title="Section 1">
+      <Item textValue="Copy">
+        <Copy size="S" />
+        <Text>Copy</Text>
+      </Item>
+      <Item textValue="Cut">
+        <Cut size="S" />
+        <Text>Cut</Text>
+      </Item>
+      <Item textValue="Paste">
+        <Paste size="S" />
+        <Text>Paste</Text>
+      </Item>
+    </Section>
+    <Section title="Section 2">
+      <Item textValue="Puppy">
+        <AlignLeft size="S" />
+        <Text>Puppy</Text>
+        <Text slot="description">
+          {" "}
+          Puppy description super long as well geez{" "}
+        </Text>
+      </Item>
+      <Item textValue="Doggo with really really really long long long text">
+        <AlignCenter size="S" />
+        <Text>Doggo with really really really long long long text</Text>
+      </Item>
+      <Item textValue="Floof">
+        <AlignRight size="S" />
+        <Text>Floof</Text>
+      </Item>
+      <Item>Basic Item</Item>
+    </Section>
+  </ListBox>
+);
+export const WithSemanticElementsGenerativeMultipleSelection: Story<
+  ValenceListBoxProps<object>
+> = (args) => (
+  <ListBox
+    flexGrow={1}
+    aria-labelledby="label"
+    items={hardModeProgrammatic}
+    onSelectionChange={action("onSelectionChange")}
+    selectionMode="multiple"
+  >
+    {(item) => (
+      <Section key={item.name} items={item.children} title={item.name}>
+        {(item) => customOption(item)}
+      </Section>
+    )}
+  </ListBox>
+);
+export const IsLoading: Story<ValenceListBoxProps<object>> = (args) => (
+  <ListBox flexGrow={1} aria-labelledby="label" items={[]} isLoading>
+    {(item) => <Item>{item.name}</Item>}
+  </ListBox>
+);
+export const IsLoadingMore: Story<ValenceListBoxProps<object>> = (args) => (
+  <ListBox flexGrow={1} aria-labelledby="label" items={flatOptions} isLoading>
+    {(item) => <Item key={item.name}>{item.name}</Item>}
+  </ListBox>
+);
+//export const AsyncLoading: Story<ValenceListBoxProps<object>> = (args) => (  storiesOf("ListBox", module) .addDecorator((story) => ( <div style={{ display: "flex", flexDirection: "column" }}><Label id="label">Choose an item</Label><div style={{ display: "flex", minWidth: "200px", background: "var(--spectrum-global-color-gray-50)", border: "1px solid lightgray", }} >{story()}</div></div> );
+export const AsyncLoadingResizable: Story<ValenceListBoxProps<object>> = (
+  args
+) => (
+  // need display flex or set a height on the listbox so it doesn't keep getting more elements
+  <div
+    style={{
+      display: "flex",
+      height: "200px",
+      flexGrow: 1,
+      minWidth: "200px",
+      padding: "10px",
+      resize: "both",
+      overflow: "auto",
+    }}
+  >
+    <AsyncLoadingExample />
+  </div>
+);

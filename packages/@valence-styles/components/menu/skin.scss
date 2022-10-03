@@ -11,7 +11,8 @@
   &.is-focused {
     background-color: var(--valence-selectlist-option-background-color-key-focus);
     color: var(--valence-selectlist-option-text-color-key-focus);
-    border-inline-start-color: var(--valence-selectlist-option-focus-indicator-color);
+    box-shadow: inset var(--valence-selectlist-border-size-key-focus) 0 0 var(--valence-selectlist-option-focus-indicator-color);
+    //border-inline-start-color: var(--valence-selectlist-option-focus-indicator-color);
   }
 
   &:hover,

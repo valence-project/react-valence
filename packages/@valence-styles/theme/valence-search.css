@@ -86,8 +86,8 @@
   --valence-search-icon-margin-right: var(--valence-global-dimension-size-0);
   --valence-search-padding-left: var(--valence-global-dimension-size-450);
   --valence-search-padding-right: var(--valence-global-dimension-size-350);
-  --valence-search-icon-width: var(--valence-global-dimension-static-size-200);
-  --valence-search-icon-height: var(--valence-global-dimension-static-size-200);
+  --valence-search-icon-width: var(--valence-global-dimension-static-size-300);
+  --valence-search-icon-height: var(--valence-global-dimension-static-size-300);
   --valence-search-quiet-placeholder-text-color: var(--valence-alias-placeholder-text-color);
   --valence-search-quiet-text-color: var(--valence-alias-text-color);
   --valence-search-quiet-border-size: var(--valence-alias-border-size-thin);

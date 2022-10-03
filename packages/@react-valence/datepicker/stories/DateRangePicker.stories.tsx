@@ -1,17 +1,5 @@
-/*
- * Copyright 2020 Adobe. All rights reserved.
- * This file is licensed to you under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License. You may obtain a copy
- * of the License at http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
- * OF ANY KIND, either express or implied. See the License for the specific language
- * governing permissions and limitations under the License.
- */
-
-import { action } from "@storybook/addon-actions";
-import { ActionButton } from "@react-spectrum/button";
+import { action, Story } from "@ladle/react";
+import { ActionButton } from "@react-valence/button";
 import {
   CalendarDate,
   getLocalTimeZone,
@@ -23,201 +11,14 @@ import {
 import { chain } from "@react-aria/utils";
 import { DateRangePicker } from "../";
 import { DateValue } from "@react-types/calendar";
-import { Flex } from "@react-spectrum/layout";
-import { Item, Picker, Section } from "@react-spectrum/picker";
-import { Provider } from "@adobe/react-spectrum";
+import { Flex } from "@react-valence/layout";
+import { Item, Picker, Section } from "@react-valence/picker";
+import { Provider } from "@react-valence/provider";
 import React from "react";
-import { storiesOf } from "@storybook/react";
 import { useLocale } from "@react-aria/i18n";
+import { ValenceDateRangePickerProps } from "@react-valence/datepicker";
 
 const BlockDecorator = (storyFn) => <div>{storyFn()}</div>;
-
-storiesOf("Date and Time/DateRangePicker", module)
-  .addDecorator(BlockDecorator)
-  .add("default", () => render())
-  .add("defaultValue", () =>
-    render({
-      defaultValue: {
-        start: new CalendarDate(2020, 2, 3),
-        end: new CalendarDate(2020, 5, 4),
-      },
-    })
-  )
-  .add("controlled value", () => <ControlledExample />)
-  .add("defaultValue, zoned", () =>
-    render({
-      defaultValue: {
-        start: toZoned(parseDate("2020-02-03"), "America/New_York"),
-        end: toZoned(parseDate("2020-02-05"), "America/Los_Angeles"),
-      },
-    })
-  )
-  .add("granularity: minute", () => render({ granularity: "minute" }))
-  .add("granularity: second", () => render({ granularity: "second" }))
-  .add("hourCycle: 12", () => render({ granularity: "minute", hourCycle: 12 }))
-  .add("hourCycle: 24", () => render({ granularity: "minute", hourCycle: 24 }))
-  .add("isDisabled", () =>
-    render({
-      isDisabled: true,
-      value: {
-        start: new CalendarDate(2020, 2, 3),
-        end: new CalendarDate(2020, 5, 4),
-      },
-    })
-  )
-  .add("isQuiet, isDisabled", () =>
-    render({
-      isQuiet: true,
-      isDisabled: true,
-      value: {
-        start: new CalendarDate(2020, 2, 3),
-        end: new CalendarDate(2020, 5, 4),
-      },
-    })
-  )
-  .add("isReadOnly", () =>
-    render({
-      isReadOnly: true,
-      value: {
-        start: new CalendarDate(2020, 2, 3),
-        end: new CalendarDate(2020, 5, 4),
-      },
-    })
-  )
-  .add("autoFocus", () => render({ autoFocus: true }))
-  .add("validationState: invalid", () =>
-    render({
-      validationState: "invalid",
-      value: {
-        start: new CalendarDate(2020, 2, 3),
-        end: new CalendarDate(2020, 5, 4),
-      },
-    })
-  )
-  .add("validationState: valid", () =>
-    render({
-      validationState: "valid",
-      value: {
-        start: new CalendarDate(2020, 2, 3),
-        end: new CalendarDate(2020, 5, 4),
-      },
-    })
-  )
-  .add("minDate: 2010/1/1, maxDate: 2020/1/1", () =>
-    render({
-      minValue: new CalendarDate(2010, 1, 1),
-      maxValue: new CalendarDate(2020, 1, 1),
-    })
-  )
-  .add("isDateUnavailable", () => {
-    const disabledRanges = [
-      [today(getLocalTimeZone()), today(getLocalTimeZone()).add({ weeks: 1 })],
-      [
-        today(getLocalTimeZone()).add({ weeks: 2 }),
-        today(getLocalTimeZone()).add({ weeks: 3 }),
-      ],
-    ];
-    let [value, setValue] = React.useState(null);
-    let isInvalid =
-      value &&
-      disabledRanges.some(
-        (interval) =>
-          value.end.compare(interval[0]) >= 0 &&
-          value.start.compare(interval[1]) <= 0
-      );
-    let isDateUnavailable = (date) =>
-      disabledRanges.some(
-        (interval) =>
-          date.compare(interval[0]) >= 0 && date.compare(interval[1]) <= 0
-      );
-    return render({
-      value,
-      onChange: setValue,
-      validationState: isInvalid ? "invalid" : null,
-      isDateUnavailable,
-      errorMessage: "Selected ranges may not include unavailable dates.",
-    });
-  })
-  .add("isDateAvailable, allowsNonContiguousRanges", () => {
-    let { locale } = useLocale();
-    return render({
-      isDateUnavailable: (date: DateValue) => isWeekend(date, locale),
-      allowsNonContiguousRanges: true,
-    });
-  })
-  .add("placeholderValue: 1980/1/1", () =>
-    render({ placeholderValue: new CalendarDate(1980, 1, 1) })
-  )
-  .add("maxVisibleMonths: 2", () =>
-    render({ maxVisibleMonths: 2, granularity: "minute" })
-  )
-  .add("maxVisibleMonths: 3", () =>
-    render({ maxVisibleMonths: 3, granularity: "minute" })
-  )
-  .add("showFormatHelpText", () => render({ showFormatHelpText: true }));
-
-storiesOf("Date and Time/DateRangePicker/styling", module)
-  .addDecorator(BlockDecorator)
-  .add("isQuiet", () => render({ isQuiet: true }))
-  .add("labelPosition: side", () => render({ labelPosition: "side" }))
-  .add("labelAlign: end", () =>
-    render({ labelPosition: "top", labelAlign: "end" })
-  )
-  .add("required", () => render({ isRequired: true }))
-  .add("required with label", () =>
-    render({ isRequired: true, necessityIndicator: "label" })
-  )
-  .add("optional", () => render({ necessityIndicator: "label" }))
-  .add("no visible label", () =>
-    render({ "aria-label": "Date range", label: null })
-  )
-  .add("quiet no visible label", () =>
-    render({ isQuiet: true, "aria-label": "Date range", label: null })
-  )
-  .add("custom width", () => render({ width: "size-4600" }))
-  .add("quiet custom width", () =>
-    render({ isQuiet: true, width: "size-4600" })
-  )
-  .add("custom width no visible label", () =>
-    render({ width: "size-4600", label: null, "aria-label": "Date range" })
-  )
-  .add("custom width, labelPosition=side", () =>
-    render({ width: "size-4600", labelPosition: "side" })
-  )
-  .add("description", () => render({ description: "Help text" }))
-  .add("errorMessage", () =>
-    render({
-      errorMessage: "Dates must be after today",
-      validationState: "invalid",
-    })
-  )
-  .add("invalid with time", () =>
-    render({
-      validationState: "invalid",
-      granularity: "minute",
-      defaultValue: {
-        start: toZoned(parseDate("2020-02-03"), "America/New_York"),
-        end: toZoned(parseDate("2020-02-12"), "America/Los_Angeles"),
-      },
-    })
-  )
-  .add("in scrollable container", () => (
-    <div style={{ height: "200vh" }}>{render({ granularity: "second" })}</div>
-  ))
-  .add("shouldFlip: false", () => render({ shouldFlip: false }));
-
-function render(props = {}) {
-  return (
-    <div>
-      <Example
-        label="Date range"
-        onChange={action("change")}
-        maxWidth="calc(100vw - 40px)"
-        {...props}
-      />
-    </div>
-  );
-}
 
 // https://github.com/unicode-org/cldr/blob/22af90ae3bb04263f651323ce3d9a71747a75ffb/common/supplemental/supplementalData.xml#L4649-L4664
 const preferences = [
@@ -381,7 +182,24 @@ function Example(props) {
   );
 }
 
-function ControlledExample(props) {
+const DateRangePickerRender: Story<ValenceDateRangePickerProps<DateValue>> = (
+  props
+) => {
+  return (
+    <div>
+      <Example
+        label="Date range"
+        onChange={action("change")}
+        maxWidth="calc(100vw - 40px)"
+        {...props}
+      />
+    </div>
+  );
+};
+
+export const ControlledValue: Story<ValenceDateRangePickerProps<DateValue>> = (
+  props
+) => {
   let [value, setValue] = React.useState(null);
 
   return (
@@ -405,4 +223,271 @@ function ControlledExample(props) {
       <ActionButton onPress={() => setValue(null)}>Clear</ActionButton>
     </Flex>
   );
-}
+};
+
+export const Default: Story<ValenceDateRangePickerProps<DateValue>> =
+  DateRangePickerRender.bind({});
+
+export const DefaultValue: Story<ValenceDateRangePickerProps<DateValue>> =
+  DateRangePickerRender.bind({});
+DefaultValue.args = {
+  defaultValue: {
+    start: new CalendarDate(2020, 2, 3),
+    end: new CalendarDate(2020, 5, 4),
+  },
+};
+
+export const DefaultValueZoned: Story<ValenceDateRangePickerProps<DateValue>> =
+  DateRangePickerRender.bind({});
+DefaultValueZoned.args = {
+  defaultValue: {
+    start: toZoned(parseDate("2020-02-03"), "America/New_York"),
+    end: toZoned(parseDate("2020-02-05"), "America/Los_Angeles"),
+  },
+};
+
+export const GranularityMinute: Story<ValenceDateRangePickerProps<DateValue>> =
+  DateRangePickerRender.bind({});
+GranularityMinute.args = { granularity: "minute" };
+
+export const GranularitySecond: Story<ValenceDateRangePickerProps<DateValue>> =
+  DateRangePickerRender.bind({});
+GranularitySecond.args = { granularity: "second" };
+
+export const HourCycle_12: Story<ValenceDateRangePickerProps<DateValue>> =
+  DateRangePickerRender.bind({});
+HourCycle_12.args = { granularity: "minute", hourCycle: 12 };
+
+export const HourCycle_24: Story<ValenceDateRangePickerProps<DateValue>> =
+  DateRangePickerRender.bind({});
+HourCycle_24.args = { granularity: "minute", hourCycle: 24 };
+
+export const IsDisabled: Story<ValenceDateRangePickerProps<DateValue>> =
+  DateRangePickerRender.bind({});
+IsDisabled.args = {
+  isDisabled: true,
+  value: {
+    start: new CalendarDate(2020, 2, 3),
+    end: new CalendarDate(2020, 5, 4),
+  },
+};
+
+export const IsQuietIsDisabled: Story<ValenceDateRangePickerProps<DateValue>> =
+  DateRangePickerRender.bind({});
+IsQuietIsDisabled.args = {
+  isQuiet: true,
+  isDisabled: true,
+  value: {
+    start: new CalendarDate(2020, 2, 3),
+    end: new CalendarDate(2020, 5, 4),
+  },
+};
+
+export const IsReadOnly: Story<ValenceDateRangePickerProps<DateValue>> =
+  DateRangePickerRender.bind({});
+IsReadOnly.args = {
+  isReadOnly: true,
+  value: {
+    start: new CalendarDate(2020, 2, 3),
+    end: new CalendarDate(2020, 5, 4),
+  },
+};
+
+export const AutoFocus: Story<ValenceDateRangePickerProps<DateValue>> =
+  DateRangePickerRender.bind({});
+AutoFocus.args = { autoFocus: true };
+
+export const ValidationStateInvalid: Story<
+  ValenceDateRangePickerProps<DateValue>
+> = DateRangePickerRender.bind({});
+ValidationStateInvalid.args = {
+  validationState: "invalid",
+  value: {
+    start: new CalendarDate(2020, 2, 3),
+    end: new CalendarDate(2020, 5, 4),
+  },
+};
+
+export const ValidationStateValid: Story<
+  ValenceDateRangePickerProps<DateValue>
+> = DateRangePickerRender.bind({});
+ValidationStateValid.args = {
+  validationState: "valid",
+  value: {
+    start: new CalendarDate(2020, 2, 3),
+    end: new CalendarDate(2020, 5, 4),
+  },
+};
+
+export const MinDate_2010_1_1MaxDate_2020_1_1: Story<
+  ValenceDateRangePickerProps<DateValue>
+> = DateRangePickerRender.bind({});
+MinDate_2010_1_1MaxDate_2020_1_1.args = {
+  minValue: new CalendarDate(2010, 1, 1),
+  maxValue: new CalendarDate(2020, 1, 1),
+};
+
+export const IsDateUnavailable: Story<
+  ValenceDateRangePickerProps<DateValue>
+> = (args) => {
+  const disabledRanges = [
+    [today(getLocalTimeZone()), today(getLocalTimeZone()).add({ weeks: 1 })],
+    [
+      today(getLocalTimeZone()).add({ weeks: 2 }),
+      today(getLocalTimeZone()).add({ weeks: 3 }),
+    ],
+  ];
+  let [value, setValue] = React.useState(null);
+  let isInvalid =
+    value &&
+    disabledRanges.some(
+      (interval) =>
+        value.end.compare(interval[0]) >= 0 &&
+        value.start.compare(interval[1]) <= 0
+    );
+  let isDateUnavailable = (date) =>
+    disabledRanges.some(
+      (interval) =>
+        date.compare(interval[0]) >= 0 && date.compare(interval[1]) <= 0
+    );
+  return (
+    <DateRangePickerRender
+      {...{
+        value,
+        onChange: setValue,
+        validationState: isInvalid ? "invalid" : null,
+        isDateUnavailable,
+        errorMessage: "Selected ranges may not include unavailable dates.",
+      }}
+    />
+  );
+};
+
+export const IsDateAvailableAllowsNonContiguousRanges: Story<
+  ValenceDateRangePickerProps<DateValue>
+> = (args) => {
+  let { locale } = useLocale();
+  return (
+    <DateRangePickerRender
+      {...{
+        isDateUnavailable: (date: DateValue) => isWeekend(date, locale),
+        allowsNonContiguousRanges: true,
+      }}
+    />
+  );
+};
+
+export const PlaceholderValue_1980_1_1: Story<
+  ValenceDateRangePickerProps<DateValue>
+> = DateRangePickerRender.bind({});
+PlaceholderValue_1980_1_1.args = {
+  placeholderValue: new CalendarDate(1980, 1, 1),
+};
+
+export const MaxVisibleMonths_2: Story<ValenceDateRangePickerProps<DateValue>> =
+  DateRangePickerRender.bind({});
+MaxVisibleMonths_2.args = { maxVisibleMonths: 2, granularity: "minute" };
+
+export const MaxVisibleMonths_3: Story<ValenceDateRangePickerProps<DateValue>> =
+  DateRangePickerRender.bind({});
+MaxVisibleMonths_3.args = { maxVisibleMonths: 3, granularity: "minute" };
+
+export const ShowFormatHelpText: Story<ValenceDateRangePickerProps<DateValue>> =
+  DateRangePickerRender.bind({});
+ShowFormatHelpText.args = { showFormatHelpText: true };
+
+export const IsQuiet: Story<ValenceDateRangePickerProps<DateValue>> =
+  DateRangePickerRender.bind({});
+IsQuiet.args = { isQuiet: true };
+
+export const LabelPositionSide: Story<ValenceDateRangePickerProps<DateValue>> =
+  DateRangePickerRender.bind({});
+LabelPositionSide.args = { labelPosition: "side" };
+
+export const LabelAlignEnd: Story<ValenceDateRangePickerProps<DateValue>> =
+  DateRangePickerRender.bind({});
+LabelAlignEnd.args = { labelPosition: "top", labelAlign: "end" };
+
+export const Required: Story<ValenceDateRangePickerProps<DateValue>> =
+  DateRangePickerRender.bind({});
+Required.args = { isRequired: true };
+
+export const RequiredWithLabel: Story<ValenceDateRangePickerProps<DateValue>> =
+  DateRangePickerRender.bind({});
+RequiredWithLabel.args = { isRequired: true, necessityIndicator: "label" };
+
+export const Optional: Story<ValenceDateRangePickerProps<DateValue>> =
+  DateRangePickerRender.bind({});
+Optional.args = { necessityIndicator: "label" };
+
+export const NoVisibleLabel: Story<ValenceDateRangePickerProps<DateValue>> =
+  DateRangePickerRender.bind({});
+NoVisibleLabel.args = { "aria-label": "Date range", label: null };
+
+export const QuietNoVisibleLabel: Story<
+  ValenceDateRangePickerProps<DateValue>
+> = DateRangePickerRender.bind({});
+QuietNoVisibleLabel.args = {
+  isQuiet: true,
+  "aria-label": "Date range",
+  label: null,
+};
+
+export const CustomWidth: Story<ValenceDateRangePickerProps<DateValue>> =
+  DateRangePickerRender.bind({});
+CustomWidth.args = { width: "size-4600" };
+
+export const QuietCustomWidth: Story<ValenceDateRangePickerProps<DateValue>> =
+  DateRangePickerRender.bind({});
+QuietCustomWidth.args = { isQuiet: true, width: "size-4600" };
+
+export const CustomWidthNoVisibleLabel: Story<
+  ValenceDateRangePickerProps<DateValue>
+> = DateRangePickerRender.bind({});
+CustomWidthNoVisibleLabel.args = {
+  width: "size-4600",
+  label: null,
+  "aria-label": "Date range",
+};
+
+export const CustomWidthLabelPositionSide: Story<
+  ValenceDateRangePickerProps<DateValue>
+> = DateRangePickerRender.bind({});
+CustomWidthLabelPositionSide.args = {
+  width: "size-4600",
+  labelPosition: "side",
+};
+
+export const Description: Story<ValenceDateRangePickerProps<DateValue>> =
+  DateRangePickerRender.bind({});
+Description.args = { description: "Help text" };
+
+export const ErrorMessage: Story<ValenceDateRangePickerProps<DateValue>> =
+  DateRangePickerRender.bind({});
+ErrorMessage.args = {
+  errorMessage: "Dates must be after today",
+  validationState: "invalid",
+};
+
+export const InvalidWithTime: Story<ValenceDateRangePickerProps<DateValue>> =
+  DateRangePickerRender.bind({});
+InvalidWithTime.args = {
+  validationState: "invalid",
+  granularity: "minute",
+  defaultValue: {
+    start: toZoned(parseDate("2020-02-03"), "America/New_York"),
+    end: toZoned(parseDate("2020-02-12"), "America/Los_Angeles"),
+  },
+};
+
+export const InScrollableContainer: Story<
+  ValenceDateRangePickerProps<DateValue>
+> = (args) => (
+  <div style={{ height: "200vh" }}>
+    <DateRangePickerRender {...{ granularity: "second" }} />
+  </div>
+);
+
+export const ShouldFlipFalse: Story<ValenceDateRangePickerProps<DateValue>> =
+  DateRangePickerRender.bind({});
+ShouldFlipFalse.args = { shouldFlip: false };

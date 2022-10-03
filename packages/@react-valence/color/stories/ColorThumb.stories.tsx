@@ -1,31 +1,35 @@
-/*
- * Copyright 2020 Adobe. All rights reserved.
- * This file is licensed to you under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License. You may obtain a copy
- * of the License at http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
- * OF ANY KIND, either express or implied. See the License for the specific language
- * governing permissions and limitations under the License.
- */
-
 import { ColorThumb } from "../src/ColorThumb";
 import { parseColor } from "@react-stately/color";
 import React from "react";
-import { storiesOf } from "@storybook/react";
+import { Story } from "@ladle/react";
 
-storiesOf("ColorThumb", module)
-  .add("default", () => <ColorThumb value={parseColor("#f00")} />)
-  .add("focused", () => <ColorThumb value={parseColor("#f00")} isFocused />)
-  .add("focused, dragging", () => (
-    <ColorThumb value={parseColor("#f00")} isFocused isDragging />
-  ))
-  .add("focused, dragging, alpha", () => (
-    <ColorThumb
-      value={parseColor("hsla(0, 100%, 100%, 0)")}
-      isFocused
-      isDragging
-    />
-  ))
-  .add("disabled", () => <ColorThumb value={parseColor("#f00")} isDisabled />);
+import {ColorThumbProps} from '../src/ColorThumb'
+
+const ColorThumbRender: Story<ColorThumbProps> = (args) => {
+  return <ColorThumb value={parseColor("#f00")} {...args} />
+}
+
+export const Default: Story<ColorThumbProps> = ColorThumbRender.bind({});
+
+export const Disabled: Story<ColorThumbProps> = ColorThumbRender.bind({});
+Disabled.args = {
+  isDisabled: true
+}
+
+export const Focused: Story<ColorThumbProps> = ColorThumbRender.bind({});
+Focused.args = {
+  isFocused: true
+}
+
+export const FocusedDragging: Story<ColorThumbProps> = ColorThumbRender.bind({});
+FocusedDragging.args = {
+  isFocused: true,
+  isDragging: true
+}
+
+export const FocusedDraggingAlpha: Story<ColorThumbProps> = ColorThumbRender.bind({});
+FocusedDraggingAlpha.args = {
+  isFocused: true,
+  isDragging: true,
+  value: parseColor("hsla(0, 100%, 100%, 0)")
+}

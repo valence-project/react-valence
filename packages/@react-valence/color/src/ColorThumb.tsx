@@ -14,7 +14,7 @@ import { DOMProps } from "@types-valence/shared";
 import stylesHandle from "@valence-styles/components/colorhandle/vars.module.scss";
 import stylesLoupe from "@valence-styles/components/colorloupe/vars.module.scss";
 
-interface ColorThumbProps extends DOMProps {
+export interface ColorThumbProps extends DOMProps {
   value: Color;
   isDisabled?: boolean;
   isDragging?: boolean; // shows the color loupe

@@ -1,8 +1,8 @@
 import { Story as _Story } from "@ladle/react";
 import { Button } from "@react-valence/button";
 import { Text } from "@react-valence/text";
-import BatteryHalf from "@valence-icons/ui/GamepadFill";
-import X from "@valence-icons/ui/CloseFill";
+import BatteryHalf from "@valence-icons/ui/GameFill";
+import X from "@valence-icons/ui/GameFill";
 import React from "react";
 
 import {ValenceButtonProps} from '@types-valence/button';

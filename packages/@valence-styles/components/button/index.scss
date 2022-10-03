@@ -41,7 +41,7 @@
 
   @include i18nFontFamily;
 
-  line-height: var(--valence-button-line-height);
+  line-height: var(--sandia-line-height);
 
   user-select: none;
   -webkit-user-select: none;
@@ -84,6 +84,7 @@
     transition: background var(--valence-global-animation-duration-100) ease-out,
                 fill var(--valence-global-animation-duration-100) ease-out;
     box-sizing: initial;
+    //margin-left: calc(calc(var(--valence-textfield-icon-frame) / 2) - calc(var(--valence-icon-indicator-medium) / 2));
   }
 
 }
@@ -124,8 +125,6 @@
   block-size: 0%;
   min-inline-size: var(--valence-button-primary-min-width);
 
-  padding: var(--valence-button-padding-y) calc(var(--valence-button-primary-padding-x) - var(--valence-button-primary-border-size));
-
   /* @hack: fix button text vertical alignment at 14px */
   padding-block-end: calc(var(--valence-button-padding-y) + 1px);
   padding-block-start: calc(var(--valence-button-padding-y) - 1px);
@@ -151,6 +150,8 @@
     min-inline-size: unset;
     padding: var(--valence-global-dimension-size-65);
   }
+
+
 }
 
 a.Button,
@@ -292,7 +293,7 @@ a.ActionButton {
 .FieldButton {
   @include valence-BaseButton;
 
-  block-size: var(--valence-dropdown-height);
+  block-size: var(--sandia-frame-unit-with-border);
 
   padding: 0 var(--valence-dropdown-padding-x);
 

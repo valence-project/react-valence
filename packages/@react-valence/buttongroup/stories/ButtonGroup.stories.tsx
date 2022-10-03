@@ -1,5 +1,5 @@
 import { action, Story } from "@ladle/react";
-import Robot from "@valence-icons/ui/RobotFill";
+import Robot from "@valence-icons/ui/AliensFill";
 import { Button } from "@react-valence/button";
 import { ButtonGroup } from "@react-valence/buttongroup";
 import { Text } from "@react-valence/text";

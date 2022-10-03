@@ -1,93 +1,66 @@
-/*
- * Copyright 2020 Adobe. All rights reserved.
- * This file is licensed to you under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License. You may obtain a copy
- * of the License at http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
- * OF ANY KIND, either express or implied. See the License for the specific language
- * governing permissions and limitations under the License.
- */
-
-import { action } from "@storybook/addon-actions";
-import { Color, ValenceColorFieldProps } from "@react-types/color";
+import { action, Story } from "@ladle/react";
+import { Color, ValenceColorFieldProps } from "@types-valence/color";
 import { ColorField } from "../";
-import { Flex } from "@react-spectrum/layout";
+import { Flex } from "@react-valence/layout";
 import { parseColor } from "@react-stately/color";
 import React, { useState } from "react";
-import { storiesOf } from "@storybook/react";
 import { useId } from "@react-aria/utils";
-import { View } from "@react-spectrum/view";
+import { View } from "@react-valence/view";
 import { VisuallyHidden } from "@react-aria/visually-hidden";
 
-storiesOf("ColorField", module)
-  .add("Default", () => render())
-  .add("has default value", () => render({ defaultValue: "#abcdef" }))
-  .add("value", () =>
-    render({
-      value: "#FF00AA",
-      onChange: action("change"),
-    })
-  )
-  .add("isQuiet", () => render({ isQuiet: true }))
-  .add("isReadOnly", () =>
-    render({ isReadOnly: true, defaultValue: "#abcdef" })
-  )
-  .add("isDisabled", () =>
-    render({ isDisabled: true, defaultValue: "#abcdef" })
-  )
-  .add("validationState valid", () => render({ validationState: "valid" }))
-  .add("validationState invalid", () => render({ validationState: "invalid" }))
-  .add("required, label, optional", () => (
-    <Flex direction="column" gap="size-100">
-      {render({ isRequired: "true" })}
-      {render({ isRequired: "true", necessityIndicator: "label" })}
-      {render({ necessityIndicator: "label" })}
-    </Flex>
-  ))
-  .add("controlled value", () => (
-    <ControlledColorField
-      value={parseColor("#FF00AA")}
-      onChange={action("change")}
-    />
-  ))
-  .add("autofocus", () => render({ autoFocus: true }))
-  .add("label side", () => render({ labelPosition: "side" }))
-  .add("no visible label", () =>
-    renderNoLabel({ isRequired: true, "aria-label": "Primary Color" })
-  )
-  .add("aria-labelledby", () => (
-    <>
-      <label htmlFor="colorfield" id="label">
-        Primary Color
-      </label>
-      {renderNoLabel({
-        isRequired: true,
-        id: "colorfield",
-        "aria-labelledby": "label",
-      })}
-    </>
-  ))
-  .add("custom width", () => render({ width: "size-3000" }))
-  .add("custom width no visible label", () =>
-    renderNoLabel({
-      width: "size-3000",
-      isRequired: true,
-      "aria-label": "Primary Color",
-    })
-  )
-  .add("custom width, labelPosition=side", () =>
-    render({ width: "size-3000", labelPosition: "side" })
-  )
-  .add("custom width, 10px for min-width", () => (
-    <Flex direction="column" gap="size-100">
-      {render({ width: "10px" })}
-      <div style={{ width: "10px" }}>{render()}</div>
-    </Flex>
-  ));
+const ColorFieldRender: Story<ValenceColorFieldProps> = (args) => {
+  return <ColorField label="Primary Color" onChange={() => action} {...args} />;
+};
 
-function ControlledColorField(props: ValenceColorFieldProps) {
+export const Default: Story<ValenceColorFieldProps> = ColorFieldRender.bind({});
+
+export const HasDefaultValue: Story<ValenceColorFieldProps> =
+  ColorFieldRender.bind({});
+HasDefaultValue.args = { defaultValue: "#abcdef" };
+
+export const Value: Story<ValenceColorFieldProps> = ColorFieldRender.bind({});
+Value.args = {
+  value: "#FF00AA",
+  onChange: console.log,
+};
+
+export const AutoFocus: Story<ValenceColorFieldProps> = ColorFieldRender.bind(
+  {}
+);
+AutoFocus.args = { autoFocus: true };
+
+export const IsQuiet: Story<ValenceColorFieldProps> = ColorFieldRender.bind({});
+IsQuiet.args = { isQuiet: true };
+
+export const IsReadOnly: Story<ValenceColorFieldProps> = ColorFieldRender.bind(
+  {}
+);
+IsReadOnly.args = { isReadOnly: true };
+
+export const IsDisabled: Story<ValenceColorFieldProps> = ColorFieldRender.bind(
+  {}
+);
+IsDisabled.args = { isDisabled: true };
+
+export const ValidationStateValid: Story<ValenceColorFieldProps> =
+  ColorFieldRender.bind({});
+ValidationStateValid.args = { validationState: "valid" };
+
+export const ValidationStateInvalid: Story<ValenceColorFieldProps> =
+  ColorFieldRender.bind({});
+ValidationStateInvalid.args = { validationState: "invalid" };
+
+export const RequiredLabelOptional: Story<ValenceColorFieldProps> = (args) => {
+  return (
+    <Flex direction="column" gap="size-100">
+      <ColorFieldRender isRequired />
+      <ColorFieldRender isRequired {...{ necessityIndicator: "label" }} />
+      <ColorFieldRender {...{ necessityIndicator: "label" }} />
+    </Flex>
+  );
+};
+
+const ControlledColorField: Story<ValenceColorFieldProps> = (props) => {
   let [color, setColor] = useState<string | Color | null | undefined>(
     props.value
   );
@@ -116,14 +89,80 @@ function ControlledColorField(props: ValenceColorFieldProps) {
       </View>
     </Flex>
   );
-}
+};
 
-function render(props: any = {}) {
+export const ControlledValue: Story<ValenceColorFieldProps> = (args) => {
   return (
-    <ColorField label="Primary Color" onChange={action("change")} {...props} />
+    <ControlledColorField
+      value={parseColor("#FF00AA")}
+      onChange={action("change")}
+    />
   );
-}
+};
 
-function renderNoLabel(props: any = {}) {
-  return <ColorField {...props} onChange={action("onChange")} />;
-}
+const RenderNoLabel: Story<ValenceColorFieldProps> = (props) => {
+  return <ColorField {...props} onChange={console.log} />;
+};
+
+export const NoVisibleLabel: Story<ValenceColorFieldProps> = RenderNoLabel.bind(
+  { isRequired: true, "aria-label": "Primary Color" }
+);
+
+export const AriaLabeledBy: Story<ValenceColorFieldProps> = (args) => {
+  return (
+    <>
+      <label htmlFor="colorfield" id="label">
+        Primary Color
+      </label>
+      <RenderNoLabel
+        {...{
+          isRequired: true,
+          id: "colorfield",
+          "aria-labelledby": "label",
+        }}
+      />
+    </>
+  );
+};
+
+export const CustomWidthNoVisibleLabel: Story<ValenceColorFieldProps> =
+  RenderNoLabel.bind({});
+CustomWidthNoVisibleLabel.args = {
+  width: "size-3000",
+  isRequired: true,
+  "aria-label": "Primary Color",
+};
+
+export const CustomWidthLabelPositionSide: Story<ValenceColorFieldProps> =
+  RenderNoLabel.bind({});
+CustomWidthLabelPositionSide.args = {
+  width: "size-3000",
+  labelPosition: "side",
+};
+
+export const CustomWidth_10pxForMinWidth: Story<ValenceColorFieldProps> = (
+  args
+) => {
+  return (
+    <Flex direction="column" gap="size-100">
+      <ColorFieldRender {...{ width: "10px" }} />
+      <div style={{ width: "10px" }}>
+        <ColorFieldRender />
+      </div>
+    </Flex>
+  );
+};
+CustomWidth_10pxForMinWidth.args = { minWidth: "10px" };
+
+export const LabelPositionSide: Story<ValenceColorFieldProps> =
+  ColorFieldRender.bind({});
+LabelPositionSide.args = {
+  labelPosition: "side",
+};
+
+export const CustomWidth: Story<ValenceColorFieldProps> = ColorFieldRender.bind(
+  {}
+);
+CustomWidth.args = {
+  width: "size-3000",
+};
