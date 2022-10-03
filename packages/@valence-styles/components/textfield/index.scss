@@ -15,6 +15,7 @@
 
 .Textfield-input {
   /* box */
+
   box-sizing: border-box;
   border: var(--sandia-input-border-size) solid;
   border-radius: var(--sandia-input-border-radius);
@@ -41,6 +42,7 @@
   @include i18nFontFamily;
   font-size: var(--sandia-base-unit);
   line-height: var(--sandia-line-height);
+
   text-overflow: ellipsis;
 
   transition: border-color var(--valence-global-animation-duration-100) ease-in-out,
@@ -191,17 +193,16 @@
 .Textfield-icon {
   display: block;
   position: absolute;
-  height: var(--sandia-icon-indicator);
-  width: var(--sandia-icon-indicator);
-  top: calc(calc(var(--sandia-frame-unit) / 2) - calc(var(--sandia-icon-indicator) / 2));
-  /* This has a named variable in a future update of spectrum-css. */
-  inset-inline-start: calc(calc(var(--sandia-frame-unit) / 2) - calc(var(--sandia-icon-indicator) / 2) + var(--sandia-input-border-size));
+  height: var(--sandia-base-unit);
+  width: var(--sandia-base-unit);
+  top: var(--sandia-input-icon-offset);
+  inset-inline-start: var(--sandia-input-icon-offset);
   transition: fill var(--valence-global-animation-duration-100) ease-in-out;
 }
 
 /* styles the textfield properly if the left icon is provided */
 .Textfield-inputIcon {
-  padding-inline-start: var(--sandia-frame-unit);
+  padding-inline-start: var(--sandia-line-height);
 
   // .Textfield--quiet {
   //   padding-inline-start: calc(var(--valence-global-dimension-size-100) + var(--valence-icon-info-medium-width));

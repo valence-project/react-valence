@@ -165,7 +165,7 @@ a.ActionButton {
   @include valence-BaseButton;
   position: relative;
 
-  block-size: var(--valence-actionbutton-height);
+  block-size: var(--sandia-line-height);
   min-inline-size: var(--valence-actionbutton-min-width);
 
   /* Use icon padding by default as it's smaller */
@@ -347,14 +347,13 @@ a.ActionButton {
   @include valence-BaseButton;
   @include valence-ButtonWithFocusRing;
 
-  inline-size: var(--valence-clearbutton-medium-width);
-  block-size: var(--valence-clearbutton-medium-height);
+  inline-size: var(--sandia-base-unit);
+  block-size: var(--sandia-base-unit);
+
+  margin-block-start: var(--sandia-input-icon-offset);
+  margin-inline-end: var(--sandia-input-icon-offset);
 
   border-radius: 100%;
-
-  padding: 0;
-  margin: 0;
-
   border: none;
 
   > .Icon {
