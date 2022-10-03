@@ -16,6 +16,7 @@ import { Text } from "@react-valence/text";
 import { useAsyncList } from "@react-stately/data";
 
 import { ValenceListBoxProps } from "@types-valence/listbox";
+import { SandiaStoryContainer } from "@react-valence/story-utils";
 
 let iconMap = {
   AlignCenter,
@@ -242,11 +243,19 @@ const AppExample: Story<any> = (props) => {
   );
 };
 
-export const DefaultListBox: Story<ValenceListBoxProps<object>> = (args) => (
+export const Default: Story<ValenceListBoxProps<object>> = (args) => (
   <ListBox flexGrow={1} aria-labelledby="label" items={flatOptions}>
     {(item) => <Item key={item.name}>{item.name}</Item>}
   </ListBox>
 );
+Default.decorators = [
+  (ComponentStory) => (
+    <SandiaStoryContainer>
+      <ComponentStory />
+    </SandiaStoryContainer>
+  ),
+];
+
 export const SectionsDefault: Story<ValenceListBoxProps<object>> = (args) => (
   <ListBox flexGrow={1} aria-labelledby="label" items={withSection}>
     {(item) => (

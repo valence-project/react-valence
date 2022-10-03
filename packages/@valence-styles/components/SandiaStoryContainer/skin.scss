@@ -1,0 +1,32 @@
+.StoryContainer {
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: .236rem;
+    &:before {
+        opacity: 0.3;
+        top: 0px;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        content: " ";
+        display: block;
+        position: absolute;
+        background: 
+        repeating-linear-gradient(
+        to right,
+        transparent,
+        transparent 5px,
+        black 5px,
+        black 6px
+        ),
+        repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 5px,
+        black 5px,
+        black 6px
+        ),
+        linear-gradient(45deg, rgb(41, 41, 41), rgb(0, 0, 0));
+    }
+    
+}

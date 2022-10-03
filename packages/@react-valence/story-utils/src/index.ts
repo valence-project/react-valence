@@ -14,3 +14,4 @@
 
 export { ErrorBoundary } from "./ErrorBoundary";
 export { generatePowerset } from "./GeneratePowerset";
+export { SandiaStoryContainer } from './SandiaStoryContainer';
