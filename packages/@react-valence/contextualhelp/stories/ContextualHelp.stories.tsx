@@ -1,75 +1,18 @@
-/*
- * Copyright 2021 Adobe. All rights reserved.
- * This file is licensed to you under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License. You may obtain a copy
- * of the License at http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
- * OF ANY KIND, either express or implied. See the License for the specific language
- * governing permissions and limitations under the License.
- */
-
-import { action } from "@storybook/addon-actions";
-import {
-  Button,
-  Content,
-  Flex,
-  Footer,
-  Heading,
-  Link,
-  Text,
-} from "@adobe/react-spectrum";
-import { ContextualHelp } from "../src";
+import { action, Story } from "@ladle/react";
+import { Button } from "@react-valence/button";
+import { Flex } from "@react-valence/layout";
+import { Link } from "@react-valence/link";
+import { Heading, Text } from "@react-valence/text";
+import { Content, Footer } from "@react-valence/view";
+import { ContextualHelp } from "@react-valence/contextualhelp";
 import React from "react";
-import { storiesOf } from "@storybook/react";
 
-storiesOf("ContextualHelp", module)
-  .add("default", () =>
-    render({ heading: "Help title", description: helpText() })
-  )
-  .add("type: info", () =>
-    render({ heading: "Help title", description: helpText(), variant: "info" })
-  )
-  .add("with link", () =>
-    render({
-      heading: "Help title",
-      description: helpText(),
-      link: <Link>Learn more</Link>,
-    })
-  )
-  .add("with button", () => (
-    <Flex alignItems="center">
-      <Button variant="primary" isDisabled>
-        Create
-      </Button>
-      <ContextualHelp marginStart="size-100">
-        <Heading>Help title</Heading>
-        <Content>{helpText()}</Content>
-      </ContextualHelp>
-    </Flex>
-  ))
-  .add("trigger events", () =>
-    render({
-      heading: "Help title",
-      description: helpText(),
-      onOpenChange: action("open change"),
-    })
-  )
-  .add("placement: bottom", () =>
-    render({
-      heading: "Help title",
-      description: helpText(),
-      placement: "bottom",
-    })
-  )
-  .add("placement: bottom start", () =>
-    render({
-      heading: "Help title",
-      description: helpText(),
-      placement: "bottom start",
-    })
-  );
+import { ValenceHelpTextProps as _ValenceHelpTextProps } from "@types-valence/shared";
+
+declare interface ValenceHelpTextProps extends _ValenceHelpTextProps {
+  link: any;
+  heading: any;
+}
 
 const helpText = () => (
   <Text>
@@ -78,7 +21,7 @@ const helpText = () => (
   </Text>
 );
 
-function render(props: any = {}) {
+const HelpTextRender: Story<ValenceHelpTextProps> = (props) => {
   let { heading, description, link, ...otherProps } = props;
 
   return (
@@ -88,4 +31,63 @@ function render(props: any = {}) {
       {link && <Footer>{link}</Footer>}
     </ContextualHelp>
   );
-}
+};
+
+export const WithButtonRender: Story<ValenceHelpTextProps> = (props) => {
+  let { heading, description, link, ...otherProps } = props;
+
+  return (
+    <Flex alignItems="center">
+      <Button variant="primary" isDisabled>
+        Create
+      </Button>
+      <ContextualHelp marginStart="size-100">
+        <Heading>Help title</Heading>
+        <Content>{helpText()}</Content>
+      </ContextualHelp>
+    </Flex>
+  );
+};
+
+export const Default: Story<ValenceHelpTextProps> = HelpTextRender.bind({});
+Default.args = { heading: "Help title", description: helpText() };
+
+export const TypeInfo: Story<ValenceHelpTextProps> = HelpTextRender.bind({});
+TypeInfo.args = {
+  heading: "Help title",
+  description: helpText(),
+  variant: "info",
+};
+
+export const WithLink: Story<ValenceHelpTextProps> = HelpTextRender.bind({});
+WithLink.args = {
+  heading: "Help title",
+  description: helpText(),
+  link: <Link>Learn more</Link>,
+};
+
+export const TriggerEvents: Story<ValenceHelpTextProps> = HelpTextRender.bind(
+  {}
+);
+TriggerEvents.args = {
+  heading: "Help title",
+  description: helpText(),
+  onOpenChange: action("open change"),
+};
+
+export const PlacementBottom: Story<ValenceHelpTextProps> = HelpTextRender.bind(
+  {}
+);
+PlacementBottom.args = {
+  heading: "Help title",
+  description: helpText(),
+  placement: "bottom",
+};
+
+export const PlacementBottomStart: Story<ValenceHelpTextProps> =
+  HelpTextRender.bind({});
+PlacementBottomStart.args = {
+  heading: "Help title",
+  description: helpText(),
+  placement: "bottom start",
+};

@@ -5,10 +5,12 @@
   display: inline-block;
   user-select: none;
 
+  height: var(--sandia-line-height);
+
   /* Truncate if menu options make us too wide */
   max-inline-size: 100%;
-  inline-size: var(--valence-dropdown-width);
-  min-inline-size: var(--valence-dropdown-min-width);
+  inline-size: var(--sandia-field-min-width);
+  min-inline-size: var(--sandia-field-min-width);
 
   /* Hack to enable select-powered Dropdowns */
   select {
@@ -25,9 +27,9 @@
 
     & + .Dropdown-chevron {
       position: absolute;
-      inset-inline-end: var(--valence-dropdown-padding-x);
+      inset-inline-end: var(--sandia-frame-offset);
       inset-block-start: 50%;
-      margin-block-start: calc(var(--valence-icon-chevron-down-medium-height) / -2);
+      //margin-block-start: var(--sandia-frame-offset);
     }
   }
 }
@@ -41,6 +43,9 @@
 
   /* Ensure that changing the selected item doesn't affect the size of the dropdown and its parents */
   contain: size;
+  .Icon {
+    padding-left: var(--sandia-framed-icon-offset)
+  }
 }
 
 .Dropdown-label {
@@ -50,33 +55,34 @@
   white-space: nowrap;
   overflow: hidden;
 
-  block-size: calc(var(--valence-dropdown-height) - calc(var(--valence-dropdown-border-size) * 2));
-  line-height: calc(var(--valence-dropdown-height) - calc(var(--valence-dropdown-border-size) * 2));
+  block-size: var(--sandia-base-unit);
+  line-height: var(--sandia-base-unit);
 
-  font-size: var(--valence-dropdown-text-size);
+  font-size: var(--sandia-input-font-size);
 
   text-overflow: ellipsis;
   text-align: start;
+  align-content: center;
 
   &.is-placeholder {
-    font-weight: var(--valence-dropdown-placeholder-text-font-weight);
-    font-style: var(--valence-dropdown-placeholder-text-font-style);
+    font-style: var(--sandia-placeholder-font-style);
     transition: color var(--valence-global-animation-duration-100) ease-in-out;
+    margin-left: var(--sandia-padding-min);
   }
 }
 
 /* Only apply margin to the icon if there's a label */
 .Dropdown-label + .Dropdown-chevron {
-  margin-inline-start: var(--valence-dropdown-icon-margin-left);
+  margin-inline-start: var(--sandia-padding-min);
 }
 
 .Icon + .Dropdown-label {
-  margin-inline-start: var(--valence-selectlist-thumbnail-image-padding-x);
+  margin-inline-start: var(--sandia-framed-icon-offset);
 }
 
 /* Only apply margin if there's a label */
 .Dropdown-label ~ .Dropdown-chevron {
-  margin-inline-start: var(--valence-dropdown-icon-margin-left);
+  margin-inline-start: var(--sandia-padding-min);
 }
 
 .Dropdown-chevron {
@@ -87,9 +93,9 @@
   flex-shrink: 0;
 
   /* Fix Safari 10 bug where align-items is ignored inside of buttons */
-  margin-top: calc(calc(var(--valence-dropdown-height) - calc(var(--valence-dropdown-border-size) * 2) - var(--valence-icon-chevron-down-medium-height)) / 2);
-  margin-bottom: calc(calc(var(--valence-dropdown-height) - calc(var(--valence-dropdown-border-size) * 2) - var(--valence-icon-chevron-down-medium-height)) / 2);
-
+  margin-top: var(--sandia-framed-icon-offset);
+  margin-bottom: var(--sandia-framed-icon-offset);
+  margin-inline-end: var(--sandia-framed-icon-offset);
   opacity: 1;
 }
 
@@ -97,23 +103,23 @@
 .Dropdown-trigger {
   .Dropdown-invalidIcon {
     /* Fix Safari 10 bug where align-items is ignored inside of buttons */
-    margin-block-start: calc(calc(var(--valence-dropdown-height) - calc(var(--valence-dropdown-border-size) * 2) - var(--valence-dropdown-icon-size)) / 2);
-    margin-block-end: calc(calc(var(--valence-dropdown-height) - calc(var(--valence-dropdown-border-size) * 2) - var(--valence-dropdown-icon-size)) / 2);
+    margin-block-start: var(--sandia-framed-icon-offset);
+    margin-block-end: var(--sandia-framed-icon-offset);
   }
 
   .Dropdown-label + .Dropdown-invalidIcon {
-    margin-inline-start: var(--valence-dropdown-icon-margin-left);
+    margin-inline-start: var(--sandia-framed-icon-offset);
   }
 }
 
 .Dropdown-trigger {
   .Dropdown-progressCircle {
-    margin-inline-start: var(--valence-dropdown-icon-margin-left);
+    margin-inline-start: var(--sandia-framed-icon-offset);
   }
 }
 
 .Icon + .Dropdown-chevron {
-  margin-inline-start: var(--valence-dropdown-icon-gap);
+  margin-inline-start: var(--sandia-framed-icon-offset);
 }
 
 .Dropdown--quiet {
@@ -126,7 +132,7 @@
 }
 
 .Dropdown-popover--quiet {
-  inline-size: var(--valence-dropdown-width);
+  inline-size: var(--sandia-field-min-width);
 
   /* Define this var so it can be read from JS */
   --valence-dropdown-quiet-offset: calc(var(--valence-dropdown-quiet-popover-offset-x) + var(--valence-popover-border-size));

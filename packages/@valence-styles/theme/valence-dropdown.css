@@ -56,9 +56,9 @@
   --valence-dropdown-border-size-focus: var(--valence-alias-border-size-thick);
   --valence-dropdown-ui-icon-height: 6px;
   --valence-dropdown-ui-icon-width: var(--valence-global-dimension-static-size-125);
-  --valence-dropdown-height: var(--valence-global-dimension-size-400);
+  --valence-dropdown-height:  calc(var(--valence-alias-single-line-height) + (var(--valence-textfield-border-size)*2));
   --valence-dropdown-min-width: var(--valence-global-dimension-size-600);
-  --valence-dropdown-padding-x: var(--valence-global-dimension-size-150);
+  --valence-dropdown-padding-x: 0px;
   --valence-dropdown-border-radius: var(--valence-alias-border-radius-regular);
   --valence-dropdown-affixed-border-radius: 0;
   --valence-dropdown-label-gap-x: var(--valence-global-dimension-size-100);

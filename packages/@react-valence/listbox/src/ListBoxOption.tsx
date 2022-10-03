@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { useRef } from "react";
 
 // @react-aria https://react-spectrum.adobe.com/react-aria/

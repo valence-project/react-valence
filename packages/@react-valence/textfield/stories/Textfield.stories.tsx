@@ -3,7 +3,7 @@ import { TextField } from "@react-valence/textfield";
 import React from "react";
 
 import { ValenceTextFieldProps } from "@types-valence/textfield";
-import Robot from "@valence-icons/ui/AliensFill";
+import Robot from "@valence-icons/ui/LandscapeFill";
 
 export default {
   title: "TextField",
@@ -175,7 +175,7 @@ export const IconRobotQuiet = TextFieldRender.bind({});
 IconRobotQuiet.storyName = "Icon: Quiet";
 IconRobotQuiet.args = {
   icon: <Robot />,
-  isQuiet: true,
+  isQuiet: true
 };
 
 export const IconRobotDisabled = TextFieldRender.bind({});
