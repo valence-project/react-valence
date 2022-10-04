@@ -62,7 +62,7 @@
 .Checkbox.is-indeterminate {
   .Checkbox-box {
     &:before {
-      border-width: calc(var(--valence-checkbox-box-size) / 2);
+      border-width: calc(var(--sandia-base-unit) / 2);
     }
 
     .Checkbox-checkmark {
@@ -74,6 +74,7 @@
 
       transform: scale(1);
       opacity: 1;
+      margin: -1px 0 0 -1px;
     }
   }
 }

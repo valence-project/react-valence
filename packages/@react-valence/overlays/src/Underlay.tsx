@@ -15,7 +15,7 @@ export function Underlay({ isOpen }: UnderlayProps) {
   
   let spring = useSpring({
     opacity: isOpen ? 1 : 0,
-    config: 	{ mass: 1.5, tension: 90, friction: 22 }
+    config: config.slow
   });
 
   return (

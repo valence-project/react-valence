@@ -55,8 +55,8 @@
   white-space: nowrap;
   overflow: hidden;
 
-  block-size: var(--sandia-base-unit);
-  line-height: var(--sandia-base-unit);
+  block-size: var(--sandia-line-height);
+  line-height: var(--sandia-line-height);
 
   font-size: var(--sandia-input-font-size);
 

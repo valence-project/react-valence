@@ -1,11 +1,12 @@
 .theme {
-
+  color: #efefef;
   --sandia-font-weight-semibold: 700;
 
   --sandia-base-unit: 1rem;
   --sandia-input-font-size: var(--sandia-base-unit);
   --sandia-input-text-size: var(--sandia-base-unit);
-  --sandia-line-height: 2rem;
+
+  --sandia-line-height: 2.2rem;
   --sandia-frame-unit: var(--sandia-line-height);
 
   --sandia-focus-ring-gap: 2px;
