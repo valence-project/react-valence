@@ -9,17 +9,17 @@ import { ActionButton } from "@react-valence/button";
 
 import { ValencePickerProps } from "@types-valence/select";
 
-import Aliens from "@valence-icons/ui/AliensFill";
-import Skull from "@valence-icons/ui/SkullFill";
-import Robot from "@valence-icons/ui/RobotFill";
+import Copy from "@valence-icons/ui/FileCopyFill";
+import Cut from "@valence-icons/ui/ScissorsCutFill";
+import Paste from "@valence-icons/ui/ClipboardFill";
 
 import { View } from "@react-valence/view";
 
 import { Flex } from "@react-valence/layout";
 
-import AlignCenter from "@valence-icons/ui/AlignCenter";
-import AlignLeft from "@valence-icons/ui/AlignLeft";
-import AlignRight from "@valence-icons/ui/AlignRight";
+import Lightbulb from "@valence-icons/ui/LightbulbFill";
+import Seedling from "@valence-icons/ui/SeedlingFill";
+import Speed from "@valence-icons/ui/SpeedFill";
 
 export default {
   title: "Picker",
@@ -304,36 +304,36 @@ export const IsQuietValidationStateInvalid: Story<
   </Picker>
 );
 export const ComplexItems: Story<ValencePickerProps<object>> = (args) => (
-  <Picker label="Test" onSelectionChange={console.log}>
+  <Picker label="Test" onSelectionChange={console.log} isOpen={true}>
     <Section title="Section 1">
-      <Item textValue="Copy">
-        <Robot />
-        <Text>Copy</Text>
-      </Item>
-      <Item textValue="Cut">
-        <AlignCenter />
+    <Item textValue="Cut">
+        <Cut />
         <Text>Cut</Text>
       </Item>
+      <Item textValue="Copy">
+        <Copy />
+        <Text>Copy</Text>
+      </Item>
       <Item textValue="Paste">
-        <AlignLeft />
+        <Paste />
         <Text>Paste</Text>
       </Item>
     </Section>
     <Section title="Section 2">
       <Item textValue="Puppy">
-        <AlignLeft />
-        <Text>Puppy</Text>
+        <Speed />
+        <Text>The Hare</Text>
         <Text slot="description">
-          Puppy description super long as well geez
+        The Hare was much amused at the idea of running a race with the Tortoise.
         </Text>
       </Item>
-      <Item textValue="Doggo with really really really long long long text">
-        <AlignCenter />
-        <Text>Doggo with really really really long long long text</Text>
+      <Item textValue="Soon he found life in the pasture very dull">
+        <Seedling />
+        <Text>Soon he found life in the pasture very dull</Text>
       </Item>
       <Item textValue="Floof">
-        <AlignRight />
-        <Text>Floof</Text>
+        <Lightbulb />
+        <Text>Stork</Text>
       </Item>
     </Section>
   </Picker>
@@ -503,9 +503,9 @@ export const IsOpenControlled: Story<ValencePickerProps<object>> = (args) => (
     onOpenChange={console.log}
     onSelectionChange={console.log}
   >
-    <Item><Robot/><Text>One</Text></Item>
-    <Item><Skull/><Text>Two</Text></Item>
-    <Item><Aliens/><Text>Three</Text></Item>
+    <Item><Cut/><Text>Cut</Text></Item>
+    <Item><Copy/><Text>Copy</Text></Item>
+    <Item><Paste/><Text>Paste</Text></Item>
   </Picker>
 );
 export const DefaultOpenUncontrolled: Story<ValencePickerProps<object>> = (
