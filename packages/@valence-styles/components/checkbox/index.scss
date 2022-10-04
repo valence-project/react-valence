@@ -10,7 +10,7 @@
   min-block-size: var(--valence-checkbox-height);
   max-inline-size: 100%;
 
-  padding-inline-end: calc(var(--valence-checkbox-cursor-hit-x) * 2);
+  padding-inline-end: var(--sandia-padding-unit);
 
   vertical-align: top;
   isolation: isolate;

@@ -78,22 +78,22 @@ import { Resizer } from "./Resizer";
 import stylesOverrides from "./table.scss";
 
 const DEFAULT_HEADER_HEIGHT = {
-  medium: 34,
+  medium: 30.23,
   large: 40,
 };
 
 const DEFAULT_HIDE_HEADER_CELL_WIDTH = {
-  medium: 36,
+  medium: 30.23,
   large: 44,
 };
 
 const ROW_HEIGHTS = {
   compact: {
-    medium: 32,
-    large: 40,
+    medium: 30.23,
+    large: 34,
   },
   regular: {
-    medium: 40,
+    medium: 30.23,
     large: 50,
   },
   spacious: {
@@ -103,7 +103,7 @@ const ROW_HEIGHTS = {
 };
 
 const SELECTION_CELL_DEFAULT_WIDTH = {
-  medium: 38,
+  medium: 30.23,
   large: 48,
 };
 

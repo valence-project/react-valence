@@ -19,12 +19,11 @@
 
   /* Remove the inheritance of text transform on button in Edge, Firefox, and IE. */
   text-transform: none;
-  text-transform: uppercase;
   -webkit-font-smoothing: antialiased;
   /* Font smoothing for Firefox */
   -moz-osx-font-smoothing: grayscale;
   font-size: var(--sandia-button-text-size);
-  font-weight: var(--sandia-font-weight-semibold);
+  font-weight: 500;
 
   button {
     /* Correct the inability to style clickable types in iOS and Safari. */
@@ -123,9 +122,9 @@
   border-style: solid;
   border-radius: var(--valence-button-primary-border-radius);
 
-  min-block-size: var(--sandia-frame-unit-with-border);
+  min-block-size: var(--sandia-line-height);
   block-size: 0%;
-  min-inline-size: var(--valence-button-primary-min-width);
+  min-inline-size: var(----sandia-line-height);
 
   /* @hack: fix button text vertical alignment at 14px */
   //padding-block-end: calc(var(--valence-button-padding-y) + 1px);
