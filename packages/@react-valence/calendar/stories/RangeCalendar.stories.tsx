@@ -229,12 +229,10 @@ ValidationStateInvalidIsDateUnavailable.args = {
   },
 };
 
-let { locale } = useLocale();
-
 export const ValidationStateValid: Story<ValenceRangeCalendarProps<DateValue>> =
   RangeCalendarRender.bind({});
 ValidationStateValid.args = {
-  isDateUnavailable: (date: DateValue) => isWeekend(date, locale),
+  validationState: "valid",
   allowsNonContiguousRanges: true,
   defaultValue: {
     start: new CalendarDate(2021, 10, 3),
