@@ -88,10 +88,12 @@
   background: none;
   border-radius: 2px;
   font-variant-numeric: tabular-nums;
+  line-height: 1;
   justify-content: center;
   box-sizing: content-box;
   white-space: nowrap;
   color: var(--valence-textfield-text-color);
+  padding: .2rem;
 
   &:selection {
     /* hide the selection because there is no way to fully prevent it in Firefox */
