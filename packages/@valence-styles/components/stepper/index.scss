@@ -98,8 +98,9 @@
           border-end-end-radius: 0;
         }
         .Stepper-button {
-          block-size: var(--valence-stepper-button-height);
-          inline-size: var(--valence-stepper-button-width);
+          block-size: calc(var(--sandia-line-height)/2);
+          inline-size: var(--sandia-line-height);
+          box-sizing: border-box;
           border-inline-start-width: 0;
         }
         .Stepper-button--stepDown {
@@ -176,7 +177,7 @@
         .Stepper-input {
         }
         .Stepper-button {
-          block-size: var(--valence-stepper-button-height);
+          block-size: calc(var(--sandia-line-height)/2);
           inline-size: var(--valence-stepper-button-width);
         }
         .Stepper-button--stepDown {
