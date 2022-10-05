@@ -25,7 +25,7 @@
   --sandia-framed-icon-offset: calc((var(--sandia-frame-unit-with-border) - var(--sandia-icon-indicator)) / 2);
   --sandia-padding-unit: calc((var(--sandia-line-height) - var(--sandia-base-unit))/2);
   --sandia-padding-min: var(--sandia-padding-unit); 
-  --sandia-padding-reg: 0.618rem;
+  --sandia-padding-unit-2: calc(var(--sandia-padding-unit)*2);
 
   --sandia-button-border-radius: .236rem;
   --sandia-button-text-size: 13px;

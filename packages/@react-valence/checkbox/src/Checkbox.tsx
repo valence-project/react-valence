@@ -21,7 +21,7 @@ import { FocusableRef } from "@types-valence/shared";
 import { ValenceCheckboxProps } from "@types-valence/checkbox";
 
 // @valence-icons
-import Check from "@valence-icons/ui/CheckFill";
+import Check from "@valence-icons/ui/CheckHeavy";
 import Dash from "@valence-icons/ui/SubtractFill";
 
 // @valence-styles

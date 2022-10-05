@@ -7,7 +7,7 @@ import React, {
   useState,
 } from "react";
 
-import { useSpring, animated } from 'react-spring';
+import { useSpring, animated } from "react-spring";
 
 // @react-aria https://react-spectrum.adobe.com/react-aria/
 import { mergeProps, useLayoutEffect } from "@react-aria/utils";
@@ -114,14 +114,25 @@ const PopoverWrapper = forwardRef(
       isDisabled: isNonModal,
     });
 
-    const transition = useSpring({ opacity: isOpen ? 1 : 0, transform: isOpen ? 'translateY(6px)' : 'translateY(0px)', config: { mass: 1, tension: 300, friction: 26 }});    
+    const directions = {
+      top: isOpen ? "translateY(-0.309rem)" : "translateY(0rem)",
+      right: isOpen ? "translateX(0.309rem)" : "translateX(0rem)",
+      left: isOpen ? "translateX(-0.309rem)" : "translateX(0rem)",
+      bottom: isOpen ? "translateY(0.309rem)" : "translateY(0rem)",
+    };
+
+    const transition = useSpring({
+      opacity: isOpen ? 1 : 0,
+      transform: directions[placement],
+      config: { mass: 1, tension: 300, friction: 26 },
+    });
     const combineMotion = (still: any, transition: object) => {
       return {
         ...still,
         style: {
           ...still.style,
-          ...transition
-        }
+          ...transition,
+        },
       };
     };
 
@@ -129,32 +140,31 @@ const PopoverWrapper = forwardRef(
 
     return (
       <animated.div
-        {...combineMotion(stillProps, transition)}
-        ref={ref}
-        className={classNames(
-          styles,
-          "Popover",
-          `Popover--${placement}`,
-          {
-            "Popover--withTip": !hideArrow,
-            "is-open": isOpen,
-          },
-          classNames(
-            overrideStyles,
+        {...{
+          ...combineMotion(stillProps, transition),
+          ref,
+          className: classNames(
+            styles,
             "Popover",
+            `Popover--${placement}`,
+            {
+              "Popover--withTip": !hideArrow,
+              "is-open": isOpen,
+            },
+            classNames(overrideStyles, "Popover"),
+            otherProps.className
           ),
-          otherProps.className
-        )}
-        role="presentation"
-        data-testid="popover"
+          role: "presentation",
+          "data-testid": "popover",
+        }}
       >
-          {children}
-          {hideArrow ? null : (
-            <Arrow
-              arrowProps={arrowProps}
-              direction={arrowPlacement[placement]}
-            />
-          )}
+        {children}
+        {hideArrow ? null : (
+          <Arrow
+            arrowProps={arrowProps}
+            direction={arrowPlacement[placement]}
+          />
+        )}
       </animated.div>
     );
   }
