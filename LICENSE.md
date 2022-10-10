@@ -20,11 +20,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++
 
 Portions of this software are / were derived from react-spectrum; which is Adobe's design system (react implementation). Attached is the original licence for their software:
 
-++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++
 
 Copyright 2020 Adobe. All rights reserved.
 
