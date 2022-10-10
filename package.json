@@ -23,6 +23,8 @@
     "@lerna/batch-packages": "^3.16.0",
     "@lerna/filter-packages": "^5.4.3",
     "@lerna/project": "^5.4.3",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.4.3",
     "@valence-dev/build": "^0.0.1",
     "camel-case": "^4.1.2",
     "esbuild": "^0.15.7",
