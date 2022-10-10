@@ -40,7 +40,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "main": "./dist/main.js",
+  "main": "index.ts",
   "module": "index.ts",
   "scripts": {
     "build": "pyramids @react-valence/test-utils"
