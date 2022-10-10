@@ -344,8 +344,8 @@ a.ActionButton {
   inline-size: var(--sandia-base-unit);
   block-size: var(--sandia-base-unit);
 
-  margin-block-start: var(--sandia-input-icon-offset);
-  margin-inline-end: var(--sandia-input-icon-offset);
+  margin-block-start: var(--sandia-padding-unit);
+  margin-inline-end: var(--sandia-padding-unit);
 
   border-radius: 100%;
   border: none;

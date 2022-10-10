@@ -33,7 +33,8 @@
     "scale-that-svg": "^1.0.5",
     "shelljs": "^0.8.5",
     "typescript": "^4.6.4",
-    "typescript-strict-plugin": "^2.0.1"
+    "typescript-strict-plugin": "^2.0.1",
+    "vitest": "^0.24.0"
   },
   "dependencies": {
     "@react-aria/i18n": "^3.5.0",

@@ -185,8 +185,8 @@
 .Textfield .Textfield-validationIcon {
   width: var(--sandia-icon-indicator);
   height: var(--sandia-icon-indicator);
-  top: var(--sandia-framed-icon-offset);
-  inset-inline-end: var(--sandia-framed-icon-offset);
+  top: var(--sandia-padding-unit);
+  inset-inline-end: var(--sandia-padding-unit);
 }
 
 /* styles the left icon for textfield, assumes usage of workflow icon sizing (18px by 18px) */
@@ -195,8 +195,8 @@
   position: absolute;
   height: var(--sandia-base-unit);
   width: var(--sandia-base-unit);
-  top: var(--sandia-input-icon-offset);
-  inset-inline-start: var(--sandia-input-icon-offset);
+  top: var(--sandia-padding-unit);
+  inset-inline-start: var(--sandia-padding-unit);
   transition: fill var(--valence-global-animation-duration-100) ease-in-out;
 }
 

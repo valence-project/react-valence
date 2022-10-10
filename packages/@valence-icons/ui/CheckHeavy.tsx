@@ -5,7 +5,12 @@ export default function _CheckFill(props: IconPropsWithoutChildren) {
   return (
     <Icon {...props}>
       <svg fill="currentColor" viewBox="0 0 36 36">
-        <path d="M18.5146 21.8678L18.5255 21.8787L16.4042 24L10.0403 17.6362L12.1616 15.5149L16.3933 19.7465L24.8785 11.2612L26.9998 13.3825L18.5146 21.8678Z"/>
+        <g
+          id="Group"
+          transform="matrix(1.0035778,1.0035765,-1.0035765,1.0035778,21.280001,3.573946)"
+        >
+          <path d="M 4.73833e-5,12 5.88894e-5,15 9.00001,14.9999 9,12 H 8.98443 L 8.98438,9.53674e-7 5.9844,1.23978e-5 5.98444,12 Z" />
+        </g>
       </svg>
     </Icon>
   );

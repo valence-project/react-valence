@@ -5,7 +5,6 @@ import { ValenceAccordionProps } from "@types-valence/accordion";
 import { Text } from "@react-valence/text";
 
 import { Section } from "@react-stately/collections";
-("");
 
 type ItemType = {
   key: React.Key;

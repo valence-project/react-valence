@@ -69,9 +69,17 @@ ValidationStateInvalid.args = {
 };
 export const ValidationStateInvalidIndeterminate: Story<ValenceCheckboxProps> =
   CheckboxRender.bind({});
+ValidationStateInvalidIndeterminate.storyName = "ValidationState:InvalidIndetermindate";
 ValidationStateInvalidIndeterminate.args = {
-  isEmphasized: true,
   validationState: "invalid",
+  isIndeterminate: true,
+};
+
+export const ValidationStateValidIndeterminate: Story<ValenceCheckboxProps> =
+  CheckboxRender.bind({});
+ValidationStateValidIndeterminate.storyName = "ValidationState:ValidIndetermindate";
+ValidationStateValidIndeterminate.args = {
+  validationState: "valid",
   isIndeterminate: true,
 };
 
@@ -102,16 +110,13 @@ export const AutoFocusTrue: Story<ValenceCheckboxProps> = CheckboxRender.bind(
 AutoFocusTrue.args = { autoFocus: true };
 
 export const WCHMTest: Story<ValenceCheckboxProps> = () => {
+  const major: ValenceCheckboxProps = {
+  }
+
+  console.log(Checkbox)
+
   return (
     <Flex direction="column" gap="size-200">
-      <Flex gap="size-200">
-        Shows the different states from{" "}
-        <Link>
-          <a href="https://spectrum.adobe.com/static/Windows-High-Contrast-Kits/Checkbox-WindowsHighContrast.xd">
-            spectrum
-          </a>
-        </Link>
-      </Flex>
       <CheckboxRender />
       <CheckboxRender />
       <CheckboxRender isSelected isEmphasized />
