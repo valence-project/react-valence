@@ -34,55 +34,53 @@ interface Story<T> extends _Story<T> {
 
 export default {
   title: "Dialog",
-  component: Dialog
+  component: Dialog,
 };
 
 const AccordionRenderPropsTemplate: Story<ValenceCalendarProps<DateValue>> = (
   args
 ) => (
-<div style={{ display: "flex", maxWidth:'400px', margin: "100px 0" }}>
-      <DialogTrigger defaultOpen>
-        <ActionButton>Trigger</ActionButton>
-        {(close) => (
-          <Dialog {...args} maxWidth={'900px'}>
-            <Heading>The Heading</Heading>
-            <Header>The Header</Header>
-            <Divider />
-            <Content>
-              <Flex UNSAFE_style={{ padding: "10px" }}>
-                <Text flexGrow={1} flexBasis={0}>
-                  Column number one. Lorem ipsum dolor sit amet, consectetur
-                  adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                  dolore magna aliqua.
-                </Text>
-                <Divider
-                  flexShrink={0}
-                  marginStart={10}
-                  marginEnd={10}
-                  orientation="vertical"
-                  size="S"
-                />
-                <Text flexGrow={1} flexBasis={0}>
-                  Column number two. Eleifend quam adipiscing vitae proin
-                  sagittis nisl. Diam donec adipiscing tristique risus.
-                </Text>
-              </Flex>
-            </Content>
-            <ButtonGroup>
-              <Button variant="primary" onPress={close}>
-                Primary
-              </Button>
-              <Button variant="cta" onPress={close} autoFocus>
-                CTA
-              </Button>
-            </ButtonGroup>
-          </Dialog>
-        )}
-      </DialogTrigger>
-    </div>
+  <div style={{ display: "flex", maxWidth: "400px", margin: "100px 0" }}>
+    <DialogTrigger defaultOpen>
+      <ActionButton>Trigger</ActionButton>
+      {(close) => (
+        <Dialog {...args} maxWidth={"900px"}>
+          <Heading>The Heading</Heading>
+          <Header>The Header</Header>
+          <Divider />
+          <Content>
+            <Flex UNSAFE_style={{ padding: "10px" }}>
+              <Text flexGrow={1} flexBasis={0}>
+                A Fox one day spied a beautiful bunch of ripe grapes hanging
+                from a vine trained along the branches of a tree.
+              </Text>
+              <Divider
+                flexShrink={0}
+                marginStart={10}
+                marginEnd={10}
+                orientation="vertical"
+                size="S"
+              />
+              <Text flexGrow={1} flexBasis={0}>
+                The grapes seemed ready to burst with juice, and the Fox's mouth
+                watered as he gazed longingly at them.
+              </Text>
+            </Flex>
+          </Content>
+          <ButtonGroup>
+            <Button variant="primary" onPress={close}>
+              Primary
+            </Button>
+            <Button variant="cta" onPress={close} autoFocus>
+              CTA
+            </Button>
+          </ButtonGroup>
+        </Dialog>
+      )}
+    </DialogTrigger>
+  </div>
 );
 
 export const Default = AccordionRenderPropsTemplate.bind({});
 Default.storyName = "Default";
-Default.args = {
-};
+Default.args = {};

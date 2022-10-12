@@ -15,11 +15,6 @@ import { Flex } from "@react-valence/layout";
 import { View } from "@react-valence/view";
 import { Divider } from "@react-valence/divider";
 
-type ItemType = {
-  key: React.Key;
-  title: string;
-};
-
 /**
  * Helper type so `bind` returns the actual Story type.
  */
@@ -53,8 +48,11 @@ const ActionButtonRender: Story<ValenceActionButtonProps> = (props) => (
 
 export const Default = ActionButtonRender.bind({});
 Default.storyName = "Text";
-Default.args = {
-  children: "Text",
+
+export const AutoFocus = ActionButtonRender.bind({});
+AutoFocus.storyName = "AutoFocus";
+AutoFocus.args = {
+  autoFocus: true
 };
 
 export const renderWithIcon: Story<ValenceActionButtonProps> = (props) => {

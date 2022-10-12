@@ -66,7 +66,7 @@ export const UnmountingTrigger: Story<ModalProps> = (props) => {
           <Heading>Title</Heading>
           <Divider />
           <Content>
-            <Text>I am a dialog</Text>
+            <Text>In her sleep the Country Mouse dreamed she was a Town Mouse with all the luxuries and delights of city life that her friend had described for her.</Text>
           </Content>
           <ButtonGroup>
             <Button variant="cta" onPress={() => setModalOpen(false)}>

@@ -44,4 +44,6 @@ export {
 } from "./BreakpointProvider";
 export { useResizeObserver } from "@react-aria/utils";
 
-export { animated, useSpring, combineMotion } from "./useSpring";
+//Spring WIP
+export { animated, useSpring, config as springConfig } from "react-spring";
+export { combineMotion } from './useSpring';

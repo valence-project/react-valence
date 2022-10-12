@@ -6,6 +6,7 @@ import { useModal, useOverlay, usePreventScroll } from "@react-aria/overlays";
 
 // @react-valence https://valence.austinpittman.net
 import { classNames, useDOMRef, useStyleProps } from "@react-valence/utils";
+import { useSpring, animated } from "react-spring";
 
 // @types-valence
 import { DOMRef } from "@types-valence/shared";
@@ -62,6 +63,12 @@ let ModalWrapper = forwardRef(function (
   let { children, isOpen, type, overlayProps, ...otherProps } = props;
   let typeVariant = typeMap[type];
 
+  let spring = useSpring({
+    opacity: isOpen ? 1 : 0,
+    transform: isOpen ? "scale(1)" : "scale(0.90)",
+    config: { mass: 1, tension: 300, friction: 26 }
+  });
+
   usePreventScroll();
   let { modalProps } = useModal();
 
@@ -85,10 +92,11 @@ let ModalWrapper = forwardRef(function (
   let viewport = useViewportSize();
   let style: any = {
     "--valence-visual-viewport-height": viewport.height + "px",
+    ...spring,
   };
 
   return (
-    <div className={wrapperClassName} style={style}>
+    <animated.div className={wrapperClassName} style={style}>
       <div
         {...mergeProps(otherProps, overlayProps, modalProps)}
         ref={ref}
@@ -97,7 +105,7 @@ let ModalWrapper = forwardRef(function (
       >
         {children}
       </div>
-    </div>
+    </animated.div>
   );
 });
 

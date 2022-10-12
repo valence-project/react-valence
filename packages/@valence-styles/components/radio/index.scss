@@ -6,7 +6,7 @@
 
   position: relative;
 
-  min-block-size: var(--valence-radio-height);
+  min-block-size: var(--sandia-line-height);
   max-inline-size: 100%;
 
   margin-inline-end: calc(var(--valence-radio-cursor-hit-x) * 2);
@@ -20,7 +20,7 @@
   /* Change the font styles in all browsers for input. */
   font-family: inherit;
   font-size: 100%;
-  line-height: 1.15;
+  line-height: 1.68;
 
   /* Remove the margin for input in Firefox and Safari. */
   margin: 0;
@@ -69,23 +69,20 @@
   text-align: start;
   margin-inline-start: var(--valence-radio-text-gap);
   /* Hardcoded as no good way to calculate this */
-  margin-block-start: var(--valence-radio-label-margin-top);
+  //margin-block-start: var(--valence-radio-label-margin-top);
   font-size: var(--valence-radio-text-size);
-  line-height: var(--valence-radio-label-line-height);
+  line-height: var(--sandia-line-height);
   transition: color var(--valence-global-animation-duration-100) ease-in-out;
 }
 
 .Radio-button {
   position: relative;
   box-sizing: border-box;
-  inline-size: var(--valence-radio-circle-diameter);
-  block-size: var(--valence-radio-circle-diameter);
+  inline-size: var(--sandia-base-unit);
+  block-size: var(--sandia-base-unit);
 
   /* Fix vertical alignment when not wrapping since we're flex-start */
-  margin: calc(
-      (var(--valence-radio-height) - var(--valence-radio-circle-diameter)) / 2
-    )
-    0;
+  margin: var(--sandia-padding-unit) 0;
 
   flex-grow: 0;
   flex-shrink: 0;
@@ -96,10 +93,10 @@
     box-sizing: border-box;
     position: absolute;
 
-    width: var(--valence-radio-circle-diameter);
-    height: var(--valence-radio-circle-diameter);
+    width: var(--sandia-base-unit);
+    height: var(--sandia-base-unit);
 
-    border-radius: var(--valence-radio-radius);
+    border-radius: 50%;
     border-width: var(--valence-radio-circle-border-size);
     border-style: solid;
 

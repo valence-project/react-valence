@@ -1,20 +1,7 @@
-/*
- * Copyright 2020 Adobe. All rights reserved.
- * This file is licensed to you under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License. You may obtain a copy
- * of the License at http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
- * OF ANY KIND, either express or implied. See the License for the specific language
- * governing permissions and limitations under the License.
- */
-
 import { Accordion, Item } from "../src";
-import { act, fireEvent, render, within } from "@react-spectrum/test-utils";
-import { Provider } from "@react-spectrum/provider";
-import React from "react";
-import { theme } from "@react-spectrum/theme-default";
+import { act, fireEvent, render, within } from "@react-valence/test-utils";
+import { Provider } from "@react-valence/provider";
+import { theme } from "@react-valence/theme-default";
 import userEvent from "@testing-library/user-event";
 
 let items = [

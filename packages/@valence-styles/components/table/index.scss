@@ -11,8 +11,8 @@
 svg.Table-sortedIcon {
   display: none;
   flex: 0 0 auto;
-  margin-inline-start: var(--valence-table-header-sort-icon-gap);
-  min-inline-size: var(--valence-icon-arrow-down-small-width);
+  margin-inline-start: var(--sandia-padding-unit);
+  min-inline-size: var(--sandia-base-unit);
 
   vertical-align: middle;
 
@@ -39,12 +39,11 @@ svg.Table-sortedIcon {
   box-sizing: border-box;
   font-size: var(--valence-table-header-text-size);
   font-weight: var(--valence-table-header-text-font-weight);
-  line-height: var(--valence-table-header-text-line-height);
-  min-height: var(--valence-table-header-min-height);
+  line-height: var(--sandia-line-height);
+  height: var(--sandia-line-height);
   letter-spacing: var(--valence-table-header-text-letter-spacing);
   text-transform: uppercase;
-  padding: var(--valence-table-header-padding-y)
-    var(--valence-table-header-padding-x);
+  padding: 0;
   transition: color var(--valence-global-animation-duration-100) ease-in-out;
   outline: 0;
   border-radius: var(--valence-table-header-border-radius);
@@ -75,8 +74,6 @@ svg.Table-sortedIcon {
     }
     .Table-headCellButton {
       box-sizing: border-box;
-      padding: var(--valence-table-header-padding-y)
-        var(--valence-table-header-padding-x);
     }
   }
 }
@@ -90,7 +87,7 @@ svg.Table-sortedIcon {
   block-size: 100%;
   user-select: none;
 
-  &::after {
+  &:after {
     content: "";
     display: block;
     box-sizing: border-box;
@@ -101,7 +98,7 @@ svg.Table-sortedIcon {
   &:active,
   &.focus-ring {
     outline: none;
-    &::after {
+    &:after {
       inline-size: 2px;
     }
   }
@@ -116,8 +113,8 @@ svg.Table-sortedIcon {
 }
 
 /* Helper for shared drop target overlay */
-%drop-target {
-  &::before {
+@mixin drop-target {
+  &:before {
     content: "";
     position: absolute;
     top: 0;
@@ -134,13 +131,13 @@ svg.Table-sortedIcon {
   border-width: var(--valence-table-border-size);
   border-radius: var(--valence-table-border-radius);
   overflow: auto;
-  vertical-align: var(--valence-table-cell-vertical-alignment);
+  vertical-align: center;
 
   /* Fix scrollbars on iOS with sticky row headers */
   transform: translate3d(0, 0, 0);
 
   &.is-drop-target {
-    @inherit: %drop-target;
+    @include drop-target;
   }
 }
 
@@ -174,26 +171,21 @@ svg.Table-sortedIcon {
   font-size: var(--valence-table-cell-text-size);
   font-weight: var(--valence-table-cell-text-font-weight);
   /* need to subtract 1px here because 14px * 1.5 + 14px + 14px = 49px, and we want 48px */
-  line-height: calc(
-    calc(
-        var(--valence-table-cell-text-size) *
-          var(--valence-table-cell-text-line-height)
-      ) - 1px
-  );
-  padding: var(--valence-table-cell-regular-padding-y)
-    var(--valence-table-cell-padding-x);
+  line-height: var(--sandia-line-height);
+  // padding: var(--valence-table-cell-regular-padding-y)
+  //   var(--valence-table-cell-padding-x);
 }
 .Table--regular {
 }
 
 .Table--compact .Table-cell {
-  padding-top: var(--valence-table-cell-compact-padding-y);
-  padding-bottom: var(--valence-table-cell-compact-padding-y);
+  // padding-top: var(--valence-table-cell-compact-padding-y);
+  // padding-bottom: var(--valence-table-cell-compact-padding-y);
 }
 
 .Table--spacious .Table-cell {
-  padding-top: var(--valence-table-cell-spacious-padding-y);
-  padding-bottom: var(--valence-table-cell-spacious-padding-y);
+  // padding-top: var(--valence-table-cell-spacious-padding-y);
+  // padding-bottom: var(--valence-table-cell-spacious-padding-y);
 }
 
 .Table-cellContents {
@@ -224,7 +216,7 @@ svg.Table-sortedIcon {
 .Table-headCell,
 .Table-headCellButton {
   position: relative;
-
+  padding: 0 var(--sandia-padding-unit);
   &:focus {
     outline: none;
   }
@@ -233,7 +225,7 @@ svg.Table-sortedIcon {
   &.is-focused {
     outline: none;
 
-    &::before {
+    &:before {
       content: "";
 
       /* Float above border */
@@ -256,7 +248,7 @@ svg.Table-sortedIcon {
 .Table-headCellButton {
   &.focus-ring,
   &.is-focused {
-    &::before {
+    &:before {
       top: var(--valence-table-border-size);
       right: var(--valence-table-border-size);
       bottom: var(--valence-table-border-size);
@@ -375,7 +367,7 @@ svg.Table-sortedIcon {
   .Table-body,
   .Table-row {
     &.is-drop-target {
-      &::before {
+      &:before {
         border-radius: var(--valence-border-radius);
       }
     }
@@ -384,14 +376,12 @@ svg.Table-sortedIcon {
 
 .Table-headCell.Table-checkboxCell,
 .Table-cell.Table-checkboxCell {
-  padding-inline-end: var(--valence-table-cell-checkbox-padding-right);
+  //padding-inline-end: var(--valence-table-cell-checkbox-padding-right);
   /* have to eliminate vertical padding to allow proper vertical alignment */
   padding-top: 0px;
   padding-bottom: 0px;
-  vertical-align: var(--valence-table-cell-checkbox-vertical-alignment);
-
   .Table-checkbox {
-    padding-inline-end: 0px;
+    //padding-inline-start: var(--sandia-padding-unit);
   }
 }
 
