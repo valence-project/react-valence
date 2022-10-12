@@ -14,6 +14,8 @@ import { DOMProps } from "@types-valence/shared";
 import stylesHandle from "@valence-styles/components/colorhandle/vars.module.scss";
 import stylesLoupe from "@valence-styles/components/colorloupe/vars.module.scss";
 
+import { useSpring, animated } from "@react-spring/web";
+
 export interface ColorThumbProps extends DOMProps {
   value: Color;
   isDisabled?: boolean;
@@ -38,6 +40,19 @@ function ColorThumb(props: ColorThumbProps) {
 
   let valueCSS = value.toString("css");
 
+  let CX = 10;
+  let CY = 10;
+  let R = 5;
+
+  let colorLoupeTransition = useSpring({
+    inner: isDragging
+      ? "M10.5858 13.4142L7.75735 10.5858L6.34314 12L10.5858 16.2427L17.6568 9.1716L16.2426 7.75739L10.5858 13.4142Z"
+      : `M9 21.5L17.5 13L13 10L15 2.5L6.5 11L11 14L9 21.5Z`,
+    outer: isDragging
+      ? "M10.5858 13.4142L7.75735 10.5858L6.34314 12L10.5858 16.2427L17.6568 9.1716L16.2426 7.75739L10.5858 13.4142Z"
+      : `M9 21.5L17.5 13L13 10L15 2.5L6.5 11L11 14L9 21.5Z`,
+  });
+
   return (
     <div
       className={
@@ -51,7 +66,7 @@ function ColorThumb(props: ColorThumbProps) {
       {...otherProps}
     >
       <div
-        className={classNames(stylesHandle, "ColorHandle-color")}
+        className={stylesHandle["ColorHandle-color"]}
         style={{ backgroundColor: valueCSS }}
       />
       <svg
@@ -69,49 +84,40 @@ function ColorThumb(props: ColorThumbProps) {
           patternUnits="userSpaceOnUse"
         >
           <rect
-            className={classNames(
-              stylesLoupe,
-              "ColorLoupe-inner-background"
-            )}
+            className={stylesLoupe["ColorLoupe-inner-background"]}
             x="0"
             y="0"
             width="16"
             height="16"
           />
           <rect
-            className={classNames(
-              stylesLoupe,
-              "ColorLoupe-inner-checker"
-            )}
+            className={stylesLoupe["ColorLoupe-inner-checker"]}
             x="0"
             y="0"
             width="8"
             height="8"
           />
           <rect
-            className={classNames(
-              stylesLoupe,
-              "ColorLoupe-inner-checker"
-            )}
+            className={stylesLoupe["ColorLoupe-inner-checker"]}
             x="8"
             y="8"
             width="8"
             height="8"
           />
         </pattern>
-        <path
-          className={classNames(stylesLoupe, "ColorLoupe-inner")}
-          d="M25 1a24 24 0 0124 24c0 16.255-24 40-24 40S1 41.255 1 25A24 24 0 0125 1z"
+        <animated.path
+          className={stylesLoupe["ColorLoupe-inner"]}
+          d={colorLoupeTransition.inner}
           fill={`url(#${patternId})`}
         />
-        <path
-          className={classNames(stylesLoupe, "ColorLoupe-inner")}
-          d="M25 1a24 24 0 0124 24c0 16.255-24 40-24 40S1 41.255 1 25A24 24 0 0125 1z"
+        <animated.path
+          className={stylesLoupe["ColorLoupe-inner"]}
+          d={colorLoupeTransition.inner}
           fill={valueCSS}
         />
-        <path
-          className={classNames(stylesLoupe, "ColorLoupe-outer")}
-          d="M25 3A21.98 21.98 0 003 25c0 6.2 4 14.794 11.568 24.853A144.233 144.233 0 0025 62.132a144.085 144.085 0 0010.4-12.239C42.99 39.816 47 31.209 47 25A21.98 21.98 0 0025 3m0-2a24 24 0 0124 24c0 16.255-24 40-24 40S1 41.255 1 25A24 24 0 0125 1z"
+        <animated.path
+          className={stylesLoupe["ColorLoupe-outer"]}
+          d={colorLoupeTransition.outer}
         />
       </svg>
       {children}

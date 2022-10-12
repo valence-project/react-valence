@@ -76,7 +76,7 @@ export const DefaultExpandedKeys: Story<any> = (
   let viewport = useViewportSize();
 
   return (
-      <ActionBarContainer height={viewport.height || 300}>
+      <ActionBarContainer>
         <TableView
           ref={ref}
           aria-label="Table"

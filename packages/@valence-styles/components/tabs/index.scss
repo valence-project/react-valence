@@ -156,10 +156,10 @@
     block-size: var(--valence-tabs-rule-height);
 
     inset-block-end: calc(var(--valence-tabs-rule-height) * -1);
-    transition: transform
-        var(--valence-tabs-selection-indicator-animation-duration) ease-in-out,
-      width var(--valence-tabs-selection-indicator-animation-duration)
-        ease-in-out;
+    // transition: transform
+    //     var(--valence-tabs-selection-indicator-animation-duration) ease-in-out,
+    //   width var(--valence-tabs-selection-indicator-animation-duration)
+    //     ease-in-out;
   }
 
   &.Tabs--isCollapsed {
@@ -253,10 +253,10 @@
     inline-size: var(--valence-tabs-vertical-rule-width);
 
     inset-inline-start: calc(var(--valence-tabs-vertical-rule-width) * -1);
-    transition: transform
-        var(--valence-tabs-selection-indicator-animation-duration) ease-in-out,
-      height var(--valence-tabs-selection-indicator-animation-duration)
-        ease-in-out;
+    // transition: transform
+    //     var(--valence-tabs-selection-indicator-animation-duration) ease-in-out,
+    //   height var(--valence-tabs-selection-indicator-animation-duration)
+    //     ease-in-out;
   }
 }
 

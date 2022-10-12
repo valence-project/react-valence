@@ -11,12 +11,8 @@
   .FieldButton {
     padding: 0;
     inline-size: var(--valence-combobox-button-width);
-    border-start-start-radius: var(
-      --valence-combobox-fieldbutton-border-top-left-radius
-    );
-    border-end-start-radius: var(
-      --valence-combobox-fieldbutton-border-bottom-left-radius
-    );
+    border-start-start-radius: 0;
+    border-end-start-radius: 0;
     border-width: 1px;
     flex-shrink: 0;
   }
@@ -46,13 +42,13 @@
 }
 
 .InputGroup-input {
-  border-start-end-radius: var(
-    --valence-combobox-textfield-border-top-right-radius
-  );
-  border-end-end-radius: var(
-    --valence-combobox-textfield-border-bottom-right-radius
-  );
-  border-inline-end-style: none;
+  // TODO: Look into why this only seems
+  // to be necessary on datefield might be 
+  border-start-end-radius: unset !important;
+  border-end-end-radius: unset !important;
+  border-inline-end-style: unset !important;
+
+  padding-left: 0.2rem !important;
 }
 
 .InputGroup--quiet {

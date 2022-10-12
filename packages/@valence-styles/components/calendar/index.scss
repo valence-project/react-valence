@@ -1,26 +1,12 @@
 @import "../commons/index.scss";
 
 .Calendar {
-  --valence-calendar-border-radius-reset: 0;
-  --valence-calendar-border-width-reset: 0;
-  --valence-calendar-margin-y: 24px;
-  --valence-calendar-margin-x: 32px;
-  --valence-calendar-max-width: calc(
-    (var(--valence-calendar-day-width) * 7) +
-      (var(--valence-calendar-day-padding) * 12)
-  );
-  --valence-calendar-min-width: calc(var(--valence-calendar-day-width) * 7);
-  --valence-calendar-button-gap: var(--valence-global-dimension-size-40);
-  --valence-calendar-title-margin-x: var(--valence-global-dimension-size-75);
-}
-
-.Calendar {
   display: block;
   isolation: isolate;
 }
 
 .Calendar--padded {
-  margin: var(--valence-calendar-margin-x) var(--valence-calendar-margin-y);
+  //margin: var(--valence-calendar-margin-x) var(--valence-calendar-margin-y);
 }
 
 .Calendar-header {

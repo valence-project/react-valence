@@ -4,25 +4,25 @@ import { useProvider } from "@react-valence/provider";
 
 export function useSpring(args:any, type: string ): any {
     
-    let { scale } = useProvider();
+    // let { scale } = useProvider();
 
-    let distances = {
-      tooltip: {
-        medium: 10,
-        large: 12
-      },
-    };
+    // let distances = {
+    //   tooltip: {
+    //     medium: 10,
+    //     large: 12
+    //   },
+    // };
 
-    let positionMap = {
-      top: `translateY(-${distances[type][scale]}px)`,
-      right: `translateY(${distances[type][scale]}px)`,
-      bottom: `translateY(${distances[type][scale]}px)`,
-      left: `translateX(-${distances[type][scale]}px)`,
-    };
+    // let positionMap = {
+    //   top: `translateY(-${distances[type][scale]}px)`,
+    //   right: `translateY(${distances[type][scale]}px)`,
+    //   bottom: `translateY(${distances[type][scale]}px)`,
+    //   left: `translateX(-${distances[type][scale]}px)`,
+    // };
 
-    const spring = _useSpring(args);
+    const spring = _useSpring;
 
-    return spring;   
+    return spring(args);   
 }
 
 export {_animated as animated};

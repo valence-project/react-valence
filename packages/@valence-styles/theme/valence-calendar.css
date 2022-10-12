@@ -39,3 +39,16 @@
   --valence-calendar-title-text-size: var(--valence-global-dimension-font-size-300);
 }
 
+.theme {
+  --valence-calendar-border-radius-reset: 0;
+  --valence-calendar-border-width-reset: 0;
+  --valence-calendar-margin-y: 24px;
+  --valence-calendar-margin-x: 32px;
+  --valence-calendar-max-width: calc(
+    (var(--valence-calendar-day-width) * 7) +
+      (var(--valence-calendar-day-padding) * 12)
+  );
+  --valence-calendar-min-width: calc(var(--valence-calendar-day-width) * 7);
+  --valence-calendar-button-gap: var(--valence-global-dimension-size-40);
+  --valence-calendar-title-margin-x: var(--valence-global-dimension-size-75);
+}

@@ -21,6 +21,11 @@ import { Flex } from "@react-valence/layout";
 import { Item, Picker, Section } from "@react-valence/picker";
 import { Provider } from "@react-valence/provider";
 import { useLocale } from "@react-aria/i18n";
+import { ActionGroup } from "@react-valence/actiongroup";
+import { Text } from "@react-valence/text";
+
+import Clear from "@valence-icons/ui/CloseCircleFill";
+import SetDate from "@valence-icons/ui/CalendarEventFill";
 
 export default {
   title: "DatePicker",
@@ -196,20 +201,31 @@ const DatePickerRender: Story<ValenceDatePickerProps<DateValue>> = (props) => {
 export const ControlledValue: Story<ValenceDatePickerProps<DateValue>> = (
   props
 ) => {
-  let [value, setValue] = React.useState(null);
+  let [date, setDate] = React.useState(null);
+
+  const setValue: any = (control) => {
+    switch (control) {
+      case 'setValue':
+        setDate(new CalendarDate(2020, 2, 3))
+        break;
+      case 'clear':
+        setDate(null)
+        break;
+    }
+  }
 
   return (
     <Flex direction="column" alignItems="center" gap="size-150">
       <DatePickerRender
         label="Controlled"
         {...props}
-        value={value}
+        value={date}
         onChange={chain(setValue, console.log("onChange"))}
       />
-      <ActionButton onPress={() => setValue(new CalendarDate(2020, 2, 3))}>
-        Change value
-      </ActionButton>
-      <ActionButton onPress={() => setValue(null)}>Clear</ActionButton>
+      <ActionGroup onAction={(key)=>setValue(key)} density={'compact'}>
+        <Item key={'setValue'}><SetDate /><Text>Set Value</Text></Item>
+        <Item key={'clear'}><Clear color={"negative"}/><Text>Clear</Text></Item>
+      </ActionGroup>
     </Flex>
   );
 };

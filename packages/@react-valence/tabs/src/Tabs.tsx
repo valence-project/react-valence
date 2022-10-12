@@ -30,6 +30,9 @@ import {
   unwrapDOMRef,
   useDOMRef,
   useStyleProps,
+  animated,
+  springConfig,
+  useSpring,
 } from "@react-valence/utils";
 import { Item, Picker } from "@react-valence/picker";
 import { Text } from "@react-valence/text";
@@ -237,6 +240,8 @@ function TabLine(props: TabLineProps) {
     height: undefined,
   });
 
+  const sprung_style = useSpring(style);
+
   useLayoutEffect(() => {
     if (selectedTab) {
       let styleObj = {
@@ -244,6 +249,7 @@ function TabLine(props: TabLineProps) {
         width: undefined,
         height: undefined,
       };
+
       // In RTL, calculate the transform from the right edge of the tablist so that resizing the window doesn't break the Tabline position due to offsetLeft changes
       let offset =
         direction === "rtl"
@@ -252,6 +258,7 @@ function TabLine(props: TabLineProps) {
               selectedTab.offsetWidth -
               selectedTab.offsetLeft)
           : selectedTab.offsetLeft;
+
       styleObj.transform =
         orientation === "vertical"
           ? `translateY(${selectedTab.offsetTop}px)`
@@ -267,11 +274,11 @@ function TabLine(props: TabLineProps) {
   }, [direction, setStyle, selectedTab, orientation, scale, selectedKey]);
 
   return (
-    <div
+    <animated.div
       {...{
         className: styles["Tabs-selectionIndicator"],
         role: "presentation",
-        style,
+        style: sprung_style,
       }}
     />
   );

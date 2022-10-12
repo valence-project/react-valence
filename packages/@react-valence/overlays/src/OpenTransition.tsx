@@ -24,7 +24,7 @@ const OPEN_STATES = {
 export function OpenTransition(props) {
 
   return (
-    <Transition timeout={{ enter: 0, exit: 350 }} {...props}>
+    <Transition timeout={{ enter: 0, exit: 650 }} {...props}>
       {(state) =>
         React.Children.map(
           props.children,
