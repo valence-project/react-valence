@@ -1,4 +1,5 @@
-import { Accordion, Item } from "../src";
+import { Accordion } from "@react-valence/accordion";
+import { Item } from "@react-stately/collections";
 import { act, fireEvent, render, within } from "@react-valence/test-utils";
 import { Provider } from "@react-valence/provider";
 import { theme } from "@react-valence/theme-default";

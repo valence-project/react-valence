@@ -1,14 +1,13 @@
 var fs = require("fs");
-var { readdir } = require("fs").promises; 
+var { readdir } = require("fs").promises;
 const path = require("node:path");
-var format = require('format-json-files');
+var format = require("format-json-files");
 
 function process(filename, toMerge) {
-  
   let store = {
     existing: undefined,
     obj: undefined,
-    string: undefined
+    string: undefined,
   };
 
   const write = () => {
@@ -18,16 +17,13 @@ function process(filename, toMerge) {
       }
       console.log("Great.");
       console.log(`I wrote ${filename}.`);
-      format('./');
+      format(path("./"));
     });
   };
 
   const read = (filename) => {
-    store.existing = JSON.parse(fs.readFileSync(filename, 'utf8'));
-    console.log(store.existing);
+    store.existing = JSON.parse(fs.readFileSync(filename, "utf8"));
   };
-
-  read(filename);
 
   const result = (toMerge) => {
     let outgoing = {
@@ -37,13 +33,15 @@ function process(filename, toMerge) {
     return outgoing;
   };
 
-  read(filename);
+  if (filename) {
+    read(filename);
 
-  store.obj = result(toMerge);
-  store.string = JSON.stringify(store.obj);
-  write();
+    store.obj = result(toMerge);
+    store.string = JSON.stringify(store.obj);
+    write();
 
-  return store.result;
+    return store.result;
+  }
 }
 
 function search(filename, root) {
@@ -51,24 +49,24 @@ function search(filename, root) {
     const files = await readdir(directory, (list) => {
       return list;
     });
-    return files;
+    return { items: files, dir: root };
   };
 
-  const traverse = async (filename, trunk) => {
-    let result;
+  const traverse = async (trunk, filename) => {
     if (trunk) {
-      trunk.forEach((branch) => {
-        if (fs.statSync(branch).isDirectory()) {
-          traverse(branch);
+      return await trunk.items.forEach((branch) => {
+        if (fs.statSync(path.join(root, branch)).isDirectory()) {
+          let newRoot = path.join(root, branch);
+          search(filename, newRoot);
         } else if (branch === filename) {
-          result = path.join(root, branch);
+          console.log(root, branch);
+          return path.join(root, branch);
         }
       });
     }
-    return result;
   };
 
-  return tree(root).then((trunk) => traverse(filename, trunk));
+  return tree(root).then((trunk) => traverse(trunk, filename));
 }
 
 const procedure = () => {
@@ -76,8 +74,8 @@ const procedure = () => {
     main: "./index.ts",
   };
 
-  search("package.json", __dirname).then((filename) =>{
-    process(filename, toMerge)
+  search("package.json", __dirname).then((filename) => {
+    process(filename, toMerge);
   });
 };
 

@@ -55,5 +55,5 @@
   "scripts": {
     "build": "pyramids @react-valence/pagination"
   },
-  "main": "./dist/main.js"
+  "main": "./index.ts"
 }

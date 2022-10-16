@@ -54,5 +54,5 @@
   "scripts": {
     "build": "pyramids @react-valence/toast"
   },
-  "main": "./dist/main.js"
+  "main": "./index.ts"
 }

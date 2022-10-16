@@ -54,6 +54,5 @@
   "scripts": {
     "build": "pyramids @react-valence/switch"
   },
-  "main": "./dist/main.js",
-  "gitHead": "e4cabd25e57ea3c82716af710d87f10f1cd2359d"
+  "main": "./index.ts"
 }

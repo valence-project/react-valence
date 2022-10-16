@@ -11,6 +11,8 @@ import styles from './styles.module.scss';
 export const Provider: GlobalProvider = ({ children, globalState }) => (
   <ValenceProvider theme={theme} colorScheme={globalState.theme}>
     <h1 className={styles.header}>react-valence</h1>
-    {children}
+    <section className={styles.story_content}>
+      {children}
+    </section>
   </ValenceProvider>
 );

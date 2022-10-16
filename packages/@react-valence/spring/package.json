@@ -49,5 +49,5 @@
   "scripts": {
     "build": "pyramids @react-valence/tree"
   },
-  "main": "./dist/main.js"
+  "main": "./index.ts"
 }
