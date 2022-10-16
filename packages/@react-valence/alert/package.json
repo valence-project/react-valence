@@ -50,5 +50,5 @@
   "scripts": {
     "build": "pyramids @react-valence/alert"
   },
-  "main": "./dist/main.js"
+  "main": "./index.ts"
 }

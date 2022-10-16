@@ -52,5 +52,5 @@
   "scripts": {
     "build": "pyramids @react-valence/staticfield"
   },
-  "main": "./dist/main.js"
+  "main": "./index.ts"
 }

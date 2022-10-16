@@ -11,10 +11,11 @@
  */
 
 import { ActionButton, Button, ClearButton, LogicButton } from "../";
-import { Checkbox, defaultTheme } from "@adobe/react-spectrum";
-import { fireEvent, render, triggerPress } from "@react-spectrum/test-utils";
-import { Form } from "@react-spectrum/form";
-import { Provider } from "@react-spectrum/provider";
+import { Checkbox } from "@react-valence/checkbox";
+import { theme } from "@react-valence/theme-default";
+import { fireEvent, render, triggerPress } from "@react-valence/test-utils";
+import { Form } from "@react-valence/form";
+import { Provider } from "@react-valence/provider";
 import React from "react";
 
 /**
@@ -226,7 +227,7 @@ describe("Button", function () {
     let eventUp;
     let btn = React.createRef();
     let { getByRole } = render(
-      <Provider theme={defaultTheme}>
+      <Provider theme={theme}>
         <Form>
           <Checkbox>An Input</Checkbox>
           <Button variant="primary" ref={btn}>
