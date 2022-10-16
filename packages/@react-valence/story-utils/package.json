@@ -47,5 +47,5 @@
   "scripts": {
     "build": "pyramids @react-valence/story-utils"
   },
-  "main": "./dist/main.js"
+  "main": "./index.ts"
 }

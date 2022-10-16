@@ -30,6 +30,7 @@
     "url": "https://github.com/valence-project/react-valence.git"
   },
   "dependencies": {
+    "@esm-bundle/chai": "^4.3.4-fix.0",
     "@react-aria/accordion": "3.0.0-alpha.11",
     "@react-aria/focus": "^3.8.0",
     "@react-aria/i18n": "^3.6.0",
@@ -53,8 +54,9 @@
     "access": "public"
   },
   "scripts": {
-    "build": "pyramids @react-valence/accordion"
+    "build": "pyramids @react-valence/accordion",
+    "test": "web-test-runner ./test/Sum.test.js --node-resolve-watch"
   },
-  "main": "./dist/main.js",
+  "main": "./index.ts",
   "gitHead": "e4cabd25e57ea3c82716af710d87f10f1cd2359d"
 }
